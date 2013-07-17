@@ -1,0 +1,356 @@
+---
+layout: blog
+author: wilson.g
+title: "Biological Computing User Stories"
+date: 2013-07-17
+time: 09:00:00
+category: [education]
+---
+<!-- start excerpt -->
+<p>
+  Three years ago,
+  when we rebooted Software Carpentry,
+  we wrote some brief descriptions of <a href="{{page.root}}/audience.html">our intended audience</a>
+  and how we thought we could help them.
+  One of the exercises we at the SESYNC meeting last week
+  (described briefly <a href="computational-competence-for-biologists.html">here</a>)
+  was to write some similar before-and-after stories for biologists who do computing.
+  The descriptions we got are listed below;
+  some of my takeaways are:
+</p>
+<ul>
+  <li>Pretty much everyone's starting point is Excel...</li>
+  <li>The data hand-off problem is as important as the data processing problem.</li>
+</ul>
+<p>
+  The stories themselves are listed below&mdash;we'd like to hear what resonates and what's missing.
+</p>
+<!-- end excerpt -->
+<hr/>
+<p><strong><em>Reginald and Nelle</em></strong></p>
+<p>
+  Reginald Random is a post-doc who is just leaving to take up a new post
+  and is passing his data on to a new grad student colleague,
+  Nelle Newbien.
+  The data are pair-end sequence reads.
+  Each sequencing run has about 10 million reads that have Reginald has processed and split into left and right read files.
+  He has not labelled individual paired reads uniquely
+  but they are labelled with a unique ID for sequencing run
+  and the left and right files are labelled in a system that was very clear to him at the time.
+  He always labelled the left files with an "l" prefix and the right files with an "r" prefix
+  but did not use the same root file name for the paired files.
+</p>
+<p>
+  The software for aligning the paired-end reads to the reference genome,
+  a task which Nelle has been left to perform, expects the files to be fed in a particular order:
+  the left-read file should be followed by the right-read file and that the order of mate pairs is the same in both files.
+</p>
+<p>
+  He had been planning to create an detailed index that explains
+  the nomeclature of all the files before he left the data to Nelle
+  but he was so excited about his tenure-track position that he never got round to writing the file.
+  The data represent a substantial investment
+  and Nelle want to be sure she is analysing the paired-end read data correctly.
+  She gets in touch with Reginald and he promises to email her the index file soon.
+</p>
+<p>
+  Reginald's soon-to-be former advisor was very concerned that
+  Nelle could not readily decipher the cryptic file nomenclature
+  and strongly recommends that Reginald and Nelle attend the Software Carpentry boot-camp before he leaves the lab,
+  or he may have to re-evaluate Reginald's authorship on the paper.
+</p>
+<p>
+  During the Software Carpentry bootcamp Reginald will learn to use
+  a more rational and unambigious file nomenclature
+  and how to provide metadata in a standardized format
+  which will then allow Nelle (or anyone else) who inherits the data to understand the data structure
+  and quickly get up to speed working with the dataset.
+  In the unlikely event that Reginald's meta data are not correct,
+  Nelle will also learn how to work with the files in a shell
+  (as, due to the size of the files, the whole dataset is stored on a university server and cannot be moved on a local machine).
+  She will also learn how to write Python scripts to perform pairwise comparisons
+  of the files containing the data which will allow
+  (left and right files will have the same number of lines).
+  Nelle will gain enough programming skills to write a script
+  that will control for the unlikely case that two pairs will actually have the same number of lines
+  (so 4 files having the same number of lines).
+  The script will then compare the name of the sequence in the file and pair up the correct two files.
+</p>
+<hr/>
+<p><strong><em>Emma</em></strong></p>
+<p>
+  Emma Poisson is a grad student working on mating behavior in fish.
+  Her lab has been tracking matings between fish with many different characteristics,
+  including things like fin shape, ventral color, and nose length.
+  Many different technicians have collected this data over the years in a lab notebook,
+  for many hundred (but not thousands) of pairings.
+  Emma has hand-entered this data into an Excel spreadsheet
+  but is getting confused by a number of things: different nomenclature for the same feature,
+  too many traits (columns) and rows (pairings) in her spreadsheet.
+  Moreover,
+  because the data is largely hand-entered there are a lot of errors in it.
+  Finally,
+  the traits that were recorded are not terribly granular and so sometimes multiple traits can be found in a single column.
+</p>
+<p>
+  Now Emma and her advisor are trying to find correlations between mating behavior and features,
+  but cannot figure out how to get Excel to do it
+  and are stuck doing hand-analysis of subsets of the data in an attempt to find correlations.
+  They are largely developing hypotheses one by one and testing them on the data set as they can.
+  This works well for testing previously observed hypotheses but does not scale well to finding unknown correlations.
+</p>
+<p>
+  Emma attends a SWC bootcamp, learns some R, and reads <a href="https://peerj.com/preprints/7/">this paper</a>
+  on how to make your data amenable to analysis.
+  She spends a few days hand-editing the data in Excel so that it can be read into R cleanly,
+  and then she learns how to do data aggregation,
+  including subsetting by a specific characteristic or combination of characteristics,
+  and summarizing these aggregates numerically and graphically.
+  (Tools mentioned here include <a href="http://plyr.had.co.nz/">plyr</a> and <a href="http://ggplot2.org/">ggplot2</a>.)
+</p>
+<p>
+  The effect is that Emma can now do exploratory data analysis much more quickly and comprehensively.
+  One specific outcome is that she found that one technician has been systematically underscoring nose length in the fish.
+  More generally she can now find interesting correlations without worrying about missing something that they didn't think of up front.
+</p>
+<hr/>
+<p><strong><em>Dave</em></strong></p>
+<p>
+  Oceanography graduate student Dave Diverseaty works with a varied (diverse) set of data collected by himself,
+  his colleagues,
+  and other researchers and agencies in the field.
+  He has some training in tools (data collection, Excel, basic stats) from his undergraduate degree
+  but further skills in this area are not explicitly taught,
+  rather osmosed from other students and on-demand advice from advisor.
+  In a typical project,
+  Dave spends two weeks on an oceanographic research vessel collecting discrete and continuous water samples from many instruments.
+  Some data are recorded manually in his lab notebook, others are output by instruments analyzing samples.
+</p>
+<p>
+  To analyze this data,
+  Dave begins by transcribing his measurements into Excel spreadsheets and downloading data spreadsheets from external sources.
+  To combine data from different spreadsheets,
+  he sorts both spreadsheets by some common column (e.g., the "station" and "depth" at which they were collected)
+  and manually copies and pastes matching records into a third combined spreadsheet.
+  He then exports the combined spreadsheet to a CSV,
+  loads the CSV into <a href="http://odv.awi.de/">Ocean Data View</a> for analysis,
+  and during the loading process he manually labels what oceanographic variable each column maps to.
+  He uses ODV to produce some domain-specific visualizations and,
+  having identified a few key variables,
+  he exports certain parts of the data for statistical analysis in R.
+</p>
+<p>
+  The statistical analysis in R reveals some errors in the original data,
+  and Dave realizes he downloaded the wrong version of an external dataset.
+  With extensive manual effort,
+  Dave re-runs all the processing steps performed so far and finally arrives at a publishable result.
+  Six months later,
+  Dave's paper is accepted and,
+  while in the middle of a job search,
+  Dave has to "publish" his data.
+  Since he's so busy,
+  he creates a zipfile of all the Excel spreadsheets he has
+  and posts it on his website.
+  Six more months later,
+  when another researcher contacts him with difficulty understanding one how one of his integrated Excel spreadsheets was produced,
+  Dave replies that he can't remember exactly what steps he used
+  and has moved onto a new project at OceanCorp where his job doesn't allow him time for academic research.
+</p>
+<p>Current workflow:</p>
+<ul>
+  <li>start with pen and paper, transcribe to Excel spreadsheets</li>
+  <li>import external databases (tables) as Excel spreadsheets</li>
+  <li>integrate data from different tables, usually by sorting both spreadsheets on column, manually copy and paste matches into a new spreadsheet</li>
+  <li>plot a vs b, or a/b, ...</li>
+  <li>find an interesting plot</li>
+  <li>export integrated data to Ocean Data View (manually connecting columns to science variables)</li>
+  <li>export integrated data to R</li>
+  <li>Various statistical analyses</li>
+  <li>Produce "professional-looking" plots</li>
+  <li>publish?
+    <ul>
+      <li>Excel spreadsheets get uploaded to mandatory NSF database</li>
+      <li>photos of lab notebooks sometimes</li>
+    </ul>
+  </li>
+</ul>
+<p>Issues:</p>
+<ul>
+  <li>Can't remember how I did this</li>
+  <li>Manual steps take a long time, can be error-prone</li>
+  <li>Redo manual effort when "new version" of data arrives
+    <ul>
+      <li>better cleaning</li>
+      <li>update external database</li>
+    </ul>
+  </li>
+  <li>High overhead of "making presentable" for publication</li>
+  <li>Lots of context switching (between apps/systems/tools)
+    <ul>
+      <li>Transcription, tweaking, cleanup, integration, aggregation: Excel</li>
+      <li>Visualization: ODV</li>
+      <li>Stats: R</li>
+      <li>Publication-quality: ODV or R, sometimes with hand-annotations in Illustrator</li>
+    </ul>
+  </li>
+</ul>
+<p>What we want:</p>
+<ul>
+  <li>External datasets "already in" format/system needed to do your work</li>
+  <li>Automated</li>
+  <li>Self-documenting/provenance (how I did it)</li>
+  <li>Replayable/Updatable automatically</li>
+  <li>Fewer context switches</li>
+  <li>Interface with external tools directly, (as opposed to: copying around, in/out of files)</li>
+</ul>
+<p>
+  We want Dave to be able to work in a way that the natural progression of his work is:
+  automated,
+  easy-to-adapt,
+  self-documenting,
+  minimizes the number of times that data files are manually copied or processed,
+  and makes it trivial to reproduce and inspect every step of the processing and analysis
+  starting with the raw data and including all cleaning, integration, visualization, and statistics.
+  Two aspects of a good solution will include:
+</p>
+<ol>
+  <li>
+    Relational database technology, i.e., SQL&mdash;perhaps authored with the help of a GUI.
+    Each of the data processing, integration, and aggregation steps performed in Excel,
+    as well as automated format conversion for importing data into ODV,
+    is represented as one SQL query deriving a new dataset from prior data.
+  </li>
+  <li>
+    Using a collaborative web service to perform all these steps
+    so that integrating others' datasets is trivial (because they're already there),
+    publishing is as simple as clicking a button to make the entire workflow public,
+    and external applications can access the data directly via a web interface rather then passing around files.
+  </li>
+</ol>
+<hr/>
+<p><strong><em>Sam</em></strong></p>
+<p>
+  Sam is a PhD student in plant biology studying the genome of several species of sunflowers.
+  Sam is in her third year and has finished gathering together data sets from within the lab and from external collaborators.
+  There is no bioinformatician available to help,
+  and Sam's advisor,
+  Eliza S. Meany,
+  expects Sam to organize, manage, analyse, and interpret these data by next month.
+  Sam is panicking because the data are in many different forms and she doesn't even know where to start.
+  She has never opened a terminal and is terrified of the command line.
+  Moreover, Sam's statistical knowledge is limited to the most basic statistics learned in an introductory math course.
+</p>
+<p>
+  At a conference,
+  Eliza meets a colleague who tells her about a training course that will help Sam.
+  She returns from the conference to find Sam,
+  brow sweating and fingers cramped,
+  working diligently to cut-and-paste the data into a single Excel spread sheet.
+  As Eliza watches in horror,
+  Sam's computer crashes as the Excel sheet exceeds the maximum allowed characters.
+  "Sign up for this course," she says.
+  Sam picks up the phone.
+</p>
+<p>
+  Software Carpentry will teach Sam to:
+</p>
+<ol>
+  <li>Organize the data;</li>
+  <li>Integrate the data and link it to available metadata;</li>
+  <li>Recognize the limitations of data integration;</li>
+  <li>Annotate a work plan so Meany's other students and collaborators can understand the process;</li>
+  <li>Be able to automate obvious processes that would be a waste of time to do manually; and</li>
+  <li>Provide a common language that allows Sam to interact effectively with bioinformaticians when future questions undoubtedly arise.</li>
+</ol>
+<p>Example tasks Sam needs to do:</p>
+<ol>
+  <li>Experimental design (what happens in data driven science), controls, pre-processing (if genomes: assembly), post-processing...(e.g so many mappers, so many tools which one, which one???)</li>
+  <li>Resource management (CPU, storage needs, backup, compression options, etc)</li>
+  <li>Manipulation of the retrieved sequences;</li>
+  <li>Analysis of sequences by retrieving the conserved regions and identifying SNPs;</li>
+  <li>Visualize synteny and discover regions missing in one genome compared to others; and</li>
+  <li>Identify "definitive" gene list for the genomes of my favorite organism, and compare it with a subset of other genes from other studies (eg our RNAseq).</li>
+  <li>Workflows and use of analysis tool suites (e.g. TAVERNA, Galaxy).</li>
+</ol>
+<hr/>
+<p><strong><em>Sally</em></strong></p>
+<p>
+  Sally Species-Distribution has site observations for 15 years for endangered woodpeckers.
+  She wants to conduct statistical analysis and map species distribution and richness for several species.
+  Her current practice is to visually inspect and manually adjust the columns in her spreadsheets
+  so that they are consistent across year.
+  She then imports these manually to R and to her GIS and uses the GUI to create maps of each year and animate them.
+</p>
+<p>
+  After her training,
+  she will be able to automate the comparison and standardization of the spreadsheets,
+  store the information in a relational database,
+  connect the database to R,
+  and automate the statistical analysis and mapping of the data.
+  Specifically, she will be able to:
+</p>
+<ul>
+  <li>esign her database schema</li>
+  <li>rite code to test data validity of the spreadsheets and import them into SQL.</li>
+  <li>nstall necessary packages and write an R script to bring the data in from SQL, run statistical analyses, and make maps and graphs.</li>
+</ul>
+<hr/>
+<p><strong><em>Francesco</em></strong></p>
+<p>
+  Francesco Flotsam is head of department in a new collaborative centre for marine biology.
+  His group is doing metagenomic studies of extreme marine environments
+  but his department has just secured industrial funding to look for lipases that work at extremely low temperatures
+  for new laundry products.
+  "We're about to scale up our sequencing efforts severalfold,"
+  he explains.
+  "We need to put some pipelines in place that will enable us to make sense of all the data that we're generating.
+  The extremophile project is a collaborative effort, and we want to be able to share information with our research network."
+</p>
+<p>Workflow:</p>
+<ol>
+  <li>collect samples - give unique identifiers with associated metadata</li>
+  <li>exome sequencing yields raw sequence data per sample</li>
+  <li>functional characterization - to pull out gene products that look like they encode enzymes - lipase (greasy stains) - many per sample</li>
+  <li>express genes - high throughput screening to confirm whether it does in fact encode a lipase</li>
+  <li>per enzyme then run an assay to then evaluate utility at low temperatures
+    <ul>
+      <li>substrate disappearing over time at various temperatures</li>
+      <li>automate the analysis of enzymatic rates across enzymes and temperatures</li>
+    </ul>
+  </li>
+</ol>
+<p>Computational algorithms needed:</p>
+<ul>
+  <li>atabase schema for all labs&mdash;to relate all produced data</li>
+  <li>se existing pipelines to generate sequence data</li>
+  <li>equence data shared, compiled, and version controlled among the labs;</li>
+  <li>can sequence data against existing database - focused chunk of InterPro - families and functional domains/motifs - identify motif that would be an active site for a lipase</li>
+  <li>lgorithm to prioritize identified gene products - those that are known to be connected to lipase activity</li>
+  <li>inked to high throughput screening;</li>
+  <li>ssign them to the different labs for the assay</li>
+</ul>
+<hr/>
+<p><strong><em>Pat</em></strong></p>
+<p>
+  Pat is a traditional field ecologist who has amassed a large number of traditional data sets on wetland ecology,
+  specifically ephemeral wetlands and the impact on amphibian diversity and distribution.
+  She has started publishing in journals that require the data be made public through a repository such as Dryad.
+  She has also realized that formatting data for sharing is much more involved than
+  just mentally keeping track of all the accumulating spreadsheets over the years.
+</p>
+<p>
+  As Pat has started sharing data,
+  downloading other relevant data sets and looking at patterns at a larger scale has become more appealing.
+  But she doesn't know how to work in any other format than Excel
+  and also many of the relevant data attributes are only in some files and not others.
+</p>
+<p>
+  Pat is starting to see that if these multiple data sets could be merged together,
+  they would cover a substantially larger region than Pat's traditional field research occurred over
+  and also now covers a much longer timespan as well.
+  Analysis will certainly entail more complicated models
+  and possibly parsing out data for different analytical processes at different spatio-temporal scales,
+  but since Pat does everything manually, these tasks are starting to seem overwhelming.
+  Should Pat should go back to traditional field approaches and just keep working with that data exclusively?
+  Or is there a quick way to get up to speed on the basics of data integration, manipulation and analytical workflows?
+</p>
