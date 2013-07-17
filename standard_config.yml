@@ -80,7 +80,8 @@ badges : {
         {"name" : "Ben Waugh",                  "user" : "waugh.b"},
         {"name" : "Ethan White",                "user" : "white.e"},
         {"name" : "Lynne Williams",             "user" : "williams.l"},
-        {"name" : "Greg Wilson",                "user" : "wilson.g"}
+        {"name" : "Greg Wilson",                "user" : "wilson.g"},
+        {"name" : "Chris Woods",                "user" : "woods.c"}
     ],
     "organizer" : [
         {"name" : "Jorge Aranda",               "user" : "aranda.j"},
@@ -88,6 +89,7 @@ badges : {
         {"name" : "Bruce Berriman",             "user" : "berriman.b"},
         {"name" : "Onno Broekmans",             "user" : "broekmans.o"},
         {"name" : "Amy Brown",                  "user" : "brown.amy"},
+        {"name" : "Alex Chartier",              "user" : "chartier.a"},
         {"name" : "Shreyas Cholia",             "user" : "cholia.s"},
         {"name" : "Stefano Cozzini",            "user" : "cozzini.s"},
         {"name" : "Ross Dickson",               "user" : "dickson.r"},
