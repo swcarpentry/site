@@ -4,7 +4,7 @@ date: 2010-07-21
 time: 09:00:00
 author: Greg Wilson
 title: "Popular, Fast, or Usable: Pick One"
-category: [content, tooling]
+category: ["Content", "Tooling"]
 ---
 <p>One of the core skills in any software developer's toolbox is automating repetitive tasks. We've been teaching this in Software Carpentry with <a href="http://www.gnu.org/software/make/">Make</a> for 13 years, and for 13 years, we've been looking for something better: something that has a less user-hostile syntax, requires less arcane knowledge of the shell, and at least <em>pretends</em> to do the same thing on different platforms. We briefly considered <a href="http://ant.apache.org/">Ant</a> (where "briefly" means "as long as it took to find <a href="http://pyre.third-bit.com/blog/archives/61.html">the post by Ant's creator</a> saying he would do it all differently next time"), but it's clear that tools like <a href="http://rake.rubyforge.org/">Rake</a> and <a href="http://www.scons.org/">SCons</a>, that embed build commands in a full-blown scripting language, are the future of build systems. Rake is based on Ruby, but SCons is based on Python (and actually has its roots in the original Software Carpentry project), so it should be a no-brainer, right?</p>
 <p>Well, not when you look at its performance, or rather, <em>lack</em> of performance. According to <a href="http://blog.electric-cloud.com/2010/03/08/how-scalable-is-scons/">Eric Melski's numbers</a>, SCons's runtime seems to grow as the square of the number of things being built, which is much worse than the behavior of other systems. We could teach it anyway, and tell students to switch to something else for real-world problems, but we really want to avoid that.</p>

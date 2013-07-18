@@ -7,10 +7,9 @@ import os
 import glob
 import datetime
 import time
-from collections import defaultdict
 import yaml
 from optparse import OptionParser
-from util import CONFIG_YML, STANDARD_YML, P_BLOG_EXCERPT, load_info
+from util import CONFIG_YML, STANDARD_YML, P_BLOG_EXCERPT, harvest_metadata, load_info
 
 # Translate two-digit month identifiers into short names.
 MONTHS = {
@@ -112,9 +111,8 @@ def harvest_blog(config):
     all_meta = []
     for folder in glob.glob('blog/????/??'):
         for post in glob.glob('{0}/*.html'.format(folder)):
-            m = harvest_single(post)
+            m = harvest_metadata(post)
             m['folder'] = folder
-            m['category'] = [config['category'][c] for c in m['category']]
             all_meta.append(m)
 
     all_meta.sort(lambda x, y: cmp(x['date'], y['date']) or cmp(x['time'], y['time']))
@@ -146,25 +144,13 @@ def harvest(filespec):
     '''
 
     if isinstance(filespec, basestring):
-        return harvest_single(filespec)
+        return harvest_metadata(filespec)
 
     elif isinstance(filespec, list):
-        return dict([(f, harvest_single(f)) for f in filespec])
+        return dict([(f, harvest_metadata(f)) for f in filespec])
 
     else:
         assert False, 'Unknown filespec "{0}"'.format(filespec)
-
-#----------------------------------------
-
-def harvest_single(filename):
-    '''Harvest metadata from a single file.'''
-
-    with open(filename, 'r') as reader:
-        text = reader.read()
-        stuff = text.split('---')[1]
-        meta_dict = yaml.load(stuff)
-        meta_dict['path'] = filename
-        return meta_dict
 
 #----------------------------------------
 

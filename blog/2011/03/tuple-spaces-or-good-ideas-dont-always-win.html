@@ -4,7 +4,7 @@ date: 2011-03-01
 time: 09:00:00
 author: Greg Wilson
 title: Tuple Spaces (or, Good Ideas Don't Always Win)
-category: [opinion]
+category: ["Opinion"]
 ---
 <p>I've resisted adding a module on high-performance computing to this course for a lot of reasons: I think other things are more important, there's enough coverage elsewhere, the software is hard for novices to set up... But there's another reason, one that may not be as good, but still has a seat at the table. Deep down, the reason I'm reluctant to teach MPI (the de facto standard for parallel programming) is that there's a much better model out there, one that works on all kinds of hardware, is comprehensible to novices, and delivers good performance on a wide range of problems. Its name is tuple space, its most famous implementation is Linda, and unfortunately, for a lot of reasons that I still don't understand, it somehow became an "also ran" in parallel programming.</p>
 <p>How easy is Linda? The examples in <a href="http://portal.acm.org/citation.cfm?doid=2363.2433">this article</a>, and this <a href="http://www.amazon.com/How-Write-Parallel-Programs-Course/dp/026203171X/">well-written little book</a>, are pretty compelling, but since the first is behind a paywall, and the second is out of print, here's a short overview. A <em>tuple space</em> is, as its name suggests, a place where processes can put, read, and take tuples, which are in turn just sequences of values. ("job", 12, 1.23) is a tuple made up of a string, an integer, and a floating-point number; a tuple space can contain zero or more copies of that tuple, or of tuples containing other types of values, simple or complex.</p>

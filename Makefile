@@ -55,23 +55,27 @@ DST_DIRS = $(OUT)/css $(OUT)/img $(OUT)/js
 # By default, show the commands in the file.
 all : commands
 
-## commands : show all commands
+## commands   : show all commands
 commands :
 	@grep -E '^##' Makefile | sed -e 's/## //g'
 
-## check    : build locally into _site directory for checking
+## categories : list all blog category names.
+categories :
+	@python bin/categories.py $(SRC_BLOG) | cut -d : -f 1
+
+## check      : build locally into _site directory for checking
 check :
 	make SITE=$(PWD)/_site OUT=$(PWD)/_site build
 
-## dev      : build into development directory for sharing
+## dev        : build into development directory for sharing
 dev :
 	make SITE=$(DEV_URL) OUT=$(DEV_DIR) build
 
-## install  : build into installation directory for sharing
+## install    : build into installation directory for sharing
 install :
 	make SITE=$(INSTALL_URL) OUT=$(INSTALL_DIR) build
 
-## clean    : clean up
+## clean      : clean up
 clean :
 	rm -rf $(GENERATED) _site $$(find . -name '*~' -print)
 

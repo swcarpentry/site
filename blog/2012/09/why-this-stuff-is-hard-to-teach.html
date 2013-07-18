@@ -4,7 +4,7 @@ date: 2012-09-20
 time: 10:00:00
 author: Greg Wilson
 title: Why This Stuff Is Hard To Teach
-category: [content, education]
+category: ["Content", "Education"]
 ---
 <p>If we get funding to continue our work (we hope to find out in a month), one of the first things we want to do is put together an introduction to web programming for scientists. As I've remarked many times before, we won't try to teach people how to build web applications: all we can do in the time we have, starting from what they know, is teach them how to create security holes. What we <em>would</em> like to show them is how to pull data off the web and post data of their own for others to consume, but even that turns out to be a lot harder than it should be.</p>
 <p>Here's one example. I want to parse a well-formed HTML page, change a few things in it, and save the result to disk. That ought to be simple, but if the document contains special characters like non-breaking spaces, Greek letters, and so on, it turns out to be rather tricky. In fact, it's taken a couple of hours (admittedly, spread out over several weeks) to come up with a solution that (a) works and (b) doesn't make me feel unclean. Here's what it looks like (using a string IO object instead of a file so that you can see what we're parsing):</p>

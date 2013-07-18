@@ -60,9 +60,7 @@ To create a new blog post:
     where `YYYY` is a four-digit year and `MM` is a two-digit month.
 3.  Fill in the metadata at the top of the file:
     -   `layout` *must* be `blog`.
-    -   `author` must be an author identifier like `wilson.g`.
-        See `standard_config.yml` in repo's root directory for a list of author identifiers,
-        and contact the Software Carpentry administrators if you need to be added.
+    -   `author` must be the author's name.  (It does not need to be quoted.)
     -   `title` is the post title.
     -   `date` the date of the post (in YYYY-MM-DD format).
     -   `time` must be an HH:MM:TT clock time.
@@ -70,9 +68,9 @@ To create a new blog post:
         10:00:00 for the second,
         and so on,
         so that posts can be ordered.
-    -   `category` must be a list of category identifiers.
-        See `standard_config.yml` in repo's root directory for a list of categories,
-        and contact the Software Carpentry administrators if you want to add a new one.
+    -   `category` must be a list of category identifiers, e.g.,
+        `["Euphoric State University", "Assessment"]
+        You can run the command `make categories` to get a list of existing category names.
 4.  Use HTML to write the post.
     -   Use `<!-- start excerpt -->` and `<!-- end excerpt -->`
         to mark a paragraph or two at the start

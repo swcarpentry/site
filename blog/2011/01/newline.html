@@ -4,7 +4,7 @@ date: 2011-01-19
 time: 10:00:00
 author: Luis Zarrabeitia
 title: Version Control and Newline Conventions
-category: [content]
+category: ["Content"]
 ---
 <p>There are two widely used conventions for representing the end of a line and the start of the next. Unix-like systems have traditionally used one character, \n (ASCII 10, "line feed"), while Microsoft DOS and Windows used a sequence \r\n (ASCII 13, "carriage return", \n). Being invisible, the difference of conventions usually goes unnoticed, specially because most modern software can correctly display text written with either one. However, there can be interoperability issues when using editors that follow different conventions.</p>
 <p>One of such issues can manifest when using a version control system, like subversion. Suppose that one team member accesses the repository to make a small change. Most text editors will try to detect the convention used in the document, but some (broken) editors will display the text correctly, but will save it using its default convention, regardless of the original. If one of these editors is used to make a change, a one line modification could potentially span the whole file: the one line in which the modification was made, plus every line in the document where the editor decided to change the end of line symbol.</p>
