@@ -114,7 +114,6 @@ def harvest_blog(config):
         for post in glob.glob('{0}/*.html'.format(folder)):
             m = harvest_single(post)
             m['folder'] = folder
-            m['author'] = config['people'][m['author']]
             m['category'] = [config['category'][c] for c in m['category']]
             all_meta.append(m)
 
