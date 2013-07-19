@@ -3,6 +3,7 @@
 Create _config.yml used to compile Software Carpentry web site.
 '''
 
+import sys
 import os
 import glob
 import datetime
@@ -59,6 +60,9 @@ def main():
 
     # Get information from blog entries.
     config['blog'] = harvest_blog(config)
+
+    # Sanity checks on blog posts.
+    check_blog_sanity(config['blog'])
 
     # Select those that'll be displayed on the home page, the index page, etc.
     config['blog_recent'] = config['blog'][-recent_length:]
@@ -151,6 +155,22 @@ def harvest(filespec):
 
     else:
         assert False, 'Unknown filespec "{0}"'.format(filespec)
+
+#----------------------------------------
+
+def check_blog_sanity(posts):
+    '''Make sure all blog posts have sensible metadata.'''
+    seen = {}
+    errors = False
+    for p in posts:
+        timestamp = (p['date'], p['time'])
+        if timestamp in seen:
+            print >> sys.stderr, 'Timestamp {0} in {1} duplicated in {2}'.format(timestamp, seen[timestamp], p['path'])
+            errors = True
+        else:
+            seen[timestamp] = p['path']
+    if errors:
+        sys.exit(1)
 
 #----------------------------------------
 
