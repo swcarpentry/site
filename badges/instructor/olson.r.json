@@ -1,5 +1,5 @@
 {
-  "recipient" : "sha256$ba781cf1fbdba620f2eb2f1f7b9e0ca0cb83a9870dad12c938fc7073ca75c1bf",
+  "recipient" : "sha256$75c326c89c66cd58f30dc34085972fb65a86e570dfa7df67de8ca719d1b46726",
   "salt": "software-carpentry",
   "issued_on" : "2013-07-19",
   "badge" : {
