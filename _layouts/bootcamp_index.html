@@ -38,10 +38,11 @@
           mapTypeId: google.maps.MapTypeId.ROADMAP
         };
 
-        var oldPin = MarkerPin("FE7569");
-        var openPin = MarkerPin("69FE86");
-        var fullPin = MarkerPin("FEFE69");
-        var restrictedPin = MarkerPin("6975FE");
+        var pastPin = MarkerPin("{{site.colors.past}}");
+        var openPin = MarkerPin("{{site.colors.open}}");
+        var fullPin = MarkerPin("{{site.colors.full}}");
+        var restrictedPin = MarkerPin("{{site.colors.restricted}}");
+        var instructorPin = MarkerPin("{{site.colors.instructor}}");
 
         var pinShadow = new google.maps.MarkerImage(
             "http://chart.apis.google.com/chart?chst=d_map_pin_shadow",
@@ -54,6 +55,7 @@
         var map = new google.maps.Map(document.getElementById('map_canvas'), mapOptions);
 
         var past_markers = [];
+        var instructor_markers = [];
 
         {% for bootcamp in site.bootcamps %}
           {% if bootcamp.latlng %}
@@ -72,7 +74,7 @@
                   {% endcase %}
                   visible: true,
                 {% else %}
-                  icon: oldPin,
+                  icon: pastPin,
                   visible: false,
                 {% endif %}
               shadow: pinShadow,
@@ -91,43 +93,103 @@
           {% endif %}
         {% endfor %}
 
-        // This last bit adds a button to the map that toggles the
+        {% for airport in site.airports %}
+            var marker = new google.maps.Marker({
+                position: new google.maps.LatLng({{airport.latlng}}),
+                map: map,
+                title: "{{airport.name}} / {{airport.count}}",
+                icon: instructorPin,
+                visible: false,
+                shadow: pinShadow,
+            });
+
+            instructor_markers.push(marker);
+
+            var info_string = '<div class="info-window">' +
+              '<h5>{{airport.name}}</h5>' +
+              '<h6>{{airport.count}}</h6>' +
+              '</div>';
+
+            set_info_window(map, marker, info_window, info_string);
+        {% endfor %}
+
+        // This bit adds a button to the map that toggles the
         // visibility of past boot camps.
+
         // Create a div to hold the control.
-        var controlDiv = document.createElement('div');
+        var pastDiv = document.createElement('div');
 
         // Set CSS styles for the DIV containing the control
         // Setting padding to 5 px will offset the control
         // from the edge of the map.
-        controlDiv.style.padding = '5px';
+        pastDiv.style.padding = '5px';
 
-        // Set CSS for the control border.
-        var controlUI = document.createElement('div');
-        controlUI.style.backgroundColor = 'white';
-        controlUI.style.borderStyle = 'solid';
-        controlUI.style.borderWidth = '1px';
-        controlUI.style.borderColor = 'rgb(113, 123, 135)';
-        controlUI.style.cursor = 'pointer';
-        controlUI.style.textAlign = 'center';
-        controlUI.style.boxShadow = 'rgba(0, 0, 0, 0.4) 0px 2px 4px'
-        controlUI.title = 'Toggle visibility of past boot camps.';
-        controlDiv.appendChild(controlUI);
+        // Set CSS for the past bootcamp toggle control border.
+        var pastUI = document.createElement('div');
+        pastUI.style.backgroundColor = 'white';
+        pastUI.style.borderStyle = 'solid';
+        pastUI.style.borderWidth = '1px';
+        pastUI.style.borderColor = 'rgb(113, 123, 135)';
+        pastUI.style.cursor = 'pointer';
+        pastUI.style.textAlign = 'center';
+        pastUI.style.boxShadow = 'rgba(0, 0, 0, 0.4) 0px 2px 4px'
+        pastUI.title = 'Toggle visibility of past boot camps.';
+        pastDiv.appendChild(pastUI);
 
-        // Set CSS for the control interior.
-        var controlText = document.createElement('div');
-        controlText.style.fontFamily = 'Arial,sans-serif';
-        controlText.style.fontSize = '12px';
-        controlText.style.padding = '1px 4px';
-        controlText.innerHTML = '<strong>Toggle Past Boot Camps</strong>';
-        controlUI.appendChild(controlText);
+        // Set CSS for the past bootcamp toggle control interior.
+        var pastText = document.createElement('div');
+        pastText.style.fontFamily = 'Arial,sans-serif';
+        pastText.style.fontSize = '12px';
+        pastText.style.padding = '1px 4px';
+        pastText.innerHTML = '<strong>Past Bootcamps</strong>';
+        pastUI.appendChild(pastText);
 
         // Setup the click event listener
-        google.maps.event.addDomListener(controlUI, 'click', function() {
+        google.maps.event.addDomListener(pastUI, 'click', function() {
           past_markers.forEach(toggle_marker_visibility)
         });
 
         // add control to the map
-        map.controls[google.maps.ControlPosition.TOP_RIGHT].push(controlDiv);
+        map.controls[google.maps.ControlPosition.TOP_RIGHT].push(pastDiv);
+
+        // This bit adds a button to the map that toggles the
+        // visibility of instructor locations.
+
+        // Create a div to hold the control.
+        var instructorDiv = document.createElement('div');
+
+        // Set CSS styles for the DIV containing the control
+        // Setting padding to 5 px will offset the control
+        // from the edge of the map.
+        instructorDiv.style.padding = '5px';
+
+        // Set CSS for the instructor toggle control border.
+        var instructorUI = document.createElement('div');
+        instructorUI.style.backgroundColor = 'white';
+        instructorUI.style.borderStyle = 'solid';
+        instructorUI.style.borderWidth = '1px';
+        instructorUI.style.borderColor = 'rgb(113, 123, 135)';
+        instructorUI.style.cursor = 'pointer';
+        instructorUI.style.textAlign = 'center';
+        instructorUI.style.boxShadow = 'rgba(0, 0, 0, 0.4) 0px 2px 4px'
+        instructorUI.title = 'Toggle visibility of instructor locations.';
+        instructorDiv.appendChild(instructorUI);
+
+        // Set CSS for the instructor toggle control interior.
+        var instructorText = document.createElement('div');
+        instructorText.style.fontFamily = 'Arial,sans-serif';
+        instructorText.style.fontSize = '12px';
+        instructorText.style.padding = '1px 4px';
+        instructorText.innerHTML = '<strong>Instructors</strong>';
+        instructorUI.appendChild(instructorText);
+
+        // Setup the click event listener
+        google.maps.event.addDomListener(instructorUI, 'click', function() {
+          instructor_markers.forEach(toggle_marker_visibility)
+        });
+
+        // add control to the map
+        map.controls[google.maps.ControlPosition.TOP_RIGHT].push(instructorDiv);
       }
     </script>
   </head>

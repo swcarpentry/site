@@ -50,6 +50,9 @@ SRC_PAGES = \
     $(SRC_LAYOUT) \
     $(SRC_INCLUDES)
 
+# All source configuration files.
+SRC_CONFIG = standard_config.yml airports_config.yml badges_config.yml
+
 # All files generated during the build process.
 GENERATED = ./_config.yml ./_includes/recent_blog_posts.html
 
@@ -130,7 +133,7 @@ $(OUT)/index.html : _config.yml $(SRC_PAGES)
 	jekyll build -d $(OUT)
 
 # Make the Jekyll configuration file by adding harvested information to a fixed starting point.
-_config.yml : ./bin/preprocess.py standard_config.yml badges_config.yml $(SRC_BLOG) $(SRC_BOOTCAMP)
+_config.yml : ./bin/preprocess.py $(SRC_CONFIG) $(SRC_BLOG) $(SRC_BOOTCAMP)
 	python ./bin/preprocess.py -o $(OUT) -s $(SITE)
 
 # Copy image files.  Most of these rules shouldn't be exercised,

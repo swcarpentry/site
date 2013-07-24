@@ -13,3 +13,4 @@ listserv_url    : "http://lists.software-carpentry.org/listinfo.cgi"
 flag_size       : 16
 admin_overhead  : $1500
 exclude         : [standard_config.yml, badges_config.yml]
+colors          : {past : FE7070, open : 70FE80, full : FEFE70, restricted : 7070FE, instructor : 70FEFE}

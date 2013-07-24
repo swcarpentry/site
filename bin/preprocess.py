@@ -15,6 +15,9 @@ from util import CONFIG_YML, STANDARD_YML, P_BLOG_EXCERPT, harvest_metadata, loa
 # File generated from admin database with badging information.
 BADGES_YML = 'badges_config.yml'
 
+# File generated from admin database with airport information (instructor locations).
+AIRPORTS_YML = 'airports_config.yml'
+
 # Translate two-digit month identifiers into short names.
 MONTHS = {
     '01' : 'Jan', '02' : 'Feb', '03' : 'Mar', '04' : 'Apr',
@@ -51,6 +54,7 @@ def main():
     options, args = parse_args()
     config = load_info(os.curdir, STANDARD_YML)
     config['badges'] = load_info(os.curdir, BADGES_YML)
+    config['airports'] = load_info(os.curdir, AIRPORTS_YML)
     config.update({
         'month_names'     : MONTHS,
         'months'          : sorted(MONTHS.keys()),
