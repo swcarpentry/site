@@ -50,6 +50,18 @@ we use Python because most of our volunteers speak it.
 *   Type `make check` to build everything in `_site` for testing.
     (Depending on your machine, this takes about 10-15 seconds.)
 
+We try to use the same MarkDown interpreters as GitHub does for
+consistency.  On OS X, we suggest you use a recent Ruby to get access
+to these.  If you don't have Homebrew or MacPorts installed, here's a
+quick recipe to get started using HomeBrew.
+
+```
+ruby -e "$(curl -fsSL https://raw.github.com/mxcl/homebrew/go)"
+brew install ruby
+gem install jekyll
+gem install redcarpet 
+```
+
 Blogging 
 --------
 
