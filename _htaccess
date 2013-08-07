@@ -3,6 +3,13 @@ RewriteEngine On
 RewriteBase /
 AddDefaultCharset UTF-8
 
+# Route /3_0 and /4_0 pages to /v3, /v4
+RewriteCond %{REQUEST_URI} ^/3_0
+RewriteRule ^3_0/(.*)$ /v3/$1 [R,L]
+
+RewriteCond %{REQUEST_URI} ^/4_0
+RewriteRule ^4_0/(.*)$ /v4/$1 [R,L]
+
 # Wordpress URLs that are gone
 RewriteRule .*/trackback/?$ - [gone,NC]
 
