@@ -1,17 +1,30 @@
 ---
 layout: base
 root: ../..
-title: How to Run a Bootcamp
+title: "Operations Guide: How to Run a Boot Camp"
 ---
 
+<h3>Checklists:</h3>
+
+<ul>
+  <li><a href="checklists/host.html">Host</a></li>
+  <li><a href="checklists/admin.html">Admin</a></li>
+  <li><a href="checklists/lead_instructor.html">Lead Instructor</a></li>
+  <li><a href="checklists/instructors.html">Instructors</a></li>
+  <li><a href="checklists/helpers.html">Helpers</a></li>
+</ul>
+
+<p>Note: Everything under here will be edited as per my email.</p>
+<hr />
+
 <p>
-  A bootcamp is an intensive hands-on workshop
+  A boot camp is an intensive hands-on workshop
   where scientists learn software skills
   through short tutorials and practical exercises.
-  A typical bootcamp runs over 2 days with 20-50 attendees,
+  A typical boot camp runs over 2 days with 20-50 attendees,
   2-3 instructors,
   and one helper for every 10 attendees.
-  This page explains how to organize and run a bootcamp;
+  This page explains how to organize and run a boot camp;
   it is divided into sections according to
   the roles people take on:
 </p>
@@ -20,7 +33,7 @@ title: How to Run a Bootcamp
   <li>
     The <a href="#host">host</a>
     (usually a faculty member or equivalent)
-    is the principal local contact for the bootcamp.
+    is the principal local contact for the boot camp.
   </li>
   <li>
     The <a href="#instructor">instructors</a>
@@ -31,11 +44,11 @@ title: How to Run a Bootcamp
   </li>
   <li>
     <a href="#helper">Helpers</a> provide assistance during practical sessions.
-    Helpers have often attended a bootcamp themselves at some point,
+    Helpers have often attended a boot camp themselves at some point,
     and are on the road to becoming instructors.
   </li>
   <li>
-    <a href="#learner">Learners</a> come to the bootcamp to learn.
+    <a href="#learner">Learners</a> come to the boot camp to learn.
   </li>
   <li>
     The <a href="#admin">Software Carpentry administrators</a>
@@ -55,13 +68,13 @@ title: How to Run a Bootcamp
 
 <ul>
   <li>
-    One person may have several roles in a bootcamp:
+    One person may have several roles in a boot camp:
     for example,
     it's common for the host to also be a learner.
   </li>
   <li>
-    As <a href="{{page.root}}/faq.html#who-can-run-a-bootcamp">explained in our FAQ</a>,
-    anyone can use our materials and run a bootcamp.
+    As <a href="{{page.root}}/faq.html#who-can-run-a-boot camp">explained in our FAQ</a>,
+    anyone can use our materials and run a boot camp.
     However,
     if you want to use our name and logo (which are trademarked),
     the lead instructors must be certified by Software Carpentry
@@ -84,8 +97,8 @@ title: How to Run a Bootcamp
     <li><a href="#checklists">Checklists</a></li>
     <li><a href="#mistake">What Not To Do</a></li>
     <li><a href="#faq">FAQ</a></li>
-    <li><a href="#ad">Sample Bootcamp Advertisement</a></li>
-    <li><a href="#homepage">Sample Bootcamp Home Page</a></li>
+    <li><a href="#ad">Sample Boot Camp Advertisement</a></li>
+    <li><a href="#homepage">Sample Boot Camp Home Page</a></li>
   </ul>
 </div>
 
@@ -94,94 +107,73 @@ title: How to Run a Bootcamp
 
   <p>
     The host's major responsibilities are
-    to make a handful of key decisions about the bootcamp,
+    to make a handful of key decisions about the boot camp,
     and to handle local arrangements.
   </p>
 
   <div class="well">
-    <h3>Decide what kind of bootcamp you want</h3>
+    <h3>Decide what kind of boot camp you want</h3>
 
     <p>
       The first thing you need to decide is your intended audience.
-      Can anyone apply or is it restricted to a specific lab, university, or company?
+      Can anyone apply or is it restricted to a specific lab, university, or
+      company?
       Do you want to target people in a particular discipline
       (or range of related disciplines),
-      or will your bootcamp be open to all?
+      or will your boot camp be open to all?
       You need to decide this early and then stick to it,
-      because the type of bootcamp you host will drive other decisions,
+      because the type of boot camp you host will drive other decisions,
       from the topics covered and the room used
       to what follow-up sessions you offer (if any).
     </p>
 
     <div>
-      <h4>Closed vs. Open</h4>
+      <h4 id="host_who">Open or closed? Public or private?</h4>
   
       <p>
-        A closed bootcamp can be more easily tailored to a specific audience.
+        A closed boot camp can be more easily tailored to a specific audience.
         In addition,
         the attendees are more likely to know one another,
-        which in our experience means they're less inhibited about asking questions
+        which in our experience means they're less inhibited about asking
+        questions
         and more likely to help each other during practical sessions.
         On the other hand,
-        it may be harder to find enough people to fill a bootcamp if you restrict enrollment,
+        it may be harder to find enough people to fill a boot camp if you
+        restrict enrollment,
         and if your funding comes from the university or company level,
         it may be politically difficult to turn people away.
       </p>
-  
       <p>
-        If you choose a closed bootcamp,
-        you may have to resist people trying to open it up once enrollment begins.
-        If you have good reasons to keep it closed or invite-only,
-        keep it that way.
-        That said,
-        there are good reasons to <a href="#allow-externals">allow externals to come to your bootcamp</a>.
+        Having said that,
+        there are good reasons to <a href="#allow-externals">allow externals to come to your boot camp</a>.
       </p>
     </div>
 
-    <div>
-      <h4>Fee or Free</h4>
-  
-      <p>
-        You also need to decide whether your bootcamp is free or not.
-        Bootcamps traditionally have been free,
-        but we are now frequently charging either a $20 deposit
-        (refunded to everyone who attends both days),
-        or a flat $20 fee,
-        in order to reduce the no-show rate.
-        We have found that both strategies reduce the number of no-shows from 20-25% to 5% or less,
-        and the money can be used to offset the {{site.admin_overhead}} that we ask for
-        to help with central administration overheads.
-        Be careful, though:
-        as soon as you charge anything at all&mdash;even a refundable deposit&mdash;some
-        venues will charge <em>you</em> for use of the space.
-      </p>
-
-    </div>
 
     <div>
       <h4>Individual or Team</h4>
   
       <p>
-        A third decision is whether learners register indivdiually or in groups.
+        A third decision is whether learners register individually or in groups.
         Group signup is more difficult to manage than individual signup,
         it also has many benefits,
         including a lower no-show rate and more in-class peer support.
         And while we don't yet have any solid data,
         we believe it increases the likelihood of people using what they've learned
-        after the bootcamp is over:
+        after the boot camp is over:
         it's a lot easier for people to put what they've learned into practice
         if everyone in their lab is doing so at the same time.
       </p>
     </div>
 
     <div>
-      <h4>Follow-up</h4>
+      <h4 id="host_followup">Follow-up</h4>
   
       <p>
         Finally,
-        you should decide <em>before</em> the bootcamp
+        you should decide <em>before</em> the boot camp
         what kind of follow-up you're going to offer (if any).
-        Some groups have run weekly lunch-and-learn sessions for a couple of months after a bootcamp
+        Some groups have run weekly lunch-and-learn sessions for a couple of months after a boot camp
         to help people put what they've learned into action.
         Other groups have set up mailing lists,
         and we've tried running online tutorials as well
@@ -194,22 +186,23 @@ title: How to Run a Bootcamp
   </div>
 
   <div class="well">
-    <h3>Secure funding</h3>
+    <h3 id="host_cost">Cost of Running a Boot Camp</h3>
   
     <p>
       Our instructors are volunteers,
       and do not need to be paid for their time,
-      but bootcamp hosts are expected to cover their travel and accommodation costs.
-      (As far as possible,
+      but boot camp hosts are expected to cover their <strong>travel and accommodation
+          costs</strong>.
+      (As much as possible,
       we try to match instructors to nearby sites in order to reduce these,
-      but please see <a href="#pay-instructor-costs">why you should pay instructors' expenses</a>).
-      We also ask hosts to contribute {{site.admin_overhead}} per bootcamp toward central overheads,
-      including curriculum development,
+      but please see <a href="#pay-instructor-costs">why you should pay instructors' expenses</a>.)
+      We also ask hosts to contribute <strong>{{site.admin_overhead}} per boot camp</strong> toward central overheads (including curriculum development,
       instructor training,
       website maintenance,
-      and administrative overheads.
-      This puts the total cost for a bootcamp in the $2000-4000 range,
-      depending on instructors' travel.
+      and administrative costs. You may also have to pay to <strong>book the room</strong>,
+      and for <strong>catering</strong>.
+      This puts the total cost for a boot camp in the $2500-4000 range,
+      depending on instructors' travel costs.
     </p>
 
     <p>
@@ -228,33 +221,60 @@ title: How to Run a Bootcamp
       <li>
         Workshop budgets set aside as part of conferences.
       </li>
+      <li>
+          Charging a fee to participants, either when they register 
+          or at the door.
+      </li>
+
     </ul>
   
     <p>
       You may also want to consider these
-      <a href="#ways-to-reduce-costs">ways to reduce the costs of running your bootcamp</a>.
+      <a href="#ways-to-reduce-costs">ways to reduce the costs of running your boot camp</a>.
     </p>
+
+    <h4 id="host_charge">Whether the boot camp will be free?</h4>
   
+      <p>
+        You also need to decide whether your boot camp is free or not.
+      </p>
+      <p>
+        A $40 fee is an effective way of raising the $1500 Software
+        Carpentry boot camp administration fee, and reduces the 
+        the number of no-shows from 20-25% to 5% or less. Other options include:
+        <ul>
+            <li>charging a smaller fee and writing us a check to cover the
+            difference;</li>
+            <li>charging a refundable deposit (refunded to everyone who attends
+                both days), which reduces the no-show rate while still
+                effectively providing a free boot camp;</li>
+            <li>not charging at all and paying the whole $1500 admin fee</li>
+        </ul>
+      </p>
+      <p>
+          If you decide to charge a fee and keep the revenue, we ask you to 
+          handle registration yourself.
+      </p>
+            
     <p>
-      It's much easier for us if instructors deal directly with host sites for reimbursement,
-      but in complicated cases
-      (e.g., several people traveling to do several bootcamps,
-      with costs shared between several sites),
-      we can act as an intermediary.
-    </p>
+        Be aware that 
+        as soon as you charge anything at all&mdash;even a refundable deposit&mdash;some
+        venues will charge <em>you</em> for use of the space.
+      </p>
+
   </div>
 
   <div class="well">
-    <h3>Choose dates</h3>
+    <h3 id="host_when">When should I hold my boot camp?</h3>
   
     <p>
-      Many factors determine when to hold your bootcamp.
+      Many factors determine when to hold your boot camp.
       The first is obviously the availability of instructors:
       the admins will help you with this.
     </p>
   
     <p>
-      If you hold the bootcamp at a university,
+      If you hold the boot camp at a university,
       keep in mind that the start of term works better the end of term
       (when people are tired, and busy with final assignments and exams),
       and that the start of the second (or subsequent) term works better for graduate students
@@ -262,11 +282,11 @@ title: How to Run a Bootcamp
       (the start of an academic year is busy anyway,
       and by their second term most students have a better idea of their research problem's programming needs).
       In our experience mid-term breaks and reading weeks have <em>not</em> worked well:
-      bootcamps held then usually have high no-show rates.
+      boot camps held then usually have high no-show rates.
     </p>
   
     <p>
-      You could also schedule a bootcamp immediately before or after a conference
+      You could also schedule a boot camp immediately before or after a conference
       (or run it as a tutorial within a conference)
       to target people from a specific discipline.
       If you do this,
@@ -283,13 +303,30 @@ title: How to Run a Bootcamp
       Similarly,
       an earlier end (e.g., 16:30 instead of 17:00) allows non-locals time to travel home.
       Some attendees may also have child-care needs;
-      it's worth asking about this by email before the bootcamp starts
+      it's worth asking about this by email before the boot camp starts
       so that people can respond one-to-one if they want to.
     </p>
   </div>
 
   <div class="well">
-    <h3>Book space</h3>
+      <h3 id="host_numbers">How Many Learners?</h3>
+
+      <p>
+      Boot camps work best with rooms of between 15 and 40 learners. Above
+      that, they become more like a lecture and the hands-on workshop feeling
+      is lost. If you are expecting significantly more than 40 registrants,
+      consider hosting a multi-room boot camp.
+      </p>
+      <p>
+      Multi-room boot camps can work very well because they allow us to 
+      stream learners into groups according to their computing experience.
+      The disadvantage, of course, is that you have to book multiple rooms
+      and recruit more instructors and helpers.
+      </p>
+  </div>
+
+  <div class="well">
+    <h3 id="host_venue">Characteristics of a Good Boot Camp Venue</h3>
   
     <p>
       You'll need a room with:
@@ -343,28 +380,45 @@ title: How to Run a Bootcamp
   </div>
 
   <div class="well">
-    <h3>Set up registration</h3>
+    <h3 id="host_registration">Set up registration</h3>
 
     <p>
-      The Software Carpentry administrators will usually take care of this,
+      Software Carpentry administration can take care of registration,
       but some sites do use their own system:
       for example,
-      bootcamps being run in conjunction with conferences
+      boot camps being run in conjunction with conferences
       may use the conference registration system.
     </p>
+    <p>
+      If you would like Software Carpentry to run registration through
+      Eventbrite, we'll need the following information:</p>
+      <ul>
+          <li>how many people will be registering</li>
+          <li>how much you are <a href="#host_charge">charging</a> for the boot
+          camp, if anything</li>
+          <li>whether the registration page should be public or private</li>
+      </ul>
+      <p>
+        Eventbrite events can be public, which means they appear on Google
+        and in listings, or private, which means they can only be seen by
+        people who have the link. We can also add a password to protect
+        the registration page further.
+    </p>
+      
 
   </div>
 
   <div class="well">
-    <h3>Recruit helpers</h3>
+    <h3 id="host_helpers">Recruit helpers</h3>
   
     <p>
-      Most of our helpers are scientists who have either gone through a previous bootcamp,
+      Most of our helpers are scientists who have either gone through a
+      previous boot camp,
       or learned most of what we teach on our own.
       You can usually recruit them locally from your own and nearby institutions,
       and should have at least one helper for every ten attendees.
-      Most bootcamps don't cover helpers' travel or accommodation expenses,
-      but taking them out to dinner the day before the bootcamp starts
+      Most boot camps don't cover helpers' travel or accommodation expenses,
+      but taking them out to dinner the day before the boot camp starts
       is a nice way to thank them
       (and gives them a chance to meet the instructors).
     </p>
@@ -374,7 +428,7 @@ title: How to Run a Bootcamp
     <h3>Advertise</h3>
   
     <p>
-      The <a href="#lead">lead instructor</a> for the bootcamp
+      The <a href="#lead">lead instructor</a> for the boot camp
       will create a web page with instructions for attendees,
       including the dates, the site, a link to register, and so on.
       Pleas check this and make sure it includes local travel information,
@@ -384,13 +438,13 @@ title: How to Run a Bootcamp
   
     <p>
       Once this page is set up,
-      start spreading the word about the bootcamp.
+      start spreading the word about the boot camp.
       We can provide advice on how to do this,
       and are happy to publish your blog articles and tweets to our followers.
     </p>
   
     <p>
-      If you plan to photograph, record, or broadcast your bootcamp
+      If you plan to photograph, record, or broadcast your boot camp
       then mention this on its web page.
       Your institution may require you to obtain a signed photo release
       from each person if pictures are being taken.
@@ -401,12 +455,12 @@ title: How to Run a Bootcamp
       discipline-specific mailing lists,
       specific people (e.g., lab directors or principal investigators),
       and anyone else who you think will be interested.
-      Remember to include links to the bootcamp's website.
+      Remember to include links to the boot camp's website.
     </p>
   </div>
 
   <div class="well">
-    <h3>Arrange catering</h3>
+    <h3 id="host_catering">Arrange catering</h3>
   
     <p>
       If you can afford to provide coffee and snacks for attendees, do so:
@@ -430,7 +484,7 @@ title: How to Run a Bootcamp
     <p>
       If you are using something other than first-come/first-served registration,
       select the attendees you want to attend and let them know they have a seat.
-      Ask them to tell you as soon as possible if they can't make the bootcamp,
+      Ask them to tell you as soon as possible if they can't make the boot camp,
       so that you can offer their place to someone else.
     </p>
   
@@ -453,20 +507,10 @@ title: How to Run a Bootcamp
   </div>
 
   <div class="well">
-    <h3>Gather your gear</h3>
+    <h3 id="host_report">Report back</h3>
   
     <p>
-      Collect the equipment listed in the <a href="#checklists">checklist</a>
-      at least a day before the start of the bootcamp.
-    </p>
-  
-  </div>
-
-  <div class="well">
-    <h3>Report back</h3>
-  
-    <p>
-      Once the bootcamp is over,
+      Once the boot camp is over,
       please send feedback to the Software Carpentry administrators
       about how it went.
       Was it the right content?
@@ -478,6 +522,73 @@ title: How to Run a Bootcamp
     </p>
   
   </div>
+
+  <div class="well">
+
+    <h3>Pitfalls</h3>
+
+    <p>
+    Organizing a good boot camp is not trivial, and there are a few pitfalls
+    to avoid.
+    </p>
+
+    <h4>For Hosts</h4>
+    <dl>
+    <dt>Don't let your learners ignore each other.</dt>
+    <dd>
+      <p>
+      Software Carpentry boot camps are a great networking opportunity
+      for our learners (and for us, too).
+      Get to know your learners by name,
+      have them work in pairs, and get them to mix up the pairs
+      at least a couple of times.
+        Encourage them to chat to one another at coffee breaks and lunch,
+        and to get a pizza or some curry together for dinner on the first day.
+      </p>
+    </dd>
+
+    <dt>Don't Underestimate The Potential for Mishaps</dt>
+    <dd>
+      <p>
+      Something always fails to install for someone (or they fail to install
+      anything at all), or a bunch of learners are accidentally locked out of
+      the building after lunch, or whoever was supposed to drop off power bars
+      didn't.  Roll with it, and remember to laugh (even if it's a bit
+      hysterically).
+      </p>
+    </dd>
+    </dl>
+
+    <h4 id="instructors_pitfalls">For Instructors</h4>
+
+    <p>
+       The most important thing is to remember that
+        no lesson plan survives contact with the audience.
+      Whether it's the network going down
+      or the sudden realization that many of your learners
+      <em>don't</em> know how to use SSH,
+      you will frequently need to improvise.
+      Even without hiccups like those,
+      try your best to adjust your pace and examples based on
+      learners' questions, puzzled looks, and sighs of impatience.
+    </p>
+    
+    <dl>
+    <dt>Don't ignore your learners.</dt>
+    <dd>
+      <p>
+        You're not there to reproduce one of our online videos in person:
+        you're there to interact with people so that they get a
+        better learning experience.
+        You shouldn't ever go more than two or three minutes without
+        asking a question (and listening to the answer),
+        and if it has been 15 minutes since any of your learners asked one,
+        odds are you've either lost them or are boring them.
+    </dd>
+</dl>
+<!-- FIXME put the rest of the pitfalls here -->
+
+    </div>  
 </div>
 
 <div id="instructor">
@@ -509,7 +620,7 @@ title: How to Run a Bootcamp
     <h3>Before</h3>
     <ul class="checklist">
       <li>
-        Arrange travel to the bootcamp site,
+        Arrange travel to the boot camp site,
         accommodation,
         and transportation from wherever you're staying to wherever you're teaching.
         Save your receipts!
@@ -519,29 +630,20 @@ title: How to Run a Bootcamp
         and so that you have the same setup as your learners.
       </li>
       <li>
-        Work with the <a href="#lead">lead instructor</a> to figure out who's teaching what and when.
-	Make sure you allow 15-30 minutes on the morning of the first day for installation and setup:
-	no matter how often you tell people to get their machines ready before they arrive,
-	some will not have done so,
-	or will have run into problems that they're not yet able to fix.
-	(You can offer office hours for setup help before the bootcamp,
-	but our experience is that few people take advantage of them.)
-      </li>
-      <li>
         Choose or prepare your lessons, data sets, cheat sheets, exercises, and version control repositories.
       </li>
       <li>
         Try out your examples and exercises to make sure they (still) work.
       </li>
       <li>
-        Post your exercises and cheat sheets on your bootcamp's web site
+        Post your exercises and cheat sheets on your boot camp's web site
         so that students can refer to them.
         (The <a href="#admin">admins</a> or the <a href="#lead">lead instructor</a>
-        will create a GitHub repository for the bootcamp,
+        will create a GitHub repository for the boot camp,
         which also hosts its web pages.)
       </li>
       <li>
-        Put your data sets on your bootcamp's web site for downloading.
+        Put your data sets on your boot camp's web site for downloading.
       </li>
       <li>
         Familiarize yourself with the material your fellow instructors will be presenting,
@@ -551,7 +653,7 @@ title: How to Run a Bootcamp
   </div>
   
   <div class="well">
-    <h3>On the day</h3>
+    <h3 id="instructors_practices">Good instruction practices</h3>
     <ul class="checklist">
       <li>
         If you are using multiple windows (e.g., a command window and an editor window)
@@ -574,10 +676,11 @@ title: How to Run a Bootcamp
         Use Etherpad to share small data sets, snippets of code, and commands with learners.
       </li>
       <li>
-        Encourage learners to take notes about what they're learning in the Etherpad.
+      Encourage learners to take notes 
+      in the Etherpad.
         This reduces the effort per learner,
         gives you a chance to see what they think you're saying,
-        and provides a record after the bootcamp of what was actually taught.
+        and provides a record after the boot camp of what was actually taught.
       </li>
       <li>
         Back up the material with your own anecdotes, experiences and evidence&mdash;it
@@ -609,7 +712,7 @@ title: How to Run a Bootcamp
   <h2>Lead Instructors</h2>
 
   <p>
-    A bootcamp's lead instructor is responsible
+    A boot camp's lead instructor is responsible
     for leading discussions among the instructors about who's teaching what,
     for making sure that infrastructure is set up,
     and for handling evaluation.
@@ -624,10 +727,10 @@ title: How to Run a Bootcamp
         Make sure everyone has booked their travel.
       </li>
       <li>
-        Create the GitHub repository that will host the bootcamp's web pages.
+        Create the GitHub repository that will host the boot camp's web pages.
       </li>
       <li>
-        Create the home page for the bootcamp in that repository,
+        Create the home page for the boot camp in that repository,
         and either write or recycle a description of the curriculum
         and setup instructions.
       </li>
@@ -635,31 +738,35 @@ title: How to Run a Bootcamp
         Sort out who's teaching what.
 	This usually takes a few iterations,
 	so don't leave it until the last minute.
-	(You'll know you're done when you can create a schedule for your bootcamp
+	(You'll know you're done when you can create a schedule for your boot camp
 	with instructors' names against each topic being taught.)
       </li>
 
+  <h4 id="lead_setup">Time to set up</h4>
   <p>
     In almost all cases,
-    learners want to use their own laptops during bootcamps
+    learners want to use their own laptops during boot camps
     so that they leave with a working environment set up.
     Even if you ask attendees to prepare beforehand,
     and give them detailed instructions,
-    some will not and some won't be able to.
-    You should therefore schedule time for <em>checking the learners' machines</em>
-    at the beginning of the first day
-    to save you from repeating the same thing individually to each attendee.
+    some will not have time, 
+    or will have run into problems that they're not yet able to fix.
+    You should therefore schedule at least 20 minutes for
+    <em>checking the learners' machines</em>
+    at the beginning of the first day.
+    Some boot camps start early on the first day to allow time to
+    troubleshoot setup problems.
   </p>
       <li>
         Create an Etherpad to use as you teach,
         or have the admins create one for you.
       </li>
       <li>
-        Make sure the pre-assessment questionnaire has been sent to your learners
+        Make sure the pre-boot camp assessment questionnaire has been sent to your learners
         and share the responses with your fellow instructors.
       </li>
       <li>
-	Encourage instructors to do a dry-run before the bootcamp
+	Encourage instructors to do a dry-run before the boot camp
 	to check that everything they plan to teach is working.
 	This is especially important if it is their first time teaching:
 	<em>everyone</em> over-estimates how much they'll be able to cover
@@ -672,10 +779,7 @@ title: How to Run a Bootcamp
   <div class="well">
     <h3>On the day</h3>
     <ul class="checklist">
-      <li>
-        Circulate a sign-in sheet so we can tell who actually attended.
-      </li>
-      <li>
+      <li id="lead_stickies">
         Just before each break,
         have learners write down one good point on their green sticky
         and one bad one on their red sticky
@@ -685,12 +789,11 @@ title: How to Run a Bootcamp
         whether you need to review some material after the break,
         etc.
         If you can,
-        put each batch of sticky notes into an envelope
-        and send them to us
-        so that we can look for patterns.
+        put the sticky notes in an envelope
+        and send them to us so we can look for patterns.
       </li>
       <li>
-        At the end of the bootcamp,
+        At the end of the boot camp,
         ask each person in the room to give you one good point or one bad one
         without repeating anything someone else has already said.
         Please send us this feedback as well so that we can look for patterns.
@@ -707,12 +810,9 @@ title: How to Run a Bootcamp
         and invite learners to join our announcements list.
       </li>
       <li>
-        Make sure the post-assessment has been sent to your learners.
-	(The admins will usually take care of this,
-	but please check.)
-      </li>
-    </ul>
-  </div>
+        Make sure the post-boot camp assessment questionnaire has been sent to
+        your learners.  (The admins will usually take care of this, but please
+        check.) </li> </ul> </div>
   
 </div>
 
@@ -732,13 +832,13 @@ title: How to Run a Bootcamp
         Read over the material the instructors will cover in the sessions you're helping with.
       </li>
       <li>
-        Work through the setup instructions for the bootcamp,
+        Work through the setup instructions for the boot camp,
         as many of the questions you will get on the first day
         will be related to installation issues.
       </li>
       <li>
         Read the blog posts by <a href="{{page.root}}/blog/2012/10/how-to-help-at-a-boot-camp.html">Katy Huff</a>
-        and <a href="http://www.software.ac.uk/blog/2012-11-02-top-tips-helpers-software-carpentry-bootcamp">Aleksandra Pawlik</a>
+        and <a href="http://www.software.ac.uk/blog/2012-11-02-top-tips-helpers-software-carpentry-boot camp">Aleksandra Pawlik</a>
         on how to be a helper.
       </li>
     </ul>
@@ -781,12 +881,12 @@ title: How to Run a Bootcamp
 
   <p>
     The Software Carpentry administrators are responsible for
-    coordinating the other people involved in the bootcamp
+    coordinating the other people involved in the boot camp
     and managing things like registration and assessment.
   </p>
 
   <div class="well">
-    <h3>Recruit instructors</h3>
+  <h3 id="host_instructors">Find instructors</h3>
   
     <p>
       You will need at least two instructors for each room of approximately 40 people,
@@ -810,31 +910,29 @@ title: How to Run a Bootcamp
     </ul>
 
     <p>
-      Recruit instructors <em>before</em> advertising the bootcamp or opening up registration.
-      As noted in the introduction,
-      at least one instructor must be certified by Software Carpentry
-      in order for the bootcamp to use our name and logo.
+      Recruit instructors <em>before</em> advertising the boot camp or opening up registration.
+      At least one instructor must be certified by Software Carpentry
+      in order for the boot camp to use our name and logo.
       The other instructors should have prior teaching experience,
-      be doing the <a href="{{page.root}}/faq.html#how-become-instructor">instructor training</a>,
-      or have helped with at least one previous bootcamp.
+      be taking the <a href="{{page.root}}/faq.html#how-become-instructor">instructor training</a>,
+      or have helped with at least one previous boot camp.
     </p>
   </div>
 
   <div class="well">
-    <h3>Travel arrangements and reimbursement</h3>
+    <h3 id="admin_travel">Travel arrangements and reimbursement</h3>
   
     <p>
-      Make sure the instructors have made travel arrangements.
-      If there is someone at the host institution who regularly handles this,
-      connect them with instructors as soon as possible.
+    If there is someone at the host institution who regularly handles travel
+    arrangements, connect them with instructors as soon as possible.
     </p>
 
     <p>
-      You shuld also make sure it's clear who's paying for what,
+      You should also make sure it's clear who's paying for what,
       and how people will be reimbursed,
       <em>before</em> anyone buys plane tickets.
-      We strongly prefer sites to reimburse instructors directly
-      rather than routing payments through Software Carpentry.
+      Hosting site must reimburse instructors directly
+      &mdash; Software Carpentry can not route payments.
     </p>
 
     <p>
@@ -856,49 +954,47 @@ title: How to Run a Bootcamp
       and we are happy to host registrations on <a href="http://software-carpentry.eventbrite.com/">our account</a>.
       Either way,
       make sure you enable a waiting list,
-      because bootcamps are very popular.
+      because boot camps are very popular.
     </p>
   </div>
 
   <div class="well">
-    <h3>Web Site</h3>
+    <h3 id="admin_website">Web Site</h3>
   
     <p>
       The <a href="#lead">lead instructor</a> and other instructors
-      are responsible for creating the bootcamp's home page on GitHub.
+      are responsible for creating the boot camp's home page on GitHub.
       Make sure that they have done this,
       and that the metadata headers in their <code>index.html</code> page are correct.
-      (The <a href="https://github.com/swcarpentry/bc">instructions on creating bootcamp pages</a>
+      (The <a href="https://github.com/swcarpentry/bc">instructions on creating boot camp pages</a>
       explain how to do this.)
-      Also check that the bootcamp is showing up properly in
-      our <a href="{{page.root}}/bootcamps/index.html">bootcamp index page</a>.
-      Once the bootcamp page is set up,
+      Also check that the boot camp is showing up properly in
+      our <a href="{{page.root}}/boot camps/index.html">boot camp index page</a>.
+      Once the boot camp page is set up,
       tweet and blog about the event.
     </p>
   </div>
 
-  <div class="well">
+  <div class="well" id="admin_list">
     <h3>Set up a mailing list</h3>
   
     <p>
       Set up a mailing list for organizers, lecturers, and helpers
-      as soon as your bootcamp is confirmed
-      so that you can inform everyone about the latest news,
-      organize who's teaching what,
-      etc.
+      so they can discuss audience, content, schedule, etc., and so
+      you can communicate with everyone easily.
       You may also set up a mailing list for attendees,
       but we have found it's easier to use the registration system
       to broadcast information as needed.
     </p>
   </div>
 
-  <div class="well">
-    <h3>Send out the pre-assessment</h3>
+  <div class="well" id="admin_assessment">
+    <h3>Set up the pre-boot camp assessment</h3>
     <p>
-      Make sure registrants have completed our standard questionnaire.
-      This is part of the EventBrite sign-up process,
-      but if the host is using their institution's registration system,
-      you will need to clone our Google Docs template.
+      Boot camp participants are asked to complete a pre-boot camp skills
+      assessment. The responses to the assessment help the instructors
+      tailor the boot camp material to the group, and they also help us
+      figure out if how we're teaching actually works.
     </p>
   </div>
 
@@ -923,7 +1019,7 @@ title: How to Run a Bootcamp
     <ul class="checklist">
       <li>
 	Host:
-	remind attendees that the bootcamp is coming up,
+	remind attendees that the boot camp is coming up,
 	and ask them to cancel if they can't attend.
       </li>
       <li>
@@ -941,7 +1037,7 @@ title: How to Run a Bootcamp
       </li>
       <li>
 	Lead instructor:
-        make sure instructors have put materials on the bootcamp web site.
+        make sure instructors have put materials on the boot camp web site.
       </li>
       <li>
 	Host or lead instructor:
@@ -960,7 +1056,7 @@ title: How to Run a Bootcamp
     <ul>
       <li>
 	Host:
-        take your instructors and helpers to dinner the evening before the bootcamp starts.
+        take your instructors and helpers to dinner the evening before the boot camp starts.
       </li>
       <li>
 	Host:
@@ -986,40 +1082,42 @@ title: How to Run a Bootcamp
   </div>
   
   <div class="well">
-    <h3>Equipment</h3>
-    <p>The host should check that the following equipment is available <em>and working</em>:</p>
+    <h3 id="host_equipment">Everything You Need</h3>
+    <p>The host should check that the following equipment and information is
+    available <em>and working</em>:</p>
     <ul class="checklist">
       <li>
-        A projector (and a spare if you can find one, or a spare bulb if you can't).
+        A projector (and a spare if you can find one, or a spare bulb if you
+        can't).
       </li>
       <li>
         A Mac VGA adapter if anyone is presenting with a Mac.
       </li>
       <li>
-        Extension cords if necessary so that everyone has access to power.
+        Extension cords and power bars if necessary.
       </li>
       <li>
-        Two different colors of Post-It notes for use as flags and for feedback.
+      Two different colors of sticky notes for use as flags and for
+      feedback. You'll need enough for each learner to have four of each color
+      per day.
       </li>
       <li>
         Guest usernames and passwords for everyone.
       </li>
       <li>
-        If possible, a couple of spare machines with the required already installed software
-        in case someone can't get access to the network, forgets their machine, has hardware problems, etc.
+        If possible, a couple of spare computers with the required already
+        installed software in case someone can't get access to the network,
+        forgets their machine, has hardware problems, etc.
       </li>
       <li>
 	A handful of USB sticks with installers on them
 	just in case there are network problems.
       </li>
       <li>
-        An attendance sheet to keep track of who actually attended.
-      </li>
-      <li>
         Photo release forms (if required).
       </li>
       <li>
-        Name badges for instructors, helpers, and attendees.
+        Name badges or stickers for instructors, helpers, and attendees.
       </li>
     </ul>
   </div>
@@ -1056,7 +1154,7 @@ title: How to Run a Bootcamp
         Make network connection instructions available on a hand-out or projector.
       </li>
       <li>
-        Tell everyone what Twitter hash tag you're using for the bootcamp.
+        Tell everyone what Twitter hash tag you're using for the boot camp.
       </li>
       <li>
         Circulate the attendance sheet and photo release form.
@@ -1068,13 +1166,13 @@ title: How to Run a Bootcamp
         Give everyone sticky notes.
       </li>
       <li>
-        Quickly remind everyone of the bootcamp's goals and schedule.
+        Quickly remind everyone of the boot camp's goals and schedule.
       </li>
     </ul>
   </div>
   
   <div class="well">
-    <h3>During the bootcamp</h3>
+    <h3>During the boot camp</h3>
     <ul class="checklist">
       <li>
 	Have a helper keep an eye on the clock:
@@ -1154,7 +1252,7 @@ title: How to Run a Bootcamp
   <h2>What <em>Not</em> To Do</h2>
   
   <p>
-    No discussion of how to teach a bootcamp would be complete without some discussion of what <em>not</em> to do.
+    No discussion of how to teach a boot camp would be complete without some discussion of what <em>not</em> to do.
     To that end, here are a few common mistakes.
   </p>
 
@@ -1188,7 +1286,7 @@ title: How to Run a Bootcamp
     <dd>
       <p>
 	Done right,
-	Software Carpentry bootcamps are a great networking opportunity for our learners (and for us, too).
+	Software Carpentry boot camps are a great networking opportunity for our learners (and for us, too).
 	If you don't know half your learners by name at the end of two days,
 	you're doing it wrong;
 	if they haven't each made at least half a dozen new contacts,
@@ -1242,7 +1340,7 @@ title: How to Run a Bootcamp
       </ul>
       <p>
 	And remember: feedback is pointless if you don't pay attention to it (or worse, if you explain it away).
-	There's no point collecting feedback after each bootcamp if you don't change what and how you teach to reflect it.
+	There's no point collecting feedback after each boot camp if you don't change what and how you teach to reflect it.
       </p>
     </dd>
   
@@ -1304,7 +1402,7 @@ title: How to Run a Bootcamp
   
 </div>
 
-<div id="faq">
+<div>
   <h2>FAQ</h2>
 
   <dl class="faq">
@@ -1320,7 +1418,7 @@ title: How to Run a Bootcamp
 	  but are usually not able to pay for their own travel.
 	</li>
 	<li>
-          It may be more difficult to get instructors to come to your bootcamp if you don't,
+          It may be more difficult to get instructors to come to your boot camp if you don't,
 	  as you're making them pay to deliver a service to you.
 	</li>
 	<li>
@@ -1333,18 +1431,18 @@ title: How to Run a Bootcamp
       </ul>
     </dd>
 
-    <dt id="ways-to-reduce-costs">How can I reduce bootcamp costs?</dt>
+    <dt id="ways-to-reduce-costs">How can I reduce boot camp costs?</dt>
     <dd>
       <p>
 	There are a number of ways you might want to consider to reduce the 
-	cost of running a bootcamp:
+	cost of running a boot camp:
       </p>
       <ul>
 	<li>
           Use your professional network to see if there are others in your
           institution or community who are willing to help with instructor
           travel expenses, room bookings or other costs. They may be willing
-          to share costs if their researchers can attend your bootcamp&hellip;
+          to share costs if their researchers can attend your boot camp&hellip;
 	</li>
 	<li>
           &hellip;or just go all-out and agree to run one jointly.
@@ -1360,17 +1458,17 @@ title: How to Run a Bootcamp
       </ul>
     </dd>
 
-    <dt id="allow-externals">Why should I allow externals to come to a bootcamp I'm paying for?</dt>
+    <dt id="allow-externals">Why should I allow externals to come to a boot camp I'm paying for?</dt>
     <dd>
       <p>
 	There are a number of reasons why you might want to consider allowing
-	externals to come to your bootcamp, whether they be researchers
+	externals to come to your boot camp, whether they be researchers
 	wishing to learn software development skills or potential hosts who
 	want to see how one is run:
       </p>
       <ul>
 	<li>
-          Others can see how a bootcamp is run and so decide whether they want to run one too,
+          Others can see how a boot camp is run and so decide whether they want to run one too,
 	  which contributes to the growth and sustainability of Software Carpentry.
 	</li>
 	<li>
@@ -1379,13 +1477,13 @@ title: How to Run a Bootcamp
 	  or foster cross-disciplinary collaboration.
 	</li>
 	<li>
-          Your profile is raised within your institution or community as one experienced in hosting bootcamps
+          Your profile is raised within your institution or community as one experienced in hosting boot camps
 	  which means others may seek your advice when they come to run theirs.
 	</li>
       </ul>
     </dd>
 
-    <dt id="commercial-offerings">Can I offer bootcamps for money?</dt>
+    <dt id="commercial-offerings">Can I offer boot camps for money?</dt>
     <dd>  
       <p>
 	Our material is all Creative Commons licensed,
@@ -1408,9 +1506,9 @@ title: How to Run a Bootcamp
 </div>
 
 <div id="ad">
-  <h2>Sample Bootcamp Advertisement</h2>
+  <h2>Sample Boot Camp Advertisement</h2>
   <pre>
-We are running a Software Carpentry bootcamp here at Euphoric
+We are running a Software Carpentry boot camp here at Euphoric
 State University on January 1-2, 2014, and would like to invite
 you attend.  Software Carpentry's aim is to teach researchers
 basic computing concepts and skills so that they can get more done
@@ -1433,11 +1531,11 @@ setting up the required software several days in advance.)  You will
 also be asked to complete a pre-assessment as part of the registration
 process so that instruction can be tailored to your needs and skills.
 
-The cost for the bootcamp is only $40. To register, please go to:
+The cost for the boot camp is only $40. To register, please go to:
 
   http://eventbrite.com/something
 
-or see http://some.other.url for information about this bootcamp in
+or see http://some.other.url for information about this boot camp in
 particular, or http://software-carpentry.org for information about
 Software Carpentry.  If you would like more information, please email
 someone@somewhere.com.
@@ -1449,7 +1547,7 @@ Host Name
 </div>
 
 <div id="homepage">
-  <h2>Sample Bootcamp Home Page</h2>
+  <h2>Sample Boot Camp Home Page</h2>
 
   <div class="well">
     <h3>Euphoric State University</h3>

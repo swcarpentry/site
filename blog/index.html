@@ -15,6 +15,21 @@ title: Blog
 </section>
 
 <hr/>
+<section id="popular">
+  <h2>Popular Posts</h2>
+  <table class="table table-striped">
+    {% for post in site.blog_favorites %}
+      {% if post.favorite %}
+        <tr>
+          <td class="date">{{post.date}}:</td>
+          <td><a href="{{page.root}}/{{post.path}}">{{post.title}}</a></td>
+	</tr>
+      {% endif %}
+    {% endfor %}
+  </table>
+</section>
+
+<hr/>
 <section id="all-posts">
   <h2>All Posts By Date</h2>
 

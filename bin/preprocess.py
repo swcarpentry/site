@@ -89,6 +89,10 @@ def main():
     config['blog_years'] = sorted(blog_lookup.keys())
     config['blog_years'].reverse()
 
+    # Construct list of favorite blog posts.
+    config['blog_favorites'] = [p for p in config['blog'] if p['favorite']]
+    config['blog_favorites'].reverse()
+
     # Get information from legacy boot camps.
     config['bootcamps'] = harvest_bootcamps()
 
@@ -125,6 +129,7 @@ def harvest_blog(config):
         for post in glob.glob('{0}/*.html'.format(folder)):
             m = harvest_metadata(post)
             m['folder'] = folder
+            fill_optional_metadata(m, 'favorite')
             all_meta.append(m)
 
     all_meta.sort(lambda x, y: cmp(x['date'], y['date']) or cmp(x['time'], y['time']))
@@ -140,8 +145,7 @@ def harvest_bootcamps():
     for f in metadata:
         bootcamps.append(metadata[f])
         bootcamps[-1]['slug'] = f.split('/')[1]
-        if 'contact' not in metadata[f]: # FIXME: need to figure out how to handle missing in templates
-            metadata[f]['contact'] = None
+        fill_optional_metadata(bootcamps[-1], 'contact')
     bootcamps.sort(lambda x, y: cmp(x['slug'], y['slug']))
     return bootcamps
 
@@ -163,6 +167,16 @@ def harvest(filespec):
 
     else:
         assert False, 'Unknown filespec "{0}"'.format(filespec)
+
+#----------------------------------------
+
+def fill_optional_metadata(post, *fields):
+    '''
+    Fill in metadata fields that are only provided for some posts.
+    '''
+    for f in fields:
+        if f not in post:
+            post[f] = None
 
 #----------------------------------------
 
