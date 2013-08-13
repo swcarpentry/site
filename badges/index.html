@@ -59,11 +59,11 @@ title: Badges
       var link = $(this).attr('href');
 
       // configure dialog
-      var assertionURL = "{{page.root}}/badges/"+kind+"/"+user+".json";
+      var assertionURL = "{{site.site}}/badges/"+kind+"/"+user+".json";
       $('#assertion-modal iframe').attr('src', assertionURL);
       $('#assertion-modal button[name=add]').click(function(e) {
         OpenBadges.issue([assertionURL]);});
-      $('#modal-badge-img').attr("src", "{{page.root}}/img/badges/"+kind+".png");
+      $('#modal-badge-img').attr("src", "{{site.site}}/img/badges/"+kind+".png");
       $('#assertion-modal div.modal-footer a').attr("href", link);
       $('#assertion-modal').modal('show');
       return false;
