@@ -23,6 +23,9 @@ SRC_BOOTCAMP = $(wildcard ./bootcamps/????-??-*/index.html)
 # Source files for badge pages.
 SRC_BADGES = ./badges/index.html
 
+# Source files for checklists.
+SRC_CHECKLISTS = ./bootcamps/checklists/*.html
+
 # Source files for Version 3 lessons.
 SRC_V3 = $(wildcard ./v3/*.html)
 
@@ -44,6 +47,7 @@ SRC_PAGES = \
     $(SRC_ABOUT) \
     ./blog/index.html $(SRC_BLOG) \
     ./bootcamps/index.html ./bootcamps/operations.html $(SRC_BOOTCAMPS) \
+    $(SRC_CHECKLISTS) \
     $(SRC_BADGES) \
     $(SRC_V3) \
     $(SRC_V4) \
