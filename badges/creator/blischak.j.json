@@ -1,0 +1,17 @@
+{
+  "recipient" : "sha256$13601a891ebbd0c06237bfb7ff3f1994d75ac06027948fc83e7b0644216e4834",
+  "salt": "software-carpentry",
+  "issued_on" : "2013-08-14",
+  "badge" : {
+    "version" : "0.5.0",
+    "name" : "Creator",
+    "image" : "/img/badges/creator.png",
+    "description" : "Creating learning materials and other content",
+    "criteria" : "/badges/creator.html",
+    "issuer" : {
+      "origin" : "http://software-carpentry.org",
+      "name" : "Software Carpentry",
+      "contact" : "admin@software-carpentry.org"
+    }
+  }
+}

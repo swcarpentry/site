@@ -1,9 +1,13 @@
 creator:
+- {name: John Blischak, user: blischak.j}
+- {name: Jennifer Bryan, user: bryan.j}
 - {name: Stephen Crouch, user: crouch.s}
 - {name: Tommy Guy, user: guy.t}
+- {name: Katy Huff, user: huff.k}
 - {name: Mike Jackson, user: jackson.m}
 - {name: Jason Montojo, user: montojo.j}
 - {name: Jon Pipitone, user: pipitone.j}
+- {name: Will Trimble, user: trimble.will}
 - {name: Ethan White, user: white.e}
 - {name: Greg Wilson, user: wilson.g}
 instructor:
