@@ -92,6 +92,10 @@ authors :
 categories :
 	@python bin/categories.py $(SRC_BLOG) | cut -d : -f 1
 
+## links      : check links
+links :
+	@bin/linklint -doc /tmp/linkdoc -root _site /@
+
 ## check      : build locally into _site directory for checking
 check :
 	make SITE=$(PWD)/_site OUT=$(PWD)/_site build
