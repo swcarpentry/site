@@ -15,10 +15,17 @@ SRC_ROOT = $(wildcard ./*.html)
 # that our preprocessor doesn't try to harvest data from it.
 SRC_BLOG = $(wildcard ./blog/????/??/*.html)
 
-# Source files of archived bootcamp pages.  Does *not* include the
-# main bootcamp index file so that our preprocessor doesn't try to
-# harvest data from it.
-SRC_BOOTCAMP = $(wildcard ./bootcamps/????-??-*/index.html)
+# Source files of archived bootcamp pages (used for extracting
+# metadata for building the calendar page).
+SRC_BOOTCAMP_PAGES = $(wildcard ./bootcamps/????-??-*/index.html)
+
+# All bootcamp source files.
+SRC_BOOTCAMP = $(SRC_BOOTCAMP_PAGES) \
+./bootcamps/index.html \
+./bootcamps/operations.html \
+./bootcamps/pre-learner.html \
+./bootcamps/post-learner.html \
+./bootcamps/post-instructor.html
 
 # Source files for badge pages.
 SRC_BADGES = ./badges/index.html
@@ -43,7 +50,7 @@ SRC_PAGES = \
     $(SRC_ROOT) \
     $(SRC_ABOUT) \
     ./blog/index.html $(SRC_BLOG) \
-    ./bootcamps/index.html ./bootcamps/operations.html $(SRC_BOOTCAMPS) \
+    $(SRC_BOOTCAMP) \
     $(SRC_BADGES) \
     $(SRC_V3) \
     $(SRC_V4) \
@@ -133,7 +140,7 @@ $(OUT)/index.html : _config.yml $(SRC_PAGES)
 	jekyll build -d $(OUT)
 
 # Make the Jekyll configuration file by adding harvested information to a fixed starting point.
-_config.yml : ./bin/preprocess.py $(SRC_CONFIG) $(SRC_BLOG) $(SRC_BOOTCAMP)
+_config.yml : ./bin/preprocess.py $(SRC_CONFIG) $(SRC_BLOG) $(SRC_BOOTCAMP_PAGES)
 	python ./bin/preprocess.py -o $(OUT) -s $(SITE)
 
 # Copy image files.  Most of these rules shouldn't be exercised,
