@@ -1,0 +1,74 @@
+---
+layout: blog
+author: Mike Jackson
+title: "What Makes Good Code Good at INTECOL13"
+date: 2013-08-23
+time: 15:00
+category: ["Community"]
+---
+<!-- start excerpt -->
+<p>
+On 21st August, I attended <a href="http://www.intecol2013.org/">INTECOL13</a> in London&#39;s Docklands. The 11th International Congress of Ecology, hosted by the <a href="http://www.britishecologicalsociety.org/">British Ecological Society</a> and <a href="http://www.intecol.net/">INTECOL</a>, is one of the world&#39;s premier conference for ecologists.</p>
+<p>
+At the invitation of Matthew Smith from the <a href="http://www.britishecologicalsociety.org/getting-involved/special-interest-groups/computational-ecology/ ">BES Computational Ecology Specialist Interest Group</a> and <a href="http://research.microsoft.com/en-us/groups/science/">Microsoft Research</a>, and Greg Wilson from <a href="http://software-carpentry.org">Software Carpentry</a>, I ran the latest instalment of <a href="http://www.software.ac.uk">The Software Sustainability Institute</a>&#39;s &quot;what makes good code good&quot; discussions...</p>
+<!-- end excerpt -->
+<p>
+	I&#39;d expected about 20 attendees and was pleasantly surprised (nay, stunned) when about 100 turned up. Fortunately, Matthew, my Institute colleagues Carole Goble and Steve Crouch were on hand to help as was Daniel Falster, a Software Carpentry instructor from Macquarie University, Australia. And, given there was only 1 flip chart available, I was glad I&#39;d packaged a good supply of sticky notes.</p>
+<p>
+	Most the attendees classed themselves as &quot;scientists who do some scripting or coding&quot;, with about half a dozen &quot;scientific programmers&quot; and half a dozen &quot;software developers&quot;. After discussing in groups, the attendees proposed that good code should be...</p>
+<ul>
+	<li>
+		<strong>Readable</strong>. Code should be well presented and indented, with understandable names for functions and variables. It should also be well-commented (e.g. functions describe their inputs and outputs). Naming, indentation and comments should also be internally consistent.</li>
+	<li>
+		<strong>Well-designed</strong>. Code should be modular and have a logical structure. Modules should be reusable. Repeated code should be avoided and instead pulled out into functions, conforming to the design heuristic DRY - Don&#39;t Repeat Yourself. A good design takes time and this should be invested before starting to write code. Design may take into account whether there will be any intention to exploit parallel processing, as it is significantly less effort to parallelize a code that has been designed to exploit parallelism than to parallelize one that hasn&#39;t (which may incur a complete rewrite of the code).</li>
+	<li>
+		<strong>Correct</strong>. Code must produce the right results, so that researchers can have confidence in it, and the results derived from it. Code should be supported by tests, as these can help to demonstrate correctness. Ideally, code should also be subject to some form of peer review or inspection.</li>
+	<li>
+		<strong>Robust</strong>. Code should be resilient and handle scenarios outwith expected usage (e.g. incorrect input values). Code should fail gracefully, with appropriate and informative error messages. It should also have built-in support for debugging and, ideally, this should include some form of visualisation.</li>
+	<li>
+		<strong>Efficient</strong>. Code should be efficient in its use of CPU and memory. However, there can be trade-offs between efficiency and readability.</li>
+	<li>
+		<strong>Flexible</strong>. Relating to good design,&nbsp;code should be flexible, adaptable and reusable, not just by the original developer, but for others outwith the project.</li>
+	<li>
+		<strong>Documented</strong>. Code should come with good supporting user documentation and case studies. These should not just be about how the code works, but how another researcher can use it, for their problems. Versions of third-party technologies, languages and libraries required should also be clearly documented to help others build and use it more easily.</li>
+	<li>
+		<strong>Use open technologies, languages, dependencies</strong>. These are often available at lower cost, or free, as opposed to commercial packages and their use can remove one barrier to the adoption of the code.</li>
+	<li>
+		<strong>Referencable</strong>. Code should be referencable and citable and not necessarily require a supporting journal or conference paper.</li>
+	<li>
+		<strong>Under revision control</strong>. Code should be held under revision control so that all the changes that have been made to it, its provenance, is recorded.</li>
+	<li>
+		<strong>Available</strong>. Code should be open and available e.g. on GitHub, to allow other researchers both to use it and to review it.</li>
+	<li>
+		<strong>Usable</strong>. Code should be easy to use by other researchers.</li>
+	<li>
+		<strong>Benchmarked</strong>. Code should be accompanied by benchmarks to allow users to understand its efficiency and scalability and whether it is suitable for their requirements.</li>
+</ul>
+<p>
+	A tally of the votes for each category, from&nbsp;the content of the sticky notes filled in by each group of attendees,&nbsp;is shown in the following pie chart,</p>
+<p>
+	<img alt="Pie chart of attendees views as to what makes good code" src="INTECOL13-pie-chart.jpg" style="height: 498px; width: 717px" /></p>
+<p>
+	The responses and the focus on readability, clarity and correctness, overlap closely with commonly-understood definitions of good code as taught on software development courses or expressed in numberous articles and blogs (see, for example, <a href="http://msdn.microsoft.com/en-us/magazine/cc163962.aspx">What makes good code good </a>by Paul DiLascia, MSDN Magazine, 07/2004, p144, or Christopher Diggins&#39;s <a href="http://www.oreillynet.com/onlamp/blog/2005/09/the_properties_of_good_code.html">The Properties of Good Code</a>, 27/09/2005).</p>
+<p>
+	A number of blockers that can inhibit producing &quot;good code&quot; were also suggested. These included:</p>
+<ul>
+	<li>
+		<strong>Writing code &quot;for me&quot;</strong>. Many researchers write code for their own research, to produce the results they need, and won&#39;t spend the time making their code readable and usable by others. Often this comes down to a...</li>
+	<li>
+		<strong>Lack of time</strong>. Researchers have many demands on their time and making code &quot;good&quot; is often sacrificed to these other demands, especially authoring journal or conference papers. This can be a consequence of a...</li>
+	<li>
+		<strong>Lack of reward</strong>. Researchers are judged on their research outputs, which are primarily papers. As code does not currently have the same statute as a journal paper, for example, it is understandable that researchers may invest less time on it.</li>
+	<li>
+		<strong>Lack of training</strong>. Researchers may not have access to the training they might need to write good code. As one attendee commented, &quot;Where is &#39;Error messages 101?&#39;&quot;.</li>
+	<li>
+		<strong>No local experts</strong>. Researchers may not have local experts on-hand to help and share expertise. This could be provided by an institution-wide team of dedicated experts (for example&nbsp;<a href="http://www.software.ac.uk/blog/2012-11-09-craftsperson-and-scholar">research software engineers</a>). However, even an agreement amongst a group of researchers to use the same languages and technologies can help a peer support group evolve.</li>
+	<li>
+		<strong>How to couple models, papers, code and documentation</strong>. A paper documents a model used for research, the code implements that model, and documentation describes the implementation. What is the best way to couple these artefacts together? What is needed for reusable, reproducible, reviewable research?</li>
+	<li>
+		<strong>Unawareness of what already exists</strong>. Often researchers don&#39;t know what tools already exist, or even where to find out whether there are such tools. As a result they may invest precious project resources reinventing the wheel.</li>
+	<li>
+		<strong>Tools that almost do the job</strong>. There are often a number of related tools that can satisfy a researcher&#39;s requirements. However, each of these may do similar things in slightly different ways so the researcher either has to use more than one or may even write their own to do exactly what they need. How can such divergence be resolved? How can related projects be encouraged to work together?</li>
+</ul>
+<p>
+	A big thank you to Matthew and Greg for the inviting the Institute to run the session, the INTECOL13 organisers for allowing us to do so, Carole, Steve, Matthew and Daniel for helping out, and the attendees themselves for taking part and sharing their time, experiences and opinions.</p>
