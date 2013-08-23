@@ -1,0 +1,183 @@
+---
+layout: base
+root: ..
+title: Make Things
+---
+<p>
+  Software Carpentry is an open project.
+  Like all such projects,
+  it needs your help to grow.
+  If you see a mistake in on our website,
+  please add a comment to the appropriate page
+  or <a href="mailto:{{site.contact}}">mail us</a>
+  and we'll fix it as quickly as we can.
+</p>
+
+<div id="github">
+  <h2>Fork Us on GitHub</h2>
+
+  <p>
+    If you are interested in developing the Software Carpentry content,
+    we have put our materials into these repositories on <a href="https://github.com/swcarpentry">GitHub</a>.
+  </p> 
+
+  <table class="table table-striped">
+    <tr>
+      <th>Repository</th>
+      <th>Description</th>
+      <th>Contributing Docs</th>
+    </tr>
+
+    <tr>
+      <td><a href="https://github.com/swcarpentry/bc">bc</a></td>
+      <td>The starting point for bootcamp home pages, including most of our teaching materials.</td>
+      <td>
+	<a href="https://github.com/swcarpentry/bc">README</a>
+      </td>
+    </tr>
+
+    <tr>
+      <td><a href="https://github.com/swcarpentry/site">site</a></td>
+      <td>Holds the content of our site.</td>
+      <td>
+	<a href="https://github.com/swcarpentry/site/blob/master/README.md">README</a>,
+      </td>
+    </tr>
+
+    <tr>
+      <td><a href="https://github.com/swcarpentry/v4">v4</a></td>
+      <td>
+	Companion repository to <a href="https://github.com/swcarpentry/site">site</a>
+	holding the 4.0 teaching materials: online video lectures and slides.
+      </td>
+      <td>No longer under development</td>
+    </tr>
+
+    <tr>
+      <td><a href="https://github.com/swcarpentry/v3">v3</a></td> 
+      <td>
+	Companion repository to <a href="https://github.com/swcarpentry/site">site</a> 
+	holding the 3.0 teaching materials: basic HTML pages and slides.
+      </td>
+      <td>No longer under development</td>
+    </tr>
+
+  </table>
+
+  <p>
+    These older repositories are still accessible,
+    but their content is no longer being maintained:
+  </p>
+
+  <ul>
+    <li>
+      <a href="https://github.com/swcarpentry/website">website</a>:
+      the old website.
+    </li>
+    <li>
+      <a href="https://github.com/swcarpentry/boot-camps">boot-camps</a>:
+      used for lesson materials and bootcamp home pages Sept. 2012&ndash;July 2013.
+    </li>
+    <li>
+      <a href="https://github.com/swcarpentry/lessons_3_0">lessons_3_0</a>:
+      Version 3 lesson materials.
+    </li>
+    <li>
+      <a href="https://github.com/swcarpentry/lessons_4_0">lessons_4_0</a>:
+      Version 4 lesson materials.
+    </li>
+  </ul>
+
+  <p>
+    Pull requests are always welcome,
+    or you can <a href="mailto:{{site.contact}}">mail us</a>
+    to talk about what you'd like to do
+    and how we can help.
+  </p>
+</div>
+
+<div id="content">
+  <h2>New Exercises, Lessons, and Examples</h2>
+
+  <p>
+    We welcome new exercises and lessons
+    (particularly lessons that show how the things we teach fit together
+    by working through medium-sized problems).
+    A good exercise has a single clear focus,
+    and should be doable in five minutes or less;
+    for examples,
+    take a look at the "Challenges" sections of
+    <a href="{{site.github_io_url}}/bc/lessons/swc-shell/tutorial.html">our introduction to the Unix shell</a>.
+    We'd particularly like Python exercises that use
+    <a href="#related">ipythonblocks and skimage.novice</a> in the IPython Notebook,
+    exercises for our <a href="{{site.github_io_url}}/bc/lessons/swc-web/tutorial.html">web programming lesson</a>,
+    and ones for using Git and GitHub.
+  </p>
+
+  <p>
+    For an example of what we'd like in a longer lesson,
+    please look at the <a href="{{page.root}}/v4/invperc/">invasion percolation example</a>,
+    which covers topics as diverse as restructuring code to make it more testable,
+    performance profiling,
+    and the advantages of lazy data structures.
+    Such examples can be specific to different research disciplines,
+    which often makes them the most convincing part of our bootcamp.
+    If you're looking for starting points,
+    we'd like to rewrite our examples of
+    <a href="{{page.root}}/v4/setdict/phylogen.html">constructing phylogenetic trees</a>,
+    <a href="{{page.root}}/v4/media/steg.html">counting stars</a>,
+    and
+    <a href="{{page.root}}/v4/media/stars.html">steganography</a>.
+    We'd like to add
+    a simple N-body simulation that included discussion of testing in the face of floating-point roundoff,
+    calculating and visualizing spatial correlations between different data sets,
+    something like Prof. Lorena Barba's
+    <a href="http://lorenabarba.com/blog/cfd-python-12-steps-to-navier-stokes/">12 Steps to Navier Stokes</a>
+    (but shorter, since we only have a couple of hours),
+    and some more gene sequence wrangling.
+    If you'd like to tackle one of these,
+    or have ideas of your own,
+    please <a href="mailto:{{site.contact}}">email us</a>:
+    we'd be happy to chat.
+  </p>
+</div>
+
+<div id="related">
+  <h2>Related Projects</h2>
+
+  <p>
+    We teach using many people's tools,
+    and contributions to those will always help us.
+    In particular:
+  </p>
+
+  <ul>
+    <li>
+      <a href="http://github.com/jiffyclub/ipythonblocks">ipythonblocks</a>
+      and
+      <a href="http://github.com/synesthesiam/novice">skimage.novice</a>
+      have let us adopt a media-first approach to teaching programming.
+      Enhancements to either of these are very welcome.
+    </li>
+    <li>
+      <a href="http://github.com/wolever/browsercast">BrowserCast</a> will,
+      when finished,
+      allow us to replay an IPython Notebook in sync with a voiceover&mdash;in other words,
+      to use the Notebook for screencasting
+      <em>without</em> the large file sizes
+      and loss of first-class content
+      that plague current screencasting options.
+    </li>
+    <li>
+      There are lots of plugins for the <a href="http://ipython.org">IPython Notebook</a>
+      that would make our job easier.
+      We'd particularly like something like <a href="http://regexpal.com">Regex Pal</a>
+      for teaching regular expressions
+      and an embedded vector drawing widget for doing diagrams.
+      If you're interested in working with a great bunch of developers
+      on a tool that's changing the way scientists work every day,
+      please <a href="mailto::{{site.contact}}">get in touch.
+    </li>
+  </ul>
+
+</div>

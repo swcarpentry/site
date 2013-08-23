@@ -1,6 +1,7 @@
 contact         : "info@software-carpentry.org"
 facebook_url    : "https://www.facebook.com/SoftwareCarpentry"
 github_url      : "https://github.com/swcarpentry"
+github_io_url   : "http://swcarpentry.github.io"
 google_plus_url : "https://plus.google.com/u/0/114244759874490019250/posts"
 rss_url         : "http://software-carpentry.org/feed.xml"
 twitter_name    : "@swcarpentry"
