@@ -1,0 +1,120 @@
+---
+layout: blog
+author: Greg Wilson
+title: "Two Cheers for GitHub"
+date: 2013-08-23
+time: "10:00:00"
+category: ["opinion"]
+---
+<!-- start excerpt -->
+<p>
+  There's been a micro-flurry of excitement in the scientific world
+  about <a href="https://help.github.com/articles/rendering-csv-and-tsv-data">GitHub's recent announcement that</a>
+  they will now render tabular text files (i.e., CSV and TSV) on their site.
+  Coming the heels of their support for <a href="https://help.github.com/articles/mapping-geojson-files-on-github">GeoJSON</a>,
+  this is still more evidence that they're serious about becoming
+  a platform for working with data.
+</p>
+<p>
+  So why only two cheers?
+  Because they're going about it in the wrong way,
+  and as a consequence,
+  they'll deliver a lot less value than they could,
+  a lot later than they could.
+</p>
+<!-- end excerpt -->
+<p>
+  To understand why,
+  you need to understand how Facebook plugins work
+  technically and socially.
+  Nobody actually plays Scrabble "on" Facebook;
+  instead,
+  when you click on the tiles to put down the word "syzygy",
+  Facebook sends a packet of information from its server
+  to the server that hosts the Scrabble game.
+  That server calculates your score and gives you new tiles
+  and then produces a chunk of HTML
+  that it sends back to Facebook.
+  Facebook then inserts that HTML into its own page
+  to display to you.
+</p>
+<p>
+  The key thing here&mdash;the thing that fuelled Facebook's explosive growth&mdash;is
+  that Facebook doesn't have to write, debug, and maintain the Scrabble program.
+  They didn't have to create ZooVille, either,
+  or the appointment calendar app my saxophone teacher used to use,
+  or anything else.
+  Instead,
+  Facebook provides a platform that keeps track of users' passwords,
+  their connections with each other,
+  and (crucially) what plugins they've enabled.
+  And <em>this</em> has meant that Facebook's users can take advantage of
+  the work of millions of programmers,
+  rather than "just" what a few thousand Facebook employees are able to produce.
+</p>
+<p>
+  Imagine what the world would look like if GitHub worked like this.
+  Imagine a world in which a grad student with time on her hands
+  could have built a CSV display widget
+  and offered it to the GitHub community
+  two or three years ago.
+  Imagine a world in which a research group that had built
+  performance prediction tools for scientific software
+  could wrap those up as a plugin
+  so that people could browser for hotspots in their R code
+  as they were doing code reviews.
+  Imagine&mdash;
+</p>
+<p>
+  What's that?
+  GitHub has an API?
+  Why yes,
+  that's true,
+  and in theory that means people can provide all these services right now.
+  The problem,
+  though,
+  is that if people have to leave one site and go to another
+  in order to use your software,
+  they won't.
+  It's like asking people to go up a single flight of stairs
+  in order to collaborate with one another:
+  it doesn't seem like a big deal,
+  but <a href="http://www.amazon.com/Understanding-Offices-Manager-Buildings-business/dp/0140169121/">it cuts communication by more than 90%</a>.
+  And if they have to download and install something,
+  well,
+  how much fun has <em>that</em> ever been?
+</p>
+<p>
+  Facebook isn't our only guide to how much better life would be
+  if GitHub was a platform rather than a closed box.
+  In the early 2000s,
+  Eclipse was the IDE of choice for millions of programmers.
+  A major reason for its popularity was its plugin ecosystem:
+  if you had a new code analysis package,
+  or a better interface to a web-hosted bug tracker,
+  you could offer people just that
+  without having to design, build, or test
+  all the other things needed to make a tool credible.
+  (As a colleague of mine said back then,
+  "Eclipse means I never have to figure out how to get stuff to print again.")
+</p>
+<p>
+  Science is huge:
+  it encompasses everything in the universe.
+  But it's also pretty small:
+  there are often only a handful of people who really understand some topic,
+  and only a handful more who even know it exists.
+  Software companies can't afford to serve that long tail themselves,
+  but they <em>can</em> give us the means to help ourselves.
+  It does mean giving up a bit of control,
+  but it doesn't seem to have hurt Facebook or Eclipse.
+  So,
+  two cheers once again for GitHub,
+  and here's hoping that we'll be able to give them a third cheer soon.
+</p>
+<p><em>
+  For more on this subject, see <a href="http://steverant.pen.io/">Steve Yegge's epic rant about Google+</a>.
+  And yes,
+  Facebook is a walled garden that profits from selling people's private lives,
+  but that doesn't undermine the arguments in favor of platforms.
+</em></p>
