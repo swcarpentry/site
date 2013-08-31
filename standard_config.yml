@@ -6,6 +6,7 @@ google_plus_url : "https://plus.google.com/u/0/114244759874490019250/posts"
 rss_url         : "http://software-carpentry.org/feed.xml"
 twitter_name    : "@swcarpentry"
 twitter_url     : "https://twitter.com/swcarpentry"
+irc_url         : "irc://freenode/swcarpentry"
 recent_length   : 10
 blog_title      : "Software Carpentry"
 blog_subtitle   : "Helping scientists make better software since 1998"
