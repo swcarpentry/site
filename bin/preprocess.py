@@ -10,13 +10,15 @@ import datetime
 import time
 import yaml
 from optparse import OptionParser
-from util import CONFIG_YML, STANDARD_YML, P_BLOG_EXCERPT, harvest_metadata, load_info
-
-# File generated from admin database with badging information.
-BADGES_YML = 'badges_config.yml'
-
-# File generated from admin database with airport information (instructor locations).
-AIRPORTS_YML = 'airports_config.yml'
+from util import CONFIG_YML, \
+                 STANDARD_YML, \
+                 AIRPORTS_YML, \
+                 BADGES_YML, \
+                 BOOTCAMP_URLS_YML, \
+                 BOOTCAMP_CACHE, \
+                 P_BLOG_EXCERPT, \
+                 harvest_metadata, \
+                 load_info
 
 # Translate two-digit month identifiers into short names.
 MONTHS = {
@@ -52,9 +54,17 @@ def main():
 
     # Get the standard stuff.
     options, args = parse_args()
-    config = load_info(os.curdir, STANDARD_YML)
-    config['badges'] = load_info(os.curdir, BADGES_YML)
-    config['airports'] = load_info(os.curdir, AIRPORTS_YML)
+
+    # Check that a cached bootcamp information file is available, and
+    # report an error if it's not.  Do this early to avoid wasting
+    # time; store in local variable until other bootcamp info is
+    # loaded and available for merging.
+    cached_bootcamp_info = load_cached_bootcamp_info(os.curdir, BOOTCAMP_CACHE)
+
+    # Load other information.
+    config = load_info(options.config_dir, STANDARD_YML)
+    config['badges'] = load_info(options.config_dir, BADGES_YML)
+    config['airports'] = load_info(options.config_dir, AIRPORTS_YML)
     config.update({
         'month_names'     : MONTHS,
         'months'          : sorted(MONTHS.keys()),
@@ -93,8 +103,8 @@ def main():
     config['blog_favorites'] = [p for p in config['blog'] if p['favorite']]
     config['blog_favorites'].reverse()
 
-    # Get information from legacy boot camps.
-    config['bootcamps'] = harvest_bootcamps()
+    # Get information from legacy boot camp pages and merge with cached info.
+    config['bootcamps'] = harvest_bootcamps(cached_bootcamp_info)
 
     # Select those that'll be displayed on the home page.
     upcoming = [bc for bc in config['bootcamps'] if bc['startdate'] >= config['today']]
@@ -110,6 +120,7 @@ def parse_args():
     '''Parse command-line arguments.'''
 
     parser = OptionParser()
+    parser.add_option('-c', '--config', dest='config_dir', help='configuration directory')
     parser.add_option('-o', '--output', dest='output', help='output directory')
     parser.add_option('-s', '--site', dest='site', help='site')
     parser.add_option('-t', '--today', dest='today', help='build date',
@@ -118,6 +129,18 @@ def parse_args():
                       default=False, action='store_true')
     options, args = parser.parse_args()
     return options, args
+
+#----------------------------------------
+
+def load_cached_bootcamp_info(folder, filename):
+    '''Load cached bootcamp info if available, fail if not.'''
+    path = os.path.join(folder, filename)
+    if not os.path.isfile(path):
+        print >> sys.stderr, 'Bootcamp information cache "{0}" does not exist.'.format(path)
+        print >> sys.stderr, 'Please use "make cache" before building site,'
+        print >> sys.stderr, 'Or run "bin/get_bootcamp_info" to regenerate it.'
+        sys.exit(1)
+    return load_info(folder, filename)
 
 #----------------------------------------
 
@@ -137,11 +160,10 @@ def harvest_blog(config):
 
 #----------------------------------------
 
-def harvest_bootcamps():
-    '''Harvest metadata from all boot camp index.html pages.'''
+def harvest_bootcamps(bootcamps):
+    '''Harvest metadata from all boot camp index.html pages and merge with cached info.'''
     pages = glob.glob('bootcamps/*/index.html')
     metadata = harvest(pages)
-    bootcamps = []
     for f in metadata:
         bootcamps.append(metadata[f])
         bootcamps[-1]['slug'] = f.split('/')[1]

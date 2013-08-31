@@ -59,7 +59,7 @@ title: Boot Camps
       {% if bootcamp.startdate >= site.today %}
         <tr>
           <td><img src="{{page.root}}/assets/flags/{{site.flag_size}}/{{bootcamp.country}}.png" alt="{{bootcamp.country}}" /></td>
-          <td class="link"><a href="{{page.root}}/{{bootcamp.path}}">{{bootcamp.venue}}</a></td>
+          <td class="link"><a href="{% if bootcamp.url %}{{bootcamp.url}}{% else %}{{page.root}}/{{bootcamp.path}}{% endif %}">{{bootcamp.venue}}</a></td>
           <td class="registration">
             {% if bootcamp.registration %}{{bootcamp.registration}}{% endif %}
           </td>
@@ -107,7 +107,7 @@ title: Boot Camps
       {% if bootcamp.startdate < site.today %}
         <tr>
           <td><img src="{{page.root}}/assets/flags/{{site.flag_size}}/{{bootcamp.country}}.png" alt="{{bootcamp.country}}" /></td>
-          <td class="link"><a href="{{page.root}}/{{bootcamp.path}}">{{bootcamp.venue}}</a></td>
+          <td class="link"><a href="{% if bootcamp.url %}{{bootcamp.url}}{% else %}{{page.root}}/{{bootcamp.path}}{% endif %}">{{bootcamp.venue}}</a></td>
           <td class="date">{{bootcamp.humandate}}</td>
         </tr>
       {% endif %}

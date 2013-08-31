@@ -3,4 +3,5 @@
 .DS_Store
 _site
 _config.yml
+_bootcamp_cache.yml
 _includes/recent_blog_posts.html
