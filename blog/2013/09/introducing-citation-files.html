@@ -1,0 +1,50 @@
+---
+layout: blog
+author: Greg Wilson
+title: "Introducing Citation Files"
+date: 2013-09-09
+time: "10:30:00"
+category: ["Community","Tooling"]
+---
+<!-- start excerpt -->
+<p>
+  Robin Wilson,
+  of the University of Southampton,
+  recently posted a note on the Software Sustainability Institute's blog
+  about <a href="http://www.software.ac.uk/blog/2013-09-02-encouraging-citation-software-introducing-citation-files">CITATION files</a>.
+  In brief,
+  he (and we) would like to encourage scientific programmers
+  to put a plain text file called CITATION
+  in the root directory of each project,
+  and to use it to tell readers how best to cite that software.
+  The example Robin gives is:
+</p>
+<!-- end excerpt -->
+<pre>
+To cite ggplot2 in publications, please use:
+
+H. Wickham. ggplot2: elegant graphics for data analysis. Springer New York, 2009.
+
+A BibTeX entry for LaTeX users is
+
+@Book{,
+    author = {Hadley Wickham},
+    title = {ggplot2: elegant graphics for data analysis},
+    publisher = {Springer New York},
+    year = {2009},
+    isbn = {978-0-387-98140-6},
+    url = {http://had.co.nz/ggplot2/book},
+}
+</pre>
+<p>
+  This is similar in mechanism and intent to the <code>README</code>,
+  <code>LICENSE</code>,
+  and <code>INSTALL</code> files commonly found in open source projects,
+  and while it's not a perfect solution,
+  it's a pretty good one.
+  So go ahead,
+  write some <code>CITATION</code> files today
+  and tweet your project's URL with the hash tag
+  <a href="https://twitter.com/search?q=%23citationfile">#citationfile</a>;
+  we'll post some of those links here soon.
+</p>
