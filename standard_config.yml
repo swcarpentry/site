@@ -11,7 +11,6 @@ recent_length   : 10
 blog_title      : "Software Carpentry"
 blog_subtitle   : "Helping scientists make better software since 1998"
 training_url    : "http://teaching.software-carpentry.org"
-listserv_url    : "http://lists.software-carpentry.org/listinfo.cgi"
 flag_size       : 16
 admin_overhead  : $1500
 colors          : {past : FE7070, open : 70FE80, full : FEFE70, restricted : 7070FE, instructor : 70FEFE}
