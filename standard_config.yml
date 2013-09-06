@@ -14,4 +14,4 @@ training_url    : "http://teaching.software-carpentry.org"
 flag_size       : 16
 admin_overhead  : $1500
 colors          : {past : FE7070, open : 70FE80, full : FEFE70, restricted : 7070FE, instructor : 70FEFE}
-exclude         : [standard_config.yml, badges_config.yml, papers, talks]
+exclude         : [standard_config.yml, badges_config.yml, talks]

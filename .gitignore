@@ -1,4 +1,8 @@
 *~
+*.aux
+*.bbl
+*.blg
+*.log
 *.pyc
 .DS_Store
 _site
