@@ -98,6 +98,7 @@ def main():
 
     # Select those that'll be displayed on the home page.
     upcoming = [bc for bc in config['bootcamps'] if bc['startdate'] >= config['today']]
+    config['bootcamps_upcoming_count'] = len(upcoming)
     config['bootcamps_upcoming'] = upcoming[:recent_length]
 
     # Save.
