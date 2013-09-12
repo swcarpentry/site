@@ -1,0 +1,83 @@
+---
+layout: blog
+author: Konrad Hinsen
+title: "Konrad Hinsen: What I've Learned"
+date: 2013-09-11
+time: "09:00:00"
+category: ["Community", "Experience Report"]
+---
+<!-- start excerpt -->
+<p>
+  All of my research has been based on computation,
+  starting with my Master's thesis (1989) on the dynamics of colloidal suspensions.
+  Back then,
+  computational physics concentrated on simple systems,
+  and scientists usually wrote their own simple software from scratch.
+  When I started to work on biomolecular simulations five years later,
+  I discovered the sad state of non-trivial scientific software,
+  written by generations of PhD students and postdocs who learned Fortran "on the job"
+  and had the prime goal of getting their research project done with a minimum of programming effort.
+</p>
+<!-- end excerpt -->
+<p>
+  I started looking for better tools for scientific software,
+  discovered the Python language, and joined the small group of researchers who were developing the "Numerical Python" package
+  (the precursor of today's <a href="http://numpy.scipy.org/">NumPy</a> with the goal of doing computational science in Python.
+  When an <a href="http://www.hfsp.org/">HFSP</a> grant gave me the freedom to choose the tools I like,
+  I decided to write a Python library for biomolecular simulation and to publish it as an Open Source package.
+  It's called the <a href="http://dirac.cnrs-orleans.fr/MMTK/">Molecular Modeling Toolkit</a> (MMTK),
+  and it has become popular for developing molecular simulation methods.
+  When distributed version control systems appeared,
+  I adopted <a href="http://mercurial.selenic.com/">Mercurial</a> for MMTK development,
+  which is now hosted on <a href="https://bitbucket.org/khinsen/mmtk">Bitbucket</a>.
+</p>
+<p>
+  MMTK has been the central tool for most of my own research work on protein structure and dynamics,
+  in particular for the development of <a href="http://dirac.cnrs-orleans.fr/plone/Members/hinsen/elastic-network-models-for-proteins">Elastic Network Models</a>.
+  I try to publish the MMTK-based Python scripts underlying my publications
+  (here's an <a href="http://dirac.cnrs-orleans.fr/plone/Members/hinsen/software-for-normal-mode-calculations-on-a-protein-crystal">example</a>),
+  so that others can reproduce the results and apply the techniques to their own problems.
+  Others have adopted MMTK for building their own tools,
+  examples are the visualization program <a href="http://www.cgl.ucsf.edu/chimera/">Chimera</a>,
+  the normal-mode Web application <a href="http://apps.cbu.uib.no/webnma/home">WEBnmS</a>,
+  and the MD analyis package <a href="http://dirac.cnrs-orleans.fr/plone/software/nmoldyn/nmoldyn-2">nMOLDYN</a>.
+  All this became possible because MMTK is published as Open Source software.
+</p>
+<p>
+  Like everything related to computing technology,
+  scientific computing has been evolving at a rapid pace and this process is likely to continue.
+  The biggest challenge I see today is the integration of software into the process of doing science.
+  We tend to consider software as the equivalent of some experimental apparatus:
+  a tool that does a well-defined job,
+  which the scientists needs to understand of course,
+  but whose construction and detailed workings can be left to specialists.
+  However,
+  computing has been growing in importance for research to the point that it ranks equal to mathematics and to many experimental techniques.
+  For more and more research studies,
+  the "methods" part is nothing but algorithms.
+  We need to make sure that scientists understand these algorithms,
+  but we also need to make sure that the highly optimized versions of these algorithms that are implemented in software
+  are indeed equivalent to the simple versions that are presented in the papers.
+  A question that we need to ask ourselves constantly is:
+  given that software is known to have bugs,
+  why should anyone believe that our computational results are right?
+</p>
+<p>
+  The <a href="http://reproducibleresearch.net/index.php/Main_Page">Reproducible Research</a> movement
+  is making an important contribution to this development by encouraging more openness and transparency in computational science,
+  and I am adopting reproducible research for my own work in molecular simulation.
+  Since existing tools did not support large binary datasets and projects requiring multiple computing platforms,
+  I am developing my own toolset called <a href="http://dirac.cnrs-orleans.fr/plone/software/activepapers">ActivePapers</a>.
+  Molecular simulation has the additional problem of a lack of flexible and documented file formats
+  for publishing and archiving detailed and machine-readable descriptions of simulations.
+  I am working on that aspect as well in the <a href="https://bitbucket.org/molsim/mosaic/">MOSAIC</a> project.
+</p>
+<p>
+  Still,
+  the biggest obstacle for more reliable computational science is not technology,
+  but the lack of problem awareness in the scientific community and the lack of computational compentence among practicing scientists.
+  And that's why I joined Software Carpentry as an instructor.
+  I am convinced that these bootcamps are useful,
+  but they are also fun,
+  and a good way to meet scientists from different fields who care about the same problems.
+</p>
