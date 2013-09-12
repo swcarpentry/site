@@ -4,11 +4,9 @@
 \newcommand{\footurl}[1]{\footnote{\texttt{#1}}}
 \newcommand{\term}[1]{\emph{#1}}
 
-\newcounter{PracticeSection}
-\newcounter{PracticeIdentifier}[PracticeSection]
-\newcommand{\practice}[1]{\stepcounter{PracticeIdentifier}\emph{{#1}~(\arabic{PracticeSection}.\arabic{PracticeIdentifier})}}
-
-\newcommand{\practicesection}[2]{\refstepcounter{PracticeSection}\section{\arabic{PracticeSection}.~{#1}}\label{#2}}
+\newcommand{\practicesection}[2]{\section{#1}\label{#2}}
+\newcounter{PracticeIdentifier}[section]
+\newcommand{\practice}[1]{\stepcounter{PracticeIdentifier}\textbf{\emph{{#1}~(\arabic{section}.\arabic{PracticeIdentifier})}}}
 
 \title{Best Practices for Scientific Computing}
 \date{\today}
@@ -132,15 +130,36 @@ and
 Yoav Ram
 for feedback on earlier versions of this paper.
 
-Neil Chue Hong was supported by the UK Engineering and Physical Sciences Research Council (EPSRC)
-Grant EP/H043160/1 for the UK Software Sustainability Institute.
+Neil Chue Hong was supported by the UK Engineering and Physical
+Sciences Research Council (EPSRC) Grant EP/H043160/1 for the UK
+Software Sustainability Institute.
 
 Ian M. Mitchell was supported by NSERC Discovery Grant \#298211.
 
-Mark Plumbley was supported by a Leadership Fellowship (EP/G007144/1 and EP/H043101/1)
-for SoundSoftware.ac.uk from the EPSRC.
+Mark Plumbley was supported by a Leadership Fellowship (EP/G007144/1
+and EP/H043101/1) for SoundSoftware.ac.uk from the EPSRC.
 
-Ethan White was supported by a CAREER grant from the US National Science Foundation (DEB 0953694).
+Ethan White was supported by a CAREER grant from the US National
+Science Foundation (DEB 0953694).
+
+\subsection*{A Note on Scope}
+
+We believe that following open access to software and data,
+reproducibility, and the equivalent of good lab skills for
+computational work are all necessary to improving scientific
+computing, but are in practice distinct topics.  (As evidence, we are
+familiar with individuals and groups that do each of these without
+doing the other two.)  We have therefore chosen to focus this paper on
+the single issue of ``computational competence'' both to better
+produce a clear and concise treatment of it and to convince scientists
+that theses practices are important regardless of the other decisions
+that they make about how to conduct their science.
+
+We have also chosen to refer in some cases to the secondary software
+engineering literature rather than to primary sources.  This is partly
+to keep our reference list short, but we also believe that surveys
+such as \cite{oram2010} are more accessible to scientists working
+outside software engineering research.
 
 \practicesection{Write programs for people, not computers.}{cognition}
 
@@ -191,7 +210,8 @@ def rect_area(point1, point2):
 \noindent
 The latter function is significantly easier for people to read and
 remember, while the former is likely to lead to errors, not least
-because it is possible to call it with values in the wrong order:
+because it is possible to call the original with values in the wrong
+order:
 
 \begin{small}
 \begin{verbatim}
@@ -199,63 +219,46 @@ surface = rect_area(x1, x2, y1, y2)
 \end{verbatim}
 \end{small}
 
-Second, \practice{names should be consistent, distinctive, and
-meaningful}. For example, using non-descriptive names, like
-\texttt{a} and \texttt{foo}, or names that are very similar, 
-like \texttt{results} and \texttt{results2}, is likely to
+Second, scientists should \practice{make names consistent,
+  distinctive, and meaningful}. For example, using non-descriptive
+names, like \texttt{a} and \texttt{foo}, or names that are very
+similar, like \texttt{results} and \texttt{results2}, is likely to
 cause confusion.
 
-Third, \practice{code style and formatting
-should be consistent}. If different parts of a scientific paper
-used different formatting and capitalization, it would make 
-that paper more difficult to read. Likewise, if different parts
-of a program are indented differently, or if programmers mix
-\texttt{CamelCaseNaming} and \texttt{pothole\_case\_naming}, code
-takes longer to read and readers make more mistakes
-\cite{letovsky1986,binkley2009}.
+Third, scientists should \practice{make code style and formatting
+  consistent}. If different parts of a scientific paper used different
+formatting and capitalization, it would make that paper more difficult
+to read. Likewise, if different parts of a program are indented
+differently, or if programmers mix \texttt{CamelCaseNaming} and
+\texttt{pothole\_case\_naming}, code takes longer to read and readers
+make more mistakes \cite{letovsky1986,binkley2009}.
 
-Finally, where possible, \practice{all aspects of software development
-  should be broken down into tasks roughly an hour long}, and
-programmers should pace themselves to maximize long-term
-productivity. Our brains get tired: on short time scales, focus starts
-to fade after an hour to ninety minutes of intense concentration, and
-there is a sharp increase in error rates. In practice,
-this means working in chunks of 50--200 lines of code at a time
-\cite{prechelt2010,cohen2010}. On longer time scales, total
-productivity is maximized when people work roughly 40 hours a week
-because error rates increase markedly past that point
-\cite{robinson2005}.
+\practicesection{Let the computer do the work.}{automation}
 
-\practicesection{Automate repetitive tasks.}{automation}
+Science often involves repetition of computational tasks such as
+processing large numbers of data files in the same way or regenerating
+figures each time new data is added to an existing analysis. Computers
+were invented to do these kinds of repetitive tasks but, even today,
+many scientists type the same commands in over and over again or click
+the same buttons repeatedly \cite{aranda2012}. In addition to wasting
+time, sooner or later even the most careful researcher will lose focus
+while doing this and make mistakes.
 
-Computers were invented to do these kinds of repetitive tasks but,
-even today, many scientists type the same commands in over and over
-again or click the same buttons repeatedly \cite{aranda2012}. In
-addition to wasting time, sooner or later even the most careful
-researcher will lose focus while doing this and make mistakes.
-
-In practice, scientists should \practice{rely on the computer to
-  repeat tasks} and \practice{save recent commands in a file for
-  re-use}. For example, most command-line tools have a ``history''
-option that lets users display and re-execute recent commands, with
-minor edits to filenames or parameters. This is often cited as one
-reason command-line interfaces remain popular
-\cite{ray2009,haddock2010}: ``do this again'' saves time and reduces
-errors.
+Scientists should therefore \practice{make the computer repeat tasks}
+and \practice{save recent commands in a file for re-use}. For example,
+most command-line tools have a ``history'' option that lets users
+display and re-execute recent commands, with minor edits to filenames
+or parameters.  This is often cited as one reason command-line
+interfaces remain popular \cite{ray2009,haddock2010}: ``do this
+again'' saves time and reduces errors.
 
 A file containing commands for an interactive system is often called a
-\term{script}, though in practice there is no difference between this
-and a program. The Unix shell, and the Python, R, and MATLAB
-interpreters all make it easy for users to experiment with commands,
-then create a record after the fact of exactly what they did to
-produce a particular result. As we will discuss in
-Section~\ref{conclusion}, this also aids reproducibility.
-
-When these scripts are repeatedly used in the same way, or in
-combination, a workflow management tool can be used.  The paradigmatic
-example is compiling and linking programs in languages such as
-Fortran, C++, Java, and C\# \cite{dubois2003b}. The most widely used
-tool for this task is probably
+\term{script}, though there is real no difference between this and a
+program.  When these scripts are repeatedly used in the same way, or
+in combination, a workflow management tool can be used.  The
+paradigmatic example is compiling and linking programs in languages
+such as Fortran, C++, Java, and C\# \cite{dubois2003b}. The most
+widely used tool for this task is probably
 Make\footurl{http://www.gnu.org/software/make}, although many
 alternatives are now available \cite{smith2011}. All of these allow
 people to express dependencies between files, i.e., to say that if A
@@ -264,20 +267,11 @@ commands. These tools have been successfully adopted for scientific
 workflows as well \cite{fomel2007}.
 
 To avoid errors and inefficiencies from repeating commands manually,
-scientists should \practice{use a build tool to automate their
-scientific workflows}, e.g., specify the ways in which intermediate
-data files and final results depend on each other, and on the programs
-that create them, so that a single command will regenerate anything
-that needs to be regenerated.
-
-\practicesection{Use the computer to record history.}{provenance}
-
-Careful record keeping is fundamental to science of all kinds. Just as
-lab notebooks are considered crucial to document work at the bench, it
-is important to have a detailed record of the data manipulation and
-calculations that have been performed using computers. Therefore,
-\practice{software tools should be used to track computational work
-  automatically}, allowing each step to be captured accurately.
+we recommend that scientists \practice{use a build tool to automate
+  workflows}, e.g., specify the ways in which intermediate data files
+and final results depend on each other, and on the programs that
+create them, so that a single command will regenerate anything that
+needs to be regenerated.
 
 In order to maximize reproducibility, everything needed to re-create
 the output should be recorded automatically in a format that other
@@ -302,12 +296,6 @@ possible to record the following without additional tools:
 
 \end{itemize}
 
-In practice, many results are produced by interactive exploration. In
-these cases, the interpreter's ``history'' command can be used to save
-recent commands to a file as a record of how particular results were
-produced. Such files are often used as starting points for writing
-scripts to automate future work (Section~\ref{automation}).
-
 \practicesection{Make incremental changes.}{incremental}
 
 Unlike traditional commercial software developers, but very much like
@@ -318,21 +306,18 @@ scientists often \emph{can't} know what their programs should do next
 until the current version has produced some results. This challenges
 design approaches that rely on specifying requirements in advance.
 
-Many software development teams now believe that programmers should
-\practice{work in small steps with frequent feedback and course
-  correction} rather than trying to plan months or years of work in
-advance. While the details vary from team to team, these developers
-typically work in steps that are sized to be about an hour long, and
-these steps are often grouped in iterations that last roughly one
-week. This accommodates the cognitive constraints discussed in
-Section~\ref{cognition}, and acknowledges the reality that real-world
-requirements are constantly changing. The goal is to produce working
-(but incomplete) code after each iteration. While these practices have
-been around for decades, they gained prominence starting in the late
-1990s under the banner of \term{agile development}
-\cite{martin2002,kniberg2007}.
-
-\practicesection{Use version control.}{version}
+Programmers are most productive when they \practice{work in small
+  steps with frequent feedback and course correction} rather than
+trying to plan months or years of work in advance. While the details
+vary from team to team, these developers typically work in steps that
+are sized to be about an hour long, and these steps are often grouped
+in iterations that last roughly one week. This accommodates the
+cognitive constraints discussed in Section~\ref{cognition}, and
+acknowledges the reality that real-world requirements are constantly
+changing. The goal is to produce working (but incomplete) code after
+each iteration. While these practices have been around for decades,
+they gained prominence starting in the late 1990s under the banner of
+\term{agile development} \cite{martin2002,kniberg2007}.
 
 Two of the biggest challenges scientists and other programmers face
 when working with code and data are keeping track of changes (and
@@ -374,14 +359,14 @@ BitBucket\footurl{https://bitbucket.org} being the most popular).  As
 with coding style, the best one to use is almost always whatever your
 colleagues are already using \cite{fogel2005}.
 
-In practice, \practice{everything that has been created manually
-  should be put in version control}, including programs, original
-field observations, and the source files for papers. Automated output
-and intermediate files can be regenerated at need. Binary files
-(e.g., images and audio clips) may be stored in version control, but
-it is often more sensible to use an archiving system for them, and
-store the metadata describing their contents in version control
-instead \cite{noble2009}.
+To ensure reproducibility, a scientist must \practice{put everything
+  that has been created manually in version control}, including
+programs, original field observations, and the source files for
+papers. Automated output and intermediate files can be regenerated at
+need. Binary files (e.g., images and audio clips) may be stored in
+version control, but it is often more sensible to use an archiving
+system for them, and store the metadata describing their contents in
+version control instead \cite{noble2009}.
 
 \practicesection{Don't repeat yourself (or others).}{dry}
 
@@ -393,32 +378,31 @@ inconsistencies.  To avoid this programmers follow the DRY Principle
 data and code.
 
 For data, this maxim holds that \practice{every piece of data must
-  have a single authoritative representation in the system}. For
-example, physical constants should be defined exactly once to ensure
-that the entire program is using the same value, and raw data files
-should have a single canonical version. Similarly, every location
-where data was collected should be recorded once and given an ID.
-Every observation from that site should then include that ID instead
-of duplicating the site's latitude and longitude.
+  have a single authoritative representation in the system}. Physical
+constants ought to be defined exactly once to ensure that the entire
+program is using the same value; raw data files should have a single
+canonical version, every geographic location from which data has been
+collected should be given an ID that can be used to look up its
+latitude and longitude, and so on.
 
 The DRY Principle applies to code at two scales. At small scales,
-\practice{code should be modularized rather than copied and pasted}.
-Avoiding ``code clones'' has been shown to reduce error
-rates \cite{juergens2009}: when a change is made or a bug is fixed,
-that change or fix takes effect everywhere, and people's mental model
-of the program (i.e., their belief that ``this one's been fixed'')
-remains accurate. As a side effect, modularizing code allows people
-to remember its functionality as a single mental chunk, which in turn
-makes code easier to understand.  Modularized code can also be
-more easily repurposed for other projects.
+\practice{modularize code rather than copying and pasting}.  Avoiding
+``code clones'' has been shown to reduce error rates
+\cite{juergens2009}: when a change is made or a bug is fixed, that
+change or fix takes effect everywhere, and people's mental model of
+the program (i.e., their belief that ``this one's been fixed'')
+remains accurate. As a side effect, modularizing code allows people to
+remember its functionality as a single mental chunk, which in turn
+makes code easier to understand.  Modularized code can also be more
+easily repurposed for other projects.
 
-At large scales, scientific programmers should \practice{re-use
-  code instead of rewriting it}. Tens of millions of lines of
-high-quality open source software are freely available on the web, and
-at least as much is available commercially. It is typically better
-to find an established library or package that solves a problem than to
-attempt to write one's own routines for well established problems
-(e.g., numerical integration, matrix inversions, etc.).
+At larger scales, it is vital that scientific programmers
+\practice{re-use code instead of rewriting it}. Tens of millions of
+lines of high-quality open source software are freely available on the
+web, and at least as much is available commercially. It is typically
+better to find an established library or package that solves a problem
+than to attempt to write one's own routines for well established
+problems (e.g., numerical integration, matrix inversions, etc.).
 
 \practicesection{Plan for mistakes.}{defensive}
 
@@ -428,16 +412,16 @@ single practice has been shown to catch or prevent all mistakes,
 several are very effective when used in combination
 \cite{mcconnell2004,dubois2005,sanders2008}.
 
-\subsection{Defensive programming}
-
-The first line of defense is \term{defensive programming}: programers
-should \practice{add assertions to programs to check their operation}.
-An \term{assertion} is simply a statement that something holds true at
-a particular point in a program; as the example below shows,
-assertions can be used to ensure that inputs are valid, outputs are
-consistent, and so on\footnote{Assertions do not require language
-  support: it is common in languages such as Fortran for programmers
-  to create their own test-and-fail functions for this purpose.}.
+The first line of defense is \term{defensive programming}.
+Experienced programmers \practice{add assertions to programs to check
+  their operation} because experience has taught them that everyone
+(including their future self) makes mistakes.  An \term{assertion} is
+simply a statement that something holds true at a particular point in
+a program; as the example below shows, assertions can be used to
+ensure that inputs are valid, outputs are consistent, and so
+on\footnote{Assertions do not require language support: it is common
+  in languages such as Fortran for programmers to create their own
+  test-and-fail functions for this purpose.}.
 
 \begin{small}
 \begin{verbatim}
@@ -457,131 +441,54 @@ def bradford_transfer(grid, point, smoothing):
 
 \noindent
 Assertions can make up a sizeable fraction of the code in well-written
-applications, just as tools for calibrating scientific instruments can
-make up a sizeable fraction of the equipment in a lab.  These
-assertions serve two purposes. First, they ensure that if something
-does go wrong, the program will halt immediately, which simplifies
-debugging. (Few things are as frustrating as slowly working backward
-from a crash or a wrong answer to try to find its root cause.)
+applications, just as tools for calibrating scientific instruments can make up a
+sizeable fraction of the equipment in a lab.  These assertions serve two
+purposes. First, they ensure that if something does go wrong, the program will
+halt immediately, which simplifies debugging. Second, assertions are
+\term{executable documentation}, i.e., they explain the program as well as
+checking its behavior. This makes them more useful in many cases than comments
+since the reader can be sure that they are accurate and up to date.
 
-Second, assertions are \term{executable documentation}, i.e., they
-explain the program as well as checking its behavior. This makes them
-more useful in many cases than comments since the reader can be sure
-that they are accurate and up to date.
+The second layer of defense is \term{automated testing}. Automated tests can
+check to make sure that a single unit of code is returning correct results
+(\term{unit tests}), that pieces of code work correctly when combined
+(\term{integration tests}, and that the behavior of a program doesn't change
+when the details are modified (\term{regression tests}). These tests are conducted
+by the computer, so that they are easy to rerun every time the program is modified.
+Creating and managing tests is easier if programmers \practice{use an
+  off-the-shelf unit testing library} to initialize inputs, run tests, and
+report their results in a uniform way. These libraries are available for all
+major programming languages including those commonly used in scientific computing
+\cite{xunit,meszaros2007,osherove2009}.
 
-\subsection{Write and run tests}\label{unittest}
+Tests check to see whether the code matches the researcher's expectations of its
+behavior, which depends on the researcher's understanding of the problem at hand
+\cite{hook2009,kelly2008,oberkampf2010}. For example, in scientific computing
+tests are often conducted by comparing output to simplified cases, experimental
+data, or the results of earlier programs that are trusted. Another approach for
+generating tests is to \practice{turn bugs into test cases},
+by writing tests that trigger a bug that has been found in the code and (once fixed) will prevent
+the bug from reappearing unnoticed. In combination these kinds of testing can
+improve our confidence that scientific code is operating properly,
+and that the results it produces are valid. An additional benefit of testing is
+that it encourages programmers to design and build code that is testable (i.e.,
+self-contained functions and classes that can run more or less independently of
+one another). Code that is designed this way is also easier to understand
+(Section~\ref{cognition}) and more reusable (Section~\ref{dry}).
 
-The second layer of defense is \term{automated testing}. Automated tests
-can check to make sure that a single unit of code is returning correct
-results, or check to make sure that the behavior of a program doesn't
-change when the details are modified. These tests are conducted by the
-computer, so they can be rerun every time the program is modified, to 
-make sure that the changes have not accidentally introduced bugs.
-
-The core of testing is the \term{unit test}, which checks the
-correctness of a single unit of software, which typically means a
-single function or method. Unit tests are the building blocks of any
-quality assurance effort: after all, if the components in a program
-are unreliable, the program isn't likely to be reliable either. Larger
-scale \term{integration testing} check that pieces of code work
-correctly when combined; in scientific computing, this is often done
-by comparing output to experimental data or the results of earlier
-programs that are trusted.
-
-At either scale, \term{regression testing} is the practice of running
-pre-existing tests after changes to the code in order to make sure
-that it hasn't regressed, i.e., that things which were working haven't
-been broken.  By providing this feedback, regression testing gives
-programmers confidence that the changes they're making are actually
-progress.  Every project should therefore strive to make regression
-testing easy, so that programmers will actually do it.
-
-In order to manage their tests, programmers should \practice{use an
-  off-the-shelf unit testing library} to initialize inputs, run tests,
-and report their results in a uniform way. These libraries are
-available for all major programming languages, including Fortran,
-C/C++, IDL, MATLAB, Python, R, and others commonly used in scientific
-computing \cite{xunit,meszaros2007,osherove2009}.  Exactly \emph{how}
-they check correctness depends on the researcher's understanding of
-the problem at hand \cite{hook2009,kelly2008,oberkampf2010}. What the
-tests accomplish is automatically checking to see whether the code
-matches the researcher's expectations of its behavior. As such, good
-automated testing improves our confidence that the code is operating
-properly, and that the results it produces are valid.
-
-One significant benefit of adopting a testing library is that it
-encourages programmers to design and build code that is testable. In
-practice, this means creating self-contained functions and classes
-with well-defined interfaces that can run more or less independently
-of one another. Code that is designed this way is also easier to
-understand (Section~\ref{cognition}) and more reusable
-(Section~\ref{dry}).
-
-If a group wants to start testing software that \emph{hasn't} been
-built this way, the first step is to refactor legacy code to make it
-testable; i.e., reorganize or rewrite that code in ways that do not
-change its behavior~\cite{fowler1999,kerievsky2004} but which may
-result in less tightly coupled chunks. Since smaller units of code
-usually have simpler behavior, refactoring legacy code is often a
-matter of breaking functions, classes, or modules into smaller, more
-testable pieces. This can done incrementally and systematically
-\cite{feathers2004}, e.g., by introducing testing in ``high
-uncertainty" areas or as old algorithms are replaced with new ones.
-
-\subsection{Use a variety of oracles}
-
-An \term{oracle} is something which tells a developer how a program
-should behave or what its output should be.  In commercial software
-development, the oracle is often a contract or specification written
-by a business specialist.  In scientific research, oracles include
-analytic results (e.g., closed-form solutions to special cases or
-simplified versions of the problem), experimental results, and results
-produced by earlier, trusted, programs.  These can all provide useful
-checks, so programmers should \practice{use all available oracles when
-  testing programs}.
-
-\subsection{Turn bugs into test cases}
-
-No matter how carefully software is tested, some bugs will inevitably
-sneak by and need to be fixed. In order to prevent those bugs from
-reappearing, programmers should \practice{turn bugs into test cases},
-by writing tests that trigger the bug and (once fixed) will prevent
-the bug from reappearing unnoticed.
-Doing this is one way to build up a suite of regression tests,
-particularly for legacy programs.
-
-\subsection{Use a symbolic debugger}\label{debugger}
-
-Having admitted that a few bugs will always make it past our defenses,
-our next recommendation is that programmers should \practice{use a
-symbolic debugger} to track them down. A better name for this kind
-of tool would be ``interactive program inspector'' since a debugger
-allows users to pause a program at any line (or when some condition is
-true), inspect the values of variables, and walk up and down active
-function calls to figure out why things are behaving the way they are.
-
-Debuggers are usually more productive than adding and removing print
-statements or scrolling through hundreds of lines of log output
-\cite{zeller2009}, because they allow the user to see exactly how the
-code is executing rather than just snapshots of state of the program
-at a few moments in time. In other words, the debugger allows the
-scientist to witness what is going wrong directly, rather than having
+Now matter how good ones computational practice is, reasonably complex code will
+always initially contain bugs. Fixing bugs that have been identified is often
+easier if you \practice{use a symbolic debugger} to track them down. A better
+name for this kind of tool would be ``interactive program inspector'' since a
+debugger allows users to pause a program at any line (or when some condition is
+true), inspect the values of variables, and walk up and down active function
+calls to figure out why things are behaving the way they are. Debuggers are
+usually more productive than adding and removing print statements or scrolling
+through hundreds of lines of log output \cite{zeller2009}, because they allow
+the user to see exactly how the code is executing rather than just snapshots of
+state of the program at a few moments in time. In other words, the debugger
+allows the scientist to witness what is going wrong directly, rather than having
 to anticipate the error or infer the problem using indirect evidence.
-
-One practice we \emph{don't} advocate, even though many of us rely on
-it, is \term{test-driven development} (TDD).  When using TDD, the
-programmer writes the test cases for a new piece of code before
-writing the code itself.  This may seem backward, but writing the
-tests helps the programmer clarify the purpose of the code in her own
-mind (i.e., it serves as a design aid), and also helps ensure that
-tests actually get written.
-
-The reason we don't advocate it is that a meta-study of its
-effectiveness done in 2010 did not find any significant impact on
-programmer productivity \cite{turhan2010}.  Some of us interpret this
-to mean that we don't really know how to measure the productivity of
-programmers, but unless and until other results emerge, we are obliged
-as scientists to label TDD as ``interesting if true''.
 
 \practicesection{Optimize software only after it works correctly.}{performance}
 
@@ -597,11 +504,11 @@ programming language. Research has confirmed that most programmers
 write roughly the same number of lines of code per unit time
 regardless of the language they use \cite{prechelt2010}. Since faster,
 lower level, languages require more lines of code to accomplish the
-same task, scientists should \practice{write code in the highest-level
-  language possible}, and shift to low-level languages like C and
-Fortran only when they are sure the performance boost is
-needed\footnote{Using higher-level languages also helps program
-  comprehensibility, since such languages have, in a sense,
+same task, scientists are most productive when they \practice{write
+  code in the highest-level language possible}, and shift to low-level
+languages like C and Fortran only when they are sure the performance
+boost is needed\footnote{Using higher-level languages also helps
+  program comprehensibility, since such languages have, in a sense,
   ``pre-chunked'' the facts that programmers need to have in
   short-term memory}. Taking this approach allows more code to be
 written (and tested) in the same amount of time.  Even when it is
@@ -627,10 +534,29 @@ decisions are key for improving the understandability of
 code. However, inline documentation that recapitulates code is
 \emph{not} useful. Therefore we recommend that scientific programmers
 \practice{document interfaces and reasons, not implementations}. For
-example, a clear description at the beginning of a function that
-describes what it does and its inputs and outputs is useful, whereas
-the comment in the code fragment below does nothing to aid
-comprehension:
+example, a clear description like this at the beginning of a function that
+describes what it does and its inputs and outputs is useful:
+
+\begin{small}
+\begin{verbatim}
+def scan(op, values, seed=None):
+    # Apply a binary operator cumulatively to the values given
+    # from lowest to highest, returning a list of results.
+    # For example, if 'op' is 'add' and 'values' is '[1, 3, 5]',
+    # the result is '[1, 4, 9]' (i.e., the running total of the
+    # given values).  The result always has the same length as
+    # the input.
+    # If 'seed' is given, the result is initialized with that
+    # value instead of with the first item in 'values', and
+    # the final item is omitted from the result.
+    # Ex: scan(add, [1, 3, 5], seed=10) => [10, 11, 14]
+
+    ...implementation...
+\end{verbatim}
+\end{small}
+
+In contrast, the comment in the code fragment below does nothing to
+aid comprehension:
 
 \begin{small}
 \begin{verbatim}
@@ -638,14 +564,14 @@ i = i + 1        # Increment the variable 'i' by one.
 \end{verbatim}
 \end{small}
 
-If a piece of code requires substantial description of the
-implementation to be understandable, it is generally recommended that
-one \practice{refactor code instead of explaining how it works}, i.e.,
-rather than write a paragraph to explain a complex piece of code,
-reorganize the code itself so that it doesn't need such an
-explanation. This may not always be possible---some pieces of code
-simply are intrinsically difficult---but the onus should always be on
-the author to convince his or her peers of that.
+If a substantial description of the implementation of a piece of
+software is needed, it is better to \practice{refactor code in
+  preference to explaining how it works}, i.e., rather than write a
+paragraph to explain a complex piece of code, reorganize the code
+itself so that it doesn't need such an explanation. This may not
+always be possible---some pieces of code simply are intrinsically
+difficult---but the onus should always be on the author to convince
+his or her peers of that.
 
 The best way to create and maintain reference documentation is to
 \practice{embed the documentation for a piece of software in that
@@ -658,7 +584,11 @@ and placed comments. Typically, a \term{documentation generator} such
 as Javadoc, Doxygen, or
 Sphinx\footurl{http://en.wikipedia.org/wiki/Comparison\-\_of\_documentation\_generators}
 extracts these comments and generates well-formatted web pages and
-other human-friendly documents.
+other human-friendly documents. Alternatively, code can be embedded in
+a larger document that includes information about what the code is
+doing (i.e., literate programming). Common approaches to this include
+this use of knitr \cite{xie2013knitr} and IPython Notebooks
+\cite{perez2007}.
 
 \practicesection{Collaborate.}{collaborate}
 
@@ -685,19 +615,60 @@ actually writes the code; the other (the navigator) provides real-time
 feedback and is free to track larger issues of design and consistency.
 Several studies have found that pair programming improves productivity
 \cite{williams2010}, but many programmers find it intrusive. We
-therefore recommend that teams should \practice{use pair programming
-  when bringing someone new up to speed and when tackling particularly
+therefore recommend that teams \practice{use pair programming when
+  bringing someone new up to speed and when tackling particularly
   tricky problems}.
 
 Once a team grows beyond a certain size, it becomes difficult to keep
-track of what needs to be reviewed, or of who's doing what.  Teams
-should therefore \practice{use an issue tracking tool} to maintain a
-list of tasks to be performed and bugs to be fixed
-\cite{dubois2003a}. This helps avoid duplicated work and makes it
-easier for tasks to be transferred to different people. Free
-repository hosting services like GitHub include issue tracking tools,
-and many good standalone tools exist as well, such as
-Trac\footurl{http://trac.edgewall.org}.
+track of what needs to be reviewed, or of who's doing what.  Teams can
+avoid a lot of duplicated effort and dropped balls if they
+\practice{use an issue tracking tool} to maintain a list of tasks to
+be performed and bugs to be fixed \cite{dubois2003a}. This helps avoid
+duplicated work and makes it easier for tasks to be transferred to
+different people. Free repository hosting services like GitHub include
+issue tracking tools, and many good standalone tools exist as well,
+such as Trac\footurl{http://trac.edgewall.org}.
+
+\section*{What Next?}
+
+Our 25 recommendations are a beginning, not an end.  Individuals and
+group who have incorporated them into their work will find links to
+more advanced practices on the Software Carpentry
+website\footurl{http://software-carpentry.org/biblio.html}.  Here,
+we briefly discuss two of the most widely used.
+
+2. TDD
+(original text from section 7 is included below)
+
+The first is \textbf{\emph{refactoring}}
+\cite{fowler1999,kerievsky2004}, which simply means, ``Reorganizing
+and rewriting existing code to improve its structure without changing
+its functionality.''  Refactoring is essential to maintaining the
+quality of long-lived software; without regular cleanup, small
+compromises and decisions that seemed like ``a good idea at the time''
+will accumulate to make the whole unmaintainable.
+
+In particular, if a group wants to start testing software that
+\emph{hasn't} been built in a mocular way, the first step is to
+refactor it into more testable units. This can done incrementally and
+systematically \cite{feathers2004}, e.g., by introducing testing in
+``high uncertainty" areas or as old algorithms are replaced with new
+ones.
+
+The second practice is \textbf{\emph{test-driven development}} (TDD).
+When using TDD, the programmer writes the test cases for a new piece
+of code before writing the code itself.  This may seem backward, but
+writing the tests helps the programmer clarify the purpose of the code
+in her own mind (i.e., it serves as a design aid), and also helps
+ensure that tests actually get written.
+
+Several of the authors program this way, and believe that it helps
+them productive better code, faster.  However, a meta-study of its
+effectiveness done in 2010 did not find any significant impact on
+programmer productivity \cite{turhan2010}.  This may mean that we
+don't really know how to measure the productivity of programmers, but
+unless and until other results emerge, we are obliged as scientists to
+label TDD as ``interesting if true''.
 
 \section{Conclusion}\label{conclusion}
 
@@ -728,18 +699,89 @@ excellent tutorials available online or through workshops and classes
 organized by groups like Software
 Carpentry\footurl{http://software-carpentry.org}. This type of
 training has proven effective at driving adoption of these tools in
-scientific settings \cite{aranda2012}.
+scientific settings \cite{aranda2012,wilson2013}.
 
 Computing is now central to the practice of science. For this aspect
 of scientific research to obtain the level of rigor that is applied
 throughout the scientific process, it is necessary for scientists to
 begin to adopt the tools and approaches that are known to improve both
 the quality of software and the efficiency with which it is
-produced. Doing so will improve our confidence in the results of
-computational science and will allow us to make rapid progress on
-important scientific questions that would otherwise not be possible.
+produced. To facilitate this adoption, universities and funding
+agencies need to support the training of scientists in the use of
+these tools and the investment of time and money in building better
+scientific software. Investment in these approaches by both
+individuals and institutions will improve our confidence in the
+results of computational science and will allow us to make more rapid
+progress on important scientific questions than would otherwise be
+possible.
 
 \bibliographystyle{plain}
 \bibliography{best-practices-scientific-computing-2012}
+
+\pagebreak
+
+\section*{Reference}
+
+{\footnotesize
+\begin{enumerate}
+
+\item Write programs for people, not computers.
+  \begin{enumerate}
+  \item A program should not require its readers to hold more than a handful of facts in memory at once.
+  \item Make names consistent, distinctive, and meaningful.
+  \item Make code style and formatting consistent.
+  \end{enumerate}
+
+\item Let the computer do the work.
+  \begin{enumerate}
+  \item Make the computer repeat tasks.
+  \item Save recent commands in a file for re-use.
+  \item Use a build tool to automate workflows.
+  \end{enumerate}
+
+\item Make incremental changes.
+  \begin{enumerate}
+  \item Work in small steps with frequent feedback and course correction.
+  \item Use a version control system.
+  \item Put everything that has been created manually in version control.
+  \end{enumerate}
+
+\item Don't repeat yourself (or others).
+  \begin{enumerate}
+  \item Every piece of data must have a single authoritative representation in the system.
+  \item Modularize code rather than copying and pasting.
+  \item Re-use code instead of rewriting it.
+  \end{enumerate}
+
+\item Plan for mistakes.
+  \begin{enumerate}
+  \item Add assertions to programs to check their operation.
+  \item Use an off-the-shelf unit testing library.
+  \item Turn bugs into test cases.
+  \item Use a symbolic debugger.
+  \end{enumerate}
+
+\item Optimize software only after it works correctly.
+  \begin{enumerate}
+  \item Use a profiler to identify bottlenecks.
+  \item Write code in the highest-level language possible.
+  \end{enumerate}
+
+\item Document design and purpose, not mechanics.
+  \begin{enumerate}
+  \item Document interfaces and reasons, not implementations.
+  \item Refactor code in preference to explaining how it works.
+  \item Embed the documentation for a piece of software in that software.
+  \end{enumerate}
+
+\item Collaborate.
+  \begin{enumerate}
+  \item Use pre-merge code reviews.
+  \item Use pair programming when bringing someone new up to speed and when tackling particularly tricky problems.
+  \item Use an issue tracking tool.
+  \end{enumerate}
+
+\end{enumerate}
+}
 
 \end{document}
