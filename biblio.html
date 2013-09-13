@@ -1,8 +1,61 @@
 ---
 layout: base
 root: .
-title: Reading
+title: Recommended Reading
 ---
+<h2>Papers</h2>
+
+<dl>
+
+  <dt>Paul F. Dubois: "Maintaining Correctness in Scientific Programs." <cite>Computing in Science &amp; Engineering</cite>, May&ndash;June 2005.</dt>
+  <dd>
+    This paper shows how several good programming practices fit together to create "defense in depth",
+    so that errors missed by one will be caught by another.
+  </dd>
+
+  <dt>David Goldberg: "What Every Computer Scientist Should Know About Floating-Point Arithmetic." <cite>ACM Computing Surveys</cite>, 23(1), March 1991.</dt>
+  <dd>
+    This paper goes into a little more detail than most working scientists need,
+    but is still the best guide available to what actually happens when the computer does your math for you,
+    and how it can do the right thing but still get the wrong answer.
+  </dd>
+
+  <dt>Jo Erskine Hannay, Hans Petter Langtangen, Carolyn MacLeod, Dietmar Pfahl, Janice Singer, and Greg Wilson: "How Do Scientists Develop and Use Scientific Software?" <cite>Proc. 2009 ICSE Workshop on Software Engineering for Computational Science and Engineering</cite>, 2009.</dt>
+  <dd>
+    The largest study survey done of how scientists use computers in their research,
+    and how much time they spend doing so.
+  </dd>
+
+  <dt>William Stafford Noble: "<a href="http://dx.doi.org/10.1371%2Fjournal.pcbi.1000424">A Quick Guide to Organizing Computational Biology Projects</a>".  <cite>PLoS Computational Biology</cite>, 5(7), 2009.</dt>
+  <dd>
+    How and why one scientist organizes his data and scripts.
+    (We have a <a href="{{page.root}}/v4/data/mgmt.html">short lesson</a> based in large part on this paper.)
+  </dd>
+
+  <dt>Evan Robinson: "Why Crunch Mode Doesn't Work: 6 Lessons." <a href="http://www.igda.org/why-crunch-modes-doesnt-work-six-lessons">http://www.igda.org/why-crunch-modes-doesnt-work-six-lessons</a> (last accessed January 2012).</dt>
+  <dd>
+    A short, readable summary of research on overwork and sleep deprivation that was written for game developers,
+    but is equally true for scientists.
+  </dd>
+
+  <dt>Ethan P. White, Elita Baldridge, Zachary T. Brym, Kenneth J. Locey, Daniel J. McGlinn, and Sarah R. Supp: "Nine Simple Ways to Make It Easier to (Re)use Your Data." <a href="https://peerj.com/preprints/7/"><cite>PeerJ PrePrints</cite></a> 1:e7v2, http://dx.doi.org/10.7287/peerj.preprints.7v2.</dt>
+  <dd>
+    Delivers exactly what the title promises: a straightforward set of practices that will make it easier for other scientists to use your data.
+  </dd>
+
+  <dt>Greg Wilson, D. A. Aruliah, C. Titus Brown, Neil P. Chue Hong, Matt Davis, Richard T. Guy, Steven H. D. Haddock, Katy Huff, Ian M. Mitchell, Mark Plumbley, Ben Waugh, Ethan P. White, and Paul Wilson: "Best Practices for Scientific Computing."  <a href="http://arxiv.org/abs/1210.0530">arXiv</a> pre-print, submitted November 29, 2012.</dt>
+  <dd>
+    Describes a set of best practices for scientific software development that have solid foundations in research and experience,
+    and that improve scientists' productivity and the reliability of their software. 
+  </dd>
+
+  <dt>Greg Wilson: "Software Carpentry: Lessons Learned."  <a href="http://arxiv.org/abs/1307.5448">arXiv</a> pre-print, submitted July 20, 2013.</dt>
+  <dd>
+    Describes what we've learned about scientific programming (and how to teach it) over the last 15 years.
+  </dd>
+
+</dl>
+
 <h2>Books</h2>
 <div class="media">
   <img class="book-cover media-object pull-left" src="{{page.root}}/assets/books/1934356271.jpg" />
@@ -66,24 +119,6 @@ title: Reading
 </div>
 
 <div class="media">
-  <img class="book-cover media-object pull-left" src="{{page.root}}/assets/books/0321117425.jpg" />
-  <div class="media-body">
-    <p>Robert L. Glass: <a
-    href="http://www.amazon.com/gp/product/0321117425/"><cite>Facts and
-    Fallacies of Software Engineering</cite></a>. Addison-Wesley Professional,
-    0321117425, 2002.</p>
-    <span class="review">
-      Most of us have heard know that maintenance consumes 40-80% of software
-      costs, but did you know that roughly 60% of that is enhancements, rather
-      than bug fixes? Or that if more than 20-25% of a component has to be
-      modified, it is more efficient to re-write it from scratch? Those facts,
-      and many more, are in this little book, along with references to the
-      primary literature to back up every claim it makes.
-    </span>
-  </div>
-</div>
-
-<div class="media">
   <img class="book-cover media-object pull-left" src="{{page.root}}/assets/books/0878933913.jpg" />
   <div class="media-body">
     <p>Steve Haddock and Casey Dunn: <a
@@ -111,35 +146,6 @@ title: Reading
 </div>
 
 <div class="media">
-  <img class="book-cover media-object pull-left" src="{{page.root}}/assets/books/3540739157.jpg" />
-  <div class="media-body">
-    <p>Hans Petter Langtangen: <a
-    href="http://www.amazon.com/gp/product/3540739157/"><cite>Python Scripting
-    for Computational Science</cite></a>. Springer, 3540739157, 2007.</p>
-    <span class="review">
-      The book's aim is to show scientists and engineers with little formal
-      training in programming how Python can make their lives better. Regular
-      expressions, numerical arrays, persistence, the basics of GUI and web
-      programming, interfacing to C, C++, and Fortran: it's all here, along
-      with hundreds of short example programs.
-    </span>
-  </div>
-</div>
-
-<div class="media">
-  <img class="book-cover media-object pull-left" src="{{page.root}}/assets/books/3642024742.jpg" />
-  <div class="media-body">
-    <p>Hans Petter Langtangen: <a
-    href="http://www.amazon.com/gp/product/3642024742/"><cite>A Primer on
-    Scientific Programming with Python</cite></a>. Springer, 3642024742,
-    2009.</p>
-    <span class="review">
-      An introduction to scientific computing using Python.
-    </span>
-  </div>
-</div>
-
-<div class="media">
   <img class="book-cover media-object pull-left" src="{{page.root}}/assets/books/0735619670.jpg" />
   <div class="media-body">
     <p>Steve McConnell: <a
@@ -150,35 +156,6 @@ title: Reading
       This classic handbook covers everything from how to avoid common
       mistakes in C to how to set up a testing framework, how to organize
       multi-platform builds, and how to coordinate the members of a team.
-    </span>
-  </div>
-</div>
-
-<div class="media">
-  <img class="book-cover media-object pull-left" src="{{page.root}}/assets/books/1449319793.jpg" />
-  <div class="media-body">
-    <p>Wes McKinney: <a
-    href="http://www.amazon.com/Python-Data-Analysis-Wes-McKinney/dp/1449319793/"><cite>Python
-    for Data Analysis</cite></a>.  O'Reilly, 1449319793, 2012.</p>
-    <span class="review">
-      A practical introduction to data crunching in Python that covers a lot
-      more than just statistics.
-    </span>
-  </div>
-</div>
-
-<div class="media">
-  <img class="book-cover media-object pull-left" src="{{page.root}}/assets/books/0978739213.jpg" />
-  <div class="media-body">
-    <p>Michael Nygard: <a
-    href="http://www.amazon.com/gp/product/0978739213/"><cite>Release It!:
-    Design and Deploy Production-Ready Software</cite></a>. Pragmatic
-    Bookshelf, 0978739213, 2007.</p>
-    <span class="review">
-      This book is about designing applications to deal with the things that
-      don't happen in the classroom or the lab: load fluctuations, power
-      outages, upgrades, tangled configurations, and everything else you have
-      to worry about when scaling up applications to work in the real world.
     </span>
   </div>
 </div>
@@ -200,20 +177,6 @@ title: Reading
 </div>
 
 <div class="media">
-  <img class="book-cover media-object pull-left" src="{{page.root}}/assets/books/0596527357.jpg" />
-  <div class="media-body">
-    <p>Dan Pilone and Russ Miles: <a
-    href="http://www.amazon.com/gp/product/0596527357/"><cite>Head First
-    Software Development</cite></a>. O'Reilly Media, 0596527357, 2008.</p>
-    <span class="review">
-      Many people will find this book's cartoon-ish format and awkward jokes
-      annoying, but it's still a good hype-free introduction to agile
-      development practices.
-    </span>
-  </div>
-</div>
-
-<div class="media">
   <img class="book-cover media-object pull-left" src="{{page.root}}/assets/books/0321636783.jpg" />
   <div class="media-body">
     <p>Deborah S. Ray and Eric J. Ray: <a
@@ -224,41 +187,6 @@ title: Reading
     </span>
   </div>
 </div>
-
-<div class="media">
-  <img class="book-cover media-object pull-left" src="{{page.root}}/assets/books/0201756080.jpg" />
-  <div class="media-body">
-    <p>Robert Sedgewick: <a
-    href="http://www.amazon.com/gp/product/0201756080/"><cite>Algorithms in
-    C</cite></a>. Addison-Wesley Professional, 0201756080, 2001.</p>
-    <span class="review">
-      These books are a guide to all the other conceptual tools that working
-      programmers ought to have at their fingertips, from sorting and
-      searching algorithms to different kinds of trees and graphs. The
-      analysis is far more accessible than that of many other textbooks, and
-      while the author's use of C may seem old-fashioned in an age of Java and
-      C++, it does ensure that nothing magical is hidden inside an overloaded
-      operator or virtual method call.
-    </span>
-  </div>
-</div>
-
-<h2>Papers</h2>
-
-<ol>
-  <li>Jonathan B. Buckheit and David L. Donoho: "WaveLab and Reproducible Research." 1995.</li>
-  <li>Paul F. Dubois: "Maintaining Correctness in Scientific Programs." <cite>Computing in Science &amp; Engineering</cite>, May&ndash;June 2005.</li>
-  <li>David Goldberg: "What Every Computer Scientist Should Know About Floating-Point Arithmetic." <cite>ACM Computing Surveys</cite>, 23(1), March 1991.</li>
-  <li>Jo Erskine Hannay, Hans Petter Langtangen, Carolyn MacLeod, Dietmar Pfahl, Janice Singer, and Greg Wilson: "How Do Scientists Develop and Use Scientific Software?" <cite>Proc. 2009 ICSE Workshop on Software Engineering for Computational Science and Engineering</cite>,2009.</li>
-  <li>William Stafford Noble: "<a href="http://dx.doi.org/10.1371%2Fjournal.pcbi.1000424">A Quick Guide to Organizing Computational Biology Projects</a>".  <cite>PLoS Computational Biology</cite>, 5(7), 2009.</li>
-  <li>Evan Robinson: "Why Crunch Mode Doesn't Work: 6 Lessons." <a href="http://www.igda.org/why-crunch-modes-doesnt-work-six-lessons">http://www.igda.org/why-crunch-modes-doesnt-work-six-lessons</a> (last accessed January 2012).</li>
-  <li>Rebecca Sanders and Diane Kelly: "Dealing with Risk in Scientific Software Development." <cite>IEEE Software</cite>, July&ndash;August 2008.</li>
-  <li>Gregory V. Wilson: "Where's the Real Bottleneck in Scientific Computing?" <cite>American Scientist</cite>, January&ndash;February 2005.</li>
-  <li>Greg Wilson: "Software Carpentry: Getting Scientists to Write Better Code by Making Them More Productive." <cite>Computing in Science &amp; Engineering</cite>, November&ndash;December 2006.</li>
-  <li>Greg Wilson: "Those Who Will Not Learn From History..." <cite>Computing in Science &amp; Engineering</cite>, May&ndash;June 2008.</li>
-  <li>Gregory Wilson: "How Do Scientists Really Use Computers?" <cite>American Scientist</cite>, September&ndash;October 2009.</li>
-  <li>Laura Wingerd and Christopher Seiwald: "<a href="http://www.perforce.com/perforce/papers/bestpractices.pdf">High-level Best Practices in Software Configuration Management</a>". Last accessed October 2012.</li>
-</ol>
 
 <h2>Research in Computational Science and Software Engineering</h2>
 
