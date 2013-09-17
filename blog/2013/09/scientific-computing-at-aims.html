@@ -1,0 +1,361 @@
+---
+layout: blog
+author: Anthony Scopatz
+title: "Scientific Computing at AIMS"
+date: 2013-09-15
+time: "09:00:00"
+category: ["Assessment", "Teaching", "Stories"]
+---
+<!-- start excerpt -->
+<p>
+Close on the heels of 
+<a href="{{page.root}}/bootcamps/2013-08-28-wisc/index.html">another bootcamp 
+in Madison, WI</a>, 
+for the past two weeks I had the pleasure of teaching a 30 hour scientific 
+computing course at the <a href="http://aims.ac.za/">African Institute for 
+Mathematical Sciences</a> (AIMS) in Cape Town, South Africa.  The course was an 
+expansion and refactor of Software Carpentry material to fit the AIMS need.
+You can find <a href="https://bitbucket.org/scopatz/aims-scicomp.git">the 
+repository of source material here</a>.
+</p>
+
+<p>
+I could gush about how I fell in love with Cape Town, the 
+unexpected preponderance of vegan cafes in Muizenberg, the sea, the sand, 
+the mountains, and <i>la dolce vita</i> I am otherwise 
+used to from Santa Barbara. I will not.  AIMS is about the students.  Let's examine
+them after a brief tour of AIMS itself.
+</p>
+<!-- end excerpt -->
+
+<h3>AIMS</h3>
+
+<p>
+AIMS, in association with 
+<a href="http://www.aims.ac.za/en/about/about-aims/our-partners">its partner 
+universities</a>, provides a one year structured masters degree to exceptional 
+students from all over Africa.  This provides a needed
+stepping stone for many its students to pursue other universities across Africa 
+and across the world that they would otherwise likely not have to opportunity to 
+attend. The social goals at AIMS go hand in hand with the technical mission.  
+</p>
+
+<p>
+The Cape Town AIMS is the first such center and was opened in 2003.  However, other 
+AIMS centers are springing up in various other countries on what seems like an annual
+basis.  There is also an associated AIMS research center in Cape Town which houses 
+some doctoral and post-doctoral students as well as a related center dedicated 
+to improving the educational methods of secondary school teachers (AIMSSEC).
+</p>
+
+<p>
+The complex itself is a 4 story, 0 indexed building less than 100 meters from 
+the ocean.  Floor 0 contains a lecture hall, offices, kitchen and dining area.  
+Floor 1 has more offices, the library, and a world class computer lab.  Floor 2 
+houses the student dormitories.  Floor 3 houses rooms for some staff and visitors, 
+such as myself. In short AIMS is mathematics monastery straight from my undergraduate 
+physics major dreams.
+</p>
+
+<div style="text-align:center;">
+<p><img src="aims-view.jpg" width="60%" /></p>
+<i>The view from my room at AIMS, no fooling.</i>
+</div>
+
+<h3>The Students</h3>
+
+<p>
+This year's class is approximately 50 students and hail from Egypt to Chad to Nairobi
+to South  Africa itself.  In the neighborhood of 20 countries were represented in 
+the student body. As William, a student, put it "by visiting AIMS I visited all of 
+Africa."  However, national origin is only where the diversity starts.
+</p>
+
+<p>
+40% - 50% of the students were women. Furthermore, It seemed that the age 
+distribution ranged from mid-twenties to mid-forties. Additionally, though the 
+ability to read and understand English was generally quite high, the ability to 
+speak or understand spoken English varied from fluent to novice.
+</p>
+
+<p>
+Technical ability was also all over the map.  Some of the students it seemed had been
+professional Java developers in a past life.  On the other hand there were some 
+students who had learned to program Pascal out of a book and arriving at AIMS the 
+week before was their first time ever using a computer.  
+</p>
+
+<p>
+Still, the students themselves were incredibly enthusiastic.  
+Far more so than their Western counterparts 
+I have taught.  The computer lab at AIMS is open 24/7.  I would often pop in 
+between 11 pm and midnight and categorically I found 20 - 30 students
+<i>still</i> at their machines, working through 
+the day's material, and discussing what they were learning in small groups.
+</p>
+
+<p>
+A cynical person would claim that this phenomenon is due to the students
+having nothing else to do in sleepy Muizenberg.  Naturally, they gravitated to 
+the place where they have internet activity.  I claim instead that the students acted 
+with the purpose of  learning.  No one sits in lectures for six hours a day, 
+day in and day out, in a 
+language they are still acquiring, and then hits the books for another six hours 
+afterwards if they do not feel that what they are doing is important and valuable. 
+Perhaps this mathematical monastery should more rightly be denoted AIMS: Academics 
+Inconsequent of Mortal Stamina.
+</p>
+
+<h3>The Software Stack</h3>
+
+<p>
+Throughout all of AIMS, including the staff and administration, the software 
+distribution is a model for how other, similar centers around the world 
+should operate.  Their stack is set up and managed by the preeminent 
+<a href="https://plus.google.com/106441031204413066119/posts">Jan Groenewald</a>
+who I know through the 
+illustrious 
+<a href="https://plus.google.com/105944382060485784655/posts">Katy Huff</a>.
+The operating system is Ubuntu, the mail client is GMail, 
+and courses are taught only with open source scientific software such as Python, 
+SciPy, R, Octave, LaTeX, and Sage. <i>This is my stack.</i>
+</p>
+
+<p>
+One of the neatest teaching aids that Jan and I ended up test driving and deploying 
+is an application called <a href="http://www.epoptes.org/">epoptes</a>.  
+This is basically a screen sharing program 
+with some extra bells and whistles that allow you to take over the student's computer
+as well.  It was incredibly effective as long as you did not accidentally hit the
+button to shut down all of the student's machines.
+</p>
+
+<p>
+If there was any lingering doubt, it has now been scrubbed away.
+The open scientific software stack is 
+completely ready for prime time in the classroom. Anyone who is trying to sell 
+you something is doing exactly that.  
+</p>
+
+<h3>The Course</h3>
+
+<p>
+I taught the entire course from a series of IPython notebooks cribbed from 
+Software Carpentry.  Some of these were tutorials I had originally written 
+a couple of years ago.  Humorously, I found that the documentation lesson 
+had not been significantly altered in that time.  
+</p>
+
+<p>
+However, forking from Software Carpentry required significant amounts of extra
+effort in some cases to make the lectures complete for my AIMS needs. (I have since
+pull requested these updates back though they are waiting for a merge.)  I was
+very tempted to use some material from <a href="http://www.pythonbootcamp.info/">the 
+Python Bootcamp at UC Berkeley</a>.  I did not because of licenses.  
+Software Carpentry material is 
+<a href="https://github.com/swcarpentry/bc/blob/gh-pages/LICENSE.md">CC BY v3.0 
+licensed</a>. The Berkeley Python material is 
+<a href="https://github.com/profjsb/python-bootcamp/blob/master/LICENSE">CC BY-NC-SA 
+v3.0 licensed</a>.  Even though I am not 
+currently planning on reusing this material, the threat that I would be forbidden 
+from doing so in some circumstances was enough to drive me away from the 
+non-commercial copyleft terms. 
+Ironically, on the first Tuesday I was at AIMS, the class took a field trip to the 
+University of Cape Town to see Richard Stallman speak.  He convinced me.
+</p>
+
+<p>
+In terms of the instruction, I had the incidental privilege of giving the first 
+lecture of the academic year. It became clear after a few lessons - introduction to 
+scientific computing, BASH, git - that I would have to adapt my teaching style. 
+Luckily, the students shared an advanced mathematics background.  I could assume that 
+they all knew linear algebra, differential equations, and set theory.
+</p>
+
+<p>
+Teaching to the middle 80% at AIMS would not have worked.  The students were too 
+diverse of a group in too many ways.  Focusing on the mythical middle 80% would 
+have meant leaving everyone behind in some way all of the time rather than leaving 
+some people out most of the time.  I felt that if I had chosen to teach to the
+middle 80% I would be ignoring the core missions of both AIMS and Software Carpentry.
+</p>
+
+<p>
+So what changed?  Linguistically, I tried to teach to the bottom 10%.  The students
+who already knew English did not mind that I spoke slowly and directly and repeated 
+myself often and it made a world of difference to those who did not know English as 
+well.  I did not always hit my 10% goal but it was certainly worth trying to get 
+there.
+</p>
+
+<p>
+At the tutors' (teaching assistants) request, we also instituted brief reviews of 
+previous material.  Since I taught the shell on the first day we went over 
+useful commands on second and third.  This gradually morphed into a generic 
+question and answer session at the beginning of every class that would last up to 
+30 minutes of a two hour block. For many students, the multi-day reinforcement was 
+critical.
+</p>
+
+<p>
+That said, the most fundamental change was that I taught as much as I could in analogy
+to mathematical principles.  Functions are functions, operators are operators, 
+and sets are sets.  This made certain topics, such as slicing and 
+recursion much easier, but other topics, such as decorators and scoping, a little 
+more difficult.
+</p>
+
+<p>
+Overall, after I made these adjustments, the course went smoothly.  I would love to 
+have the opportunity to go back and restructure the entire course with AIMS students
+in mind now that I know who they are and how they differ from the standard 
+research-distracted Western graduate student.
+</p>
+
+<h3>Results</h3>
+
+<p>
+As any good instructor would do, I ran assessment surveys before and after the 
+course.  This is as much to gauge the students as my teaching ability.  Since
+the course was derived from Software Carpentry I used the official
+<a href="http://software-carpentry.org/bootcamps/index.html#assessment">pre- and 
+post-assessment surveys</a>.  Since the raw data is not anonymized, if you would like 
+access to it please contact me.
+</p>
+
+<p>
+On the subject of programming to do basic data analysis tasks, a huge leap was 
+made over the course of the two weeks.  <a href="#fig1">Figure 1</a> shows a 
+comparison for tasks involving opening a plaintext file, reading in data, and 
+computing summary statistics.  Most students went from not knowing where to start 
+to feeling that they could successfully accomplish this task given enough time.
+</p>
+
+<div style="text-align:center;">
+<a name="fig1">
+<p><img src="aims-fig1.svg" /></p>
+<b>Figure 1:</b> (a) Pre-assessment question, <i>"Write a short program to read a 
+file containing columns of numbers separated by commas, average the non-negative 
+values in the second and fifth columns, and print the results."</i> 
+(b) Post-assessment question, <i>"A comma-delimited file has two columns showing 
+the date and the number of sun spots recorded for that day. Write a program to 
+produce a graph showing the average number of sun spots for each month."</i>
+</div>
+
+<p>
+However, the most staggering advancement was with respect to the shell.  
+This makes a certain amount of sense as BASH was the first technical subject we 
+discussed.  Consequently, the shell was the most reinforced material. It was 
+reviewed at least once per day.  <a href="#fig2">Figure 2</a> shows that the 
+distribution in ability basically flipped.
+</p>
+
+<div style="text-align:center;">
+<a name="fig2">
+<p><img src="aims-fig2.svg" /></p>
+<b>Figure 2:</b> (a) Pre-assessment question, <i>"In a directory with 1000 text files, 
+create a list of all files that contain the word Drosophila, and redirect the output 
+to a file called results.txt."</i> (b) Post-assessment question, <i>"How familiar do 
+you think you are with the command line shell?"</i>
+</div>
+
+<p>
+Lastly, I made an unorthodox decision to try to teach version control as early as
+possible.  So the second day, right after the shell lectures, we spent 4 hours on 
+the details of how to use git.  I mostly received blank stares.  However since 
+I ran the course from a bitbucket repository the students had ample opportunity 
+to reinforce what they learned.  <a href="#fig3">Figure 3</a> displays an 
+advancement that, while not quite as staggering as those above, is great to 
+see given the importance of the topic.  I doubt that any of the students would now 
+say that they do not know what version control is and what it is useful for, even 
+if they claim to not know how to use git.
+</p>
+
+<div style="text-align:center;">
+<a name="fig3">
+<p><img src="aims-fig3.svg" /></p>
+<b>Figure 3:</b> (a) Pre-assessment question, <i>"Check out a working copy of a 
+project from version control, add a file called paper.txt, and commit the 
+change."</i> (b) Post-assessment question, <i>"How familiar do you think you are 
+with the version control stem used in your bootcamp?"</i>
+</div>
+
+<p>
+Overall, I find these results very encouraging.  I was able to seed some fundamental
+best practices.  However, it is now up to the AIMS staff and tutors to shore up
+these ideas with continued education and practice.  As this was a self assessment, 
+and not a competency assessment per-say, the students definitely seemed to take 
+something away themselves. 
+</p>
+
+<h3>Parting</h3>
+
+<p>
+At the end of the two weeks, the students sat me down in a chair at the front of 
+the class and presented me with a thank you card. Along with this they read 
+a statement prepared by the class.  This was definitely one of the most rewarding
+moments of the course - and possibly of my life to date.  I wanted to laugh and 
+cry at the same time.  The statement went as follows:
+</p>
+
+<block quote>
+We are so grateful for teaching us the course Scientific Computing, 
+the Python language especially. We are also grateful to your style of lecturing in 
+that you welcomed questions and you were so patient with everyone despite our 
+variety of accents. You answers every question by first saying, and I quote 
+"Aaaah, Okaaaay, that's a very good question." This encouraged all of us to ask 
+question and we benefited - we are really grateful.
+</blockquote>
+
+<div style="text-align:center;">
+<p><img src="aims-farewell.jpg" width="60%" /></p>
+<i>Taken while I listen to the goodbye speech from the students.</i>
+</div>
+
+<p>
+The student William from before also got up and said a few words, some of 
+which were, "Anthony, you are not a trained teacher, but a born teacher."
+I really appreciate this comment on all levels.
+</p>
+
+<p>
+However, the real showcase of the impact that this course had is 
+in what the students wrote in the card.  My favorite and most telling inscriptions
+were: 
+</p>
+
+<block quote>
+Audrey = "thank you Anthony"
+<BR />
+print Audrey
+<BR />
+<BR />
+
+keep in touch - git pull
+<BR />
+<BR />
+I may forget Python, but not you.  Thank you!!
+</blockquote>
+
+<h3>Final Thanks</h3>
+
+<p>
+Personally, I would like to thank Barry Green, Jeff Sanders, and Jan Groenewald for
+giving AIMS its superior environment and extending to me the opportunity to come
+and lecture about some of my favorite topics.  Additionally, I'd like to thanks
+the class tutors, Adriaan van Vuuren, Antonio Cardoso, Eva Ujeneza, 
+Evans Ocansey, Markus Kruger, Mekdes Tessema, and Morgan Magloire Pene, 
+there is no doubt in my mind that the class would not have run half as 
+well.
+</p>
+
+<p>
+In closing, AIMS is an incredibly special place.  If you ever have and opportunity
+to visit the Cape Town campus or another location I highly encourage you to take it.
+I promise that you will not regret it!
+</p>
+
+<div style="text-align:center;">
+<p><img src="aims-end.jpg" width="60%" /></p>
+<i>Jubilant photograph with the students after the final lecture.</i>
+</div>
