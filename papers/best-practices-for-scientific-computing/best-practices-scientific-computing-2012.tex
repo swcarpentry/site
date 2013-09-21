@@ -57,10 +57,10 @@ reliability of their software.
 Software is as important to modern scientific research as telescopes and test
 tubes. From groups that work exclusively on computational problems, to
 traditional laboratory and field scientists, more and more of the daily
-operation of science revolves around computers. This includes the development
-of new algorithms, managing and analyzing the large amounts of data that are
+operation of science revolves around developing
+new algorithms, managing and analyzing the large amounts of data that are
 generated in single research projects, and combining disparate
-datasets to assess synthetic problems.
+datasets to assess synthetic problems, and other computational tasks.
 
 Scientists typically develop their own software for these purposes
 because doing so requires substantial domain-specific knowledge. As a
@@ -85,9 +85,9 @@ include papers in \emph{Science} \cite{chang2006,ferrari2013},
 \emph{PNAS} \cite{ma2007}, the \emph{Journal of Molecular Biology}
 \cite{chang2007}, \emph{Ecology Letters} \cite{lees2007,currie2007},
 the \emph{Journal of Mammalogy} \cite{kelt2008}, \emph{Journal of the
-  American College of Cardiology}
-\cite{jaccretract2013a,jaccretract2013b}, \emph{Hypertension} and
-\emph{The American Economic Review} \cite{hypertension2012}.
+  American College of Cardiology} \cite{jaccretract2013},
+\emph{Hypertension} \cite{hypertension2012}
+and \emph{The American Economic Review} \cite{herndon2013}.
 
 In addition, because software is often used for more than a single
 project, and is often reused by other scientists, computing errors can
@@ -115,6 +115,16 @@ in scientific software, make it easier to reuse, and save the authors
 of the software time and effort that can used for focusing on the
 underlying scientific questions.
 
+For reasons of space,
+we do not discuss the equally important (but independent) issues of
+reproducible research,
+publication and citation of code and data,
+and open science.
+We do believe,
+however,
+that all of these will be much easier to implement
+if scientists have the skills we describe.
+
 \subsection*{Acknowledgments}
 
 We are grateful to
@@ -122,7 +132,7 @@ Joel Adamson,
 Aron Ahmadia,
 Roscoe Bartlett,
 Erik Bray,
-Steven Crouch
+Steven Crouch,
 Michael Jackson
 Justin Kitzes,
 Adam Obeng,
@@ -613,44 +623,6 @@ different people. Free repository hosting services like GitHub include
 issue tracking tools, and many good standalone tools exist as well,
 such as Trac\footurl{http://trac.edgewall.org}.
 
-\section*{What Next?}
-
-Our 25 recommendations are a beginning, not an end.  Individuals and
-groups who have incorporated them into their work will find links to
-more advanced practices on the Software Carpentry
-website\footurl{http://software-carpentry.org/biblio.html}.  Here,
-we briefly discuss two of the most widely used.
-
-The first is \textbf{\emph{refactoring}}
-\cite{fowler1999,kerievsky2004}, which simply means, ``Reorganizing
-and rewriting existing code to improve its structure without changing
-its functionality.''  Refactoring is essential to maintaining the
-quality of long-lived software; without regular cleanup, small
-compromises and decisions that seemed like ``a good idea at the time''
-will accumulate to make the whole unmaintainable.
-
-In particular, if a group wants to start testing software that
-\emph{hasn't} been built in a modular way, the first step is to
-refactor it into more testable units. This can done incrementally and
-systematically \cite{feathers2004}, e.g., by introducing testing in
-``high uncertainty" areas or as old algorithms are replaced with new
-ones.
-
-The second practice is \textbf{\emph{test-driven development}} (TDD).
-When using TDD, the programmer writes the test cases for a new piece
-of code before writing the code itself.  This may seem backward, but
-writing the tests helps the programmer clarify the purpose of the code
-in her own mind (i.e., it serves as a design aid), and also helps
-ensure that tests actually get written.
-
-Several of the authors program this way, and believe that it helps
-them produce better code, faster.  However, a meta-study of its
-effectiveness done in 2010 did not find any significant impact on
-programmer productivity \cite{turhan2010}.  This may mean that we
-don't really know how to measure the productivity of programmers, but
-unless and until other results emerge, we are obliged as scientists to
-label TDD as ``interesting if true''.
-
 \section{Conclusion}\label{conclusion}
 
 We have outlined a series of recommended best practices for scientific
@@ -661,8 +633,13 @@ productivity of scientific programming and the reliability of the
 resulting code, and therefore the speed with which we produce results
 and our confidence in them.  They are also, we believe, prerequisites
 for reproducible computational research: if software is not version
-controlled, readable, and tested, the chances of its authors being
-able to re-create results (much less anyone else) are remote.
+controlled, readable, and tested, the chances of its authors (much less anyone else)
+being able to re-create results are remote.
+
+Our 25 recommendations are a beginning, not an end.  Individuals and
+groups who have incorporated them into their work will find links to
+more advanced practices on the Software Carpentry
+website\footurl{http://software-carpentry.org/biblio.html}.
 
 Research suggests that the time cost of implementing these kinds of
 tools and approaches in scientific computing is almost immediately
@@ -682,9 +659,8 @@ Carpentry\footurl{http://software-carpentry.org}. This type of
 training has proven effective at driving adoption of these tools in
 scientific settings \cite{aranda2012,wilson2013}.
 
-Computing is now central to the practice of science. For this aspect
-of scientific research to obtain the level of rigor that is applied
-throughout the scientific process, it is necessary for scientists to
+For computing to achieve the level of rigor that is expected
+throughout other parts of science, it is necessary for scientists to
 begin to adopt the tools and approaches that are known to improve both
 the quality of software and the efficiency with which it is
 produced. To facilitate this adoption, universities and funding
