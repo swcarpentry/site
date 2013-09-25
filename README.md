@@ -39,10 +39,13 @@ though the links in `_site/*` to these files won't resolve properly if they are 
 Building
 --------
 
-Building the website requires [Jekyll](http://jekyllrb.com/),
-which we use to compile templated HTML pages,
-and [Python](http://python.org/),
-which we use for pre- and post-processing.
+Building the website requires: 
+  - [Jekyll](http://jekyllrb.com/), used to compile templated HTML pages
+  - [Python](http://python.org/), used for pre- and post-processing
+  - Python packages [pyyaml](https://pypi.python.org/pypi/PyYAML) and
+    [requests](https://pypi.python.org/pypi/requests), which can be installed
+    via ```pip install pyyaml requests``` 
+
 We use Jekyll because it's what [GitHub](http://github.com/) uses;
 we use Python because most of our volunteers speak it.
 
