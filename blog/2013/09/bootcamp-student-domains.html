@@ -1,0 +1,108 @@
+---
+layout: blog
+author: Anthony Scopatz
+title: "Bootcamp Student Composition by Domain"
+date: 2013-09-30
+time: "09:00:00"
+category: ["Assessment", "Teaching"]
+---
+<!-- start excerpt -->
+<p>
+Recently I was challenged to show that computational science is important to 
+biologists, and, more importantly, that biologists care about learning how to 
+develop quality software.  I am <i>not</i> a biologist.  While I find the 
+subject fascinating I cannot make any broad claims on the topic or hope to speak 
+for all biologists.  So I turned to Software Carpentry.
+</p>
+
+<p>
+My experience teaching Software Carpentry and related bootcamps has been that 
+biologists are always a significant portion of the student population.  In order
+to demonstrate this I asked to have access to anonymized answers to part of 
+<a href="http://software-carpentry.org/bootcamps/pre-learner.html">the pre-assessment survey</a>.
+Specifically, I was interested in the "<i>Which of the following most closely 
+aligns with your primary discipline?</i>" question. With a big assist from Amy 
+Brown I obtained the data I was looking for.
+</p>
+<!-- end excerpt -->
+
+<p>
+Almost immediately, I was confronted with the problem of who exactly is a biologist, 
+physicist, and so on.  The pre-assessment survey options are too fine grained for 
+purposes here.  For example, I consider astrophysicist and geologists both to be 
+physicists.  Furthermore, since the survey question is a check-box type the students
+could select multiple options.  Their selections may span multiple domains.  
+Finally, there is a pesky "Other" option which allows the students to submit 
+any discipline they desire.  
+This leads to the conundrum of which domain does the discipline 
+"Data Analysis" go in?  All of them I hope.  This survey question certainly
+does not yield a clean taxonomy.
+</p>
+
+<p>
+To coarsen the data, I chose the following five domains to group disciplines 
+into: physics, chemistry, biology, mathematics & computer science, and 
+humanities & social science.  Is this grossly unfair to some disciplines? Yes.
+Does it work? Double yes.  In the spirit of openness, all of the data and analysis
+is available at 
+<a href="https://github.com/scopatz/swc-bc-student-domains">this repository</a>.
+You can also view 
+<a href="http://nbviewer.ipython.org/urls/raw.github.com/scopatz/swc-bc-student-domains/master/domains.ipynb">the IPython notebook</a> 
+where I did my analysis. Feel free to criticize my groupings in the comments.
+</p>
+
+<p>
+The data that Amy provided me with was collected from 306 students over the 
+most recent 9 or 10 bootcamps.  This is a large enough 
+sample size to be able to say something meaningful about the student populous.
+From <a href="#fig1">Figure 1</a> & <a href="#tab1">Table 1</a>, we can see that 
+my intuition turned out to be correct.
+</p>
+
+
+<div style="text-align:center" id="fig1">
+<p><img src="students_by_domain.svg" /></p>
+<p><b>Figure 1:</b> Percentage of Software Carpentry bootcamp students by domain.  
+Note that these percentages sum to greater than 100% because students may select
+more that one discipline during the pre-assessment survey. 
+</p>
+</div>
+
+<div style="text-align:center" id="tab1">
+<p><b>Table 1:</b> Results of <a href="#fig1">Figure 1</a> in tabular form.</p>
+<table border="1">
+    <tr>
+        <th>Domain</th>
+        <th>Percentage (%)</th>
+    </tr>
+    <tr>
+        <td>Physics</td>
+        <td>45.75</td>
+    </tr>
+    <tr>
+        <td>Chemistry</td>
+        <td>13.40</td>
+    </tr>
+    <tr>
+        <td>Biology</td>
+        <td>33.01</td>
+    </tr>
+    <tr>
+        <td>Mathematics &amp; Computer Science</td>
+        <td>13.07</td>
+    </tr>
+    <tr>
+        <td>Humanities &amp; Social Sciences</td>
+        <td>14.38</td>
+    </tr>
+</table>
+</div>
+
+<p>
+Roughly a third of the participants in the bootcamps come from a biologically 
+oriented field!  This is second only to the physics-related disciplines.  Moreover, 
+the biologists far outstrip their counterparts in the other domains.  So if 
+Software Carpentry bootcamps are any measure of interest in software development
+best practices - and I think they are - then it is clear that the biology domain is
+thriving.
+</p>
