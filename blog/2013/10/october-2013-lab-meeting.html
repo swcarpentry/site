@@ -1,0 +1,143 @@
+---
+layout: blog
+root: ../../..
+author: Greg Wilson
+title: "October 2013 Lab Meeting"
+date: 2013-10-04
+time: "09:00:00"
+category: ["Community"]
+---
+<!-- start excerpt -->
+<p>
+  25 people attended our monthly (ish) online lab meeting yesterday,
+  during which we announced and discussed a wide variety of topics.
+  The detailed summary is below the fold,
+  but the key action items are:
+</p>
+<ol>
+  <li>Please take a moment to read Kaitlin Thaney's post about <a href="http://kaythaney.com/2013/10/04/a-look-back-on-the-last-few-months/">what's going on with the Mozilla Science Lab</a>.</li>
+  <li>We have a chance to jumpstart a culture of submission and review, so please either send at least one pull request on the new teaching materials, or make at least one comment on someone else's pull request, by Monday Oct 14.</li>
+  <li>Please get in touch if you're willing to spend a couple of hours in the next couple of weeks helping instructors-in-training learn a bit more about GitHub and pull requests.</li>
+  <li>Please put us in touch with more potential bootcamp hosts: we have a bunch of new instructors, so we're now able to take on more load.</li>
+</ol>
+<!-- end excerpt -->
+<p><img src="{{page.root}}/blog/2013/10/mozilla-science-lab-logo.png" alt="Mozilla Science Lab logo" /></p>
+<dl>
+
+  <dt>A quick hello from Kaitlin Thaney, Director of the Mozilla Science Lab</dt>
+  <dd>
+    <ul>
+      <li>MSL launched June 2013</li>
+      <li>How to push open science/digital research and make them the norm? How can Mozilla help make this happen?  There's more to us than Firefox: world-class development team, open source development strategies, deep commitment to open access/open communities, inter-operability and open standards</li>
+      <li>Please reach out and contact us with project ideas, comments, and anything else</li>
+      <li>For more on our structure and thinking see these <a href="http://kaythaney.com/2013/09/01/our-plan-for-the-science-lab-version-1-0/">blog</a> <a href="http://kaythaney.com/2013/09/03/addressing-the-black-box-in-research/">posts</a>.</li>
+    </ul>
+  </dd>
+
+  <dt>Submitting and reviewing pull requests on the new lesson material</dt>
+  <dd>
+    <ul>
+      <li>In the last few weeks, a handful of people have started submitting and reviewing GitHub pull requests on the lesson material in the new <a href="https://github.com/swcarpentry/bc">bc</a> repo</li>
+      <li>To accelerate this, we've asked people currently going through instructor training to pair up, pick one small topic, and submit PRs on it</li>
+      <li>Improving and extending the material is one goal</li>
+      <li>The other is to get us working like a proper open source project, with frequent patches and reviews</li>
+      <li>And to ensure that newcomers see this happening and start doing it as well</li>
+      <li><strong>To Do:</strong> submit a small pull request, or review one of the ones that is waiting</li>
+    </ul>
+  </dd>
+
+  <dt>Creating a "tips and tricks" page</dt>
+  <dd>
+    <ul>
+      <li>Aron Ahmadia has volunteered to create and maintain a page for little ideas that have worked well in class
+	<ul>
+	  <li>E.g., using red/green sticky notes for feedback</li>
+	  <li>Or using Etherpad for note-taking, sharing code snippets, etc.</li>
+	</ul>
+      </li>
+      <li>For the moment, please <a href="mailto:aron@ahmadia.net?subject=tips and tricks">send him mail</a> if you have things you'd like to share</li>
+      <li>Once the page is up, please send pull requests</li>
+    </ul>
+  </dd>
+
+  <dt>What lesson material should be on the main web site, and why?</dt>
+  <dd>
+    <ul>
+      <li>We currently have the Version 4 material (video tutorials done in 2010-11) and a link to the older Version 3 material (HTML pages written in 2006-07)</li>
+      <li>The new material in the 'bc' repo <em>isn't</em> on the main web site (in part because it's still under development)</li>
+      <li>Most people agree that text is better than video for most learning situations...</li>
+      <li>...and when we look at server logs, it seems that most people who use the site watch a little bit of a few videos, but mostly read or search through our text...</li>
+      <li>...but the videos do impress people, and are useful to people using flipped classrooms...</li>
+      <li>...but are very expensive to maintain (in fact, there hasn't been any real maintenance in two years)</li>
+      <li>Karin Lagesen suggested that we have a few very polished lessons with videos on the web site as advertising, then link to <a href="http://swcarpentry.github.io/bc/lessons/">the rendered versions</a> of the stuff in the 'bc' repo (<em>not</em> to the repo itself, which would scare newcomers)</li>
+      <li>A related suggestion is to have short (one minute?) video intros to lessons, but keep the bulk of the material in text</li>
+      <li>Another suggestion is to use extracts from videos recorded at conferences and bootcamps of people presenting this material (e.g., Katy Huff and Matt Davis's lessons at <a href="http://pyvideo.org/video/1932/version-control-and-unit-testing-for-scientific-s">SciPy</a>)
+	<ul>
+	  <li>If someone would like volunteer to do this, we'd be happy to host it on the site</li>
+	</ul>
+      </li>
+      <li>See also <a href="https://github.com/swcarpentry/site/issues/132">#132</a></li>
+    </ul>
+  </dd>
+
+  <dt>What should we do about absolute beginners?</dt>
+  <dd>
+    <ul>
+      <li>Titus Brown has recently taught <a href="http://ivory.idyll.org/blog/2013-teaching-workshops.html">three</a> <a href="http://2013-uw-zero-entry.readthedocs.org/en/latest/">bootcamps</a> for people with no previous computing experience of any kind</li>
+      <li>Very well received: there really are a lot of smart scientists out there who need and want training at this level</li>
+      <li>Two key points:
+	<ul>
+	  <li>Domain-specific motivation is really important</li>
+	  <li>Really gearing down to zero-level entry is a lot harder than it seems: we all unconsciously assume more than many people actually know</li>
+	</ul>
+      </li>
+      <li>We don't have the resources to write and maintain another set of lesson materials</li>
+      <li>But we can and should start offering/advertising bootcamps as either "zero previous knowledge" or "some previous knowledge", and actually meaning it</li>
+      <li>Ian Mitchell pointed out that there's a tension between saying that <a href="{{page.root}}/faq.html#who-can-run-a-bootcamp">bootcamps must cover certain material in order to use our name and logo</a> and encouraging people to run zero-entry bootcamps that cover less than that</li>
+      <li>In the short term, the answer is, "Check with Greg," but we'll revisit the rules when we have more data</li>
+    </ul>
+  </dd>
+
+  <dt>Looking for volunteers to help with:</dt>
+  <dd>
+    <ul>
+      <li>Sys admin tasks: Jon Pipitone has done a great job moving us over to our new hosting service, but we need another volunteer to give us a couple of hours a week to keep things going
+	<ul>
+	  <li>David Rio has volunteered; more volunteers would be welcome</li>
+	</ul>
+      </li>
+      <li>Update our badging: the spec has moved on since we started issuing badges, so we need a few hours from someone who knows a bit of Javascript as well as Python to update our machinery (see <a href="https://github.com/swcarpentry/site/issues/3">#3</a> and <a href="https://github.com/swcarpentry/site/issues/125">#125</a>)</li>
+      <li>We're close to being able to issue PDF certificates to people who've attended bootcamps, along with badges, but the template for the certificate needs some graphic design work, and then the script that fills it in and produces the PDF needs to be polished (see <a href="https://github.com/swcarpentry/site/issues/4">#4</a> and <a href="https://github.com/swcarpentry/site/pull/92">#92</a>)</li>
+      <li>Maintaining our Windows installation tools and instructions: Anaconda plus the little Nano installer that Ethan White wrote is working well, but we need someone to maintain it and extend it</li>
+      <li>We'd like someone to create a template for <code>nbconvert</code> (the IPython Notebook's notebook-to-HTML conversion tool) so that we can render notebooks in the same style as our web site pages (see <a href="https://github.com/swcarpentry/site/issues/119">#119</a>)</li>
+    </ul>
+  </dd>
+
+  <dt>Jobs</dt>
+  <dd>
+    <ul>
+      <li>Aron Ahmadia's group at the <a href="http://www.erdc.usace.army.mil/">US Army Engineer Research and Development Center</a> is looking for hydrologists in particular, and computational scientists in general&mdash;please <a href="mailto:aron@ahmadia.net">contact him</a> for details</li>
+      <li>And please post to the discussion list when you have job openings or are looking for a position</li>
+    </ul>
+  </dd>
+
+  <dt>Running classes for companies</dt>
+  <dd>
+    <ul>
+      <li>As per the <a href="{{page.root}}/faq.html#commercial-offerings">FAQ</a>, we encourage people to teach bootcamps commercially when they can, and are happy to advertise them on the web site, help line up instructors, etc.</li>
+      <li>But they are still subject to the <a href="{{page.root}}/faq.html#who-can-run-a-bootcamp">rules governing use of the name and logo</a></li>
+      <li>And we do <em>not</em> want to get involved in discussions of fees</li>
+    </ul>
+  </dd>
+
+  <dt>Running Bootcamps</dt>
+  <dd>
+    <ul>
+      <li>Going forward, Amy Brown will create checklists online for bootcamp organizers so that they can keep track of who has done (or is supposed to do) what.</li>
+      <li>Please put us in touch with more potential hosts: we now have the instructors to meet demand!</li>
+    </ul>
+  </dd>
+
+</dl>
+
+<p>Our next lab meeting will be on Thursday, November 14, and we hope to see you all there.</p>
