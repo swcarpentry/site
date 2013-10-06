@@ -84,7 +84,7 @@ To create a new blog post:
         and so on,
         so that posts can be ordered.
     -   `category` must be a list of category identifiers, e.g.,
-        `["Euphoric State University", "Assessment"]
+        `["Euphoric State University", "Assessment"]`
         You can run the command `make categories` to get a list of existing category names.
 4.  Use HTML to write the post.
     -   Use `<!-- start excerpt -->` and `<!-- end excerpt -->`
