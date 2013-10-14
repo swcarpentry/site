@@ -1,0 +1,187 @@
+---
+layout: blog
+root: ../../..
+author: Greg Wilson
+title: "Curriculum Design"
+date: 2013-10-14
+time: "19:00:00"
+category: ["Teaching", "Lectures"]
+---
+<!-- start excerpt -->
+<p>
+  I spoke with three different people about curriculum design last week,
+  so this seems like a good time to summarize what I know about doing that properly,
+  how we've actually been doing it for Software Carpentry,
+  why the two are different,
+  and what we hope to do in future.
+  To set the stage,
+  I need to talk about the medical program at McMaster University in Ontario.
+</p>
+<!-- end excerpt -->
+<p>
+  McMaster is one of Canada's younger universities,
+  and prides itself on its practical bent.
+  When it set out to create a medical school in the 1980s
+  it surveyed hundreds of practicing physicians to find out
+  what they remembered and used five years or more afer leaving school,
+  then put that, and <em>only</em> that, into the curriculum.
+  The idea was that if doctors who'd had time to settle into their practices
+  weren't actually using something,
+  there was no point teaching it in the first place.
+</p>
+<p>
+  This evidence-based approach to curriculum design is sensible,
+  practical,
+  has solid theoretical and empirical foundations,
+  and has been used successfully by a wide variety of organizations.
+  It therefore elicited sneers and protests from other schools and the provincial medical association,
+  primarily because the resulting program was only three years long rather than four.
+  McMaster pressed ahead,
+  though,
+  and studies of their graduates have repeatedly shown that
+  they are just as good at their jobs as anyone else.
+</p>
+<p>
+  In a sane world,
+  this would have led other universities to re-design their programs.
+  In our world,
+  though,
+  that hasn't happened.
+  The curriculum of most Ontario medical schools,
+  and indeed of most other university programs,
+  are still "designed" according to the following syllogism:
+</p>
+<ol>
+  <li>I was taught that X is important.</li>
+  <li>So it's important that I teach X to the next generation.</li>
+</ol>
+<p>
+  "Important to whom?" is occasionally asked,
+  but rarely answered except through anecdotes.
+  Some universities do track the careers students pursue after graduation,
+  but as far as I can tell,
+  they never look at what knowledge and skills students actually use in those jobs.
+  Meanwhile,
+  university faculty aren't exposed to programs designed this way,
+  so they don't think to look for that information
+  when it's their turn to update their department's courses.
+  As for funding agencies,
+  good luck getting them to care about anything related to training...
+</p>
+<p>
+  So here's how we should design the curriculum for
+  a two-day Software Carpentry bootcamp:
+</p>
+<ol>
+  <li>Identify a double dozen scientists who are computationally competent.</li>
+  <li>Observe them at work for at least a couple of days, taking careful note of what they do.</li>
+  <li>Categorize those observations.</li>
+  <li>Sort by frequency to find the handful of tasks they spend most of their time on, and teach that stuff first.</li>
+</ol>
+<p>
+  Step 2 is the most important of these.
+  If you ask people to tell you what they do,
+  they over-report the relatively rare activities that gave them trouble
+  or required them to stop and think,
+  and under-report the routine tasks that actually consume most of their time.
+  The only way to get an accurate profile of where their time actually goes is
+  to have a third party observe it.
+  The "couple of days" part is important too:
+  if you watch someone for an hour,
+  all you see is them being self-conscious.
+  You have to watch for an extended period so that you fade into the background,
+  and also to get a representative sample of actual tasks.
+</p>
+<p>
+  We've never done this for Software Carpentry,
+  primarily because we've never found someone willing to back the necessary study.
+  It wouldn't take a lot&mdash;two dozen subjects for two days each,
+  an equal amount of time to categorize and re-categorize the observations,
+  plus setup and travel,
+  works out to about six months of full-time effort&mdash;but
+  time and again,
+  people have thought they think they can skip this step
+  and magically land on the right result anyway.
+  (Ironically,
+  some of these people would describe themselves as data scientists,
+  and could explain at length why basing decisions on personal experience
+  and "it's obvious to me"
+  is a bad idea...)
+</p>
+<p>
+  What we've done as a substitute is much less rigorous,
+  but has still led to major changes in what we do.
+  Since May 2012,
+  I've asked roughly 40 alumni of past bootcamps
+  what practices they've actually adopted
+  from those we've taught.
+  Here's what I've learned:
+</p>
+<ul>
+  <li>
+    Most now use the shell at least some of the time
+    (and those who don't have started using the "history" command
+    of whatever tool they <em>do</em> use,
+    which I'll take as a win).
+  </li>
+  <li>
+    Most have also started breaking their programs up into small functions,
+    regardless of what programming language they're using.
+  </li>
+  <li>
+    There's no point trying to teach object-oriented programming to most of our attendees:
+    it's just too much abstraction in one gulp.
+  </li>
+  <li>
+    Only a third to a half have started using version control.
+    Back when we were teaching Subversion,
+    the main obstacle was setting up a server.
+    Now that we're teaching Git on GitHub,
+    the main obstacle is simply confusion,
+    but that's <em>good</em> news:
+    we can cut and clarify what we teach in response.
+  </li>
+  <li>
+    Only a handful of our learners have actually started writing unit tests,
+    but most of those who do have adopted something like test-driven development.
+    (Basically,
+    they either take testing to heart or leave it on the shelf completely.)
+    My current hypothesis is that
+    the kind of unit testing done in commercial software&mdash;the kind I've been teaching&mdash;isn't
+    appropriate to most small-scale scientific coding,
+    but I need to talk to a lot more people to firm this up
+    and figure out what to do about it.
+  </li>
+  <li>
+    Similarly,
+    people either love or hate the databases portion of the class.
+    They almost all <em>enjoy</em> a quick introduction to regular expressions,
+    but only if the lesson uses an interactive tool like <a href="http://regexpal.com">regexpal</a>.
+  </li>
+  <li>
+    They don't care about software development process:
+    my standard lecture comparing traditional (design-first) with agile
+    goes over really well with undergrads in computer science and software engineering,
+    but falls completely flat with most scientists.
+  </li>
+</ul>
+<p>
+  I had hoped to put some statistical meat on these anecdotal bones by now,
+  but there have been several hiccups along the way.
+  As sooon as we get institutional approval,
+  though,
+  I want to contact several hundred people and ask them
+  which of the things we taught them have become part of their daily routine
+  and what else they've learned on their own that we, or someone, should have taught them.
+</p>
+<p>
+  What I really want to do,
+  though,
+  is persuade scientists to practice what they preach.
+  We complain loud and long about idiots who think that
+  paying attention to evidence is nothing more than a matter of personal taste
+  when it comes to climate change, evolution, and other facts;
+  we have no right to act the same way when it comes to education.
+  If we're going to ask our students to do their best when they come into our classrooms,
+  we have an obligation to do our best as well.
+</p>
