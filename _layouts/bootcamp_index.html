@@ -19,6 +19,15 @@
         return pin;
       }
 
+      function MarkerPinCluster(url,sizeX,sizeY) {
+      	var pin = new google.maps.MarkerImage(
+      	url,
+      	new google.maps.Size(sizeX,sizeY),
+      	new google.maps.Point(0,0),
+      	new google.maps.Point(10,34));
+      	return pin;
+      }
+
       function set_info_window(map, marker, info_window, content) {
         google.maps.event.addListener(marker, 'click', function () {
           info_window.setContent(content);
@@ -51,11 +60,11 @@
           mapTypeId: google.maps.MapTypeId.ROADMAP
         };
 
-        var pastPin = MarkerPin("{{site.colors.past}}");
         var openPin = MarkerPin("{{site.colors.open}}");
         var fullPin = MarkerPin("{{site.colors.full}}");
         var restrictedPin = MarkerPin("{{site.colors.restricted}}");
-        var instructorPin = MarkerPin("{{site.colors.instructor}}");
+        var instructorPin = MarkerPinCluster("http://google-maps-utility-library-v3.googlecode.com/svn/trunk/markerclusterer/images/people35.png",34,34);
+        var pastPin = MarkerPinCluster("http://google-maps-utility-library-v3.googlecode.com/svn/trunk/markerclusterer/images/m1.png",52,53);
 
         var pinShadow = new google.maps.MarkerImage(
             "http://chart.apis.google.com/chart?chst=d_map_pin_shadow",
@@ -130,19 +139,25 @@
         {% endfor %}
 
 		// Groups instructor_markers and past_markers into clusters
-		var instructor_mcOptions = {styles: [{
-url:'http://google-maps-utility-library-v3.googlecode.com/svn/trunk/markerclusterer/images/people35.png',
+		var instructor_mcOptions = {zoomOnClick: false, gridSize: 15, minimumClusterSize: 1, styles: [{
+		url: 'http://google-maps-utility-library-v3.googlecode.com/svn/trunk/markerclusterer/images/people35.png',
         height: 35,
         width: 35,
         anchor: [16, 0],
         textColor: '#ff00ff',
-        textSize: 10
+        textSize: 10,
       }]}
 
+      	var past_mcOptions = {zoomOnClick: false, maxZoom: 6, gridSize: 15, minimumClusterSize: 1, styles: [{
+      	url: 'http://google-maps-utility-library-v3.googlecode.com/svn/trunk/markerclusterer/images/m1.png',
+      	height: 52,
+      	width: 53,
+      	textColor: '#ffffff',
+      	textSize: 10,
+      	}]}
+
 		var instructor_markersCluster = new MarkerClusterer(null, instructor_markers,instructor_mcOptions);
-		instructor_markersCluster.setMaxZoom(6);
-		var past_markersCluster = new MarkerClusterer(null, past_markers);
-		past_markersCluster.setMaxZoom(6);
+		var past_markersCluster = new MarkerClusterer(null, past_markers,past_mcOptions);
 
         // This bit adds a button to the map that toggles the
         // visibility of past boot camps.
