@@ -1,0 +1,178 @@
+---
+layout: blog
+root: ../../..
+author: Joshua Ryan Smith
+title: "How Software Carpentry Helped Me Write a Single-Author Peer-Reviewed Paper"
+date: 2013-11-19
+time: "09:30:00"
+category: ["Stories"]
+---
+<!-- start excerpt -->
+<p>
+  A paper I wrote titled
+  <a href="http://arxiv.org/abs/1304.3060">Increasing the Efficiency of a Thermionic Engine Using a Negative Electron Affinity Collector</a>
+  was recently published in the Journal of Applied Physics.
+  I found that applying some of the <a href="http://arxiv.org/abs/1210.0530">best practices</a>
+  advocated by the Software Carpentry project eliminated much of the drudgery and tedium
+  which leads to manually induced error in developing the software and composing the manuscript.
+  As a result,
+  I was able to focus more on the scientific problems instead of on tedious bookkeeping-type issues.
+</p>
+<!-- end excerpt -->
+<p>
+  As background,
+  I have a general interest in energy because
+  its production and efficient use is critical to modern society.
+  Specifically,
+  I am interested in the direct conversion of heat to electricity
+  using a device called a thermionic engine.
+  In the paper,
+  I apply modern materials to the device to simulate its performance,
+  and I show that these devices can potentially achieve greater than 20% efficiency.
+</p>
+<p>
+  I first stumbled upon Software Carpentry in 2006 or so
+  when I was a graduate student because I knew I was bad at software development,
+  but I had no idea how to improve.
+  Since then,
+  my software development skills have improved tremendously.
+  I have contributed to the materials used in the Software Carpentry bootcamps,
+  and I have taught at three bootcamps (University of Chicago, Johns Hopkins, and Carnegie Mellon).
+  In this post I describe how some of what I've learned directly improved my work.
+</p>
+<p><strong>Version Control</strong></p>
+<p>
+  I put every digital file associated with this project under version control;
+  I had a repository for the source code of the software I wrote,
+  and a separate repository for the source files for the manuscript itself.
+  Since I was the sole author of the paper,
+  inter-personal collaboration wasn't an issue.
+  However,
+  version control allowed me to work on both the code and paper from multiple computers
+  without the tedium of manually synchronizing changes among different machines.
+  Personally,
+  having a system to synchronize the code and the paper was a huge relief.
+  Before I started using version control I always had a nagging worry that
+  somewhere along the line I forgot to sync important corrections to the code
+  and my results would be unexpectedly but subtly wrong.
+</p>
+<p>
+  In addition to synchronization,
+  the Git-based workflow of branching and merging
+  allowed me to try changes to my manuscript or code
+  without the fear of breaking some functionality that I couldn't recover later.
+  Before making a major change,
+  I would create a branch in the Git repo.
+  If I ended up not liking the change,
+  or the change didn't work like I expected,
+  I'd just checkout the master branch,
+  nuke the feature branch,
+  and be on my way.
+</p>
+<p>
+  Third,
+  i relied heavily on Git's tagging feature to mark particular revisions of the manuscript.
+  I would tag each commit that was sent to colleagues for review,
+  and I would tag each revision I sent to the editor during the review process.
+  I used tags structured as YYYY-MM-DD,
+  and described the tagged revision
+  (who I sent it to, what step in the process I was at, etc.)
+  in the tag's commit message.
+</p>
+<p>
+  Finally,
+  cloning repositories across multiple machines is an implicit backup strategy
+  (not the best, but better than nothing).
+  If my notebook caught on fire,
+  at worst I was only a few commits behind on my desktop machine.
+</p>
+<p>
+  I found that the proper use of version control completely eliminates an entire class of problems
+  from the software development process as well as the manuscript composition process.
+  I delegated the administrative and bookkeeping problems to the version control system
+  and I was therefore able to spend my time and creative energy on the scientific problems instead.
+</p>
+<p><strong>Open-Source Tools</strong></p>
+<p>
+  All the code and third-party modules used to perform the calculations appearing in the paper
+  (<a href="http://www.python.org">Python</a>,
+  <a href="http://www.numpy.org">NumPy</a>,
+  <a href="http://www.scipy.org">SciPy</a>),
+  <a href="http://matplotlib.org">matplotlib</a>),
+  the tools I used to manage my workflow
+  (<a href="http://git-scm.com">Git</a>,
+  <a href="http://software-carpentry.org/v4/make">Make</a>,
+  <a href="http://software-carpentry.org/v4/shell">Bash</a>,
+  <a href="http://ipython.org">IPython</a>,
+  <a href="http://brew.sh">Homebrew</a>,
+  <a href="http://simononsoftware.com/virtualenv-tutorial">virtualenv</a>,
+  <a href="http://sphinx-doc.org">Sphinx</a>),
+  as well as the system I used to prepare the manuscript
+  (<a href="https://en.wikibooks.org/wiki/LaTeX">LaTeX</a> and BibTeX)
+  are non-proprietary and open-source.
+  This decision was driven by practicality and not ideology.
+  The major advantage of open-source tools is that
+  they remove the need to ask permission to do your work.
+  Instead of spending my time getting purchase orders prepared to buy software licesnses,
+  or tracking down IT people to install license files on my machines,
+  I could simply <code>brew install</code> what I needed.
+  As a result,
+  more of my time was available to spend solving the scientific problem at hand.
+</p>
+<p><strong>Automation</strong></p>
+<p>
+  One day during the preparation of this manuscript,
+  I discovered the
+  <a href="https://github.com/jrsmith3/latex.makefile">Makefile for building LaTeX</a>
+  and my whole life improved.
+  Automating the build for the manuscript
+  such that the output files were contained in their own folder (which I could .gitignore)
+  had the surprising side-effect of decreasing the cognitive load of composing the paper.
+  I'm not sure why those extra files were such a mental drag,
+  but being able to issue a <code>make display</code> command at the command prompt
+  freed up my energy to focus on the issues of structuring the argument of my paper.
+  In the future,
+  I plan on extending the Makefile functionality
+  to recalculate data or re-plot figures when necessary.
+</p>
+<p><strong>Documentation</strong></p>
+<p>
+  I made every effort to write good documentation for all the submodules,
+  classes,
+  and methods of my library
+  as well as notes to explain the design decisions I made during development.
+  I wrote this documentation with future collaborators in mind:
+  I believe my code is good,
+  but the real test is if other people use it.
+  Not understanding how a software package works is a huge barrier for someone to use it,
+  and I want to lower that barrier as much as possible.
+  Since I wrote the documentation simultaneous with the software development,
+  I was able to easily build HTML docs for the <a href="http://jrsmith3.github.io/tec">library</a>
+  with <a href="http://sphinx-doc.org">Sphinx</a>).
+</p>
+<p><strong>Conclusions</strong></p>
+<p>
+  I didn't hit all the points that were mentioned
+  in the <a href="http://arxiv.org/abs/1210.0530">Best Practices paper</a>,
+  but hopefully you have gotten a sense of how some of these techniques helped me.
+  If you are wondering if learning a seemingly arcane system like Git or Make can help you,
+  I can emphatically say that they helped me.
+  I am not an expert at any of these systems,
+  but even a small amount of knowledge
+  allowed me to delegate most non-science tasks to my computer
+  so I could spend my time on solving the scientific problems.
+</p>
+<p><strong>Postscript</strong></p>
+<p>
+  Please feel free to fork or star <a href="https://github.com/jrsmith3/tec">my code</a> on GitHub.
+  The scripts I used to calculate the data can be found
+  as supplementary material on the JAP website.
+  You can <a href="http://jrsmith3.github.io/tec/install.html">install the module</a>
+  if you have pip (and the required dependencies) by simply executing
+</p>
+<pre>
+pip install git+git://github.com/jrsmith3/tec.git
+</pre>
+<p>
+  at the command line.
+</p>
