@@ -48,34 +48,53 @@ SWC.maps = (function() {
     }
   }
 
-  maps.upcoming = function() {
+  function bootcamps(bc_data_type) {
     var mapOptions = {
       zoom: 2,
       center: new google.maps.LatLng(25,8),
       mapTypeId: google.maps.MapTypeId.ROADMAP
     },
     info_window   = new google.maps.InfoWindow({}),
-    map           = new google.maps.Map(document.getElementById('map_canvas'), mapOptions);
+    map           = new google.maps.Map(document.getElementById('map_canvas'), mapOptions),
+    bc_date, split_date, today = new Date(),
+    info_string;
 
     // Go over all the upcoming camps and create pins in the map
     {% for bootcamp in site.bootcamps %}
-      {% if bootcamp.latlng and bootcamp.startdate >= site.today %}
+      split_date = "{{bootcamp.startdate}}".split("-");
+      bc_date = new Date(split_date[0], split_date[1]-1, split_date[2]); // year, month, day
+
+      {% if bootcamp.latlng %}
         var marker = new google.maps.Marker({
           position: new google.maps.LatLng({{bootcamp.latlng}}),
           map: map,
           title: "{{bootcamp.venue}}, {{bootcamp.humandate}}",
-          //icon: openPin,
-          visible: true,
+          visible: false,
         });
 
-        var info_string = '<div class="info-window">' +
+        info_string = '<div class="info-window">' +
           '<h5><a href="{% if bootcamp.url %}{{bootcamp.url}}{% else %}{{page.root}}/{{bootcamp.path}}{% endif %}">{{bootcamp.venue|replace: '\'','\\\''}}</a></h5>' +
           '<h6><a href="{{page.root}}/{{bootcamp.path}}">{{bootcamp.humandate}}</a></h6>' +
           '</div>';
 
-            set_info_window(map, marker, info_window, info_string);
+        if (bc_data_type === "upcoming" && bc_date >= today)
+          marker.visible = true;
+        if (bc_data_type === "past" && bc_date < today)
+          marker.visible = true;
+
+        set_info_window(map, marker, info_window, info_string);
       {% endif %}
+
     {% endfor %}
+  }
+
+  /* Use the URL to figure out what map to load */
+  maps.load = function() {
+    var url_bn  = document.URL.replace(/^.*\/|\.[^.]*$/g, '');
+    if (url_bn === "index")
+      bootcamps("upcoming");
+    if (url_bn === "past")
+      bootcamps("past");
   }
 
   return maps;
