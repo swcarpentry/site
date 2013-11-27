@@ -48,7 +48,7 @@ for row in csv_reader:
 ['2012, Mar-12', ' Wii', ' 0', ' 60']
 ['2012, Mar-13', ' Wii', ' 0', ' 60']
 ['2012, Mar-14', ' Wii', ' 0', ' 60']</pre>
-<p>Unfortunately, as we can see, Python's CSV reader doesn't filter out comments or blank lines. We'll need to do it manually. However, this is a common task that we might want to do again and again across programs. Let's write a <a href="{{page.root}}/v3/py03.html">function</a> named <tt>filter_lines</tt> that will filter the lines in a file <em>before</em> the CSV reader does its thing.</p>
+<p>Unfortunately, as we can see, Python's CSV reader doesn't filter out comments or blank lines. We'll need to do it manually. However, this is a common task that we might want to do again and again across programs. Let's write a function named <tt>filter_lines</tt> that will filter the lines in a file <em>before</em> the CSV reader does its thing.</p>
 <pre>def filter_lines(reader)
 
     lines = []

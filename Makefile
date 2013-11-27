@@ -135,6 +135,10 @@ dev :
 install :
 	make SITE=$(INSTALL_URL) OUT=$(INSTALL_DIR) build
 
+## links      : check links
+links :
+	bin/linklint -doc /tmp/linkdoc -error -textonly -root _site /@
+
 ## clean      : clean up
 clean :
 	@rm -rf \

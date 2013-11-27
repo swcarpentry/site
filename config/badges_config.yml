@@ -15,8 +15,10 @@ creator:
 - {name: Greg Wilson, user: wilson.g}
 instructor:
 - {name: Aron Ahmadia, user: ahmadia.a}
+- {name: Joshua Ainsley, user: ainsley.joshua}
 - {name: Carlos Anderson, user: anderson.c}
 - {name: Dhavide Aruliah, user: aruliah.d}
+- {name: Camille Avestruz, user: avestruz.camille}
 - {name: Diego Barneche, user: barneche.diego}
 - {name: Philipp Bayer, user: bayer.p}
 - {name: Nichole Bennett, user: bennett.n}
@@ -31,6 +33,7 @@ instructor:
 - {name: Neil Chue Hong, user: chue-hong.n}
 - {name: Stefano Cozzini, user: cozzini.s}
 - {name: Stephen Crouch, user: crouch.s}
+- {name: Emily Davenport, user: davenport.e}
 - {name: Matt Davis, user: davis.m}
 - {name: Neal Davis, user: davis.neal}
 - {name: Gabriel Devenyi, user: devenyi.g}
@@ -73,6 +76,7 @@ instructor:
 - {name: Doug Latornell, user: latornell.d}
 - {name: Luke Lee, user: lee.luke}
 - {name: Matthew Lightman, user: lightman.matthew}
+- {name: Yuxi Luo, user: luo.yuxi}
 - {name: Steve McGough, user: mcgough.s}
 - {name: Jessica McKellar, user: mckellar.j}
 - {name: Emily Jane McTavish, user: mctavish.ej}
@@ -93,6 +97,7 @@ instructor:
 - {name: Anthony Scopatz, user: scopatz.a}
 - {name: Jeffrey Shelton, user: shelton.j}
 - {name: Raniere Silva, user: silva.raniere}
+- {name: Rachel Slaybaugh, user: slaybaugh.rachel}
 - {name: Joshua Smith, user: smith.j}
 - {name: Shoaib Sufi, user: sufi.s}
 - {name: Sarah Supp, user: supp.s}
