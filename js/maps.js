@@ -3,7 +3,8 @@
 var SWC = SWC || {};
 
 SWC.maps = (function() {
-  var maps = {};
+  var maps = {},
+      i_window; // Info window "class"
 
   function MarkerPin(color) {
     var pin = new google.maps.MarkerImage(
@@ -48,6 +49,42 @@ SWC.maps = (function() {
     }
   }
 
+  // Help us with the html in the window
+  w_text = (function(c) {
+    var _class = typeof c !== 'undefined' ? c : 'info-window',
+        i_start = '<div class="' + _class + '">',
+        i_end = '</div>',
+        name = '', n_link = '',
+        dates = {};
+
+    // bootcamp name, link, date, date link
+    function add(_name, _nl, _date, _dl) {
+      name = _name;
+      n_link = _nl;
+      dates[_date] = _dl;
+    }
+
+    function dates_to_string() {
+      var s = '';
+      for (var _date in dates)
+         if(dates.hasOwnProperty(_date))
+            s = s + '<h6><a href="' + dates[_date]  + '">' + _date + '</a></h6>';
+      return s;
+    }
+
+    function html() {
+      return i_start +
+             '<h5><a href="' + n_link + '">' + name + '</a></h5>' +
+             dates_to_string() +
+             i_end;
+    }
+
+    return {
+      "add": add,
+      "html": html
+    };
+  });
+
   function bootcamps(bc_data_type) {
     var mapOptions = {
       zoom: 2,
@@ -57,7 +94,8 @@ SWC.maps = (function() {
     info_window   = new google.maps.InfoWindow({}),
     map           = new google.maps.Map(document.getElementById('map_canvas'), mapOptions),
     bc_date, split_date, today = new Date(),
-    info_string;
+    his = {}, // Hash to detect multiple bootcamps (hash info string)
+    info_string, bc_venue;
 
     // Go over all the upcoming camps and create pins in the map
     {% for bootcamp in site.bootcamps %}
@@ -70,19 +108,31 @@ SWC.maps = (function() {
           map: map,
           title: "{{bootcamp.venue}}, {{bootcamp.humandate}}",
           visible: false,
-        });
+       });
 
+        /*
         info_string = '<div class="info-window">' +
           '<h5><a href="{% if bootcamp.url %}{{bootcamp.url}}{% else %}{{page.root}}/{{bootcamp.path}}{% endif %}">{{bootcamp.venue|replace: '\'','\\\''}}</a></h5>' +
           '<h6><a href="{{page.root}}/{{bootcamp.path}}">{{bootcamp.humandate}}</a></h6>' +
           '</div>';
+        */
 
         if (bc_data_type === "upcoming" && bc_date >= today)
           marker.visible = true;
         if (bc_data_type === "past" && bc_date < today)
           marker.visible = true;
 
-        set_info_window(map, marker, info_window, info_string);
+        bc_venue = "{{bootcamp.venue}}";
+        info_string = (bc_venue in his) ? his[bc_venue] : w_text('info-window');
+        info_string.add(
+          "{{bootcamp.venue}}",
+          "{% if bootcamp.url %}{{bootcamp.url}}{% else %}{{page.root}}/{{bootcamp.path}}{% endif %}",
+          "{{bootcamp.humandate}}",
+          "{{page.root}}/{{bootcamp.path}}"
+        );
+        his[bc_venue] = info_string;
+
+        set_info_window(map, marker, info_window, info_string.html());
       {% endif %}
 
     {% endfor %}
