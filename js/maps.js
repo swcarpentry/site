@@ -103,12 +103,24 @@ SWC.maps = (function() {
       bc_date = new Date(split_date[0], split_date[1]-1, split_date[2]); // year, month, day
 
       {% if bootcamp.latlng %}
+        /*
         var marker = new google.maps.Marker({
           position: new google.maps.LatLng({{bootcamp.latlng}}),
           map: map,
           title: "{{bootcamp.venue}}, {{bootcamp.humandate}}",
           visible: false,
-       });
+        });
+        */
+        var marker = new MarkerWithLabel({
+          position: new google.maps.LatLng({{bootcamp.latlng}}),
+          map: map,
+          title: "{{bootcamp.venue}}, {{bootcamp.humandate}}",
+          visible: false,
+          labelContent: "76",
+          labelAnchor: new google.maps.Point(0, 0),
+          labelClass: "labels", // the CSS class for the label
+          labelStyle: {opacity: 0.75}
+        });
 
         /*
         info_string = '<div class="info-window">' +
