@@ -42,9 +42,11 @@ Building
 Building the website requires: 
   - [Jekyll](http://jekyllrb.com/), used to compile templated HTML pages
   - [Python](http://python.org/), used for pre- and post-processing
-  - Python packages [pyyaml](https://pypi.python.org/pypi/PyYAML) and
-    [requests](https://pypi.python.org/pypi/requests), which can be installed
-    via ```pip install pyyaml requests``` 
+  - Some Python packages that can be installed using
+
+```
+$ pip install -r requirements.txt
+```
 
 We use Jekyll because it's what [GitHub](http://github.com/) uses;
 we use Python because most of our volunteers speak it.

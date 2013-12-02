@@ -103,12 +103,24 @@ SWC.maps = (function() {
       bc_date = new Date(split_date[0], split_date[1]-1, split_date[2]); // year, month, day
 
       {% if bootcamp.latlng %}
+        /*
         var marker = new google.maps.Marker({
           position: new google.maps.LatLng({{bootcamp.latlng}}),
           map: map,
           title: "{{bootcamp.venue}}, {{bootcamp.humandate}}",
           visible: false,
-       });
+        });
+        */
+        var marker = new MarkerWithLabel({
+          position: new google.maps.LatLng({{bootcamp.latlng}}),
+          map: map,
+          title: "{{bootcamp.venue}}, {{bootcamp.humandate}}",
+          visible: false,
+          labelContent: 0,
+          labelAnchor: new google.maps.Point(0, 0),
+          labelClass: "labels", // the CSS class for the label
+          labelStyle: {opacity: 0.75}
+        });
 
         /*
         info_string = '<div class="info-window">' +
@@ -123,14 +135,22 @@ SWC.maps = (function() {
           marker.visible = true;
 
         bc_venue = "{{bootcamp.venue}}";
-        info_string = (bc_venue in his) ? his[bc_venue] : w_text('info-window');
+        if (bc_venue in his) {
+          info_string = his[bc_venue].text;
+        }
+        else {
+          info_string = w_text('info-window');
+          his[bc_venue] = { num_instances: 0 };
+        }
         info_string.add(
           "{{bootcamp.venue}}",
           "{% if bootcamp.url %}{{bootcamp.url}}{% else %}{{page.root}}/{{bootcamp.path}}{% endif %}",
           "{{bootcamp.humandate}}",
           "{{page.root}}/{{bootcamp.path}}"
         );
-        his[bc_venue] = info_string;
+        his[bc_venue].text = info_string;
+        his[bc_venue].num_instances += 1;
+        marker.labelContent = his[bc_venue].num_instances;
 
         set_info_window(map, marker, info_window, info_string.html());
       {% endif %}

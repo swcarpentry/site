@@ -136,8 +136,10 @@ install :
 	make SITE=$(INSTALL_URL) OUT=$(INSTALL_DIR) build
 
 ## links      : check links
+#  Depends on linklint, an HTML link-checking module from http://www.linklint.org/,
+#  which has been put in bin/linklint.
 links :
-	bin/linklint -doc /tmp/linkdoc -error -textonly -root _site /@
+	bin/linklint -doc /tmp/site-links -textonly -root _site /@
 
 ## clean      : clean up
 clean :

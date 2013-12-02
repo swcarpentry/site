@@ -1,0 +1,25 @@
+---
+layout: blog
+root: ../../..
+author: Lynne Williams
+title: "Things I Wish Someone Had Told Me About Scientific Computing"
+date: 2013-11-26
+time: "18:00:00"
+category: ["Stories"]
+---
+<!-- start excerpt -->
+<p>When I set out on my path into neuroscience, the idea of scientific computing was not even something that came up in passing. However, with little warning, I started spending my days at the computer writing code to analyse brain data.</p>
+<p>Cleaning neuroimaging data is a multi-step process and I wanted to bring out the most from the data. To do that, I thought, would require using the best bits from a slew of neuroimaging preprocessing tools. Some were better at removing extraneous noise, while others were better at image morphing. But entering the commands one by one was tedious and error-prone and the formats for the different functions were not always compatible. There had to be a better way. So, writing some kind of code became my only option.</p>
+<!-- end excerpt -->
+<p>Don't get me wrong, I wasn't scared by the algorithmic nature of computing: my other passion is developing statistical methods. But doing math and writing code are different beasts. Just using '=' as an assignment operator felt foreign and strange.</p>
+<p>I'm still slower than I'd like, and I certainly don't know every trick in the book, but I can now do matrix programming in several languages as well as stringing existing code together. Yet, I wish I had talked to someone more knowledgeable when I started my programming journey. Ultimately, it would have saved me a lot of time and struggle. So, here are a few things I learned along the way that I thought would be helpful to someone brand-new to programming:</p>
+<h2>Code that runs isn't necessarily code that is right</h2>
+<p>When I started, I thought that all code that ran through was good code. It doesn't stop, so it works! But, I started seeing things that I couldn't explain: misaligned data, brain activations outside of the brain and other strange things. "But my code ran!", I thought, "The results should make sense". But, nonsensical they were and I didn't have any idea why.</p>
+<h2>Good code takes good planning</h2>
+<p>Also, when I started, I thought that automating my data preprocessing would solve all my data problems. "Just find some way to automatically run the commands", I thought, "then everything will be just right". But, in the world of neuroimaging, <em>just right</em> is a matter of opinion and lots of my results wouldn't be just right under anyone's definition. I needed to answer why my data were coming up with nonsensical results and defend why I wanted to use tools that weren't expressly built to go together. I also needed to define what I meant by better. I couldn't do any of this using my code.</p>
+<p>Oh no, I thought. Writing code is just as tough as designing the whole study, only I have to design a new study every day! That's when I found something that really helped: <em>unit testing</em>. Writing the tests before writing my code really helped me operationalize the problem. It made sure that my code ran without breaking, and, more importantly, forced me to think about what did I mean by better and how was I going to test betterness. It not only made me a faster programmer, it helped me to be able to explain what I was doing to my colleagues. Wasn't it Einstein who said, "If I had only one hour to save the world, I would spend fifty-five minutes defining the problem, and only five minutes finding the solution"?</p>
+<h2>Keep it simple</h2>
+<p>When I first started, I tried to write everything into one big block of code. This got to be a big problem fast. First, I was repeatedly writing the same bits of code over and over (which was what I wanted to avoid by automating the process in the first place). My code was hard to read and hard to debug. Learning to put my code into small reusable chunks was one of my biggest breakthroughs: <em>one job, one function</em>. This made my code easier to debug because, together with my tests, I could find exactly where my code wasn't working and I only needed to fix the problem in one place. This reduced the number of bugs in my code dramatically. I also learned to test each function as I was building it, so most bugs are now caught early.</p>
+<h2>Nobody gets it right the first time</h2>
+<p>As a part-time coder and full-time perfectionist, I soon got really frustrated that my code didn't work off the bat. "What was wrong with me that I couldn't write anything that even ran, let alone worked!", I thought, "So what if I was a newbie. Professional developers don't have these kinds of problems."</p>
+<p>But, as I gained more experience I learned that developpers do have the same problems. All code usually has bugs in it at first. As I got more fluent in a language, the types of bugs I encoutered tended to change. The syntax errors gradually decreased, but still nothing is perfect the first time. I have just developed better skills at dealing with bugs and thinking about programming.</p>
