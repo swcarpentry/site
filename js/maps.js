@@ -94,7 +94,7 @@ SWC.maps = (function() {
     info_window   = new google.maps.InfoWindow({}),
     map           = new google.maps.Map(document.getElementById('map_canvas'), mapOptions),
     bc_date, split_date, today = new Date(),
-    his = {}, // Hash to detect multiple bootcamps (hash info string)
+    his = {}, // Hash to detect multiple instaces of a bootcamp
     info_string, bc_venue;
 
     // Go over all the upcoming camps and create pins in the map
@@ -129,11 +129,6 @@ SWC.maps = (function() {
           '</div>';
         */
 
-        if (bc_data_type === "upcoming" && bc_date >= today)
-          marker.visible = true;
-        if (bc_data_type === "past" && bc_date < today)
-          marker.visible = true;
-
         bc_venue = "{{bootcamp.venue}}";
         if (bc_venue in his) {
           info_string = his[bc_venue].text;
@@ -142,12 +137,26 @@ SWC.maps = (function() {
           info_string = w_text('info-window');
           his[bc_venue] = { num_instances: 0 };
         }
-        info_string.add(
-          "{{bootcamp.venue}}",
-          "{% if bootcamp.url %}{{bootcamp.url}}{% else %}{{page.root}}/{{bootcamp.path}}{% endif %}",
-          "{{bootcamp.humandate}}",
-          "{{page.root}}/{{bootcamp.path}}"
-        );
+
+        add_info_string = function() {
+          info_string.add(
+            "{{bootcamp.venue}}",
+            "{% if bootcamp.url %}{{bootcamp.url}}{% else %}{{page.root}}/{{bootcamp.path}}{% endif %}",
+            "{{bootcamp.humandate}}",
+            "{{page.root}}/{{bootcamp.path}}"
+          );
+        };
+
+        if (bc_data_type === "upcoming" && bc_date >= today) {
+          marker.visible = true;
+          add_info_string();
+        }
+        if (bc_data_type === "past" && bc_date < today) {
+          marker.visible = true;
+          add_info_string();
+        }
+
+
         his[bc_venue].text = info_string;
         his[bc_venue].num_instances += 1;
         marker.labelContent = his[bc_venue].num_instances;
