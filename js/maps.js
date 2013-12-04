@@ -7,24 +7,6 @@ SWC.maps = (function() {
       i_window, // Info window "class"
       bootcamps; // Store all the bootcamp info
 
-  function MarkerPin(color) {
-    var pin = new google.maps.MarkerImage(
-      "http://chart.apis.google.com/chart?chst=d_map_pin_letter&chld=%E2%80%A2|" + color,
-      new google.maps.Size(21, 34),
-      new google.maps.Point(0,0),
-      new google.maps.Point(10, 34));
-    return pin;
-  }
-
-  function MarkerPinCluster(url, sizeX, sizeY) {
-    var pin = new google.maps.MarkerImage(
-    url,
-    new google.maps.Size(sizeX,sizeY),
-    new google.maps.Point(0,0),
-    new google.maps.Point(10,34));
-    return pin;
-  }
-
   function set_info_window(map, marker, info_window, content) {
     google.maps.event.addListener(marker, 'click', function () {
       info_window.setContent(content);
@@ -32,25 +14,7 @@ SWC.maps = (function() {
     });
   }
 
-  function toggle_marker_visibility(marker) {
-    if (marker.getVisible()) {
-      marker.setVisible(false);
-    } else {
-      marker.setVisible(true);
-    }
-  }
-
-  function toggle_markers_mc_visibility(markers, mc) {
-    markers.forEach(toggle_marker_visibility);
-    if (markers[0].visible) {
-      mc.setMap(markers[0].getMap());
-    }
-    else {
-      mc.setMap(null);
-    }
-  }
-
-  // Help us with the html in the window
+  // Help us with the html in the window/bubble
   w_text = (function(c) {
     var _class = typeof c !== 'undefined' ? c : 'info-window',
         i_start = '<div class="' + _class + '">',
@@ -125,7 +89,7 @@ SWC.maps = (function() {
       console.log("# of bootcamp instances loaded: " + total);
     }
 
-    // Giveme only the bootcamps that match logic (date filtering)
+    // Give me only the bootcamps that match logic (date filtering)
     function filter(f_logic) {
       var f_bcs = {},
           total = 0; // filtered bcs;
