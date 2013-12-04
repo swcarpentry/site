@@ -4,7 +4,8 @@ var SWC = SWC || {};
 
 SWC.maps = (function() {
   var maps = {},
-      i_window; // Info window "class"
+      i_window, // Info window "class"
+      bootcamps; // Store all the bootcamp info
 
   function MarkerPin(color) {
     var pin = new google.maps.MarkerImage(
@@ -85,96 +86,122 @@ SWC.maps = (function() {
     };
   });
 
-  function bootcamps(bc_data_type) {
-    var mapOptions = {
-      zoom: 2,
-      center: new google.maps.LatLng(25,8),
-      mapTypeId: google.maps.MapTypeId.ROADMAP
-    },
-    info_window   = new google.maps.InfoWindow({}),
-    map           = new google.maps.Map(document.getElementById('map_canvas'), mapOptions),
-    bc_date, split_date, today = new Date(),
-    his = {}, // Hash to detect multiple instaces of a bootcamp
-    info_string, bc_venue;
+  bootcamps = (function() {
+    var bcs = {},
+        total = 0;
 
-    // Go over all the upcoming camps and create pins in the map
-    {% for bootcamp in site.bootcamps %}
-      split_date = "{{bootcamp.startdate}}".split("-");
-      bc_date = new Date(split_date[0], split_date[1]-1, split_date[2]); // year, month, day
+    function add(venue, link, human_date, proot, startdate, latlng) {
+      var split_date = startdate.split("-"),
+          js_date = new Date(split_date[0], split_date[1]-1, split_date[2]), // year, month, day
+          split_latlng = latlng.split(","),
+          lat = split_latlng[0], lng = split_latlng[1];
 
-      {% if bootcamp.latlng %}
-        /*
-        var marker = new google.maps.Marker({
-          position: new google.maps.LatLng({{bootcamp.latlng}}),
-          map: map,
-          title: "{{bootcamp.venue}}, {{bootcamp.humandate}}",
-          visible: false,
-        });
-        */
-        var marker = new MarkerWithLabel({
-          position: new google.maps.LatLng({{bootcamp.latlng}}),
-          map: map,
-          title: "{{bootcamp.venue}}, {{bootcamp.humandate}}",
-          visible: false,
-          labelContent: 0,
-          labelAnchor: new google.maps.Point(0, 0),
-          labelClass: "labels", // the CSS class for the label
-          labelStyle: {opacity: 0.75}
-        });
+      if (!(venue in bcs))
+        bcs[venue] = [];
 
-        /*
-        info_string = '<div class="info-window">' +
-          '<h5><a href="{% if bootcamp.url %}{{bootcamp.url}}{% else %}{{page.root}}/{{bootcamp.path}}{% endif %}">{{bootcamp.venue|replace: '\'','\\\''}}</a></h5>' +
-          '<h6><a href="{{page.root}}/{{bootcamp.path}}">{{bootcamp.humandate}}</a></h6>' +
-          '</div>';
-        */
+      bcs[venue].push({
+        "venue": venue,
+        "link": link,
+        "human_date": human_date,
+        "proot": proot,
+        "lat": +lat,
+        "lng": +lng,
+        "js_date": js_date
+      });
+    }
 
-        bc_venue = "{{bootcamp.venue}}";
-        if (bc_venue in his) {
-          info_string = his[bc_venue].text;
+    function load() {
+      {% for bootcamp in site.bootcamps %}
+        {% if bootcamp.latlng %}
+          add("{{bootcamp.venue}}",
+              "{% if bootcamp.url %}{{bootcamp.url}}{% else %}{{page.root}}/{{bootcamp.path}}{% endif %}",
+              "{{bootcamp.humandate}}",
+              "{{page.root}}/{{bootcamp.path}}",
+              "{{bootcamp.startdate}}",
+              "{{bootcamp.latlng}}");
+          total += 1;
+        {% endif %}
+      {% endfor %}
+      console.log("# of bootcamp instances loaded: " + total);
+    }
+
+    // Giveme only the bootcamps that match logic (date filtering)
+    function filter(f_logic) {
+      var f_bcs = {},
+          total = 0; // filtered bcs;
+      for (var venue in bcs) { // each bootcamp
+        if (bcs.hasOwnProperty(venue)) {
+          var instances = bcs[venue];
+          for (var i=0; i<instances.length; i++) { // each bootcamp instance
+            var c = instances[i]; // current bootcamp
+            if (f_logic(c.js_date)) { // Should this instance be in the current map?
+              if (!(c.venue in f_bcs))
+                f_bcs[c.venue] = [];
+              f_bcs[c.venue].push(c);
+              total += 1;
+            }
+          }
         }
-        else {
-          info_string = w_text('info-window');
-          his[bc_venue] = { num_instances: 0 };
+      }
+      console.log("# of bootcamp instances after filtering: " + total);
+      return f_bcs;
+    }
+
+    function load_pins(map, info_window, filter_logic) {
+      var f_bcs = filter(filter_logic);
+      for (var venue in f_bcs) {
+        if (f_bcs.hasOwnProperty(venue)) { // each bootcamp for the current map
+          var instances = f_bcs[venue],
+              bubble_text = w_text();
+
+          for (var i=0; i<instances.length; i++) { // each bootcamp instance
+            var c = instances[i]; // current bc
+            bubble_text.add(c.venue,
+                            c.link,
+                            c.human_date,
+                            c.proot);
+          }
+
+          var marker = new MarkerWithLabel({
+            position: new google.maps.LatLng(instances[0].lat, instances[0].lng),
+            map: map,
+            title: instances[0].venue + ", " + instances[0].human_date,
+            visible: true,
+            labelContent: instances.length,
+            labelAnchor: new google.maps.Point(0, 0),
+            labelClass: "labels", // the CSS class for the label
+            labelStyle: {opacity: 0.75}
+          });
+
+          set_info_window(map, marker, info_window, bubble_text.html());
         }
+      }
+    }
 
-        add_info_string = function() {
-          info_string.add(
-            "{{bootcamp.venue}}",
-            "{% if bootcamp.url %}{{bootcamp.url}}{% else %}{{page.root}}/{{bootcamp.path}}{% endif %}",
-            "{{bootcamp.humandate}}",
-            "{{page.root}}/{{bootcamp.path}}"
-          );
-        };
-
-        if (bc_data_type === "upcoming" && bc_date >= today) {
-          marker.visible = true;
-          add_info_string();
-        }
-        if (bc_data_type === "past" && bc_date < today) {
-          marker.visible = true;
-          add_info_string();
-        }
-
-
-        his[bc_venue].text = info_string;
-        his[bc_venue].num_instances += 1;
-        marker.labelContent = his[bc_venue].num_instances;
-
-        set_info_window(map, marker, info_window, info_string.html());
-      {% endif %}
-
-    {% endfor %}
-  }
+    load();
+    return { "load_pins": load_pins };
+  })();
 
   /* Use the URL to figure out what map to load */
   maps.load = function() {
-    var url_bn  = document.URL.replace(/^.*\/|\.[^.]*$/g, '');
-    if (url_bn === "index")
-      bootcamps("upcoming");
-    if (url_bn === "past")
-      bootcamps("past");
-  }
+    var url_bn = document.URL.replace(/^.*\/|\.[^.]*$/g, ''),
+        mapOptions = {
+          zoom: 2,
+          center: new google.maps.LatLng(25,8),
+          mapTypeId: google.maps.MapTypeId.ROADMAP
+      },
+      info_window = new google.maps.InfoWindow({}),
+      map = new google.maps.Map(document.getElementById('map_canvas'), mapOptions),
+      today = new Date();
+
+    bootcamps.load_pins(map, info_window, function(bc_date) {
+      if (url_bn === "index")
+        return bc_date >= today;
+      if (url_bn === "past")
+        return bc_date < today;
+    });
+
+  };
 
   return maps;
 })();
