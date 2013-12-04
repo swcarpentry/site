@@ -316,14 +316,8 @@ dl.faq dt {
 #map_canvas .labels {
    color: red;
    font-family: "Lucida Grande", "Arial", sans-serif;
-   font-size: 10px;
+   font-size: 18px;
    font-weight: bold;
    text-align: center;
-/*
-   white-space: nowrap;
-   background-color: white;
-   width: 40px;
-   border: 2px solid black;
-*/
 }
 
