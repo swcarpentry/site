@@ -12,3 +12,15 @@ title: Past Bootcamps
 <div class="bootcamps">
   <div id="map_canvas" style="width: 98%; height: 500px; margin-left:auto; margin-right: auto;"></div>
 </div>
+
+<table class="table table-striped bootcamps">
+  {% for bootcamp in site.bootcamps reversed %}
+    {% if bootcamp.enddate < site.today %}
+      <tr>
+        <td><img src="{{page.root}}/assets/flags/{{site.flag_size}}/{{bootcamp.country}}.png" alt="{{bootcamp.country}}" /></td>
+        <td class="link"><a href="{% if bootcamp.url %}{{bootcamp.url}}{% else %}{{page.root}}/{{bootcamp.path}}{% endif %}">{{bootcamp.venue}}</a></td>
+        <td class="date">{{bootcamp.humandate}}</td>
+      </tr>
+    {% endif %}
+  {% endfor %}
+</table>
