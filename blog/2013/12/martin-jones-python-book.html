@@ -1,0 +1,98 @@
+---
+layout: blog
+root: ../../..
+author: Martin Jones
+title: "Advanced Python for Biologists"
+date: 2013-12-05
+time: "10:30:00"
+category: ["Announcements"]
+---
+<!-- start excerpt -->
+<p>
+  When I was writing <cite>Python for Biologists</cite>
+  (see my <a href="{{page.root}}/blog/2013/10/python-for-biologists.html">previous guest post</a>)
+  I was extremely ruthless about leaving material out. I wanted the book
+  to cover pretty much the same set of language features that I teach in
+  my instructor-led introductory programming courses, which meant I had
+  to limit the scope of the book to what an average, motivated beginner
+  could take in in a full-time week of study. This restriction meant
+  that, while I think the overall balance of material in Python for
+  Biologists is still the most useful set for novice programmers, there
+  are big topics that didn't make the cut. There's no mention of
+  object-oriented or functional programming, nothing about Python's
+  extremely elegant comprehension syntax, and nothing on recursion. As I
+  was writing, I made a list of all these omissions, with the promise to
+  myself that I would write about them some day.
+</p>
+<!-- end excerpt -->
+<p>
+  Recently, a couple of things have been co-incidentally happening at
+  the same time that have got me thinking again about the importance of
+  exploring a programming language beyond the basics. Firstly, I've been
+  writing the follow-up to <cite>Python for Biologists</cite> (it's called,
+  unsurprisingly, Advanced Python for Biologists, and you can read about
+  it <a href="http://pythonforbiologists.com/index.php/advanced-python-for-biologists/">here</a>)
+  and I've found myself concentrating on the chapters that discuss
+  different approaches to programming: object-oriented programming,
+  functional programming, and recursion. Secondly, I've been watching my
+  current class of students make the conceptual leap from procedural to
+  object-oriented programming in the MSc course on which I teach. Both
+  of these things have left me thinking about the important role that
+  knowledge of a programming language plays in determining how people
+  solve computational problems.
+</p>
+<p>
+  For the new book, I've started each chapter by laying out a problem
+  and showing how to solve it using procedural code, before showing an
+  alternative, better solution that involve
+  object-oriented/functional/recursive programming. What strikes me
+  forcibly in each case is not only the degree to which the
+  object-oriented/functional/recursive solutions are better, but how
+  simply knowing that such techniques exist open up a whole new approach
+  to problem-solving. Recursive functions are great for processing
+  tree-like data, for example, but it's unlikely that anyone would come
+  up with them without having been explicitly introduced to recursion.
+  This isn't because the concept is especially hard to grasp&mdash;it's just
+  that recursive solutions simply aren't part of the conceptual toolbox
+  of a procedurally-trained programmer. The same goes for higher-order
+  functions: they allow us to solve certain sets of problems very
+  elegantly, but in a way that's completely non-obvious to someone who
+  hasn't been taught about functional abstraction. And, as the examples
+  of code I see from my students makes clear, switching from procedural
+  to object-oriented code (which makes some types of problems much
+  easier to solve) requires changing the way we think about state.
+</p>
+<p>
+  In a way, this line of thought is a programmer's version of the
+  Sapir-Whorf hypothesis: the idea from linguistics which posits that
+  the structure of the language you speak affects your mental model of
+  the world. Not being a linguist, I don't know how the Sapir-Whorf
+  hypothesis (Wikipedia tells me that it is know known as "linguistic
+  relativism") is currently viewed as applied to natural languages, but
+  as a instructor, I definitely think that it applies very well to
+  programming languages. If the language you know and use (or rather:
+  the subset of features in that language that you know and use) doesn't
+  include classes, first-class functions, or recursion, then those
+  approaches to looking at and solving problems are unlikely to be at
+  your disposal.
+</p>
+<p>
+  That's why I'm currently concentrating on writing about advanced
+  Python features for use in biological analyses&mdash;including object
+  orientation, higher-order functions, and recursion. If a programmer
+  never goes beyond the basics then they're not just missing out on
+  language features that could make life easier, they're missing out on
+  entire ways of thinking about problems and their solutions.
+  Incidentally, this is part of the reason that I'm a big fan of Python
+  as a first language for teaching. It allows (but does not enforce)
+  object-oriented and functional approaches to problem-solving, and the
+  syntax for each is lightweight enough to allow the student to
+  concentrate on the structure of code rather than the specifics.
+</p>
+<p>
+  So if you're comfortable with the basics of programming&mdash;and maybe
+  you've already written a fair few useful programs&mdash;I encourage you to
+  seek out the corners of your programming language that you haven't yet
+  ventured into. With any luck, what you'll find there is not just new
+  features, but new ways of thinking.
+</p>

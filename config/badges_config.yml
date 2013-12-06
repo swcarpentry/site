@@ -29,6 +29,7 @@ instructor:
 - {name: Jennifer Bryan, user: bryan.j}
 - {name: Rosangela Canino-Koning, user: canino-koning.r}
 - {name: Chris Cannam, user: cannam.c}
+- {name: Cliburn Chan, user: chan.cliburn}
 - {name: Adina Chuang Howe, user: chuang-howe.a}
 - {name: Neil Chue Hong, user: chue-hong.n}
 - {name: Stefano Cozzini, user: cozzini.s}
@@ -36,7 +37,7 @@ instructor:
 - {name: Emily Davenport, user: davenport.e}
 - {name: Matt Davis, user: davis.m}
 - {name: Neal Davis, user: davis.neal}
-- {name: Gabriel Devenyi, user: devenyi.g}
+- {name: Gabriel A. Devenyi, user: devenyi.g}
 - {name: Ross Dickson, user: dickson.r}
 - {name: Jonah Duckles, user: duckles.jonah}
 - {name: Jonathan Dursi, user: dursi.j}
@@ -46,6 +47,7 @@ instructor:
 - {name: Luis Figueira, user: figueira.l}
 - {name: Jordan Fish, user: fish.jordan}
 - {name: Rich FitzJohn, user: fitzjohn.rich}
+- {name: Julian Garcia, user: garcia.julian}
 - {name: Molly Gibson, user: gibson.molly}
 - {name: Ivan Gonzalez, user: gonzalez.ivan}
 - {name: Julia Gustavsen, user: gustavsen.j}
@@ -62,7 +64,6 @@ instructor:
 - {name: Paul Ivanov, user: ivanov.p}
 - {name: Mike Jackson, user: jackson.m}
 - {name: David Jones, user: jones.d}
-- {name: Julian Garcia, user: garcia.julian}
 - {name: Jessica Kerr, user: kerr.j}
 - {name: Ted Kirkpatrick, user: kirkpatrick.ted}
 - {name: Justin Kitzes, user: kitzes.j}
@@ -86,8 +87,8 @@ instructor:
 - {name: Randy Olson, user: olson.r}
 - {name: Aleksandra Pawlik, user: pawlik.a}
 - {name: Jason Pell, user: pell.j}
-- {name: Fernando Perez, user: perez.f}
 - {name: David Perez-Suarez, user: perez-suarez.david}
+- {name: Fernando Perez, user: perez.f}
 - {name: Caitlyn Pickens, user: pickens.c}
 - {name: Karthik Ram, user: ram.k}
 - {name: Ariel Rokem, user: rokem.a}
@@ -101,6 +102,7 @@ instructor:
 - {name: Joshua Smith, user: smith.j}
 - {name: Shoaib Sufi, user: sufi.s}
 - {name: Sarah Supp, user: supp.s}
+- {name: Gayathri Swaminathan, user: swaminathan.gayathri}
 - {name: Tracy Teal, user: teal.t}
 - {name: Will Trimble, user: trimble.will}
 - {name: Nelle Varoquaux, user: varoquaux.n}
@@ -159,6 +161,7 @@ organizer:
 - {name: Jeffrey Shelton, user: shelton.j}
 - {name: Andrew Su, user: su.a}
 - {name: Tracy Teal, user: teal.t}
+- {name: Luke Tweddle, user: tweddle.l}
 - {name: Todd Vision, user: vision.t}
 - {name: Andrew Walker, user: walker.a}
 - {name: Ben Waugh, user: waugh.b}
