@@ -7,9 +7,10 @@
     <title>Software Carpentry: {{page.title}}</title>
     <script src="https://maps.googleapis.com/maps/api/js?v=3.exp&amp;sensor=false"></script>
     <script type="text/javascript" src="http://google-maps-utility-library-v3.googlecode.com/svn/trunk/markerclustererplus/src/markerclusterer.js"></script>
+    <script src="http://google-maps-utility-library-v3.googlecode.com/svn/tags/markerwithlabel/1.1.9/src/markerwithlabel.js" type="text/javascript"></script>
     <script type="text/javascript" src="{{page.root}}/js/maps.js"></script>
   </head>
-  <body onload="SWC.maps.upcoming()">
+  <body onload="SWC.maps.load()">
     {% include navbar.html %}
     <div class="container">
       <div class="row-fluid">

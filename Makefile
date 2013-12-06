@@ -25,6 +25,7 @@ SRC_BOOTCAMP_PAGES = $(wildcard ./bootcamps/????-??-*/index.html)
 # All bootcamp source files.
 SRC_BOOTCAMP = $(SRC_BOOTCAMP_PAGES) \
 ./bootcamps/index.html \
+./bootcamps/past.html \
 ./bootcamps/operations.html \
 ./bootcamps/pre-learner.html \
 ./bootcamps/post-learner.html \
