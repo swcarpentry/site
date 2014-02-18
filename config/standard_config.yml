@@ -9,6 +9,7 @@ twitter_url     : "https://twitter.com/swcarpentry"
 irc_url         : "irc://freenode/swcarpentry"
 msl_url         : "http://mozillascience.org"
 store_url       : "http://www.cafepress.com/swcarpentry"
+vm_url          : "https://docs.google.com/uc?id=0B4Kr6DYkzkQtd05FekRId05DLXM&amp;export=download"
 recent_length   : 5
 upcoming_length : 10
 blog_title      : "Software Carpentry"
