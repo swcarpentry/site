@@ -73,20 +73,20 @@ class ICalendarWriter(object):
             end = info['startdate']
         end + datetime.timedelta(1)  # non-inclusive end date
         lines = [
-            'BEGIN:VEVENT',
-            'UID:{0}'.format(uid),
-            'DTSTAMP:{0}'.format(timestamp),
-            'DTSTART;VALUE=DATE:{0}'.format(info['startdate'].strftime('%Y%m%d')),
-            'DTEND;VALUE=DATE:{0}'.format(end.strftime('%Y%m%d')),
-            'SUMMARY:{0}'.format(self.escape(info['venue'])),
-            'DESCRIPTION;ALTREP="{0}":{0}'.format(info['url']),
-            'URL:{0}'.format(info['url']),
-            'LOCATION:{0}'.format(self.escape(info['venue'])),
+            u'BEGIN:VEVENT',
+            u'UID:{0}'.format(uid),
+            u'DTSTAMP:{0}'.format(timestamp),
+            u'DTSTART;VALUE=DATE:{0}'.format(info['startdate'].strftime('%Y%m%d')),
+            u'DTEND;VALUE=DATE:{0}'.format(end.strftime('%Y%m%d')),
+            u'SUMMARY:{0}'.format(self.escape(info['venue'])),
+            u'DESCRIPTION;ALTREP="{0}":{0}'.format(info['url']),
+            u'URL:{0}'.format(info['url']),
+            u'LOCATION:{0}'.format(self.escape(info['venue'])),
         ]
         if info.get('latlng'):
             latlng = re.sub(r'\s+', '', info['latlng']).replace(',', ';')
-            lines.append('GEO:{0}'.format(latlng))
-        lines.append('END:VEVENT')
+            lines.append('uGEO:{0}'.format(latlng))
+        lines.append(u'END:VEVENT')
         return lines
 
     def escape(self, value):
