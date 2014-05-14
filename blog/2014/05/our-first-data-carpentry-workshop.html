@@ -1,0 +1,166 @@
+---
+layout: blog
+root: ../../..
+author: Karen Cranston
+title: "Our First Data Carpentry Workshop"
+date: 2014-05-13
+time: "18:00:00"
+category: ["Bootcamps", "Data Carpentry"]
+---
+<!-- start excerpt -->
+
+<p>
+  On May 8 and 9, 2014, 4 instructors, 4 assistants, and 27 learners filed into
+  the largest meeting space at the National Evolutionary Synthesis Center
+  (NESCent) for the inaugural Data Carpentry bootcamp. Data Carpentry is modeled
+  on Software Carpentry, but focuses on tools and practices for more
+  productively managing and manipulating data. The inaugural group of learners
+  for this bootcamp was very diverse. They included graduate students, postdocs,
+  faculty and staff, from three of the largest local research universities (Duke
+  University, University of North Carolina, and North Caroline State
+  University). Over 55% of the attendees were women and research areas ranged
+  from evolutionary biology and ecology to microbial ecology, fungal
+  phylogenomics, marine biology, and environmental engineering. One participant
+  was even a library scientist from Duke Library.
+</p>
+<!-- end excerpt -->
+<p>
+  Acquiring data has become easier and less costly, including in many fields of
+  biology. Hence, we expected that many researchers would be interested in Data
+  Carpentry to help manage and analyze their increasing amounts of data. To get
+  a better idea of the breadth of perspectives that learners brought to the
+  course, we started by asking learners why they were attending. The responses
+  reflected a broad spectrum of the daily data wrangling challenges researchers
+  face:
+</p>
+<ul>
+  <li>I'm tired of feeling out of my depth on computation and want to increase my confidence.</li>
+  <li>I usually manage data in Excel and it's terrible and I want to do it better</li>
+  <li>I'm organizing GIS data and it's becoming a nightmare</li>
+  <li>This workshop sounds like a good way to dive in head first</li>
+  <li>My advisor insists that we store 50,000 barcodes in a spreadsheet, and something must be done about that.</li>
+  <li>I want to teach a reproducible research class.</li>
+  <li>I'm having a hard time analyzing microarray, SNP or multivariate data with Excel and Access.</li>
+  <li>I want to use public data.</li>
+  <li>I work with faculty at undergrad institutions and want to teach data practices, but I need to learn it myself first.</li>
+  <li>I'm interested in going in to industry and companies are asking for data analysis experience.</li>
+  <li>I'm trying to reboot my lab's workflow to manage data and analysis in a more sustainable way.</li>
+  <li>I'm re-entering data over and over again by hand and know there’s a better way.</li>
+  <li>I have overwhelming amounts of NGS data.</li>
+</ul>
+<p>
+  The instructors discussed many of these kinds of scenarios during the months
+  of planning that preceded the event. Therefore we were hopeful that the
+  curriculum elements we chose from the many potentially useful subjects would
+  qaddress what many of the learners were hoping to get out of the course. Here
+  is what we finally decided to teach, and the lessons we learned from that as
+  well as from the feedback we received from the learners.
+</p>
+<p>
+  We taught four different sections:
+</p>
+<ul>
+  <li>
+    Wrangling data in the shell (bash):
+    Differences between Excel documents and plain text;
+    getting plain text out of Excel;
+    navigating the bash shell;
+    exploring, finding and subsetting data using cat, head, tail, cut, grep,
+    find, sort, uniq
+    (Karen Cranston)
+  </li>
+  <li>
+    Managing and analyzing data in R: navigating R studio;
+    importing tabular data into dataframes;
+    subsetting dataframes;
+    basic statistics and plotting
+    (Tracy Teal)
+  </li>
+  <li>
+    Managing, combining and subsetting data in SQL: database structure;
+    importing csv files into SQLite;
+    querying the database;
+    creating views;
+    building complex queries
+    (Ethan White)
+  </li>
+  <li>
+    Creating repeatable workflows using shell scripts: putting shell commands in
+    a script;
+    looping over blocks of commands;
+    chaining together data synthesis in SQL with data analysis in R
+    (Hilmar Lapp)
+  </li>
+</ul>
+<p>
+  This was the first-ever bootcamp of this kind,
+  so after it was all done, we had a lot of ideas for future improvements:
+</p>
+<ul>
+  <li>
+     The SQL section should come before the R section! It makes more sense in
+     terms of workflow (extract subset of data; export to csv for analyses) but
+     is also an easier entry for learners (easier syntax, can see data in
+     Firefox plugin). The learners seemed to get SQL – there were fewer red
+     sticky notes and questions were more about transfer (“how would I structure
+     this other query”) than comprehension (“how do I correct bash / R
+     syntax”).
+  </li>
+  <li>Each section should include discussion about how to structure data and files to make one’s life easier.
+      Ethan did this for the SQL section, and it was very effective.
+  </li>
+  <li>
+    Students were already motivated when they came to the bootcamp; they didn't
+    need to be convinced that what we were teaching was important. Many people
+    are already struggling with data, and are hungry for better tools and
+    practices. Our bootcamp filled up in less than 24 hours after opening
+    registration, and there was virtually no attrition despite zero tuition
+    costs – everyone showed up, and every learner stayed until the end of day 2.
+  </li>
+  <li>
+    What the best tool is for a particular job is still a big question. When
+    would I use bash vs R vs SQL? Learners brought this up repeatedly, and we
+    didn’t always have good answers that didn’t involve hand waving, perhaps in
+    part because the answer depends so much on context and the problem at hand.
+  </li>
+  <li>
+    +1 for using a real (published!) data set that was relevant to at least some
+    of the participants; for using this same data set throughout the course; and
+    for having an instructor with intimate knowledge of the data (could explain
+    some of the quirks of the data). #squirrelcannon
+  </li>
+  <li>
+    For the shell scripting section, an outline and/or concept map would have
+    been useful to give learners a good idea upfront of what we were trying to
+    accomplish. Without this, some learners (and helpers!) were confused about
+    which endpoint we were working towards.
+  </li>
+  <li>
+    People who fall behind need a good way to catch up. Ways to do this include
+    providing a printed 'cheat sheet' of commands at the start of the session;
+    providing material online (unlike the well polished Software Carpentry
+    material, the material for Data Carpentry is still in the early stages of
+    online documentation); and having one helper dedicated to entering commands
+    in the etherpad.
+  </li>
+</ul>
+<p>
+  There were also various things we wanted to teach but that came under the
+  chopping block due to lack of time and other reasons. One of these, and one
+  that learners asked about repeatedly, was the subject of "Getting data off the
+  web". It will take more thought to pin down what that should actually
+  mean as part of Data Carpentry bootcamp aimed at zero-barrier to entry. It
+  might mean using APIs to access data from NCBI or GBIF, but it’s far from
+  clear whether that would be meeting learners’ needs or not. For most
+  general-purpose data repositories, such as Dryad, most of their data are too
+  messy to use without extensive cleanup.
+</p>
+<p>
+  All of the helpers including Darren Boss (iPlant), Matt Collins (iDigBio),
+  Deb Paul (iDigBio), and Mike Smorul (SESYNC) did a great job of helping the
+  students pick up new data skills.
+  Finally, we’d like to thank our sponsors for their support, including NESCent
+  for hosting the event and keeping us nourished, and the Data Observation
+  Network for Earth (DataONE), without whom this event wouldn’t have taken
+  place.
+</p>
