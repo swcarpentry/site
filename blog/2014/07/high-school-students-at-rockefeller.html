@@ -8,43 +8,43 @@ time: "19:00:00"
 category: ["Rockefeller University"]
 ---
 <!-- start excerpt -->
-<p>Camille Avestruz, Ivan Gonzalez, Timothy Cerino, and Daniel Chen all
-had the great opportunity to teach Software Carpentry's first
+<p>Camille Avestruz, Ivan Gonzalez, Timothy Cerino, and Daniel Chen
+all had the great opportunity to teach Software Carpentry's first
 zero-entry workshop to high school students.  We were able to teach at
-Rockefeller thanks to the scientific foresight by Jeanne Garbarino
-and the rest of the Rockefeller team along with Arliss
-Collins, Greg Wilson and the SWC team.  Lastly, thanks to Gabriel
-Perez-Giz for volunteering his time to help during thw workshop.</p>
+Rockefeller thanks to the scientific foresight of Jeanne Garbarino and
+the rest of the Rockefeller team along with Arliss Collins, Greg
+Wilson and the SWC team.  Lastly, thanks to Gabriel Perez-Giz for
+volunteering his time to help during the workshop.</p>
 
-<p>The main goal of this workshop was to expose tomorrow's scientists to
-scientific computing as early as possible.  For example, as genomics
-data for biology continues to grow, we are beginning to see a shift of
-biologists from the pipetter to the data scientist.  Our goal was not
-to teach everyone all the skills needed so they can dive into
-retrieving, cleaning, and analyzing genomics or astronomy data the next
-day, but rather show them what is possible with computers, and expose
-them for the first time that the GUI may not always be the best tool
-for the job; and give some foundation of knowledge and concepts for
-perpetual self learning.</p>
+<p>The main goal of this workshop was to expose tomorrow's scientists
+to scientific computing as early as possible.  For example, as
+genomics data for biology continues to grow, we are beginning to see a
+shift of biologists from the pipetter to the data scientist.  Our goal
+was not to teach everyone all the skills needed so they can dive into
+retrieving, cleaning, and analyzing genomics or astronomy data the
+next day, but rather show them what is possible with computers, and
+expose them for the first time that the GUI may not always be the best
+tool for the job; and give some foundation of knowledge and concepts
+for perpetual self learning.</p>
 
-<p>We followed the traditional SWC workshop materials, adapting the pace
-as needed.  Bash, Python, and Git were covered.</p>
+<p>We followed the traditional SWC workshop materials, adapting the
+pace as needed.  Bash, Python, and Git were covered.</p>
 <!-- end excerpt --> 
 <h2>What Went Well, and What Didn't</h2>
 
 <h3>High School Students</h3>
 
-<p>Since there is a lot of material that we cover in two days, the lessons
-were given in 90 minute blocks.  For the typical NYC high school (I'm
-now speaking from personal experience), there are 10 blocks of 45
-minuets each through out each day.  Some classes may take a 2 period
-block (90 minutes), but almost never is the entire day solely taught
-in 90 minute blocks.  In higher education a 90 minute class is almost
-considered the baseline and is very common with many other classes
-lasting much longer.  This difference was echoed to us when we
-finished our workshop and had a 15 minute open discussion of what
-worked for the students, and what did not.  Many suggested to have 4
-half-day workshops, each covering 1 topic with many small in-class
+<p>Since there was a lot of material to we cover in two days, the
+lessons were given in 90 minute blocks.  For the typical NYC high
+school (I'm now speaking from personal experience), there are 10
+blocks of 45 minutes each throughout each day.  Some classes may take
+a 2 period block (90 minutes), but almost never is the entire day
+solely taught in 90 minute blocks.  In higher education a 90 minute
+class is almost considered the baseline and is very common with many
+other classes lasting much longer.  This difference was echoed to us
+when we finished our workshop and had a 15 minute open discussion of
+what worked for the students, and what did not.  Many suggested having
+4 half-day workshops, each covering 1 topic with many small in-class
 practice problems and a 'homework'.  Reflecting on this point, this
 makes sense and should be tested the next time we teach high school
 students.</p>
@@ -52,10 +52,13 @@ students.</p>
 <p>Teaching these workshops usually has a bimodal distribution of
 students in terms of proficiency, experience, and familiarity of the
 materials being covered.  In our particular case, we pre-screened the
-class, but only about 2 students had prior experience with the material.</p>
+class, but only about 2 students had prior experience with the
+material.</p>
 
 <p>Sending these students to a site with short challenge exercises so
-they don't get bored (i.e. <a href="http://rosalind.info/problems/list-view/">Rosalind</a> or
+they don't get bored
+(i.e. <a href="http://rosalind.info/problems/list-view/">Rosalind</a>
+or
 <a href="http://projecteuler.net">Project Euler</a> for Python;
 <a href="http://pcottle.github.io/learnGitBranching/">Learn Git Branching</a> for Git would have helped
 for those few who thought the pace was too slow.</p>
@@ -66,7 +69,7 @@ for those few who thought the pace was too slow.</p>
 
 <p>The sticky notes (red up for a problem, green up for no problem),
 Etherpad document, Etherpad chat, and the basic raising of the hand to
-ask for help was extremely effective.  Students were using all means
+ask for help were extremely effective.  Students were using all means
 of getting help, although I would have to say most were doing what
 they were used to in the classroom, which is raising their hands.  For
 those that were shy, the Etherpad chat was a way for the instructor to
@@ -76,9 +79,9 @@ a great means for honest feedback.</p>
 <h3>Bash</h3>
 
 <p>We began in Bash with the basic <code>pwd</code>, <code>cd</code>,
-and <code>ls</code> commands.  Eventually moving to mkdir and touch.
-The helpers realized very quickly that the students were struggling to
-keep up.  Common questions were:</p>
+and <code>ls</code> commands.  Eventually moving to <code>mkdir</code>
+and <code>touch</code>.  The helpers realized very quickly that the
+students were struggling to keep up.  Common questions were:</p>
 
 <ul>
   <li> Did I do this right? </li>
@@ -94,14 +97,14 @@ along while blindly typing what the see on the screen, except what
 they see on the presentation screen was not what they saw on their own
 monitor; thus confusion arose, even though many of them created and
 moved into the correct directory.  A possible workaround is to have
-all students copy paste an <code>alias</code> for <code>ls</code> that
-colors directories (this is not a default in OSX), and everyone
-(instructors included) export the same PS1.  The former can be done
-right after the ls command is brought up, and searching through the
-man pages for the <code>--color</code> flag.  Experimentation with
-when the optimal time to export the PS1 variable would have to be
-conducted, but it seems that a black box 'please copy paste this so
-your terminal looks like mine' may be sufficient.</p>
+all students copy/paste an <code>alias</code> for <code>ls</code> that
+colors directories (this is not a default in OSX), and to have
+everyone (instructors included) export the same PS1.  The former can
+be done right after the <code>ls</code> command is brought up, and
+searching through the man pages for the <code>--color</code> flag.
+Experimentation with when the optimal time to export the PS1 variable
+would have to be conducted, but it seems that a black box 'please copy
+paste this so your terminal looks like mine' may be sufficient.</p>
 
 <p>This brings me to my next point, when using the Etherpad, it will
 be useful to <em>not</em> copy the <code>$</code> before the actual
@@ -125,10 +128,11 @@ bootcampers do not have a mental image of the directory
 structure/hierarchy.  A GUI file system window that is shown
 simultaneously with the basic navigation and <code>touch</code>
 and <code>mkdir</code> commands solidify and contextualize what
-exactly is going on in the file system them that mkdir and touch
-ACTUALLY create files in the GUI interface as well.  This can be
-accomplished by running the following terminal commands for Windows,
-OSX, and linux operating systems, respectively:</p>
+exactly is going on in the file system them that <code>mkdir</code>
+and <code>touch</code> ACTUALLY create files in the GUI interface as
+well.  This can be accomplished by running the following terminal
+commands for Windows, OSX, and linux operating systems,
+respectively:</p>
 
 <ul>
   <li> <code>explorere .</code></li>
@@ -140,7 +144,7 @@ OSX, and linux operating systems, respectively:</p>
 extremely important.  For example, when we are teaching
 what <code>cd</code> is and when we say '<code>cd</code> into a new
 directory' it was important for the instructors to say
-'<code>cd</code>, change directory into your swc folder'.  This
+'<code>cd</code>, change directory into your SWC folder'.  This
 applied to the other topics cover as well and is especially important
 since these are new terms for the students and it naturally slows down
 the lesson (having tons of spelling mistakes work just as well as a
@@ -149,10 +153,10 @@ natural delay).</p>
 <p>After reading the first round of feedback, we put up a small
 exercise on the screen during lunch.  This gave the students to read
 and see what the task was when they return.  Additionally, with Gabe's
-help, we came up with a more practical exercise that show cases the
+help, we came up with a more practical exercise that showcases the
 necessity of learning Bash.  We created a directory of 48,000 files of
 mixed names and file types and asked the students how they would move
-a certain pattern of files (e.g. i want my 2013 pictures that are some
+a certain pattern of files (e.g. I want my 2013 pictures that are some
 form of .jpg into a pics/2013 subfolder).  This was a powerful example
 since the 'usual' way they would have done the task is through the
 GUI.  However with that many files in the directory, the GUI actually
@@ -166,7 +170,7 @@ dump like the example shown is not uncommon in science.</p>
 
 <h3>Python</h3>
 
-<p>We took the feed back regarding pacing in Bash and paced the Python
+<p>We took the feedback regarding pacing in Bash and paced the Python
 lessons in a much more digestible fashion.  We finished off the day
 covering conditionals, with some feedback about the section on
 dictionaries to be too long.  By the second day I overheard students
@@ -175,17 +179,17 @@ in terms of a logical set of commands to give a computer to accomplish
 a task.  It was inspiring to know that at the same time 'it is just
 the tip of the iceberg and there's a lot more out there.'  We began
 the second day reviewing everything in the previous day.  Go to the
-SWC work directory, create a folder for today's work, open up a
-ipython notebook, and review some questions that was brought up in the
-preview day's feedback.  It was fascinating to see that even amongst
-all the confusion regarding Bash the previous day, filesystem
+SWC work directory, create a folder for today's work, open up an
+ipython notebook, and review some questions that were brought up in
+the preview day's feedback.  It was fascinating to see that even
+amongst all the confusion regarding Bash the previous day, filesystem
 navigation was not an issue on the next day.</p>
 
 <p>We finished the session off with loops, functions, basic file I/O,
 and we gave them a practical exercise to read in a dataset of animals
-and their brain mass and body mass.  The task was to each animal's
-brain:body mass ratio and save the information so it can be used
-later.</p>
+and their brain mass and body mass.  The task was to calculate each
+animal's brain:body mass ratio and save the information so it can be
+used later.</p>
 
 <p>Some things we learned teaching Python: </p>
 
@@ -196,9 +200,9 @@ exercises. When I was helping with during the Python session, some
 seemed to be very worried about having the example or exercise
 "right", as the value of the task was just this. </li>
   <li>
-    exercises/examples should be tuned to connect to their
+    Exercises/examples should be tuned to connect to their
 previous experiences or otherwise have some sense of completion
-(e.g. ipythonblocks).</li>
+(e.g. ipython blocks).</li>
   <li>
     During the last capstone exercise, many of the students were
 simply stumped, overwhelmed, and had 'no idea where to start',
@@ -236,18 +240,18 @@ http://www.phdcomics.com/comics/archive.php?comicid=1531</p>
 <p>The second was an example of backing up data while working on a
 thesis.  The biggest barrier to entry, is showing them why it is
 better than their current workflow: dropbox, track changes, save as
-with a number or date, collaboration, etc.  We began by diagramming Git
-on an oversize notepad.  However, due to the nature of the room, it
-was difficult to see the drawn figures from the back.  We went back an
-fourth between the Git diagram and the actual committing and checkouts
-in Git to get a sense of how things are being tracked using 2 files
-keeping track of guacamole ingredients and instruction on how to make
-guacamole.  We mostly went over version control on a local and
+with a number or date, collaboration, etc.  We began by diagramming
+Git on an oversize notepad.  However, due to the nature of the room,
+it was difficult to see the drawn figures from the back.  We went back
+and fourth between the Git diagram and the actual committing and
+checkouts in Git to get a sense of how things are being tracked using
+2 files keeping track of guacamole ingredients and instruction on how
+to make guacamole.  We mostly went over version control on a local and
 individual level.  During the final section of the workshop we went
 over collaboration using the guacamole recipe on GitHub.</p>
 
 <p>Here we also ran into many technical problems regarding the older
-versions of OSX, namely snow leopard.  The problem arises when one
+versions of OSX, namely Snow Leopard.  The problem arises when one
 tries to <code>git init</code> the directory to be tracked.  Simply
 checking the Git installation by using <code>which git</code> does not
 accurately diagnose the problem.  The fix was to use an older version
