@@ -1,5 +1,6 @@
 board_inquiries : "board-inquiries@software-carpentry.org"
 contact         : "admin@software-carpentry.org"
+director        : "director@software-carpentry.org"
 facebook_url    : "https://www.facebook.com/SoftwareCarpentry"
 github_url      : "https://github.com/swcarpentry"
 github_io_url   : "http://swcarpentry.github.io"
