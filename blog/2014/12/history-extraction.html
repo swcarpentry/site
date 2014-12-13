@@ -1,0 +1,76 @@
+---
+layout: blog
+root: ../../..
+author: Aaron O'Leary
+title: "Guidelines for extracting history"
+date: 2014-12-15
+time: "09:00:00"
+category:
+---
+
+> ### Excerpt
+>
+> We are currently extracting individual lessons from the [bootcamp]
+> repository.  This process aims to make the lessons into modular
+> components of the Software Carpentry ecosystem, easing usage,
+> contribution and maintenance.
+>
+> In this post, we cover some guidelines for the extraction of
+> individual lessons and how to contribute to lessons in the meantime.
+
+
+### Overview
+
+Individual lessons are currently in folders in the [bootcamp]
+repository, e.g. `novice/python`. The aim of history extraction is
+to take the content and history of an individual lesson and move it
+to a new repository specifically for that lesson.
+
+The reason for preserving the history of lessons is that we want to
+recognise past contributions - just copying and pasting the files
+would remove this.
+
+
+### Guide procedure for an individual lesson
+
+We'll use the novice python lesson as an example throughout.
+
+1. One person takes ownership of the history extraction for a
+   specific lesson and creates an issue on [bc][bootcamp] with the
+   labels `Extract History`, `novice`, `Python` and a title, e.g.
+   'Extract history of novice Python lesson'.
+
+   Progress regarding the history extraction is then tracked in that
+   issue, ([example][novice-python-issue]).
+
+   An overview of all of the current extractions can be seen using
+   the [Extract History] label.
+
+2. That person creates a personal repository, e.g.
+   [aaren/swc-novice-python][swc-novice-python] where the history
+   extraction takes place.
+
+   The exact process used for extracting the history varies a little
+   by lesson. Inspiration can be found in the issues on [bc][Extract History],
+   for example the [novice python issue][novice-python-issue] or the
+   [shell extraction](https://github.com/wking/swc-modular-shell/issues/3).
+
+3. At this point the `novice/python` lesson in [bc][bootcamp] is
+   frozen. All new issues and Pull Requests should be made against
+   the new repository (linked in the issue).
+
+4. When the history extraction is completed, the new issues and
+   pull-requests can be reviewed. When all are dealt with, the
+   lesson is frozen again and transitioned to fit the new
+   [lesson-template] in a [swcarpentry] repository.
+
+5. Following the transition to the lesson template, the lesson is
+   LIVE! and is in a permanent new home.
+
+
+[Extract History]: https://github.com/swcarpentry/bc/labels/Extract%20History
+[bootcamp]: https://github.com/swcarpentry/bc
+[novice-python-issue]: https://github.com/swcarpentry/bc/issues/877
+[swc-novice-python]: https://github.com/aaren/swc-novice-python
+[lesson-template]: https://github.com/swcarpentry/lesson-template
+[swcarpentry]: https://github.com/swcarpentry
