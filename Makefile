@@ -101,7 +101,7 @@ cache :
 	@python bin/get_workshop_info.py -v -t \
 	    -i $(CONFIG_DIR)/workshop_urls.yml \
 	    -o ./_workshop_cache.yml
-	@python bin/make-dashboard.py ./git-token.txt ./_dashboard_cache.yml
+	@python bin/make-dashboard.py -t ./git-token.txt -o ./_dashboard_cache.yml
 
 ## biblio       : make HTML and PDF of bibliography.
 # Have to cd into 'bib' because bib2xhtml expects the .bst file in
