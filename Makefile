@@ -94,14 +94,6 @@ commands : Makefile
 site :
 	make SITE=$(PWD)/_site OUT=$(PWD)/_site build
 
-## dev          : build into development directory on server.
-dev :
-	make SITE=$(DEV_URL) OUT=$(DEV_DIR) build
-
-## install      : build into installation directory on server.
-install :
-	make SITE=$(INSTALL_URL) OUT=$(INSTALL_DIR) build
-
 ## check        : check consistency of various things.
 check :
 	@python bin/check_workshop_info.py config/workshop_urls.yml config/workshops_saved.yml
@@ -146,6 +138,14 @@ cache :
 	    -i ./config/workshop_urls.yml \
 	    -o ./_workshop_cache.yml
 	@python bin/make-dashboard.py ./git-token.txt ./_dashboard_cache.yml
+
+## dev          : build into development directory on server.
+dev :
+	make SITE=$(DEV_URL) OUT=$(DEV_DIR) build
+
+## install      : build into installation directory on server.
+install :
+	make SITE=$(INSTALL_URL) OUT=$(INSTALL_DIR) build
 
 ## links        : check links.
 #  Depends on linklint, an HTML link-checking module from http://www.linklint.org/,
