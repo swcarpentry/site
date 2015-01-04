@@ -30,7 +30,7 @@ and put it in the root directory of the 'site' project.'''
 
 # Command-line options.
 parser = OptionParser()
-parser.add_option('-o', '--output', dest='output', help='output directory')
+parser.add_option('-o', '--output', dest='outputfile', help='output directory')
 parser.add_option('-t', '--tokenfile', dest='tokenfile', help='GitHub token file')
 parser.add_option('-u', '--username', dest='username', help='GitHub username')
 parser.add_option('-p', '--password', dest='password', help='GitHub password')
@@ -38,9 +38,11 @@ options, args = parser.parse_args()
 
 assert not args, USAGE
 
+assert options.outputfile is not None, USAGE
+
 if options.tokenfile is not None:
     assert options.username is None and options.password is None, USAGE
-    with open(token_file, 'r') as reader:
+    with open(options.tokenfile, 'r') as reader:
         token = reader.read().strip()
         g = Github(token)
 
@@ -80,5 +82,5 @@ for (ident, description) in CONTROLS:
     record['issues'].sort(lambda x, y: - cmp(x['updated'], y['updated']))
 
 # Output.
-with open(output_file, 'w') as writer:
+with open(options.outputfile, 'w') as writer:
     yaml.dump(dashboard, writer, encoding='utf-8', allow_unicode=True)
