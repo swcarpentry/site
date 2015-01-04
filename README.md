@@ -3,9 +3,9 @@ Software Carpentry Web Site
 
 This repository holds the source for
 the [Software Carpentry](http://software-carpentry.org) web site.
-Home pages for workshops are not stored in this repository:
-if you want to create one,
-please see the instructions in the [`bc` repository](https://github.com/swcarpentry/bc).
+Lessons are not stored in this repository:
+please see [the lessons page](http://software-carpentry.org/lessons.html)
+for links to their repositories.
 
 Contributing
 ------------
@@ -16,53 +16,26 @@ By contributing,
 you are agreeing that Software Carpentry may redistribute your work
 under [these licenses](http://software-carpentry.org/license.html).
 
-Software Carpentry uses a development workflow similar to that of [AstroPy](http://astropy.org)
-and many other open source projects.
-The AstroPy docs have excellent sections on:
+Setting Up
+----------
 
-*   [Getting started with Git](http://astropy.readthedocs.org/en/latest/development/workflow/index.html#getting-started-with-git)
-*   [Developer workflow](http://astropy.readthedocs.org/en/latest/development/workflow/development_workflow.html)
-
-Cloning
--------
-
-To build this web site,
-you will need to clone `git@github.com:swcarpentry/site.git`,
-and then clone the submodule `https://github.com/swcarpentry/v4.git`.
-
-Note: this repository takes up roughly 360 MBytes
-(including what's in `.git`),
-and the Version 4 lesson materials add another 300 MBytes.
-
-Building
---------
-
-Building the web site requires:
+Rebuilding the web site locally to check changes requires:
 
 *   [Jekyll](http://jekyllrb.com/), used to compile templated HTML pages
 *   [Python](http://python.org/), used for pre- and post-processing
 
-Python packages can be installed using:
+We use Jekyll because it's what [GitHub](http://github.com/) uses;
+we use Python because most of our volunteers speak it.
+The Python packages we depend on can be installed using:
 
 ~~~
 $ pip install -r requirements.txt
 ~~~
 
-We use Jekyll because it's what [GitHub](http://github.com/) uses;
-we use Python because most of our volunteers speak it.
-
-*   Type `make` to see a list of all available commands.
-*   Type `make cache` to fetch information about upcoming workshops.
-    This must be done before building the web site.
-*   Type `make site` to build everything in `_site` for testing.
-    (Depending on your machine, this takes about 10-15 seconds.)
-*   Type `make clean` before re-doing `make site`,
-    to prepare the environment to build again.
-
-We try to use the same MarkDown interpreters as GitHub does for
-consistency.  On OS X, we suggest you use a recent Ruby to get access
-to these.  If you don't have Homebrew or MacPorts installed, here's a
-quick recipe to get started using HomeBrew.
+We try to use the same MarkDown interpreters as GitHub does for consistency.
+On OS X, we suggest you use a recent Ruby to get access to these.
+If you don't have Homebrew or MacPorts installed,
+here's a quick recipe to get started using HomeBrew:
 
 ~~~
 ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
@@ -71,29 +44,20 @@ gem install jekyll
 gem install RedCloth
 ~~~
 
-Design Notes
-------------
+Building
+--------
 
-*   We generate our own RSS feed (in `feed.xml`) and blog home page
-    because Jekyll insists on using `_posts/YYYY-MM-DD-name.html`,
-    and we don't want to have hundreds of files in one directory.
-*   Workshop pages for old workshops
-    are stored in the `workshops` directory of this repository,
-    since there's little point in creating repos for them.
-    New workshops should be created using the process described below.
+The commands used to rebuild the website are stored in `Makefile`.
 
-Adding Workshops
-----------------
-
-Old workshops' home pages are stored in `workshops/yyyy-mm-dd-site/index.html`.
-Newer workshops' home pages are stored in their own repositories on GitHub.
-The make target `make cache` runs the program `bin/get_workshop_info.py`
-which reads a list of GitHub repository URLs from the file `config/workshop_urls.yml`
-and (re-)creates the file `./_workshop_cache.yml`.
-That file is then used to build `./index.html`, `workshops/index.html`, and so on.
-To add another GitHub-hosted workshop to this web site,
-simply add a line to `config/workshop_urls.yml`.
-Please keep these ordered by date.
+*   Type `make` on its own to see a list of all available commands.
+*   Type `make clean` to get rid of generated files.
+*   Type `make site` to build everything in `_site` for testing.
+    (Depending on your machine, this takes about 10-15 seconds.)
+    You can then open `_site/index.html`
+    and other pages in `_site`
+    to see what your changes will look like.
+    Note that Disqus comments will *not* load properly,
+    since you'll be on your machine rather than our server.
 
 Blogging
 --------
@@ -122,55 +86,20 @@ To create a new blog post:
         as the excerpt to show in feed readers.
     *   If you need to refer to our email address, it is `{{page.contact}}`.
     *   If you need to another post, or something else on the site, use `{{page.root}}/path/to/file`.
-    *   We also provide `{{site.site}}` (the base URL for the site),
-        `{{site.twitter_name}}`,
-        `{{site.twitter_url}}`,
-        `{{site.facebook_url}}`,
-        `{{site.google_plus_url}}`,
-        and `{{site.rss_url}}`
-        (all of which should be self-explanatory),
-        and `{{site.msl_url}}` for the Mozilla Science Lab's web site.
 5.  Please add any images your blog post needs to the same blog/YYYY/MM directory as the post itself.
     Please use lower-case names without special characters for image files.
-6.  `make` in the root directory will list available commands;
-    `make site` will rebuild the web site in the `_site` directory.
-    Open `_site/index.html` to see your post on the blog's home page,
-    `_site/blog/index.html` to see it on the blog home page,
-    and `_site/YYYY/MM/post-name.html` to see the post itself.
-7.  When you're satisfied with your post,
+6.  When you're satisfied with your post,
     `git add path/to/post` and `git commit -m "Adding a blog post about something or other"`
     will commit it to your local copy (on your laptop).
-8.  `git push origin master` will push it to your clone on GitHub
+7.  `git push origin master` will push it to your clone on GitHub
     (assuming you've added your fork on GitHub as a remote called `origin`).
-9.  Go to GitHub and issue a pull request from your clone to `swcarpentry/website`,
-    then assign it to `@gvwilson` or `@amyrbrown` for proof-reading.
+8.  Go to GitHub and issue a pull request from your clone to `swcarpentry/website`,
+    then assign it to `@gvwilson` for proof-reading.
 
-Available Commands
-------------------
+For More Advanced Users
+-----------------------
 
-*   `archive_verb`: collect and archive workshop information from GitHub and
-    store in local cache (verbose).
-*   `archive`: collect and archive workshop information from GitHub and store in
-    local cache.
-*   `authors`: list all blog post authors.
-*   `biblio`: make HTML and PDF of bibliography.
-*   `cache_verb` : collect workshop information from GitHub and store in local cache (verbose).
-*   `cache`: collect workshop information from GitHub and store in local cache.
-*   `categories : list all blog category names.
-*   `check`: check consistency of workshop info, urls and other.
-*   `clean`: clean up.
-*   _`commands`_: show all commands (the default).
-*   `dev`: build into development directory on server.
-*   `install`: build into installation directory on server.
-*   `links`: check links.
-*   `sterile`: *really* clean up.
-*   `site`: build locally into _site directory for checking.
-*   `valid`: check validity of HTML.
-
-The Details
------------
-
-`make site`, `make dev`, and `make install` do the following:
+`make site` (and its partners `make dev` and `make install`) do the following:
 
 1.  Run `bin/preprocess.py` to create the `./_config.yml` file required by Jekyll
     and the `_includes/recent_blog_posts.html` file containing excerpts of recent blog posts.
@@ -180,6 +109,33 @@ The Details
 3.  Run `bin/make_rss_feed.py` to generate the RSS feed file `feed.xml`.
 4.  Run `bin/make_calendar.py` to generate the ICal calendar file `workshops.ics`.
 5.  Copy `./_htaccess` to create the `.htaccess` file for the web site.
+
+`bin/preprocess.py` needs two generated files to work properly:
+
+*   `_workshop_cache.yml`: stores information about recent and upcoming workshops.
+    This file is created by `bin/get_workshop_info.py`.
+*   `_dashboard_cache.yml`: stores information about Software Carpentry's GitHub projects.
+    This file is created by `bin/make-dashboard.py`.
+
+This information is stored in GitHub rather than being regenerated each time `make site` is run
+because harvesting the data can take 10-30 seconds
+depending on how busy GitHub is.
+In addition,
+the tool used to rebuild the dashboard cache requires credentials in order to run,
+since use of GitHub's API is throttled for unauthenticated users and programs.
+If you wish to regenerate these files:
+
+1.  Get a [GitHub API token](https://github.com/blog/1509-personal-api-tokens).
+2.  Save it in a file called `git-token.txt` in the root directory of this site.
+    (This file is ignored by Git, since tokens should not be shared between people.)
+
+After that,
+you can run `make cache` to re-create the two files.
+Please do *not* commit them unless you are sure you should;
+in particular,
+if you wish to add a new workshop to the list displayed on the main web site,
+please send us a pull request with a new URL in `config/workshop_urls.yml`,
+but do *not* send us the update to `_workshop_cache.yml`.
 
 Badges
 ------
@@ -191,21 +147,11 @@ To create badges, you must install [PyPNG](http://pythonhosted.org/pypng/index.h
 $ pip install pypng
 ~~~
 
-Use `bin/badge-create.py` to create a new badge:
+Use `bin/badge-create.py` to create a new badge, e.g.:
 
 ~~~
-$ python bin/badge-create.py --username abbrev.name --email name@site.com --kind instructor
+$ python bin/badge-create.py username email instructor
 ~~~
 
 The badges scripts in `bin` should be compatible with Python2 and Python3.
 To bake the badge we use `bin/badgebakery.py` which was provided by the Open Badge Team.
-
-To validate a badge:
-
-*   Build this repository.
-*   Setup a local copy of
-    [Open Badges Validator](https://github.com/mozilla/openbadges-validator-service.git).
-*   Setup a virtual server that responde to http://software-carpentry.org with the
-    content of `_site`.
-*   Add "127.0.1.1 software-carpentry.org localhost" to `/etc/hosts`.
-*   Open your local copy of Open Badges Validator with a web browser and follow the steps.

@@ -1,0 +1,222 @@
+num_issues: 99
+num_repos: 13
+records:
+- description: Introduction to the Unix shell
+  ident: swcarpentry/shell-novice
+  issues:
+  - {number: 37, title: copied references from glossary, updated: '2014-12-29', url: 'https://github.com/swcarpentry/shell-novice/pull/37'}
+  - {number: 36, title: 'index.md: Fill in the Prerequisites FIXME', updated: '2014-12-19',
+    url: 'https://github.com/swcarpentry/shell-novice/pull/36'}
+  - {number: 35, title: '06-find.md: Fill in FIXME challenge titles', updated: '2014-12-19',
+    url: 'https://github.com/swcarpentry/shell-novice/pull/35'}
+  - {number: 34, title: '05-script.md: Fill in FIXME challenge titles', updated: '2014-12-19',
+    url: 'https://github.com/swcarpentry/shell-novice/pull/34'}
+  - {number: 33, title: '04-loop.md: Fill in FIXME challenge titles', updated: '2014-12-19',
+    url: 'https://github.com/swcarpentry/shell-novice/pull/33'}
+  - {number: 32, title: '03-pipefilter.md: Fill in FIXME challenge titles', updated: '2014-12-19',
+    url: 'https://github.com/swcarpentry/shell-novice/pull/32'}
+  - {number: 31, title: '02-filedir.md: Fill in FIXME challenge titles', updated: '2014-12-19',
+    url: 'https://github.com/swcarpentry/shell-novice/pull/31'}
+  - {number: 30, title: '01-filedir.md: Fill in FIXME challenge titles', updated: '2014-12-19',
+    url: 'https://github.com/swcarpentry/shell-novice/pull/30'}
+  - {number: 29, title: Dead link to discussion.html, updated: '2014-12-18', url: 'https://github.com/swcarpentry/shell-novice/issues/29'}
+  - {number: 28, title: 'Suggested small fixes for the Unix Shell Loops lesson ',
+    updated: '2014-12-17', url: 'https://github.com/swcarpentry/shell-novice/pull/28'}
+  - {number: 25, title: removed empty spaces in 02-create.md, updated: '2014-12-17',
+    url: 'https://github.com/swcarpentry/shell-novice/pull/25'}
+  - {number: 24, title: Add man page nav instructions & word boundary info, updated: '2014-12-17',
+    url: 'https://github.com/swcarpentry/shell-novice/pull/24'}
+  - {number: 23, title: Small changes in shell course for an assignment of the instructor's
+      training, updated: '2014-12-17', url: 'https://github.com/swcarpentry/shell-novice/pull/23'}
+  - {number: 22, title: 'Minor edit: Spell out significance of the trash bin.', updated: '2014-12-17',
+    url: 'https://github.com/swcarpentry/shell-novice/pull/22'}
+  - {number: 21, title: ' Correcting images to match text description in 01-filedir.md
+      file #873 ', updated: '2014-12-17', url: 'https://github.com/swcarpentry/shell-novice/pull/21'}
+  - {number: 20, title: Update 02-create.md, updated: '2014-12-17', url: 'https://github.com/swcarpentry/shell-novice/pull/20'}
+  - {number: 18, title: Csh and its incompatibility with bash mentioned, updated: '2014-12-17',
+    url: 'https://github.com/swcarpentry/shell-novice/pull/18'}
+  - {number: 16, title: Csh and its incompatibility with bash mentioned, updated: '2014-12-17',
+    url: 'https://github.com/swcarpentry/shell-novice/pull/16'}
+  - {number: 12, title: Proposed changes to the shell directories lesson (assignment),
+    updated: '2014-12-17', url: 'https://github.com/swcarpentry/shell-novice/pull/12'}
+  - {number: 8, title: Turn the 1st shell 02-create challenge into MCQ, updated: '2014-12-17',
+    url: 'https://github.com/swcarpentry/shell-novice/pull/8'}
+  - {number: 7, title: added div statements to 01-filedir lesson that center images
+      (refactor t..., updated: '2014-12-17', url: 'https://github.com/swcarpentry/shell-novice/pull/7'}
+  - {number: 5, title: Add in a diagram showing redirects and pipes, updated: '2014-12-17',
+    url: 'https://github.com/swcarpentry/shell-novice/pull/5'}
+  - {number: 26, title: Remove mentions of man pages, updated: '2014-12-16', url: 'https://github.com/swcarpentry/shell-novice/issues/26'}
+  - {number: 14, title: Remove auto-generated files from version control and find
+      sources for downloaded data., updated: '2014-11-09', url: 'https://github.com/swcarpentry/shell-novice/issues/14'}
+  url: https://github.com/swcarpentry/shell-novice
+- description: Introduction to Git
+  ident: swcarpentry/git-novice
+  issues:
+  - {number: 6, title: reference updates, updated: '2015-01-02', url: 'https://github.com/swcarpentry/git-novice/pull/6'}
+  - {number: 4, title: minor revisions to open science lessons for clarity, updated: '2014-12-16',
+    url: 'https://github.com/swcarpentry/git-novice/pull/4'}
+  - {number: 1, title: Remove data/data.csv, updated: '2014-12-05', url: 'https://github.com/swcarpentry/git-novice/issues/1'}
+  url: https://github.com/swcarpentry/git-novice
+- description: Introduction to Mercurial
+  ident: swcarpentry/hg-novice
+  issues:
+  - {number: 1, title: ' update reference', updated: '2014-12-29', url: 'https://github.com/swcarpentry/hg-novice/pull/1'}
+  url: https://github.com/swcarpentry/hg-novice
+- description: Introduction to SQL
+  ident: swcarpentry/sql-novice-survey
+  issues:
+  - {number: 14, title: Shift some focus from complex query construction to schema
+      design, updated: '2015-01-03', url: 'https://github.com/swcarpentry/sql-novice-survey/issues/14'}
+  - {number: 13, title: '  instr function not available in SQLite 3.7.13 and older',
+    updated: '2015-01-03', url: 'https://github.com/swcarpentry/sql-novice-survey/issues/13'}
+  - {number: 12, title: Database reconstruction, updated: '2014-12-31', url: 'https://github.com/swcarpentry/sql-novice-survey/pull/12'}
+  - {number: 11, title: SQLite & Python working together on OSX, updated: '2014-12-31',
+    url: 'https://github.com/swcarpentry/sql-novice-survey/issues/11'}
+  - {number: 10, title: Glossary entries, updated: '2014-12-29', url: 'https://github.com/swcarpentry/sql-novice-survey/pull/10'}
+  - {number: 9, title: Edit text since there is no longer any red formatting in table.,
+    updated: '2014-12-20', url: 'https://github.com/swcarpentry/sql-novice-survey/pull/9'}
+  - {number: 8, title: 01-select.md talks about three entries in tables being red,
+    updated: '2014-12-20', url: 'https://github.com/swcarpentry/sql-novice-survey/issues/8'}
+  - {number: 4, title: add section on LIKE keyword, updated: '2014-12-16', url: 'https://github.com/swcarpentry/sql-novice-survey/pull/4'}
+  - {number: 6, title: Fix glossary indentation, updated: '2014-12-14', url: 'https://github.com/swcarpentry/sql-novice-survey/pull/6'}
+  - {number: 5, title: Remove HTML tags and others small fixes, updated: '2014-12-14',
+    url: 'https://github.com/swcarpentry/sql-novice-survey/pull/5'}
+  url: https://github.com/swcarpentry/sql-novice-survey
+- description: Python for non-programmers
+  ident: swcarpentry/python-novice-inflammation
+  issues:
+  - {number: 1, title: Unescape the less than and greater than inequalities, updated: '2015-01-02',
+    url: 'https://github.com/swcarpentry/python-novice-inflammation/pull/1'}
+  - {number: 3, title: 'challenge titles, glossary entries, grid images', updated: '2014-12-31',
+    url: 'https://github.com/swcarpentry/python-novice-inflammation/pull/3'}
+  - {number: 2, title: 'Seaborn comment as stated on issue #907 for bc repo', updated: '2014-12-27',
+    url: 'https://github.com/swcarpentry/python-novice-inflammation/pull/2'}
+  url: https://github.com/swcarpentry/python-novice-inflammation
+- description: R for non-programmers
+  ident: swcarpentry/r-novice-inflammation
+  issues: []
+  url: https://github.com/swcarpentry/r-novice-inflammation
+- description: MATLAB for non-programmers
+  ident: swcarpentry/matlab-novice-inflammation
+  issues:
+  - {number: 5, title: Matlab novice material review, updated: '2014-12-28', url: 'https://github.com/swcarpentry/matlab-novice-inflammation/pull/5'}
+  - {number: 6, title: '01-intro: conform to template', updated: '2014-12-21', url: 'https://github.com/swcarpentry/matlab-novice-inflammation/pull/6'}
+  - {number: 4, title: Conform to lesson template, updated: '2014-12-21', url: 'https://github.com/swcarpentry/matlab-novice-inflammation/issues/4'}
+  - {number: 3, title: Getting the MATLAB materials up on the SWC website, updated: '2014-12-14',
+    url: 'https://github.com/swcarpentry/matlab-novice-inflammation/issues/3'}
+  url: https://github.com/swcarpentry/matlab-novice-inflammation
+- description: Software Carpentry presentations
+  ident: swcarpentry/slideshows
+  issues:
+  - {number: 2, title: Cite statistics, updated: '2015-01-03', url: 'https://github.com/swcarpentry/slideshows/issues/2'}
+  url: https://github.com/swcarpentry/slideshows
+- description: From Excel to a database via Python
+  ident: swcarpentry/capstone-novice-spreadsheet-biblio
+  issues: []
+  url: https://github.com/swcarpentry/capstone-novice-spreadsheet-biblio
+- description: What instructors need to know
+  ident: swcarpentry/instructor-training
+  issues: []
+  url: https://github.com/swcarpentry/instructor-training
+- description: Python for non-programmers using Turtles
+  ident: swcarpentry/python-novice-turtles
+  issues: []
+  url: https://github.com/swcarpentry/python-novice-turtles
+- description: Workshop administration tool
+  ident: swcarpentry/amy
+  issues:
+  - {number: 121, title: Supporting notes about events under negotiation, updated: '2015-01-04',
+    url: 'https://github.com/swcarpentry/amy/pull/121'}
+  - {number: 2, title: Add list of provisional events to home page, updated: '2015-01-04',
+    url: 'https://github.com/swcarpentry/amy/issues/2'}
+  - {number: 120, title: 'WIP: workshops/models.py: Add Host and EventHost models',
+    updated: '2015-01-03', url: 'https://github.com/swcarpentry/amy/pull/120'}
+  - {number: 106, title: Add bulk person ingest from CSV, updated: '2015-01-03', url: 'https://github.com/swcarpentry/amy/pull/106'}
+  - {number: 110, title: Add per-person award administration and per-event "Assign
+      awards" button, updated: '2015-01-02', url: 'https://github.com/swcarpentry/amy/pull/110'}
+  - {number: 101, title: 'basic search for event, site, person, work in progress',
+    updated: '2015-01-02', url: 'https://github.com/swcarpentry/amy/pull/101'}
+  - {number: 37, title: Allow award of new badges, updated: '2014-12-29', url: 'https://github.com/swcarpentry/amy/issues/37'}
+  - {number: 108, title: Developer guidelines, updated: '2014-12-24', url: 'https://github.com/swcarpentry/amy/issues/108'}
+  - {number: 70, title: 'Replace Django''s auth.User with our workshops.Person?',
+    updated: '2014-12-24', url: 'https://github.com/swcarpentry/amy/issues/70'}
+  - {number: 61, title: 'Use person.name instead of personal, middle, and family names',
+    updated: '2014-12-24', url: 'https://github.com/swcarpentry/amy/issues/61'}
+  - {number: 28, title: Allow addition of new skills, updated: '2014-12-24', url: 'https://github.com/swcarpentry/amy/issues/28'}
+  - {number: 22, title: Page displaying all person should have expand/contract to
+      show details, updated: '2014-12-24', url: 'https://github.com/swcarpentry/amy/issues/22'}
+  - {number: 19, title: Event details page should allow validation of Eventbrite link,
+    updated: '2014-12-24', url: 'https://github.com/swcarpentry/amy/issues/19'}
+  - {number: 12, title: Distinguish lead instructor from other instructors in all
+      displays, updated: '2014-12-24', url: 'https://github.com/swcarpentry/amy/issues/12'}
+  - {number: 89, title: Use Python's logging module for debugging, updated: '2014-12-23',
+    url: 'https://github.com/swcarpentry/amy/issues/89'}
+  - {number: 64, title: 'Additional event attendance information (slots and applicants)?',
+    updated: '2014-12-23', url: 'https://github.com/swcarpentry/amy/issues/64'}
+  - {number: 27, title: Add form for bulk addition of new persons, updated: '2014-12-23',
+    url: 'https://github.com/swcarpentry/amy/issues/27'}
+  - {number: 99, title: Headings hierarchy, updated: '2014-12-22', url: 'https://github.com/swcarpentry/amy/issues/99'}
+  - {number: 82, title: Display map of known airports, updated: '2014-12-18', url: 'https://github.com/swcarpentry/amy/issues/82'}
+  - {number: 10, title: Add CSS to make display less ugly, updated: '2014-12-16',
+    url: 'https://github.com/swcarpentry/amy/issues/10'}
+  - {number: 74, title: 'Event_sponsor table ', updated: '2014-12-15', url: 'https://github.com/swcarpentry/amy/issues/74'}
+  - {number: 62, title: Separate country table, updated: '2014-12-15', url: 'https://github.com/swcarpentry/amy/issues/62'}
+  - {number: 6, title: Rename 'site' to 'host', updated: '2014-12-15', url: 'https://github.com/swcarpentry/amy/issues/6'}
+  - {number: 63, title: 'Do we need a cohort table?', updated: '2014-12-14', url: 'https://github.com/swcarpentry/amy/issues/63'}
+  - {number: 18, title: Use calendar pop-up for picking dates for workshops, updated: '2014-12-14',
+    url: 'https://github.com/swcarpentry/amy/issues/18'}
+  - {number: 52, title: Forms should also display original data when invalid data
+      entered, updated: '2014-12-11', url: 'https://github.com/swcarpentry/amy/issues/52'}
+  - {number: 51, title: Automatic email reminders about upcoming workshops to admins,
+    updated: '2014-12-10', url: 'https://github.com/swcarpentry/amy/issues/51'}
+  - {number: 44, title: Spatial Data, updated: '2014-12-07', url: 'https://github.com/swcarpentry/amy/issues/44'}
+  - {number: 42, title: Email list co-management with hosts, updated: '2014-12-07',
+    url: 'https://github.com/swcarpentry/amy/issues/42'}
+  - {number: 41, title: Add administrative page, updated: '2014-12-02', url: 'https://github.com/swcarpentry/amy/issues/41'}
+  - {number: 36, title: Display details of a single badge, updated: '2014-12-02',
+    url: 'https://github.com/swcarpentry/amy/issues/36'}
+  - {number: 33, title: Show whether an instructor training class counts toward a
+      badge, updated: '2014-12-02', url: 'https://github.com/swcarpentry/amy/issues/33'}
+  - {number: 32, title: Training cohort display should show completion rates, updated: '2014-12-02',
+    url: 'https://github.com/swcarpentry/amy/issues/32'}
+  - {number: 31, title: 'Record training cohorts as workshops?', updated: '2014-12-02',
+    url: 'https://github.com/swcarpentry/amy/issues/31'}
+  - {number: 29, title: The database should record the instructors for every instructor
+      training workshop, updated: '2014-12-02', url: 'https://github.com/swcarpentry/amy/issues/29'}
+  - {number: 21, title: Create checklist for event, updated: '2014-12-02', url: 'https://github.com/swcarpentry/amy/issues/21'}
+  - {number: 20, title: Event details page should include links to assessment forms,
+    updated: '2014-12-02', url: 'https://github.com/swcarpentry/amy/issues/20'}
+  - {number: 16, title: 'Allow hosts, instructors, and helpers to be selected on event
+      details page', updated: '2014-12-02', url: 'https://github.com/swcarpentry/amy/issues/16'}
+  - {number: 5, title: Add location information to sites, updated: '2014-12-02', url: 'https://github.com/swcarpentry/amy/issues/5'}
+  url: https://github.com/swcarpentry/amy
+- description: Software Carpentry website
+  ident: swcarpentry/site
+  issues:
+  - {number: 719, title: Partial support for interactive construction of dashboard,
+    updated: '2015-01-04', url: 'https://github.com/swcarpentry/site/pull/719'}
+  - {number: 717, title: 'IOError: [Errno 2] No such file or directory: ''./git-token.txt''',
+    updated: '2015-01-04', url: 'https://github.com/swcarpentry/site/issues/717'}
+  - {number: 715, title: Future Workshops not sorted, updated: '2015-01-04', url: 'https://github.com/swcarpentry/site/issues/715'}
+  - {number: 711, title: Update FAQ to reflect latest SCF documents, updated: '2014-12-20',
+    url: 'https://github.com/swcarpentry/site/issues/711'}
+  - {number: 509, title: Invalid HTTPS certs for software-carpentry.org and files.software-carpentry.org,
+    updated: '2014-12-20', url: 'https://github.com/swcarpentry/site/issues/509'}
+  - {number: 672, title: Remove instruction to send notices about workshops to announcements
+      list, updated: '2014-11-20', url: 'https://github.com/swcarpentry/site/issues/672'}
+  - {number: 655, title: 'Suggestion: Have an ''I want this workshop in <country>''
+      button', updated: '2014-10-30', url: 'https://github.com/swcarpentry/site/issues/655'}
+  - {number: 618, title: Update post-assessment survey for workshop instructors, updated: '2014-10-09',
+    url: 'https://github.com/swcarpentry/site/issues/618'}
+  - {number: 629, title: Filter site posts by author, updated: '2014-10-08', url: 'https://github.com/swcarpentry/site/issues/629'}
+  - {number: 617, title: Update pre-assessment survey for workshop attendees, updated: '2014-10-02',
+    url: 'https://github.com/swcarpentry/site/issues/617'}
+  - {number: 620, title: Remove the "registration" field from workshops, updated: '2014-10-01',
+    url: 'https://github.com/swcarpentry/site/issues/620'}
+  - {number: 619, title: 'Add and display a flag for workshops to show kind (SWC,
+      DC, etc.)', updated: '2014-10-01', url: 'https://github.com/swcarpentry/site/issues/619'}
+  - {number: 580, title: Menu iconification in small browser windows, updated: '2014-10-01',
+    url: 'https://github.com/swcarpentry/site/issues/580'}
+  - {number: 32, title: Add a "show your support" page to the site for buying swag,
+    updated: '2013-12-26', url: 'https://github.com/swcarpentry/site/issues/32'}
+  url: https://github.com/swcarpentry/site
