@@ -1,3 +1,15 @@
+## ------------------------------------------------------------------------------
+## To rebuild the site locally for checking:
+##     1. make clean
+##     2. make site
+## To rebuild intermediate files (not necessary for simple blog posts):
+##     1. make sterile
+##     2. make cache
+##     3. make site
+## There must be a file ./git-token.txt containing a GitHub API token in order
+## for 'make cache' to work.
+## ------------------------------------------------------------------------------
+
 # Base URL and installation directory for installed version on server.
 INSTALL_URL = http://software-carpentry.org
 INSTALL_DIR = $(HOME)/sites/software-carpentry.org
@@ -22,19 +34,16 @@ SRC_BIB = $(wildcard bib/*.html)
 
 # Source files of blog posts.  Does *not* include the index file so
 # that our preprocessor doesn't try to harvest data from it.
-SRC_BLOG = $(wildcard ./blog/????/??/*.html)
+SRC_BLOG_POSTS = $(wildcard ./blog/????/??/*.html)
+
+# All blog source files.
+SRC_BLOG = ./blog/index.html $(SRC_BLOG_POSTS)
 
 # All workshop source files.
-SRC_WORKSHOP = $(wildcard ./workshops/*.html)
+SRC_WORKSHOP = $(wildcard ./workshops/*.html) $(./workshops/checklists/*.html)
 
 # Source files for badge pages.
 SRC_BADGES = $(wildcard ./badges/*.html)
-
-# Source files for checklists.
-SRC_CHECKLISTS = ./workshops/checklists/*.html
-
-# Source files for Version 4 lessons.
-SRC_V4 = $(wildcard ./v4/index.html) $(wildcard ./v4/*/*.html)
 
 # Source files for layouts.
 SRC_LAYOUT = $(wildcard ./_layouts/*.html)
@@ -49,30 +58,28 @@ SRC_HTML = \
     $(SRC_PAGES) \
     $(SRC_SCF) \
     $(SRC_BIB) \
-    ./blog/index.html $(SRC_BLOG) \
-    $(SRC_CHECKLISTS) \
+    $(SRC_BLOG) \
     $(SRC_WORKSHOP) \
     $(SRC_BADGES) \
-    $(SRC_V4) \
     $(SRC_LAYOUT) \
     $(SRC_INCLUDES)
 
 # All source configuration files.
-CONFIG_DIR = ./config
-SRC_CONFIG = $(wildcard $(CONFIG_DIR)/*.yml)
+SRC_CONFIG = $(wildcard ./config/*.yml)
 
 # All files generated during the build process that are removed by
-# 'make clean'.  This does *not* include the _workshop_cache.yml file:
-# use 'make sterile' to get rid of that.
-GENERATED = ./_config.yml ./_includes/recent_blog_posts.html
-
-# Destination directories for manually-copied files.
-DST_DIRS = $(OUT)/css $(OUT)/img $(OUT)/js
+# 'make sterile'.
+GENERATED = \
+	./_config.yml \
+	./_includes/recent_blog_posts.html \
+	./_workshop_cache.yml \
+	./_dashboard_cache.yml
 
 # Software Carpentry bibliography .tex file (in 'bib' directory).
 SWC_BIB = software-carpentry-bibliography
 
 #-------------------------------------------------------------------------------
+## Basic commands
 
 # By default, show the commands in the file.
 all : commands
@@ -82,40 +89,6 @@ all : commands
 # the list of commands.
 commands : Makefile
 	@sed -n 's/^## //p' $<
-
-## authors      : list all blog post authors.
-authors :
-	@python bin/list_blog_authors.py $(SRC_BLOG) | cut -d : -f 1
-
-## archive      : collect and archive workshop information from GitHub and store in local cache.
-archive :
-	cp $(CONFIG_DIR)/workshops_saved.yml ./_workshop_cache.yml
-	@python bin/get_workshop_info.py -v -t \
-	    -i $(CONFIG_DIR)/workshop_urls.yml \
-	    -o ./_workshop_cache.yml \
-	    --archive $(CONFIG_DIR)/workshops_saved.yml
-
-## cache        : collect workshop information from GitHub and store in local cache.
-cache :
-	cp $(CONFIG_DIR)/workshops_saved.yml ./_workshop_cache.yml
-	@python bin/get_workshop_info.py -v -t \
-	    -i $(CONFIG_DIR)/workshop_urls.yml \
-	    -o ./_workshop_cache.yml
-	@python bin/make-dashboard.py ./git-token.txt ./_dashboard_cache.yml
-
-## biblio       : make HTML and PDF of bibliography.
-# Have to cd into 'bib' because bib2xhtml expects the .bst file in
-# the same directory as the .bib file.
-biblio : bib/${SWC_BIB}.tex bib/software-carpentry.bib
-	@cd bib && pdflatex $(SWC_BIB) && bibtex $(SWC_BIB) && pdflatex $(SWC_BIB)
-	@cd bib && ../bin/bib2xhtml software-carpentry.bib ./bib.html && dos2unix ./bib.html
-
-## categories   : list all blog category names.
-categories :
-	@python bin/list_blog_categories.py $(SRC_BLOG) | cut -d : -f 1
-
-categories_n :
-	@python bin/list_blog_categories.py -n $(SRC_BLOG)
 
 ## site         : build locally into _site directory for checking.
 site :
@@ -133,9 +106,46 @@ install :
 check :
 	@python bin/check_workshop_info.py config/workshop_urls.yml config/workshops_saved.yml
 
-## missing      : which instructors don't have biographies?
-missing :
-	@python bin/check_missing_instructors.py config/badges_config.yml _includes/people/*.html
+## clean        : clean up.
+clean :
+	@rm -rf \
+	_site \
+	bib/*.aux bib/*.bbl bib/*.blg bib/*.log \
+	$$(find . -name '*~' -print)
+
+## ------------------------------------------------------------------------------
+## Advanced commands
+
+## archive      : collect and archive workshop information from GitHub and store in local cache.
+archive :
+	cp ./config/workshops_saved.yml ./_workshop_cache.yml
+	@python bin/get_workshop_info.py -v -t \
+	    -i ./config/workshop_urls.yml \
+	    -o ./_workshop_cache.yml \
+	    --archive ./config/workshops_saved.yml
+
+## authors      : list all blog post authors.
+authors :
+	@python bin/list_blog_authors.py $(SRC_BLOG) | cut -d : -f 1
+
+## biblio       : make HTML and PDF of bibliography.
+# Have to cd into 'bib' because bib2xhtml expects the .bst file in
+# the same directory as the .bib file.
+biblio : bib/${SWC_BIB}.tex bib/software-carpentry.bib
+	@cd bib && pdflatex $(SWC_BIB) && bibtex $(SWC_BIB) && pdflatex $(SWC_BIB)
+	@cd bib && ../bin/bib2xhtml software-carpentry.bib ./bib.html && dos2unix ./bib.html
+
+## categories   : list all blog category names.
+categories :
+	@python bin/list_blog_categories.py $(SRC_BLOG) | cut -d : -f 1
+
+## cache        : collect information from GitHub (requires git-token.txt file).
+cache :
+	cp ./config/workshops_saved.yml ./_workshop_cache.yml
+	@python bin/get_workshop_info.py -v -t \
+	    -i ./config/workshop_urls.yml \
+	    -o ./_workshop_cache.yml
+	@python bin/make-dashboard.py ./git-token.txt ./_dashboard_cache.yml
 
 ## links        : check links.
 #  Depends on linklint, an HTML link-checking module from http://www.linklint.org/,
@@ -143,22 +153,18 @@ missing :
 links :
 	bin/linklint -doc /tmp/site-links -textonly -root _site /@
 
+## missing      : which instructors don't have biographies?
+missing :
+	@python bin/check_missing_instructors.py config/badges_config.yml _includes/people/*.html
+
+## sterile      : *really* clean up.
+sterile : clean
+	rm -f $(GENERATED)
+
 ## valid        : check validity of HTML.
 #  Depends on xmllint being installed.  Ignores entity references.
 valid :
 	xmllint --noout $$(find _site -name '*.html' -print) 2>&1 | python bin/unwarn.py
-
-## clean        : clean up.
-clean :
-	@rm -rf \
-	$(GENERATED) \
-	_site \
-	bib/*.aux bib/*.bbl bib/*.blg bib/*.log \
-	$$(find . -name '*~' -print)
-
-## sterile      : *really* clean up.
-sterile : clean
-	rm -f ./_workshop_cache.yml ./_dashboard_cache.yml
 
 #-------------------------------------------------------------------------------
 
