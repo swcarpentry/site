@@ -50,8 +50,8 @@ SWC.maps = (function() {
 
   maps.upcoming = function() {
     var mapOptions = {
-      zoom: 2,
-      center: new google.maps.LatLng(25,8),
+      zoom: 1,
+      center: new google.maps.LatLng(0,0),
       mapTypeId: google.maps.MapTypeId.ROADMAP
     },
     info_window   = new google.maps.InfoWindow({}),
@@ -78,8 +78,8 @@ SWC.maps = (function() {
 
   maps.previous = function() {
     var mapOptions = {
-      zoom: 2,
-      center: new google.maps.LatLng(25,8),
+      zoom: 1,
+      center: new google.maps.LatLng(0,0),
       mapTypeId: google.maps.MapTypeId.ROADMAP
     },
     info_window   = new google.maps.InfoWindow({}),
@@ -125,8 +125,8 @@ SWC.maps = (function() {
 
   maps.instructors = function() {
     var mapOptions = {
-      zoom: 2,
-      center: new google.maps.LatLng(25,8),
+      zoom: 1,
+      center: new google.maps.LatLng(0,0),
       mapTypeId: google.maps.MapTypeId.ROADMAP
     },
     info_window   = new google.maps.InfoWindow({}),
