@@ -1,0 +1,60 @@
+---
+layout: base
+root: ..
+title: Blog Archives
+---
+<section id="popular">
+  <h2>Popular Posts</h2>
+  <table class="table table-striped">
+    {% for post in site.blog_favorites %}
+      {% if post.favorite %}
+        <tr>
+          <td class="date">{{post.date}}</td>
+          <td><a href="{{page.root}}/{{post.path}}">{{post.title}}</a></td>
+	</tr>
+      {% endif %}
+    {% endfor %}
+  </table>
+</section>
+
+<section id="all-posts">
+  <h2>All Posts By Date</h2>
+
+  <table class="table table-striped blogcalendar">
+    <tr>
+      <th class="top"></th>
+      {% for month in site.months %}
+        <th class="top">{{site.month_names[month]}}</th>
+      {% endfor %}
+    </tr>
+    {% for year in site.blog_years %}
+      <tr>
+        <th class="left"><a href="#{{year}}">{{year}}</a></th>
+        {% for month in site.months %}
+          <td>
+            {% if site.blog_count[year][month] > 0 %}
+              <a href="#{{year}}-{{month}}">{{site.blog_count[year][month]}}</a>
+            {% endif %}
+          </td>
+        {% endfor %}
+      </tr>
+    {% endfor %}
+  </table>
+
+  {% for year in site.blog_years %}
+    <h3 id="{{year}}">{{year}}</h3>
+    {% for month in site.months reversed %}
+      {% if site.blog_count[year][month] > 0 %}
+        <h4 id="{{year}}-{{month}}">{{site.month_names[month]}} {{year}}</h4>
+        <table class="table table-striped table-condensed blogindex">
+          {% for post in site.blog_lookup[year][month] reversed %}
+            <tr>
+              <td class="date">{{post.date}}:</td>
+              <td><a href="{{page.root}}/{{post.path}}">{{post.title}}</a></td>
+            </tr>
+          {% endfor %}
+        </table>
+      {% endif %}
+    {% endfor %}
+  {% endfor %}
+</section>

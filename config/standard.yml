@@ -11,7 +11,7 @@ twitter_name    : "@swcarpentry"
 twitter_url     : "https://twitter.com/swcarpentry"
 msl_url         : "http://mozillascience.org"
 store_url       : "http://www.cafepress.com/swcarpentry"
-recent_length   : 6
+recent_length   : 10
 upcoming_length : 10
 blog_title      : "Software Carpentry"
 blog_subtitle   : "Helping scientists make better software since 1998"

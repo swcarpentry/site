@@ -3,74 +3,28 @@ layout: base
 root: ..
 title: Blog
 ---
-<section id="recent-posts">
-  <div class="pull-right">
-    <a href="{{site.rss_url}}">
-      <img class="pull-right" src="{{page.root}}/img/rss-icon-blue.png"/>
-    </a>
+<div class="container">
+  <div class="row">
+    <div class="col-md-8">
+      <section id="recent-posts">
+	<div class="pull-right">
+	  <a href="{{site.rss_url}}">
+	    <img class="pull-right" src="{{page.root}}/img/rss-icon-blue.png"/>
+	  </a>
+	</div>
+	{% include recent_blog_posts.html %}
+	</section>
+    </div>
+    <div class="col-md-4">
+      <h4>Recent Comments</h4>
+      <div id="recentcomments" class="dsq-widget">
+	<script type="text/javascript" src="http://software-carpentry.disqus.com/recent_comments_widget.js?num_items=5&hide_avatars=1&excerpt_length=200"></script>
+      </div>
+      <a class="twitter-timeline" href="https://twitter.com/swcarpentry" data-widget-id="410241789077909504">Tweets by @swcarpentry</a>
+      <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+"://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
+    </div>
   </div>
-
-  {% include recent_blog_posts.html %}
-
-</section>
-
-<hr/>
-<section id="popular">
-  <h2>Popular Posts</h2>
-  <table class="table table-striped">
-    {% for post in site.blog_favorites %}
-      {% if post.favorite %}
-        <tr>
-          <td class="date">{{post.date}}:</td>
-          <td><a href="{{page.root}}/{{post.path}}">{{post.title}}</a></td>
-	</tr>
-      {% endif %}
-    {% endfor %}
-  </table>
-</section>
-
-<hr/>
-<section id="all-posts">
-  <h2>All Posts By Date</h2>
-
-  <table class="table table-striped blogcalendar">
-
-    <tr>
-      <th class="top"></th>
-      {% for month in site.months %}
-        <th class="top">{{site.month_names[month]}}</th>
-      {% endfor %}
-    </tr>
-
-    {% for year in site.blog_years %}
-      <tr>
-        <th class="left"><a href="#{{year}}">{{year}}</a></th>
-        {% for month in site.months %}
-          <td>
-            {% if site.blog_count[year][month] > 0 %}
-              <a href="#{{year}}-{{month}}">{{site.blog_count[year][month]}}</a>
-            {% endif %}
-          </td>
-        {% endfor %}
-      </tr>
-    {% endfor %}
-
-  </table>
-
-  {% for year in site.blog_years %}
-    <h3 id="{{year}}">{{year}}</h3>
-    {% for month in site.months reversed %}
-      {% if site.blog_count[year][month] > 0 %}
-        <h4 id="{{year}}-{{month}}">{{site.month_names[month]}} {{year}}</h4>
-        <table class="table table-striped table-condensed blogindex">
-          {% for post in site.blog_lookup[year][month] reversed %}
-            <tr>
-              <td class="date">{{post.date}}:</td>
-              <td><a href="{{page.root}}/{{post.path}}">{{post.title}}</a></td>
-            </tr>
-          {% endfor %}
-        </table>
-      {% endif %}
-    {% endfor %}
-  {% endfor %}
-</section>
+</div>
+<div align="center">
+  <p><em><a href="{{page.root}}/blog/archives.html">Visit the Archives</a></em></p>
+</div>

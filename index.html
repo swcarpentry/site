@@ -4,145 +4,136 @@ nocomments: 1
 ---
 <!DOCTYPE html>
 <html>
+
   <head>
     {% include header.html %}
     <title>Software Carpentry{% if page.title %}: {{page.title}}{% endif %}</title>
   </head>
+
   <body>
 
     {% include github-ribbon.html %}
 
-<header class="header home">
-
-  {% include navbar.html %}
-
-  <div class="container">
-    <div class="row">
-      <div class="col-md-10 col-md-offset-1">
-        <h1>
-          <span id="header-text">TEACHING LAB SKILLS FOR</span><br />
-          SCIENTIFIC COMPUTING
-        </h1>
-      </div>
-    </div>
-  </div>
-</header>
-
-<section id="home-options" class="content text-center">
-  <div class="container">
-    <div class="row">
-      <div class="col-sm-4">
-        <h4>Who We Are</h4>
-        <p>
-          The
-          <a href="{{page.root}}/scf/index.html">Software Carpentry Foundation</a>
-          is a non-profit organization
-          whose <a href="{{page.root}}/pages/team.html">members</a>
-          teach researchers basic software skills.
-        </p>
-      </div>
-      <div class="col-sm-4">
-        <h4>What We Do</h4>
-        <p>
-          We run <a href="{{page.root}}/workshops/index.html">workshops</a> all over the world,
-          provide <a href="{{page.root}}/lessons.html">open access teaching materials</a>,
-          and run an <a href="{{page.root}}/pages/join.html#instructors">instructor training program</a>.
-        </p>
-      </div>
-      <div class="col-sm-4">
-        <h4>How To Help</h4>
-        <p>
-          Please come and
-          <a href="{{page.root}}/pages/join.html">join the discussion</a>,
-          <a href="{{page.root}}/workshops/request.html">host a workshop</a>,
-          <a href="{{page.root}}/pages/projects.html">create new lessons and tools</a>,
-          or <a href="{{page.root}}/pages/register.html">become an instructor</a>.
-        </p>
-      </div>
-    </div>
-  </div>
-  <div class="container">
-    <div class="row">
-      <div class="col-sm-4">
-        <h4><a href="{{page.root}}/workshops/index.html"><em>Find a workshop...</em></a></h4>
-      </div>
-      <div class="col-sm-4">
-        <h4><a href="{{page.root}}/pages/join.html"><em>Join us...</em></a></h4>
-      </div>
-      <div class="col-sm-4">
-        <h4><a href="{{page.root}}/pages/index.html"><em>Learn more...</em></a></h4>
-      </div>
-    </div>
-  </div>
-</section>
-
-<section class="content">
-  <div class="container">
-    <div class="row">
-      <div class="col-md-8">
-        {% include recent_blog_posts.html %}
-        <h5><a href="{{page.root}}/blog/index.html">Blog Archives &rArr;</a></h5>
-
-	<br/>
-	<hr/>
-	<br/>
+    <header class="header home">
+      {% include navbar.html %}
+      <div class="container">
 	<div class="row">
-	  <div class="col-xs-10 col-xs-offset-1 col-sm-8 col-sm-offset-3">
-	    <p>
-	      Please also visit our sibling organization:
-	    </p>
-	    <a href="http://datacarpentry.org">
-	      <img src="{{page.root}}/img/orgs/data-carpentry.png" alt="Data Carpentry" class="img-responsive"/>
-	    </a>
+	  <div class="col-md-10 col-md-offset-1">
+            <h1>
+              <span id="header-text">TEACHING LAB SKILLS FOR</span><br />
+              SCIENTIFIC COMPUTING
+            </h1>
 	  </div>
 	</div>
       </div>
+    </header>
 
-      <div class="col-md-4">
-        <h4><a href="workshops/index.html#future">Upcoming Workshops</a></h4>
-        <table class="table table-hover">
-        {% for workshop in site.workshops_upcoming %}
-          <tr>
-            <td>
-              <img src="{{page.root}}/img/flags/{{site.flag_size}}/{{workshop.country}}.png" alt="{{workshop.country}}" />
-              <a href="{{workshop.url}}">{{workshop.venue}}</a>
-              <br />
-              {{workshop.humandate|replace: ' ', '&nbsp;'}}
-            </td>
-          </tr>
-        {% endfor %}
-          <tr><td>
-            <a class="pull-right" href="workshops/index.html#future">...see all</a><br />
-            <div align="center">
-              <h4><a href="{{page.root}}/workshops/request.html">Request a Workshop</a></h4>
-              <p><em><a href="{{page.root}}/workshops/previous.html">See where we've been!</a></em></p>
-            </div>
-          </td></tr>
-        </table>
-
-        <div align="center">
-          <h4>Work in Progress</h4>
-          <p>
-            {{site.dashboard.num_issues}} issues in {{site.dashboard.num_repos}} repositories.
-          </p>
-          <p><em><a href="{{page.root}}/pages/dashboard.html">See dashboard</a></em></p>
-        </div>
-
-        <a class="twitter-timeline" href="https://twitter.com/swcarpentry" data-widget-id="410241789077909504">Tweets by @swcarpentry</a>
-        <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+"://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
-
-        <h4>Recent Comments</h4>
-        <div id="recentcomments" class="dsq-widget"><script
-          type="text/javascript"
-          src="http://software-carpentry.disqus.com/recent_comments_widget.js?num_items=5&hide_avatars=1&excerpt_length=200"></script>
-        </div>
+    <section id="home-options" class="content text-center">
+      <div class="container">
+	<div class="row">
+	  <div class="col-sm-4">
+            <h4>Who We Are</h4>
+            <p>
+              The
+              <a href="{{page.root}}/scf/index.html">Software Carpentry Foundation</a>
+              is a non-profit organization
+              whose <a href="{{page.root}}/pages/team.html">members</a>
+              teach researchers basic software skills.
+            </p>
+	  </div>
+	  <div class="col-sm-4">
+            <h4>What We Do</h4>
+            <p>
+              We run <a href="{{page.root}}/workshops/index.html">workshops</a> all over the world,
+              provide <a href="{{page.root}}/lessons.html">open access teaching materials</a>,
+              and run an <a href="{{page.root}}/pages/join.html#instructors">instructor training program</a>.
+            </p>
+	  </div>
+	  <div class="col-sm-4">
+            <h4>How To Help</h4>
+            <p>
+              Please come and
+              <a href="{{page.root}}/pages/join.html">join the discussion</a>,
+              <a href="{{page.root}}/workshops/request.html">host a workshop</a>,
+              <a href="{{page.root}}/pages/projects.html">create new lessons and tools</a>,
+              or <a href="{{page.root}}/pages/register.html">become an instructor</a>.
+            </p>
+	  </div>
+	</div>
       </div>
-    </div>
+      <div class="container">
+	<div class="row">
+	  <div class="col-sm-4">
+            <h4><a href="{{page.root}}/workshops/index.html"><em>Find a workshop...</em></a></h4>
+	  </div>
+	  <div class="col-sm-4">
+            <h4><a href="{{page.root}}/pages/join.html"><em>Join us...</em></a></h4>
+	  </div>
+	  <div class="col-sm-4">
+            <h4><a href="{{page.root}}/pages/index.html"><em>Learn more...</em></a></h4>
+	  </div>
+	</div>
+      </div>
+    </section>
 
-  </div>
-</section>
+    <section class="content">
+      <div class="container">
+	<div class="row">
+	  <div class="col-md-8">
+            {% include recent_blog_posts.html %}
+            <h5><a href="{{page.root}}/blog/index.html">Blog Archives &rArr;</a></h5>
+	  </div>
 
-  {% include footer.html %}
-  {% include javascript.html %}
+	  <div class="col-md-4">
+
+            <h4><a href="{{page.root}}workshops/index.html#future">Upcoming Workshops</a></h4>
+            <table class="table table-hover">
+              {% for workshop in site.workshops_upcoming %}
+              <tr>
+		<td>
+		  <img src="{{page.root}}/img/flags/{{site.flag_size}}/{{workshop.country}}.png" alt="{{workshop.country}}" />
+		  <a href="{{workshop.url}}">{{workshop.venue}}</a>
+		  <br />
+		  {{workshop.humandate|replace: ' ', '&nbsp;'}}
+		</td>
+              </tr>
+              {% endfor %}
+              <tr><td>
+		  <a class="pull-right" href="workshops/index.html#future">...see all</a><br />
+		  <div align="center">
+		    <h4><a href="{{page.root}}/workshops/request.html">Request a Workshop</a></h4>
+		    <p><em><a href="{{page.root}}/workshops/previous.html">See where we've been!</a></em></p>
+		  </div>
+              </td></tr>
+            </table>
+
+	    <h4>Partners</h4>
+	    <p><a href="{{page.root}}/scf/supporters.html#compute-canada"><img src="img/orgs/compute-canada.jpg" /></a></p>
+	    <p><a href="{{page.root}}/scf/supporters.html#github"><img src="img/orgs/github.png" /></a></p>
+	    <p><a href="{{page.root}}/scf/supporters.html#iplant"><img src="img/orgs/iplant.png" /></a></p>
+	    <p><a href="{{page.root}}/scf/supporters.html#msl"><img src="img/orgs/msl.jpg" /></a></p>
+	    <p><a href="{{page.root}}/scf/supporters.html#ssi"><img src="img/orgs/ssi.png" /></a></p>
+	    <p><a href="{{page.root}}/scf/supporters.html#uw-escience"><img src="img/orgs/uw-escience.png" /></a></p>
+
+	    <h4>Affiliates</h4>
+	    <p><a href="{{page.root}}/scf/supporters.html#bids"><img src="img/orgs/bids.png" /></a></p>
+	    <p><a href="{{page.root}}/scf/supporters.html#elixir-uk"><img src="img/orgs/elixir-uk.png" /></a></p>
+	    <p><a href="{{page.root}}/scf/supporters.html#lbl"><img src="img/orgs/lbl.png" /></a></p>
+	    <p><a href="{{page.root}}/scf/supporters.html#michigan-state"><img src="img/orgs/michigan-state.jpg" /></a></p>
+	    <p><a href="{{page.root}}/scf/supporters.html#nesi"><img src="img/orgs/nesi.png" /></a></p>
+	    <p><a href="{{page.root}}/scf/supporters.html#uc-davis"><img src="img/orgs/uc-davis.png" /></a></p>
+	    <p><a href="{{page.root}}/scf/supporters.html#ucl"><img src="img/orgs/ucl.png" /></a></p>
+	    <p><a href="{{page.root}}/scf/supporters.html#umelbourne"><img src="img/orgs/umelbourne.jpg" /></a></p>
+
+	    <h4>Sponsors and Donors</h4>
+	    <p><a href="{{page.root}}/scf/supporters.html#insight-data-science"><img src="img/orgs/insight-data-science.png" /></a></p>
+	    <p><a href="{{page.root}}/scf/supporters.html#rstudio-small"><img src="img/orgs/rstudio-small.png" /></a></p>
+
+	  </div>
+	</div>
+    </section>
+
+    {% include footer.html %}
+    {% include javascript.html %}
   </body>
 </html>
