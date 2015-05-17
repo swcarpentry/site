@@ -141,6 +141,10 @@ biblio : bib/${SWC_BIB}.tex bib/software-carpentry.bib
 authors :
 	@python bin/list-authors.py $(SRC_BLOG) | cut -d : -f 1
 
+## badge-dates  : list dates of all instructor badges.
+badge-dates :
+	@python bin/list-badge-dates.py badges/instructor/*.json
+
 ## categories   : list all blog category names.
 categories :
 	@python bin/list-categories.py $(SRC_BLOG) | cut -d : -f 1

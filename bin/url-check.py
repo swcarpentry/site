@@ -9,6 +9,6 @@ url = convert_url(sys.argv[1])
 info = fetch(url)
 info['url'] = url
 if check_info(url, info):
-    print url
+    print(url)
 else:
-    print 'FAIL:', url
+    print('FAIL:', url)

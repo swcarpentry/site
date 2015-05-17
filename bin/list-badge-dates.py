@@ -5,13 +5,13 @@ USAGE = 'Usage: {0} [--start date] filenames...'.format(sys.argv[0])
 
 filenames = sys.argv[1:]
 if not filenames:
-    print >> sys.stderr, USAGE
+    print(USAGE, file=sys.stderr)
     sys.exit(1)
 
 start = None
 if filenames[0] == '--start':
     if len(filenames) <= 1:
-        print >> sys.stderr, USAGE
+        print(USAGE, file=sys.stderr)
         sys.exit(1)
     start = filenames[1]
     filenames = filenames[2:]
@@ -21,6 +21,6 @@ for f in filenames:
         data = json.load(reader)
         if 'issuedOn' in data:
             if (start is None) or (data['issuedOn'] >= start):
-                print '{0}: {1}'.format(f, data['issuedOn'])
+                print('{0}: {1}'.format(f, data['issuedOn']))
         else:
-            print >> sys.stderr, 'No issuedOn in "{0}"'.format(f)
+            print('No issuedOn in "{0}"'.format(f), file=sys.stderr)
