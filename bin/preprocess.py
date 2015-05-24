@@ -9,11 +9,9 @@ import glob
 import datetime
 import time
 import yaml
+from functools import cmp_to_key
 from optparse import OptionParser
-try:  # Python 3
-    from urllib.parse import urlparse, urljoin
-except ImportError:  # Python 2
-    from urlparse import urlparse, urljoin
+from urllib.parse import urlparse, urljoin
 from util import CONFIG_YML, \
                  STANDARD_YML, \
                  AIRPORTS_YML, \
@@ -75,10 +73,10 @@ def main():
     })
 
     # People and projects.
-    config['people'] = map(lambda x: os.path.relpath(x, '_includes'), 
-                           sorted(glob.glob('_includes/people/*.html')))
-    config['projects'] = map(lambda x: os.path.relpath(x, '_includes'), 
-                             sorted(glob.glob('_includes/projects/*.html')))
+    config['people'] = list(map(lambda x: os.path.relpath(x, '_includes'),
+                           sorted(glob.glob('_includes/people/*.html'))))
+    config['projects'] = list(map(lambda x: os.path.relpath(x, '_includes'),
+                             sorted(glob.glob('_includes/projects/*.html'))))
 
     # Cache the window size.
     recent_length = config['recent_length']
@@ -112,7 +110,9 @@ def main():
     config['blog_favorites'].reverse()
 
     # Ensure that information about workshops is in the right order.
-    cached_workshop_info.sort(lambda x, y: cmp(x['slug'], y['slug']))
+    decorated = [(x['slug'], x) for x in cached_workshop_info]
+    decorated.sort()
+    cached_workshop_info = [d[1] for d in decorated]
     config['workshops'] = cached_workshop_info
 
     # Cached dashboard info is already in the right order.
@@ -125,8 +125,8 @@ def main():
         try:
             if bc['startdate'] >= config['today']:
                 upcoming.append(bc)
-        except TypeError, e:
-            print >> sys.stderr, 'Unable to process start date "{0}"'.format(bc['startdate'])
+        except TypeError as e:
+            print('Unable to process start date "{0}"'.format(bc['startdate']), file=sys.stderr)
     config['workshops_upcoming'] = upcoming[:upcoming_length]
     config['workshops_num_upcoming'] = len(upcoming)
 
@@ -156,15 +156,19 @@ def load_cached_info(folder, filename, message):
     '''Load cached info if available, fail if not.'''
     path = os.path.join(folder, filename)
     if not os.path.isfile(path):
-        print >> sys.stderr, '{0} file "{1}" does not exist.'.format(message, path)
-        print >> sys.stderr, 'Please use "make cache" before building site,'
+        print('{0} file "{1}" does not exist.'.format(message, path), file=sys.stderr)
+        print('Please use "make cache" before building site,', file=sys.stderr)
         sys.exit(1)
     return load_info(folder, filename)
 
 #----------------------------------------
 
 def harvest_blog(config):
-    '''Harvest metadata for all blog entries.'''
+    '''Harvest metadata for all blog entries.
+
+    Note that the YAML parser reads times with a leading 0 like '09:00:00' as strings,
+    not as times, so we have to convert manually.
+    '''
 
     all_meta = []
     for folder in glob.glob('blog/????/??'):
@@ -174,7 +178,9 @@ def harvest_blog(config):
             fill_optional_metadata(m, 'favorite')
             all_meta.append(m)
 
-    all_meta.sort(lambda x, y: cmp(x['date'], y['date']) or cmp(x['time'], y['time']))
+    decorated = [(x['date'], x['time'], x) for x in all_meta]
+    decorated.sort()
+    all_meta = [x[2] for x in decorated]
     return all_meta
 
 #----------------------------------------
@@ -196,7 +202,7 @@ def check_blog_sanity(posts):
     for p in posts:
         timestamp = (p['date'], p['time'])
         if timestamp in seen:
-            print >> sys.stderr, 'Timestamp {0} in {1} duplicated in {2}'.format(timestamp, seen[timestamp], p['path'])
+            print('Timestamp {0} in {1} duplicated in {2}'.format(timestamp, seen[timestamp], p['path']), file=sys.stderr)
             errors = True
         else:
             seen[timestamp] = p['path']
@@ -239,7 +245,7 @@ def write_recent_blog_posts(posts):
     '''Write out recent blog posts for inclusion in blog index page.'''
     with open('_includes/recent_blog_posts.html', 'w') as writer:
         for p in posts:
-            print >> writer, RECENT_POST % p
+            print(RECENT_POST % p, file=writer)
 
 #----------------------------------------
 

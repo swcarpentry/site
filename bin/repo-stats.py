@@ -53,16 +53,16 @@ def serialize_stats(stats):
 
 def tablify_stats(stats):
     with open(OUTPUT_HTML_FILE, 'w') as f:
-        print >> f, '<table class="table table-striped">'
-        print >> f, '<tr><th>Project</th><th colspan="3">Issues</th><th colspan="3">Pull Requests</th></tr>'
-        print >> f, '<tr><th></th><th>Opened</th><th>Closed</th><th>Comments</th><th>Opened</th><th>Closed</th><th>Comments</th></tr>'
+        print('<table class="table table-striped">', file=f)
+        print('<tr><th>Project</th><th colspan="3">Issues</th><th colspan="3">Pull Requests</th></tr>', file=f)
+        print('<tr><th></th><th>Opened</th><th>Closed</th><th>Comments</th><th>Opened</th><th>Closed</th><th>Comments</th></tr>', file=f)
         for r in REPOSITORIES:
-            print >> f, '<tr><td>{0}</td>'.format(r.replace('swcarpentry/','')),
+            print('<tr><td>{0}</td>'.format(r.replace('swcarpentry/','')),, file=f)
             for e in EVENTS:
                 val = stats.get(r, {e:''}).get(e, '')
-                print >> f, '<td>{0}</td>'.format(val),
-            print >> f, '</tr>'
-        print >> f, '</table>'
+                print('<td>{0}</td>'.format(val),, file=f)
+            print('</tr>', file=f)
+        print('</table>', file=f)
 
 def get_githubarchive_format(date):
     d = datetime.datetime.strptime(date, "%Y-%m-%d-%H")
@@ -82,7 +82,7 @@ def get_data_from_date_to_date(starting_date, ending_date):
     #iterate over all github events between the starting day and today
     current_date = starting_date
     while current_date != ending_date:
-        print 'processing: ' + current_date
+        print('processing: {0}'.format(current_date))
         url = u'http://data.githubarchive.org/{0}.json.gz'.format(get_githubarchive_format(current_date))
         try:
             response = requests.get(url, timeout=timeout_threshold)

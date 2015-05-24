@@ -7,7 +7,7 @@ def main():
     '''Main driver.'''
     workshops = yaml.load(sys.stdin)
     for w in workshops:
-        print w['slug'], w['url']
+        print(w['slug'], w['url'])
 
 if __name__ == '__main__':
     main()
