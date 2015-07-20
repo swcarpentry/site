@@ -1,4 +1,4 @@
-#!/usr/bin/env python
+#!/usr/bin/env python3
 
 '''Which badged instructors do *not* have a biography posted?'''
 

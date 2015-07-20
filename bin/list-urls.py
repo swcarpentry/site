@@ -1,5 +1,5 @@
-#!/usr/bin/env python
-'''Get workshop URLs from _config.yml.'''
+#!/usr/bin/env python3
+'''Get workshop URLs from cached workshop info.'''
 import sys
 import yaml
 

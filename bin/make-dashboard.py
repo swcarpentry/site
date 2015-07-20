@@ -1,4 +1,4 @@
-#!/usr/bin/env python
+#!/usr/bin/env python3
 
 '''Create YAML for dashboard page by querying GitHub repositories.'''
 

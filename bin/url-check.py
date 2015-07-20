@@ -1,4 +1,4 @@
-#!/usr/bin/env python
+#!/usr/bin/env python3
 '''Check the index.html data of a workshop given its URL.'''
 
 import sys

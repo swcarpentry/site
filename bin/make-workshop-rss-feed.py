@@ -1,4 +1,4 @@
-#!/usr/bin/env python
+#!/usr/bin/env python3
 '''
 Create workshop-feed.xml for RSS feed for Software Carpentry 
 workshops.
