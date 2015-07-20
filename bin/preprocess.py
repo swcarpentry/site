@@ -111,7 +111,7 @@ def main():
 
     # Ensure that information about workshops is in the right order.
     decorated = [(x['slug'], x) for x in cached_workshop_info]
-    decorated.sort()
+    decorated.sort(key=lambda item: item[0])
     cached_workshop_info = [d[1] for d in decorated]
     config['workshops'] = cached_workshop_info
 
