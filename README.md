@@ -22,14 +22,14 @@ Setting Up
 Rebuilding the web site locally to check changes requires:
 
 *   [Jekyll](http://jekyllrb.com/), used to compile templated HTML pages
-*   [Python](http://python.org/), used for pre- and post-processing
+*   [Python 3](http://python.org/), used for pre- and post-processing
 
 We use Jekyll because it's what [GitHub](http://github.com/) uses;
 we use Python because most of our volunteers speak it.
 The Python packages we depend on can be installed using:
 
 ~~~
-$ pip install -r requirements.txt
+$ pip3 install -r requirements.txt
 ~~~
 
 We try to use the same MarkDown interpreters as GitHub does for consistency.
@@ -182,14 +182,13 @@ Software Carpentry uses [Open Badges](http://openbadges.org/) to recognize peopl
 To create badges, you must install [PyPNG](http://pythonhosted.org/pypng/index.html) module:
 
 ~~~
-$ pip install pypng
+$ pip3 install pypng
 ~~~
 
 Use `bin/badge-create.py` to create a new badge, e.g.:
 
 ~~~
-$ python bin/badge-create.py username email instructor
+$ python3 bin/badge-create.py username email instructor
 ~~~
 
-The badges scripts in `bin` should be compatible with Python2 and Python3.
 To bake the badge we use `bin/badgebakery.py` which was provided by the Open Badge Team.
