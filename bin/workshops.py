@@ -63,7 +63,7 @@ def _cleanup_handler(record, key, value):
     if ((type(value) == str) and LATLNG_RE.match(value)):
         return value
     else:
-        print >> sys.stderr, 'Bad field in "{0}" for key "{1}": "{2}"'.format(record, key, value)
+        print('Bad field in "{0}" for key "{1}": "{2}"'.format(record, key, value), file=sys.stderr)
         return None
 
 CLEANUP = {
@@ -87,9 +87,9 @@ def main(args):
 
     results, faulty = process(all_urls, verbose)
     if faulty:
-        print >> sys.stderr, 'Errors in these URLs:'
+        print('Errors in these URLs:', file=sys.stderr)
         for f in faulty:
-            print >> sys.stderr, '  {0}'.format(f)
+            print('  {0}'.format(f), file=sys.stderr)
     elif archiver_filename:
         reader = open(reader_filename, 'w')
         archiver = open(archiver_filename, 'a')
@@ -164,12 +164,12 @@ def extract_info_from_url(url):
     '''Extract username and project name from GitHub URL.'''
     match = GITHUB_URL_RE.search(url)
     if not match:
-        print >> sys.stderr, 'URL {0} does not match pattern'.format(url)
+        print('URL {0} does not match pattern'.format(url), file=sys.stderr)
         sys.exit(1)
     user = match.group(1)
     slug = match.group(2)
     if (not user) or (not slug):
-        print >> sys.stderr, 'URL {0} has empty user and/or slug'.format(url)
+        print('URL {0} has empty user and/or slug'.format(url), file=sys.stderr)
         sys.exit(1)
     return user, slug
 
@@ -178,7 +178,7 @@ def check_info(url, info):
     missing = REQUIRED_KEYS - set(info.keys())
     if missing:
         missing = sorted(list(missing))
-        print >> sys.stderr, 'Info for {0} missing key(s): {1}'.format(url, missing)
+        print('Info for {0} missing key(s): {1}'.format(url, missing), file=sys.stderr)
         return False
     return True
 
@@ -192,7 +192,7 @@ def cleanup(entries):
 def fail(template, *args):
     '''Format and print error message, then exit.'''
     msg = template.format(*args)
-    print >> sys.stderr, msg
+    print(msg, file=sys.stderr)
     sys.exit(1)
 
 def archive(all_urls, results, reader, archiver):

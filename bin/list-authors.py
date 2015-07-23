@@ -12,4 +12,4 @@ names = set()
 for filename in sys.argv[1:]:
     names.add(harvest_metadata(filename)['author'])
 for n in sorted(names):
-    print n
+    print(n)

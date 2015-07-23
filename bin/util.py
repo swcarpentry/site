@@ -103,5 +103,5 @@ class ContentEncodedRSSItem(RSSItem):
                 assert False, \
                        'XML handler does not have _out or _write'
             writer('<%(e)s><![CDATA[%(c)s]]></%(e)s>' %
-                   { 'e':'content:encoded', 'c':unicode(self.content)})
+                   { 'e':'content:encoded', 'c':self.content})
 

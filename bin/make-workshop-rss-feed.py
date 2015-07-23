@@ -10,10 +10,7 @@ import sys
 from optparse import OptionParser
 from PyRSS2Gen import Category, Guid
 from util import ContentEncodedRSS2, ContentEncodedRSSItem
-try:  # Python 3
-    from urllib.parse import urlparse
-except ImportError:  # Python 2
-    from urlparse import urlparse
+from urllib.parse import urlparse
 from util import load_info
 
 #----------------------------------------
@@ -63,7 +60,7 @@ def build_workshop_rss(config, filename, workshops):
                                        pubDate=publish_time)
                  for bc in workshops]
     except KeyError as e:
-        print >> sys.stderr, 'Failed to find key {0} in {1}'.format(str(e), bc)
+        print('Failed to find key {0} in {1}'.format(str(e), bc), file=sys.stderr)
         sys.exit(1)
 
     # Create RSS feed.
