@@ -5,7 +5,9 @@ Utilities for site regeneration.
 
 import os
 import re
+import urllib.request
 import yaml
+import sys
 from PyRSS2Gen import RSS2, RSSItem
 
 # Standard name for metadata files.
@@ -19,6 +21,11 @@ BADGES_YML = 'badges.yml'
 
 # File generated from admin database with instructor airport locations (in config directory).
 AIRPORTS_YML = 'airports.yml'
+
+# hardcoded URLs used for getting new versions of BADGES_YML, AIRPORTS_YML
+BADGES_URL = 'https://amy.software-carpentry.org/api/v1/export/badges.yaml'
+AIRPORTS_URL = ('https://amy.software-carpentry.org/api/v1/export/'
+                'instructors.yaml')
 
 # File containing URLs for workshop repositories (in config directory).
 WORKSHOPS_YML = 'workshops.yml'
@@ -64,6 +71,17 @@ def load_info(folder, filename=CONFIG_YML):
     with open(path, 'r') as reader:
         return yaml.load(reader)
 
+
+def fetch_info(dir, filename, url, overwrite=True):
+    """Download a file and save it."""
+    path = os.path.join(dir, filename)
+    if not overwrite:
+        assert not os.path.exists(path), \
+            'Cannot overwrite existing file {}'.format(path)
+
+    # instead of file.write(remote.read()):
+    return urllib.request.urlretrieve(url, path)
+
 #----------------------------------------
 
 class ContentEncodedRSS2(RSS2):
@@ -104,4 +122,3 @@ class ContentEncodedRSSItem(RSSItem):
                        'XML handler does not have _out or _write'
             writer('<%(e)s><![CDATA[%(c)s]]></%(e)s>' %
                    { 'e':'content:encoded', 'c':self.content})
-

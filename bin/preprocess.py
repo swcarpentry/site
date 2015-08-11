@@ -16,13 +16,14 @@ from util import CONFIG_YML, \
                  STANDARD_YML, \
                  AIRPORTS_YML, \
                  BADGES_YML, \
+                 BADGES_URL, AIRPORTS_URL, \
                  WORKSHOPS_YML, \
                  FLAGS_YML, \
                  WORKSHOP_CACHE, \
                  DASHBOARD_CACHE, \
                  P_BLOG_EXCERPT, \
                  harvest_metadata, \
-                 load_info
+                 load_info, fetch_info
 
 # Translate two-digit month identifiers into short names.
 MONTHS = {
@@ -58,6 +59,10 @@ def main():
     # until other workshop info is loaded and available for merging.
     cached_workshop_info = load_cached_info(os.curdir, WORKSHOP_CACHE, 'workshop cache')
     cached_dashboard_info = load_cached_info(os.curdir, DASHBOARD_CACHE, 'dashboard cache')
+
+    # fetch badges and airports from AMY
+    fetch_info(options.config_dir, BADGES_YML, BADGES_URL)
+    fetch_info(options.config_dir, AIRPORTS_YML, AIRPORTS_URL)
 
     # Load other information.
     config = load_info(options.config_dir, STANDARD_YML)
