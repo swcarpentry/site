@@ -116,12 +116,12 @@ SWC.maps = (function() {
       var markers = [];
       // Go over all airports to read instructor location
       {% for airport in site.airports %}
-          {% for person in airport.who %}
+          {% for person in airport.instructors %}
             var marker = new google.maps.Marker({
-              position: new google.maps.LatLng({{airport.latlng}}),
+              position: new google.maps.LatLng({{airport.latitude}}, {{airport.longitude}}),
               map: map,
               visible: false, // marker not shown directly, just clustered
-              title: "<h5><a href=\"{{site.url}}/pages/team.html#{{person[0]}}\">{{person[1]}}</a></h5>"
+              title: "<h5><a href=\"{{site.url}}/pages/team.html#{{person.user}}\">{{person.name}}</a></h5>"
               });
             markers.push(marker); // For clustering
           {% endfor %}
