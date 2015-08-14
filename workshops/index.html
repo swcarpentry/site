@@ -69,12 +69,12 @@ nocomments: 1
 <div id="future">
   <h2>Future Workshops</h2>
   <table class="table table-striped workshops">
-    {% for workshop in site.workshops %}
-      {% if workshop.startdate >= site.today %}
+    {% for W in site.workshops %}
+      {% if W.start >= site.today and W._published %}
         <tr>
-          <td><img src="{{page.root}}/img/flags/{{site.flag_size}}/{{workshop.country}}.png" title="{{workshop.country | replace: '-', ' '}}" alt="{{workshop.country | replace: '-', ' '}}" /></td>
-          <td class="link"><a href="{{workshop.url}}">{{workshop.venue}}</a></td>
-          <td class="date">{{workshop.humandate}}</td>
+          <td><img src="{{page.root}}/img/flags/{{site.flag_size}}/{{W.country}}.png" title="{{W.country | replace: '-', ' '}}" alt="{{W.country | replace: '-', ' '}}" /></td>
+          <td class="link"><a href="{{W.url}}">{{W.venue}}</a></td>
+          <td class="date">{{W.humandate}}</td>
         </tr>
       {% endif %}
     {% endfor %}

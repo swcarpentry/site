@@ -16,14 +16,14 @@ from util import CONFIG_YML, \
                  STANDARD_YML, \
                  AIRPORTS_YML, \
                  BADGES_YML, \
-                 BADGES_URL, AIRPORTS_URL, \
+                 BADGES_URL, AIRPORTS_URL, WORKSHOPS_URL, \
                  WORKSHOPS_YML, \
                  FLAGS_YML, \
                  WORKSHOP_CACHE, \
                  DASHBOARD_CACHE, \
                  P_BLOG_EXCERPT, \
                  harvest_metadata, \
-                 load_info, fetch_info
+                 load_info, fetch_info, fetch_workshops_info
 
 # Translate two-digit month identifiers into short names.
 MONTHS = {
@@ -55,19 +55,19 @@ def main():
 
     # Check that cached workshop information and cached dashboard
     # information are available, and report an error if they're not.
-    # Do this early to avoid wasting time; store in local variable
-    # until other workshop info is loaded and available for merging.
-    cached_workshop_info = load_cached_info(os.curdir, WORKSHOP_CACHE, 'workshop cache')
     cached_dashboard_info = load_cached_info(os.curdir, DASHBOARD_CACHE, 'dashboard cache')
-
-    # fetch badges and airports from AMY
-    fetch_info(options.config_dir, BADGES_YML, BADGES_URL)
-    fetch_info(options.config_dir, AIRPORTS_YML, AIRPORTS_URL)
+    # # Do this early to avoid wasting time; store in local variable
+    # # until other workshop info is loaded and available for merging.
+    # cached_workshop_info = load_cached_info(os.curdir, WORKSHOP_CACHE, 'workshop cache')
 
     # Load other information.
     config = load_info(options.config_dir, STANDARD_YML)
-    config['badges'] = load_info(options.config_dir, BADGES_YML)
-    config['airports'] = load_info(options.config_dir, AIRPORTS_YML)
+
+    # fetch badges, airports and workshops from AMY
+    config['badges'] = fetch_info(options.amy_url, BADGES_URL)
+    config['airports'] = fetch_info(options.amy_url, AIRPORTS_URL)
+    config['workshops'] = fetch_workshops_info(options.amy_url, WORKSHOPS_URL)
+
     config['flags'] = load_info(options.config_dir, FLAGS_YML)
     config.update({
         'month_names'     : MONTHS,
@@ -114,11 +114,11 @@ def main():
     config['blog_favorites'] = [p for p in config['blog'] if p['favorite']]
     config['blog_favorites'].reverse()
 
-    # Ensure that information about workshops is in the right order.
-    decorated = [(x['slug'], x) for x in cached_workshop_info]
-    decorated.sort(key=lambda item: item[0])
-    cached_workshop_info = [d[1] for d in decorated]
-    config['workshops'] = cached_workshop_info
+    # # Ensure that information about workshops is in the right order.
+    # decorated = [(x['slug'], x) for x in cached_workshop_info]
+    # decorated.sort(key=lambda item: item[0])
+    # cached_workshop_info = [d[1] for d in decorated]
+    # config['workshops'] = cached_workshop_info
 
     # Cached dashboard info is already in the right order.
     config['dashboard'] = cached_dashboard_info
@@ -128,10 +128,11 @@ def main():
     upcoming = []
     for bc in config['workshops']:
         try:
-            if bc['startdate'] >= config['today']:
+            if (bc['start'] >= config['today'] and bc['_published']):
                 upcoming.append(bc)
-        except TypeError as e:
-            print('Unable to process start date "{0}"'.format(bc['startdate']), file=sys.stderr)
+        except TypeError:
+            print('Unable to process start date "{0}"'.format(bc['start']),
+                  file=sys.stderr)
     config['workshops_upcoming'] = upcoming[:upcoming_length]
     config['workshops_num_upcoming'] = len(upcoming)
 
@@ -150,6 +151,9 @@ def parse_args():
     parser.add_option('-s', '--site', dest='site', help='site')
     parser.add_option('-t', '--today', dest='today', help='build date',
                       default=datetime.date.today())
+    parser.add_option('-a', '--amy-url', dest='amy_url',
+                      default='https://amy.software-carpentry.org/api/',
+                      help='AMY API address')
     parser.add_option('-v', '--verbose', dest='verbose', help='enable verbose logging',
                       default=False, action='store_true')
     options, args = parser.parse_args()

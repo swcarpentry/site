@@ -16,19 +16,20 @@ CONFIG_YML = '_config.yml'
 # Template for metadata (in config directory).
 STANDARD_YML = 'standard.yml'
 
-# Configuration file generated from admin database with badging information (in config directory).
+# File with badging information
 BADGES_YML = 'badges.yml'
 
-# File generated from admin database with instructor airport locations (in config directory).
+# File with instructor airport locations
 AIRPORTS_YML = 'airports.yml'
 
-# hardcoded URLs used for getting new versions of BADGES_YML, AIRPORTS_YML
-BADGES_URL = 'https://amy.software-carpentry.org/api/v1/export/badges.yaml'
-AIRPORTS_URL = ('https://amy.software-carpentry.org/api/v1/export/'
-                'instructors.yaml')
-
-# File containing URLs for workshop repositories (in config directory).
+# File containing all published workshops
 WORKSHOPS_YML = 'workshops.yml'
+
+# hardcoded API URLs used for getting new versions of YAMLs of badges, airports
+# and workshops
+BADGES_URL = 'v1/export/badges.yaml'
+AIRPORTS_URL = 'v1/export/instructors.yaml'
+WORKSHOPS_URL = 'v1/events/published.yaml'
 
 # File containing names of countries for flags.
 FLAGS_YML = 'flags.yml'
@@ -72,15 +73,31 @@ def load_info(folder, filename=CONFIG_YML):
         return yaml.load(reader)
 
 
-def fetch_info(dir, filename, url, overwrite=True):
+def fetch_info(base_url, url):
     """Download a file and save it."""
-    path = os.path.join(dir, filename)
-    if not overwrite:
-        assert not os.path.exists(path), \
-            'Cannot overwrite existing file {}'.format(path)
+    address = base_url + url
+    with urllib.request.urlopen(address) as f:
+        content = f.read()
+    return yaml.load(content.decode('utf-8'))
 
-    # instead of file.write(remote.read()):
-    return urllib.request.urlretrieve(url, path)
+
+def fetch_workshops_info(base_url, url):
+    """Download a file with workshops data and save it.
+
+    Mark workshops 'safe for production' (ie. having specific set of fields
+    non-blank)."""
+    content = fetch_info(base_url, url)
+    for E in content:
+        # Some events are considered "published" by AMY even though some of
+        # their fields are empty.  This function checks if events are published
+        # in the sense that they can be used in this site.
+        if (E['start'] and E['end'] and E['slug'] and E['venue']
+                and E['address'] and E['country'] and E['latitude']
+                and E['longitude'] and E['url'] and E['humandate']):
+            E['_published'] = True
+        else:
+            E['_published'] = False
+    return content
 
 #----------------------------------------
 

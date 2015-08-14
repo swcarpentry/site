@@ -56,7 +56,9 @@ class ICalendarWriter(object):
             'PRODID:-//Software Carpentry/Workshops//NONSGML v1.0//EN',
         ]
         for bc in config['workshops']:
-            lines.extend(self.workshop(config['site'], config['timestamp'], bc))
+            if bc['_published']:
+                lines.extend(self.workshop(config['site'],
+                                           config['timestamp'], bc))
         lines.extend(['END:VCALENDAR', ''])
         content = '\r\n'.join(lines)
         # From RFC 5545, section 3.1.4 (Character Set):
@@ -67,24 +69,25 @@ class ICalendarWriter(object):
     def workshop(self, site, timestamp, info):
         uid = '{0}@{1}'.format(info['slug'],
                                urlparse(site).netloc or 'software-carpentry.org')
-        if 'enddate' in info:
-            end = info['enddate']
+        if 'end' in info:
+            end = info['end']
         else:  # one day workshop?
-            end = info['startdate']
+            end = info['start']
         end += datetime.timedelta(1)  # non-inclusive end date
         lines = [
             u'BEGIN:VEVENT',
             u'UID:{0}'.format(uid),
             u'DTSTAMP:{0}'.format(timestamp),
-            u'DTSTART;VALUE=DATE:{0}'.format(info['startdate'].strftime('%Y%m%d')),
-            u'DTEND;VALUE=DATE:{0}'.format(end.strftime('%Y%m%d')),
+            u'DTSTART;VALUE=DATE:{:%Y-%m-%d}'.format(info['start']),
+            u'DTEND;VALUE=DATE:{:%Y-%m-%d}'.format(end),
             u'SUMMARY:{0}'.format(self.escape(info['venue'])),
             u'DESCRIPTION;ALTREP="{0}":{0}'.format(info['url']),
             u'URL:{0}'.format(info['url']),
             u'LOCATION:{0}'.format(self.escape(info['venue'])),
         ]
-        if info.get('latlng'):
-            latlng = re.sub(r'\s+', '', info['latlng']).replace(',', ';')
+        if info.get('latitude') and info.get('longitude'):
+            latlng = '{0},{1}'.format(info['latitude'], info['longitude'])
+            latlng = re.sub(r'\s+', '', latlng).replace(',', ';')
             lines.append('uGEO:{0}'.format(latlng))
         lines.append(u'END:VEVENT')
         return lines
