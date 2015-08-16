@@ -6,6 +6,7 @@ Utilities for site regeneration.
 import os
 import re
 import urllib.request
+import ssl
 import yaml
 import sys
 from PyRSS2Gen import RSS2, RSSItem
@@ -76,7 +77,11 @@ def load_info(folder, filename=CONFIG_YML):
 def fetch_info(base_url, url):
     """Download a file and save it."""
     address = base_url + url
-    with urllib.request.urlopen(address) as f:
+
+    # loads operating system's trusted CA certificates
+    ssl_context = ssl.SSLContext(ssl.PROTOCOL_SSLv23)
+
+    with urllib.request.urlopen(address, context=ssl_context) as f:
         content = f.read()
     return yaml.load(content.decode('utf-8'))
 
