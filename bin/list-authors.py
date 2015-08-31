@@ -1,4 +1,4 @@
-#!/usr/bin/env python
+#!/usr/bin/env python3
 
 """
 Display all the author names used in blog posts.
@@ -12,4 +12,4 @@ names = set()
 for filename in sys.argv[1:]:
     names.add(harvest_metadata(filename)['author'])
 for n in sorted(names):
-    print n
+    print(n)

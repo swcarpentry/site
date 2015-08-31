@@ -1,4 +1,4 @@
-#!/usr/bin/env python
+#!/usr/bin/env python3
 '''List Eventbrite keys for workshops.'''
 import sys
 import yaml

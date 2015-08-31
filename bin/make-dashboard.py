@@ -1,4 +1,4 @@
-#!/usr/bin/env python
+#!/usr/bin/env python3
 
 '''Create YAML for dashboard page by querying GitHub repositories.'''
 
@@ -45,7 +45,7 @@ def process(cnx):
         'num_issues' : 0
     }
     for (ident, description) in CONTROLS:
-        print '+', ident
+        print('+', ident)
         dashboard['num_repos'] += 1
         r = cnx.get_repo(ident)
         record = {'ident' : ident,
@@ -59,8 +59,8 @@ def process(cnx):
                                          'title' : str(i.title),
                                          'url' : str(i.html_url),
                                          'updated' : i.updated_at.strftime('%Y-%m-%d')})
-            except Exception, e:
-                print >> sys.stderr, 'failed with', i.number, i.title, i.html_url, i.updated_at
+            except Exception as e:
+                print('failed with', i.number, i.title, i.html_url, i.updated_at, file=sys.stderr)
             dashboard['num_issues'] += 1
         record['issues'].sort(lambda x, y: - cmp(x['updated'], y['updated']))
     return dashboard

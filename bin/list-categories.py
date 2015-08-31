@@ -1,4 +1,4 @@
-#!/usr/bin/env python
+#!/usr/bin/env python3
 
 """
 Display all the categories used in blog posts.
@@ -21,12 +21,12 @@ for f in filenames:
         for t in these:
             categories[t].add(f)
     except Exception as e:
-        print >> sys.stderr, 'Failed in {0}'.format(f)
+        print('Failed in {0}'.format(f), file=sys.stderr)
         traceback.print_exc(None, sys.stderr)
         sys.exit(1)
 
 for k in sorted(categories.keys()):
     if show_count:
-        print '{0}: {1}'.format(len(categories[k]), k)
+        print('{0}: {1}'.format(len(categories[k]), k))
     else:
-        print '{0}: {1}'.format(k, len(categories[k]))
+        print('{0}: {1}'.format(k, len(categories[k])))
