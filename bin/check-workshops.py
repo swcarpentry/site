@@ -1,4 +1,4 @@
-#!/usr/bin/env python
+#!/usr/bin/env python3
 
 '''Check consistency of workshop info.'''
 
@@ -19,14 +19,14 @@ def main():
 
     duplicates = set(urls_only) & set(cached_info)
     if duplicates:
-        print 'in both upcoming and cached:'
-        print '\n'.join(sorted(duplicates))
+        print('in both upcoming and cached:')
+        print('\n'.join(sorted(duplicates)))
 
     for (source, title) in ((urls_only, 'URLS only'), (cached_info, 'cached info')):
         frequency = Counter(source)
         for key in frequency:
             if frequency[key] > 1:
-                print '{0} occurs multiple times in {1}'.format(key, title)
+                print('{0} occurs multiple times in {1}'.format(key, title))
 
 if __name__ == '__main__':
     main()

@@ -1,4 +1,4 @@
-#!/usr/bin/env python
+#!/usr/bin/env python3
 
 '''Which badged instructors do *not* have a biography posted?'''
 
@@ -14,4 +14,4 @@ expected = [entry['user'] for entry in yaml.load(open(config, 'r'))['instructor'
 filenames = [os.path.splitext(os.path.split(f)[1])[0] for f in filenames]
 
 for m in sorted(set(expected) - set(filenames)):
-    print m
+    print(m)

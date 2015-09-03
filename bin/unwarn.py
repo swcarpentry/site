@@ -1,4 +1,4 @@
-#!/usr/bin/env python
+#!/usr/bin/env python3
 '''Used to remove entity warnings when checking validity of HTML.'''
 
 import sys

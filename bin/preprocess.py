@@ -1,4 +1,4 @@
-#!/usr/bin/env python
+#!/usr/bin/env python3
 '''
 Create _config.yml used to compile Software Carpentry web site.
 '''
@@ -9,22 +9,21 @@ import glob
 import datetime
 import time
 import yaml
+from functools import cmp_to_key
 from optparse import OptionParser
-try:  # Python 3
-    from urllib.parse import urlparse, urljoin
-except ImportError:  # Python 2
-    from urlparse import urlparse, urljoin
+from urllib.parse import urlparse, urljoin
 from util import CONFIG_YML, \
                  STANDARD_YML, \
                  AIRPORTS_YML, \
                  BADGES_YML, \
+                 BADGES_URL, AIRPORTS_URL, WORKSHOPS_URL, \
                  WORKSHOPS_YML, \
                  FLAGS_YML, \
                  WORKSHOP_CACHE, \
                  DASHBOARD_CACHE, \
                  P_BLOG_EXCERPT, \
                  harvest_metadata, \
-                 load_info
+                 load_info, fetch_info, fetch_workshops_info
 
 # Translate two-digit month identifiers into short names.
 MONTHS = {
@@ -56,15 +55,19 @@ def main():
 
     # Check that cached workshop information and cached dashboard
     # information are available, and report an error if they're not.
-    # Do this early to avoid wasting time; store in local variable
-    # until other workshop info is loaded and available for merging.
-    cached_workshop_info = load_cached_info(os.curdir, WORKSHOP_CACHE, 'workshop cache')
     cached_dashboard_info = load_cached_info(os.curdir, DASHBOARD_CACHE, 'dashboard cache')
+    # # Do this early to avoid wasting time; store in local variable
+    # # until other workshop info is loaded and available for merging.
+    # cached_workshop_info = load_cached_info(os.curdir, WORKSHOP_CACHE, 'workshop cache')
 
     # Load other information.
     config = load_info(options.config_dir, STANDARD_YML)
-    config['badges'] = load_info(options.config_dir, BADGES_YML)
-    config['airports'] = load_info(options.config_dir, AIRPORTS_YML)
+
+    # fetch badges, airports and workshops from AMY
+    config['badges'] = fetch_info(options.amy_url, BADGES_URL)
+    config['airports'] = fetch_info(options.amy_url, AIRPORTS_URL)
+    config['workshops'] = fetch_workshops_info(options.amy_url, WORKSHOPS_URL)
+
     config['flags'] = load_info(options.config_dir, FLAGS_YML)
     config.update({
         'month_names'     : MONTHS,
@@ -75,10 +78,10 @@ def main():
     })
 
     # People and projects.
-    config['people'] = map(lambda x: os.path.relpath(x, '_includes'), 
-                           sorted(glob.glob('_includes/people/*.html')))
-    config['projects'] = map(lambda x: os.path.relpath(x, '_includes'), 
-                             sorted(glob.glob('_includes/projects/*.html')))
+    config['people'] = list(map(lambda x: os.path.relpath(x, '_includes'),
+                           sorted(glob.glob('_includes/people/*.html'))))
+    config['projects'] = list(map(lambda x: os.path.relpath(x, '_includes'),
+                             sorted(glob.glob('_includes/projects/*.html'))))
 
     # Cache the window size.
     recent_length = config['recent_length']
@@ -111,9 +114,11 @@ def main():
     config['blog_favorites'] = [p for p in config['blog'] if p['favorite']]
     config['blog_favorites'].reverse()
 
-    # Ensure that information about workshops is in the right order.
-    cached_workshop_info.sort(lambda x, y: cmp(x['slug'], y['slug']))
-    config['workshops'] = cached_workshop_info
+    # # Ensure that information about workshops is in the right order.
+    # decorated = [(x['slug'], x) for x in cached_workshop_info]
+    # decorated.sort(key=lambda item: item[0])
+    # cached_workshop_info = [d[1] for d in decorated]
+    # config['workshops'] = cached_workshop_info
 
     # Cached dashboard info is already in the right order.
     config['dashboard'] = cached_dashboard_info
@@ -123,10 +128,11 @@ def main():
     upcoming = []
     for bc in config['workshops']:
         try:
-            if bc['startdate'] >= config['today']:
+            if (bc['start'] >= config['today'] and bc['_published']):
                 upcoming.append(bc)
-        except TypeError, e:
-            print >> sys.stderr, 'Unable to process start date "{0}"'.format(bc['startdate'])
+        except TypeError:
+            print('Unable to process start date "{0}"'.format(bc['start']),
+                  file=sys.stderr)
     config['workshops_upcoming'] = upcoming[:upcoming_length]
     config['workshops_num_upcoming'] = len(upcoming)
 
@@ -145,6 +151,9 @@ def parse_args():
     parser.add_option('-s', '--site', dest='site', help='site')
     parser.add_option('-t', '--today', dest='today', help='build date',
                       default=datetime.date.today())
+    parser.add_option('-a', '--amy-url', dest='amy_url',
+                      default='https://amy.software-carpentry.org/api/',
+                      help='AMY API address')
     parser.add_option('-v', '--verbose', dest='verbose', help='enable verbose logging',
                       default=False, action='store_true')
     options, args = parser.parse_args()
@@ -156,15 +165,19 @@ def load_cached_info(folder, filename, message):
     '''Load cached info if available, fail if not.'''
     path = os.path.join(folder, filename)
     if not os.path.isfile(path):
-        print >> sys.stderr, '{0} file "{1}" does not exist.'.format(message, path)
-        print >> sys.stderr, 'Please use "make cache" before building site,'
+        print('{0} file "{1}" does not exist.'.format(message, path), file=sys.stderr)
+        print('Please use "make cache" before building site,', file=sys.stderr)
         sys.exit(1)
     return load_info(folder, filename)
 
 #----------------------------------------
 
 def harvest_blog(config):
-    '''Harvest metadata for all blog entries.'''
+    '''Harvest metadata for all blog entries.
+
+    Note that the YAML parser reads times with a leading 0 like '09:00:00' as strings,
+    not as times, so we have to convert manually.
+    '''
 
     all_meta = []
     for folder in glob.glob('blog/????/??'):
@@ -174,7 +187,9 @@ def harvest_blog(config):
             fill_optional_metadata(m, 'favorite')
             all_meta.append(m)
 
-    all_meta.sort(lambda x, y: cmp(x['date'], y['date']) or cmp(x['time'], y['time']))
+    decorated = [(x['date'], x['time'], x) for x in all_meta]
+    decorated.sort()
+    all_meta = [x[2] for x in decorated]
     return all_meta
 
 #----------------------------------------
@@ -196,7 +211,7 @@ def check_blog_sanity(posts):
     for p in posts:
         timestamp = (p['date'], p['time'])
         if timestamp in seen:
-            print >> sys.stderr, 'Timestamp {0} in {1} duplicated in {2}'.format(timestamp, seen[timestamp], p['path'])
+            print('Timestamp {0} in {1} duplicated in {2}'.format(timestamp, seen[timestamp], p['path']), file=sys.stderr)
             errors = True
         else:
             seen[timestamp] = p['path']
@@ -239,7 +254,7 @@ def write_recent_blog_posts(posts):
     '''Write out recent blog posts for inclusion in blog index page.'''
     with open('_includes/recent_blog_posts.html', 'w') as writer:
         for p in posts:
-            print >> writer, RECENT_POST % p
+            print(RECENT_POST % p, file=writer)
 
 #----------------------------------------
 

@@ -1,13 +1,13 @@
-#!/usr/bin/env python
-'''Get workshop URLs from _config.yml.'''
+#!/usr/bin/env python3
+'''Get workshop URLs from cached workshop info.'''
 import sys
 import yaml
 
 def main():
     '''Main driver.'''
-    config = yaml.load(sys.stdin)
-    for w in config['workshops']:
-        print w['slug'], w['url']
+    workshops = yaml.load(sys.stdin)
+    for w in workshops:
+        print(w['slug'], w['url'])
 
 if __name__ == '__main__':
     main()

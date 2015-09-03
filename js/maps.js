@@ -50,13 +50,13 @@ SWC.maps = (function() {
       map = new google.maps.Map(document.getElementById('map_canvas'), mapOptions);
       var markers = [];
       // Go over all the upcoming camps and create pins in the map
-      {% for workshop in site.workshops %}
-        {% if workshop.latlng and workshop.startdate >= site.today %}
+      {% for W in site.workshops %}
+        {% if W.start >= site.today and W._published %}
           var marker = new google.maps.Marker({
-            position: new google.maps.LatLng({{workshop.latlng}}),
+            position: new google.maps.LatLng({{W.latitude}}, {{W.longitude}}),
             map: map,
-              title: "<h5><a href=\"{% if workshop.url %}{{workshop.url}}{% else %}{{page.root}}/{{workshop.path}}{% endif %}\">{{workshop.venue}}</a></h5>" +
-                  "<h6><a href=\"{{page.root}}/{{workshop.path}}\">{{workshop.humandate}}</a></h6>",
+              title: "<h5><a href=\"{% if W.url %}{{W.url}}{% else %}{{page.root}}/{{W.path}}{% endif %}\">{{W.venue}}</a></h5>" +
+                  "<h6><a href=\"{{page.root}}/{{W.path}}\">{{W.humandate}}</a></h6>",
             visible: false  // marker not shown directly, just clustered
           });
           markers.push(marker)
@@ -116,12 +116,12 @@ SWC.maps = (function() {
       var markers = [];
       // Go over all airports to read instructor location
       {% for airport in site.airports %}
-          {% for person in airport.who %}
+          {% for person in airport.instructors %}
             var marker = new google.maps.Marker({
-              position: new google.maps.LatLng({{airport.latlng}}),
+              position: new google.maps.LatLng({{airport.latitude}}, {{airport.longitude}}),
               map: map,
               visible: false, // marker not shown directly, just clustered
-              title: "<h5><a href=\"{{site.url}}/pages/team.html#{{person[0]}}\">{{person[1]}}</a></h5>"
+              title: "<h5><a href=\"{{site.url}}/pages/team.html#{{person.user}}\">{{person.name}}</a></h5>"
               });
             markers.push(marker); // For clustering
           {% endfor %}

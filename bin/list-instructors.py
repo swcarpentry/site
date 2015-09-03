@@ -1,4 +1,4 @@
-#!/usr/bin/env python
+#!/usr/bin/env python3
 '''Get instructors per workshop from cached workshop info.'''
 import sys
 import yaml

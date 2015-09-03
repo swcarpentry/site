@@ -1,11 +1,14 @@
-#!/usr/bin/env python
+#!/usr/bin/env python3
 '''
 Utilities for site regeneration.
 '''
 
 import os
 import re
+import urllib.request
+import ssl
 import yaml
+import sys
 from PyRSS2Gen import RSS2, RSSItem
 
 # Standard name for metadata files.
@@ -14,14 +17,20 @@ CONFIG_YML = '_config.yml'
 # Template for metadata (in config directory).
 STANDARD_YML = 'standard.yml'
 
-# Configuration file generated from admin database with badging information (in config directory).
+# File with badging information
 BADGES_YML = 'badges.yml'
 
-# File generated from admin database with instructor airport locations (in config directory).
+# File with instructor airport locations
 AIRPORTS_YML = 'airports.yml'
 
-# File containing URLs for workshop repositories (in config directory).
+# File containing all published workshops
 WORKSHOPS_YML = 'workshops.yml'
+
+# hardcoded API URLs used for getting new versions of YAMLs of badges, airports
+# and workshops
+BADGES_URL = 'v1/export/badges.yaml'
+AIRPORTS_URL = 'v1/export/instructors.yaml'
+WORKSHOPS_URL = 'v1/events/published.yaml'
 
 # File containing names of countries for flags.
 FLAGS_YML = 'flags.yml'
@@ -64,6 +73,37 @@ def load_info(folder, filename=CONFIG_YML):
     with open(path, 'r') as reader:
         return yaml.load(reader)
 
+
+def fetch_info(base_url, url):
+    """Download a file and save it."""
+    address = base_url + url
+
+    # loads operating system's trusted CA certificates
+    ssl_context = ssl.SSLContext(ssl.PROTOCOL_SSLv23)
+
+    with urllib.request.urlopen(address, context=ssl_context) as f:
+        content = f.read()
+    return yaml.load(content.decode('utf-8'))
+
+
+def fetch_workshops_info(base_url, url):
+    """Download a file with workshops data and save it.
+
+    Mark workshops 'safe for production' (ie. having specific set of fields
+    non-blank)."""
+    content = fetch_info(base_url, url)
+    for E in content:
+        # Some events are considered "published" by AMY even though some of
+        # their fields are empty.  This function checks if events are published
+        # in the sense that they can be used in this site.
+        if (E['start'] and E['end'] and E['slug'] and E['venue']
+                and E['address'] and E['country'] and E['latitude']
+                and E['longitude'] and E['url'] and E['humandate']):
+            E['_published'] = True
+        else:
+            E['_published'] = False
+    return content
+
 #----------------------------------------
 
 class ContentEncodedRSS2(RSS2):
@@ -103,5 +143,4 @@ class ContentEncodedRSSItem(RSSItem):
                 assert False, \
                        'XML handler does not have _out or _write'
             writer('<%(e)s><![CDATA[%(c)s]]></%(e)s>' %
-                   { 'e':'content:encoded', 'c':unicode(self.content)})
-
+                   { 'e':'content:encoded', 'c':self.content})

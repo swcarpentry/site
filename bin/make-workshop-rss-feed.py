@@ -1,6 +1,6 @@
-#!/usr/bin/env python
+#!/usr/bin/env python3
 '''
-Create workshop-feed.xml for RSS feed for Software Carpentry 
+Create workshop-feed.xml for RSS feed for Software Carpentry
 workshops.
 '''
 
@@ -10,10 +10,7 @@ import sys
 from optparse import OptionParser
 from PyRSS2Gen import Category, Guid
 from util import ContentEncodedRSS2, ContentEncodedRSSItem
-try:  # Python 3
-    from urllib.parse import urlparse
-except ImportError:  # Python 2
-    from urlparse import urlparse
+from urllib.parse import urlparse
 from util import load_info
 
 #----------------------------------------
@@ -63,7 +60,7 @@ def build_workshop_rss(config, filename, workshops):
                                        pubDate=publish_time)
                  for bc in workshops]
     except KeyError as e:
-        print >> sys.stderr, 'Failed to find key {0} in {1}'.format(str(e), bc)
+        print('Failed to find key {0} in {1}'.format(str(e), bc), file=sys.stderr)
         sys.exit(1)
 
     # Create RSS feed.
@@ -83,25 +80,25 @@ def get_future_workshops(workshops):
     in reverse chronological order.
     '''
     publish_date = datetime.datetime.now().date()
-    workshops = [bc for bc in workshops if bc['startdate'] >= publish_date]
+    workshops = [bc for bc in workshops if bc['start'] >= publish_date]
     workshops.reverse()
     return workshops
 
 def get_guid(site, workshop):
     '''
-    Create non-permalink Guid consisting of Software Carpentry 
+    Create non-permalink Guid consisting of Software Carpentry
     site URL and workshop identifier ('slug').
     '''
-    return Guid('{0}/{1}'.format(site, workshop['slug']), 
+    return Guid('{0}/{1}'.format(site, workshop['slug']),
                 isPermaLink=False)
 
 def get_country(site, workshop):
     '''
-    Create 'country' category in domain 
+    Create 'country' category in domain
     http://software-carpentry.org/locations with workshop's country
     as value.
     '''
-    return Category(workshop['country'], 
+    return Category(workshop['country'],
                     '{0}/{1}'.format(site, 'locations'))
 
 def get_description(workshop):
