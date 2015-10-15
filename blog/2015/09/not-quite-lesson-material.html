@@ -1,0 +1,291 @@
+---
+layout: blog
+root: ../../..
+author: Christina Koch
+title: "Not Quite Lesson Material"
+date: 2015-09-14
+time: "05:00:00"
+category: ["Teaching"]
+---
+<!-- start excerpt -->
+<p>
+  <em>
+    Originally posted on <a href="http://christinalk.github.io/blog/activities.html">the author's blog</a>.
+  </em>
+</p>
+<p>
+  Lesson plans are a funny thing.
+  The <a href="{{page.root}}/lessons.html">Software
+  Carpentry lessons</a> are an odd balance of a lesson to be read
+  (like a textbook) and a lesson plan for instructors, where they
+  bring the text to life via speaking, live coding, and doing
+  exercises.
+</p>
+<p>
+  This text format doesn't lend itself well to a few activities I've used
+  in Software Carpentry workshops.  So I'm going to throw them up here
+  for other instructors to look at - feel free to add your own activities
+  in the comments, or submit another blog post!
+</p>
+<!-- end excerpt -->
+<h2>Git Demo</h2>
+<p>
+  Before teaching
+  the <a href="{{site.github_io_url}}/git-novice">Git novice</a>
+  lesson, I have done the following live demo.  All that's needed is a
+  picture taking device, preferably a smartphone or tablet.  I've
+  never timed it, but I don't think it takes very long - probably
+  around 5 minutes.
+</p>
+<p>
+  I do this <em>after</em> configuring git, but before the
+  first <code>git init</code>.
+</p>
+<ul>
+  <li>
+    <p>
+      The scenario: the workshop room is directory, each student is a file.
+    </p>
+  </li>
+  <li>
+    <p>
+      Have all students write down some datum on their green sticky
+      note (I've used number of years in higher ed, could be
+      anything).
+    </p>
+  </li>
+  <li>
+    <p>
+      Explain that you want to track this data.  To do so, you'll be
+      creating a recording device (hold up the smartphone or tablet)
+      and taking a picture. Before you can take a picture, you'll need
+      everybody to stand up so they can be in the picture
+    </p>
+  </li>
+  <li>
+    <p>
+      Have everyone stand (holding up their sticky with a piece of
+      data), and take a picture with your device.  Have everyone sit
+      down.
+    </p>
+  </li>
+  <li>
+    <p>
+      Now the data is going to change.  Have everyone write down
+      another datum (you choose), on their other sticky note.
+    </p>
+  </li>
+  <li>
+    <p>
+      Explain that this time, you want to save the changes in two
+      batches.  Have half the room rise, with both stickies, take a
+      photo.  Do the other half of the room.
+    </p>
+  </li>
+  <li>
+    <p>
+      Optional: point out that you didn't want that last piece of data
+      after all.  So hold up the device with the first photo and say
+      "return to this".  Everyone should leave their second sticky on
+      the table.  Have everyone rise with just the first sticky
+      (again) and take another photo.
+    </p>
+  </li>
+</ul>
+<p>
+  To wrap up, explain that everyone has just experienced a typical git
+  workflow...
+</p>
+<ul>
+  <li>
+    <p>
+      Create a recording device, also known as a repository (the
+      smartphone/tablet)
+    </p>
+  </li>
+  <li>
+    <p>
+      Stage data files (standing up)
+    </p>
+  </li>
+  <li>
+    <p>
+      Commit those changes (take a picture)
+    </p>
+  </li>
+  <li>
+    <p>
+      Repeat the process, with the ability to stage and commit groups
+      of files (half and half)
+    </p>
+  </li>
+</ul>
+<p>
+  ...and that you'll now be covering the commands used in the shell to
+  achieve the same thing.
+</p>
+<p>
+  Later in the lesson, when talking about commit hashes, I use this
+  example again to explain that Git auto-generates a hash, just like
+  your camera-device gives an automatic name to photos, but you can
+  refer to commits in an ordered way as well, just as you scroll
+  through photos on your device in chronological order.
+</p>
+<p>
+  If you want to go really crazy, the contrast of sticky notes in the
+  photo can be a parallel to using <code>git diff</code> and the
+  return to an original state as an example of
+  <code>git checkout ####</code>.
+</p>
+<p>
+  Pedagogical disclaimer: the motivation for this demo is purely to
+  get people standing up, moving, and physically interacting with
+  these ideas, which are otherwise very abstract.  Personally, I have
+  always found that I remember exactly the bits of lessons where I had
+  to stand up and <em>do</em> something.  So I have no research-based
+  reason to use this demo except my own experience.  That and students
+  seem to like it.  If anyone can provide evidence to support me,
+  that'd be great!
+</p>
+<h2>Shell group activity</h2>
+<p>
+  There's a fine line in the shell lesson between "teaching shell
+  commands", "teaching shell concepts", and "teaching general
+  programming constructs by using the shell."  Life is challenging.
+</p>
+<p>
+  One thing I do to address this balance is break up the shell lesson
+  into two pieces.  The first piece is "shell concepts" (the idea of
+  the filesystem, and being able to run any command from anywhere) and
+  the second piece is "general programming constructs" (scripts,
+  loops, pipes and filters).  To bridge the two, I take a little break
+  and have people investigate shell commands themselves.  The logical
+  link for me is: we've learned about some very basic shell commands and
+  how the shell works generally; now let's do a (brief!) overview of
+  some of the variety of shell commands; then we can talk about how
+  good practices like loops, scripts, pipes will allow us to use this
+  variety of commands in <em>even more</em> ways.
+</p>
+<p>
+  The activity is very simple - I divide the room into groups and give
+  each of them a shell command to research.  A sample list might be:
+</p>
+<ul>
+  <li>
+    <p>
+      <code>less</code> vs <code>cat</code>
+    </p>
+  </li>
+  <li>
+    <p>
+      <code>head</code> and <code>tail</code>
+    </p>
+  </li>
+  <li>
+    <p>
+      <code>grep</code>
+    </p>
+  </li>
+  <li>
+    <p>
+      <code>wc</code>
+    </p>
+  </li>
+  <li>
+    <p>
+      <code>sort</code>
+    </p>
+  </li>
+  <li>
+    <p>
+      <code>uniq</code>
+    </p>
+  </li>
+  <li>
+    <p>
+      <code>find</code>
+    </p>
+  </li>
+  <li>
+    <p>
+      <code>cut</code>
+    </p>
+  </li>
+</ul>
+<p>
+  Each group needs to use the <code>man</code> pages (or the internet)
+  to find out what the command does, think of an example for the
+  instructor (me) to demonstrate, and describe a scenario where that
+  command might be useful.  After a few minutes working together, each
+  group "presents" to the large group, facilitated by the instructor.
+  I'm always careful to point out that this is purely a <em>brief</em>
+  summary, and that I'm trying to expose them to the range of shell
+  commands and to give them the skills to pursue whatever they might
+  need later on their own.
+</p>
+<ul>
+  <li>
+    <p>
+      Things I like about this activity: it provides a natural break
+      from the instructor talking, works well for both novice and
+      advanced learners (advanced learners can move onto other
+      commands if they finish theirs, or help their group members),
+      and helps illustrate what the shell can do without explicitly
+      covering any one thing in detail.  Also, not much prep!  :)
+    </p>
+  </li>
+  <li>
+    <p>
+      Things I don't like about this activity: It could be information
+      overload?  I could see it being overwhelming for a true novice.
+      Or that people would check out if they are very novice or very
+      advanced.
+    </p>
+  </li>
+</ul>
+<h2>Shell demo</h2>
+<p>
+  I haven't done this yet, because I haven't taught the shell lesson
+  since I thought of it.  But I'd like to try to the following to
+  really drive home the idea of relative and absolute paths and that
+  shell commands are run <em>relative to the working directory</em>:
+</p>
+<ul>
+  <li>
+    <p>
+      Use the same idea as the git demo, that rooms are directories
+      and people are files.  In that context, <code>ls</code> is like
+      saying "tell me the name of everyone in the room."
+    </p>
+  </li>
+  <li>
+    <p>
+      Step outside the room briefly.  Come back in and ask, what
+      response would I get if I asked that question outside
+      (running <code>ls</code> in a different directory)?  What if I
+      asked that question outside, but I specified the workshop room
+      (using <code>ls</code> with a relative path)?
+    </p>
+  </li>
+  <li>
+    <p>
+      Back in the workshop room, how would I ask the names of people
+      in a different room in the building?  Would need either a
+      relative path (go out the door, down the stairs, turn left,
+      etc.) or an absolute path (Milky Way -&gt; Solar System -&gt;
+      Earth -&gt; Continent -&gt; etc.) to know where to go to ask the
+      question.
+    </p>
+  </li>
+  <li>
+    <p>
+      Reiterate the ideas above on the command line, drawing clear
+      parallels between the rooms/directories and how to
+      use <code>ls</code>.
+    </p>
+  </li>
+</ul>
+<p>
+  It makes sense to me, but I'm not sure if it would clarify ideas or
+  confuse the listeners.  Thoughts are welcomed!
+</p>

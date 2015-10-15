@@ -1,0 +1,1 @@
+The content of this directory has moved to https://github.com/swcarpentry/software-carpentry-lessons-learned.

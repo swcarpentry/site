@@ -31,18 +31,6 @@ nocomments: 1
     <section id="home-options" class="content text-center">
       <div class="container">
 
-	    <div align="center">
-	      <p style="font-size: 120%">
-		<strong>
-		  We are searching for a new Executive Director.
-		  <br/>
-		  Please see
-		  <a href="{{page.root}}/blog/2015/07/new-executive-director-search.html">the job description</a>
-		  or read <a href="{{page.root}}/blog/2015/07/our-next-big-step.html">this post</a> for more information.
-		</strong>
-	      </p>
-	    </div>
-
         <div class="row">
           <div class="col-sm-4">
             <h4>Who We Are</h4>
@@ -136,7 +124,7 @@ nocomments: 1
 
             <h4><a href="{{page.root}}/workshops/index.html#future">Upcoming Workshops</a></h4>
             <table class="table table-hover">
-              {% for workshop in site.workshops_upcoming %}
+              {% for workshop in site.workshops_upcoming_short %}
               <tr>
                 <td>
                   <img src="{{page.root}}/img/flags/{{site.flag_size}}/{{workshop.country}}.png" alt="{{workshop.country}}" />
@@ -164,19 +152,22 @@ nocomments: 1
 
             <h4>Partners</h4>
             <p><a href="{{page.root}}/scf/supporters.html#compute-canada"><img src="img/orgs/compute-canada.jpg" /></a></p>
+            <p><a href="{{page.root}}/scf/supporters.html#elixir-uk"><img src="img/orgs/elixir-uk.png" /></a></p>
             <p><a href="{{page.root}}/scf/supporters.html#github"><img src="img/orgs/github.png" /></a></p>
             <p><a href="{{page.root}}/scf/supporters.html#iplant"><img src="img/orgs/iplant.png" /></a></p>
             <p><a href="{{page.root}}/scf/supporters.html#leeds"><img src="img/orgs/leeds.png" /></a></p>
+            <p><a href="{{page.root}}/scf/supporters.html#michigan"><img src="img/orgs/michigan.jpg" /></a></p>
+            <p><a href="{{page.root}}/scf/supporters.html#rackspace"><img src="img/orgs/rackspace.png" /></a></p>
             <p><a href="{{page.root}}/scf/supporters.html#ssi"><img src="img/orgs/ssi.png" /></a></p>
             <p><a href="{{page.root}}/scf/supporters.html#uw-escience"><img src="img/orgs/uw-escience.png" /></a></p>
 
             <h4>Affiliates</h4>
             <p><a href="{{page.root}}/scf/supporters.html#bids"><img src="img/orgs/bids.png" /></a></p>
-            <p><a href="{{page.root}}/scf/supporters.html#elixir-uk"><img src="img/orgs/elixir-uk.png" /></a></p>
             <p><a href="{{page.root}}/scf/supporters.html#lbl"><img src="img/orgs/lbl.png" /></a></p>
             <p><a href="{{page.root}}/scf/supporters.html#michigan-state"><img src="img/orgs/michigan-state.jpg" /></a></p>
             <p><a href="{{page.root}}/scf/supporters.html#nesi"><img src="img/orgs/nesi.png" /></a></p>
             <p><a href="{{page.root}}/scf/supporters.html#nlesc"><img src="img/orgs/nlesc.jpg" /></a></p>
+            <p><a href="{{page.root}}/scf/supporters.html#ucar"><img src="img/orgs/ucar.jpg" /></a></p>
             <p><a href="{{page.root}}/scf/supporters.html#uc-davis"><img src="img/orgs/uc-davis.png" /></a></p>
             <p><a href="{{page.root}}/scf/supporters.html#ucl"><img src="img/orgs/ucl.png" /></a></p>
             <p><a href="{{page.root}}/scf/supporters.html#umelbourne"><img src="img/orgs/umelbourne.jpg" /></a></p>

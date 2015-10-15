@@ -1,11 +1,13 @@
-#!/usr/bin/env python
+#!/usr/bin/env python3
 '''
 Utilities for site regeneration.
 '''
 
 import os
 import re
+import urllib.request
 import yaml
+import sys
 from PyRSS2Gen import RSS2, RSSItem
 
 # Standard name for metadata files.
@@ -14,17 +16,20 @@ CONFIG_YML = '_config.yml'
 # Template for metadata (in config directory).
 STANDARD_YML = 'standard.yml'
 
-# Configuration file generated from admin database with badging information (in config directory).
+# File with badging information
 BADGES_YML = 'badges.yml'
 
-# File generated from admin database with instructor airport locations (in config directory).
+# File with instructor airport locations
 AIRPORTS_YML = 'airports.yml'
 
-# File containing URLs for workshop repositories (in config directory).
+# File containing all published workshops
 WORKSHOPS_YML = 'workshops.yml'
 
-# File containing names of countries for flags.
-FLAGS_YML = 'flags.yml'
+# hardcoded API URLs used for getting new versions of YAMLs of badges, airports
+# and workshops
+BADGES_URL = 'v1/export/badges.yaml'
+AIRPORTS_URL = 'v1/export/instructors.yaml'
+WORKSHOPS_URL = 'v1/events/published.yaml'
 
 # File containing cached information about workshops.
 WORKSHOP_CACHE = '_workshop_cache.yml'
@@ -63,6 +68,14 @@ def load_info(folder, filename=CONFIG_YML):
            'No info file found in folder "{0}"'.format(folder)
     with open(path, 'r') as reader:
         return yaml.load(reader)
+
+
+def fetch_info(base_url, url):
+    """Download a file and save it."""
+    address = base_url + url
+    with urllib.request.urlopen(address) as f:
+        content = f.read()
+    return yaml.load(content.decode('utf-8'))
 
 #----------------------------------------
 
@@ -103,5 +116,4 @@ class ContentEncodedRSSItem(RSSItem):
                 assert False, \
                        'XML handler does not have _out or _write'
             writer('<%(e)s><![CDATA[%(c)s]]></%(e)s>' %
-                   { 'e':'content:encoded', 'c':unicode(self.content)})
-
+                   { 'e':'content:encoded', 'c':self.content})

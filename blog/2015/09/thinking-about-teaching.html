@@ -1,0 +1,147 @@
+---
+layout: blog
+root: ../../..
+author: Greg Wilson
+title: "Thinking About Teaching"
+date: 2015-09-28
+time: "02:00:00"
+category: ["Teaching"]
+---
+<!-- start excerpt -->
+<p>
+  A little over a year ago,
+  we blogged about <a href="{{page.root}}/blog/2014/09/building-better-teachers.html">jugyokenkyu</a>,
+  or "lesson study",
+  a bucket of practices that Japanese teachers use to hone their craft,
+  from observing each other at work
+  to discussing the lesson afterward
+  to studying curriculum materials with colleagues.
+  Getting the Software Carpentry Foundation up and running almost immediately pushed that aside,
+  but now that the SCF is up and running,
+  it's time to return to the subject.
+  Discussion of <a href="how-teaching-knowledge-is-transferred.html">how teaching practices are transferred</a>
+  is part of that;
+  so are two other developments this week.
+</p>
+<!-- end excerpt -->
+<p>
+  First, Victor Eijkhout has been thinking about
+  <a href="https://bitbucket.org/VictorEijkhout/parallel-computing-book/downloads/eijkhout-teachmpi.pdf">how to teach MPI</a>.
+  In particular,
+  he has been thinking about how the order in which concepts are usually introduced can mislead or confuse,
+  and about a different order that leads more naturally to proficient use.
+  We're not going to include MPI in Software Carpentry any time soon (if ever),
+  but I hope that the next major revision of our lessons will include this kind of design rationale.
+</p>
+<p>
+  Second,
+  <a href="{{page.root}}/pages/team.html#bostroem.a">Azalee Bostroem</a> surveyed people who have taught our current Python lesson
+  to find out what they're actually doing and how it has been going.
+  46 people responded,
+  almost all of them instructors,
+  and <a href="python-lesson-survey-results.pdf">the results</a> are fascinating.
+  Here are some of the key findings, and my comments:
+</p>
+<dl>
+  <dt>
+    60% of our lessons are being taught to novices.
+  </dt>
+  <dd>
+    <p>
+      Here,
+      "novice" means "someone who has never programmed before".
+      (The survey defined "intermediate" as someone who had in a language other than Python,
+      and "advanced" as someone who had already used Python.)
+      When we re-design this lesson,
+      we could well wind up creating different versions for these audiences,
+      since someone who's learning Python as a second language will be able to move faster and farther
+      than someone who is new to ideas like "variable", "list", and "function".
+    </p>
+  </dd>
+  <dt>
+    53% of respondents would like an introduction to variables, data types, functions, and libraries
+    before jumping into the inflammation data example;
+    only 28% would not.
+  </dt>
+  <dd>
+    <p>
+      Related to this,
+      70% of respondents said that they carefully explained each part of the first episode of the Python lesson,
+      which is another indication that we need to warm up
+      rather than diving straight in.
+    </p>
+  </dd>
+  <dt>
+    Only 1/3 of respondents got through the whole Python lesson.
+  </dt>
+  <dd>
+    <p>
+      Which means we need to cut material as well as telling instructors how far people usually get.
+      (We've asked in the past for people to report times for lessons,
+      but returns have been slim.)
+    </p>
+  </dd>
+  <dt>
+    Over 80% of the respondents are teaching our materials with little
+    or no modification, but 22% are using an older version.
+  </dt>
+  <dd>
+    <p>
+      Based on a handful of conversations,
+      I think people use older material because
+      (a) they stick to whatever lesson they first taught,
+      and/or (b) they don't like the NumPy-early approach of the current lesson.
+      I don't know what we can do about (a),
+      but our "Python as a first language" lesson
+      should start with simpler tasks.
+    </p>
+  </dd>
+  <dt>
+    The defensive programming section which is skipped by over 85% of
+    the people who answered the survey, so we should move this
+    material elsewhere.
+  </dt>
+  <dd>
+    <p>
+      I (reluctantly) agree,
+      at least for people who are learning programming for the first time.
+      As with <a href="{{page.root}}/blog/2014/10/why-we-dont-teach-testing.html">testing</a>,
+      there's no point putting scarce classroom or maintenance time into something that doesn't stick.
+    </p>
+  </dd>
+  <dt>
+    82% of the people answering the survey are teaching out of the
+    Jupyter Notebook.
+  </dt>
+  <dd>
+    <p>
+      I was surprised by that, but I now wonder if it explains why it
+      takes so long to get through material with novices.  On the one
+      hand, the notebook is more like the graphical user interfaces
+      they are used to.  On the other hand, it's different in many
+      ways as well, which means they could be facing the double
+      cognitive load of a new programming language <em>and</em> a new
+      kind of editing interface.  As in the debate over whether
+      phonics or whole language is the best way to teach children to
+      read, what we need is a proper, unbiased study.
+    </p>
+  </dd>
+</dl>
+<p>
+  The biggest lesson in all of this is that
+  being able to pool our experiences is
+  the second-greatest benefit of teaching in the large.
+  (The greatest is having someone who can genuinely sympathize when something has gone wrong...)
+  It would take even our most active instructors several years to learn this much about our lessons;
+  comparing notes can help us all improve faster.
+</p>
+<p>
+  We would like even more data:
+  if you have taught Python for us and have three minutes to spare,
+  please <a href="https://docs.google.com/forms/d/1jfzFt-OQpiridqOo2ykLTSsIB6R-13rMFm3SuV2Qoeg/viewform?c=0&w=1">fill
+  in the survey</a>.
+  And if you can give us half an hour,
+  we'd be grateful for help sorting and summarizing the comments we've had on our Python lessons
+  in debriefing sessions&mdash;please <a href="mailto:gvwilson@software-carpentry.org">get in touch</a>
+  if you can spare some time.
+</p>

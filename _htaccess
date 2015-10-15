@@ -5,7 +5,7 @@ AddDefaultCharset UTF-8
 
 # Route /bootcamps to /workshops
 RewriteCond %{REQUEST_URI} ^/bootcamps
-RewriteRule ^bootcamps/(.*)$ /workshops/$1 [R,L]
+RewriteRule ^bootcamps(.*)$ /workshops$1 [R,L]
 
 # Route /3_0 and /4_0 pages to /v3, /v4
 RewriteCond %{REQUEST_URI} ^/3_0

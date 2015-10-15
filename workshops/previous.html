@@ -13,8 +13,8 @@ nocomments: 1
 </div>
 
 <table class="table table-striped workshops">
-  {% for workshop in site.workshops reversed %}
-    {% if workshop.startdate < site.today %}
+  {% for workshop in site.workshops %}
+    {% if workshop.start < site.today %}
       <tr>
         <td><img src="{{page.root}}/img/flags/{{site.flag_size}}/{{workshop.country}}.png" title="{{workshop.country | replace: '-', ' '}}" alt="{{workshop.country | replace: '-', ' '}}" /></td>
         <td class="link"><a href="{{workshop.url}}">{{workshop.venue}}</a></td>

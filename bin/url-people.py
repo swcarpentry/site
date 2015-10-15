@@ -1,4 +1,4 @@
-#!/usr/bin/env python
+#!/usr/bin/env python3
 '''Get instructors and helpers given workshop URL.'''
 
 import sys

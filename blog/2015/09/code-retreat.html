@@ -1,0 +1,156 @@
+---
+layout: blog
+root: ../../..
+author: Terri Yu
+title: "Running a Code Retreat"
+date: 2015-09-02
+time: "14:00:00"
+category: ["Community", "Teaching"]
+---
+<!-- start excerpt -->
+<p>
+  I recently attended a
+  <a href="http://googleforstudents.blogspot.com/2015/06/presenting-2015-north-america-google.html">scholarship retreat run by Google</a>
+  with about 40 other students. We spent one day doing a "code
+  retreat" and I wanted to share my experience and what I learned
+  about programming.
+</p>
+<!-- end excerpt -->
+<p>
+  The code retreat was based
+  on <a href="http://coderetreat.org/facilitating/structure-of-a-coderetreat">this
+  template</a>, and led by senior Google software engineer, Nathan
+  Sandland. The task was the same for all the exercises -- pair
+  programming <a href="https://en.wikipedia.org/wiki/Conway%27s_Game_of_Life">Conway's
+  Game of Life</a> with unit tests. The first exercise was to simply
+  program the game of life and then we did 4 more exercises that were
+  variations on this, with different constraints. We were allotted
+  about 45 minutes for each exercise, and we switched pairs for each
+  exercise. After each exercise, we went around the room and debriefed
+  people's thoughts on the exercise. People could program in any
+  language as long as that language supported unit tests, and each
+  pair needed to program in a common language that they both knew.
+</p>
+<p>
+  The exercises were:
+</p>
+<ol>
+  <li>
+    <p>
+      Program the Game of Life with no constraints other than time
+      (don't forget the unit tests!)
+    </p>
+  </li>
+  <li>
+    <p>
+      Extreme constraints: can't use if/else statements, only allowed
+      3 lines of code per function, can't pass primitives to functions
+      or interfaces
+    </p>
+  </li>
+  <li>
+    <p>
+      Ping pong pairing: Person A writes tests, Person B writes code
+      to pass tests, then Person B writes tests, Person A writes code
+      to pass the tests, etc.
+    </p>
+  </li>
+  <li>
+    <p>
+      Evil mute A/B pairing: pairs are not allowed to talk. One person
+      writes tests. The other person is a "lazy evil" programmer who
+      writes the minimal code to pass the tests (but the code doesn't
+      need to actually implement the specification).
+    </p>
+  </li>
+  <li>
+    <p>
+      "Baby steps": Program in 5 minute rounds, alternating
+      partners. Initialize an empty Git repository. Then the coder has
+      5 minutes to write a test and write code to pass the test. If
+      the coder finishes, the work done during that round is committed
+      to the repository. If the coder doesn't finish, the coder has to
+      do a hard git reset to delete their work. (We were told that
+      when this exercise is done with Google employees, they use 2.5
+      minute rounds -- I'm not sure how I could have managed with that
+      time limit; I could barely finish in 5 minutes.)
+    </p>
+  </li>
+</ol>
+<p>
+  The goal for each exercise is not to actually write the Game of
+  Life, but to experience the process of coding under different
+  conditions and constraints. In all 5 exercises, my partner and I
+  never came close to finishing.
+</p>
+<p>
+  At the end of the day, we wrote down our observations as answers to
+  the following questions:
+</p>
+<p>
+  Closing questions: On a piece of paper, write the answer to one of
+  the following (to be shared with the group):
+</p>
+<ul>
+  <li>
+    <p>
+      What, if anything, have you learned today?
+    </p>
+  </li>
+  <li>
+    <p>
+      What, if anything, surprised you today?
+    </p>
+  </li>
+  <li>
+    <p>
+      What, if anything, will you do differently?
+    </p>
+  </li>
+</ul>
+<p>
+  During the discussions, we learned that software engineers write an
+  average of 10 lines of code per day (!) I suspect that engineers
+  spend a lot of time thinking and revising code, so only 10 lines of
+  "forward progress" is made per day.
+</p>
+<p>
+  I thought the exercises were pretty interesting and sometimes
+  entertaining (especially exercises 4 and 5). I had never done
+  anything like it before. I learned about software engineering in the
+  presence of constraints. For example, the crazy constraints in
+  Exercise 2 forced me to do a lot of hacking. In Exercise 4 (the evil
+  mute pairing), it was made clear that you can easily pass tests
+  without the code actually implementing the featured tested.
+</p>
+<p>
+  Overall, I was forced to write a lot of tests quickly, which is
+  something I'm normally pretty lazy about. It was also my first
+  experience with pair programming. One of my first partners was a
+  Java guy and it was interesting how differently he thought about
+  programming. He wanted to write out a flow chart to design the
+  program and do a lot of OOP stuff, whereas I just wanted to quickly
+  prototype in Python. Switching partners frequently exposed me to
+  different personalities and styles of programming.
+</p>
+<p>
+  Most of the students (about 40 of us) knew either Python or Java or
+  both. I ended up programming in Python for all the exercises and
+  using <a href="https://nose.readthedocs.org">nose</a> for my unit
+  testing framework (nose was easier to use
+  than <a href="https://docs.python.org/2/library/unittest.html">unittest</a>
+  for quick dirty testing).
+</p>
+<p>
+  Overall, I thought the code retreat was fun and worth doing at least
+  once. I'm not sure how these exercises would fit into the Software
+  Carpentry curriculum, but they might be an interesting addition for
+  an advanced workshop or maybe even a hacking day in a highly
+  computational lab group. The barrier is that to get something out of
+  these exercises, the students need to have written basic unit tests
+  before (maybe that could be done in a pre-workshop prerequisite) and
+  know a common programming language. Exercise 5 requires knowledge of
+  Git. The students' laptops need to be setup with the programming
+  language and unit testing framework (preferably for multiple
+  languages) before the code retreat.
+</p>

@@ -1,0 +1,126 @@
+---
+layout: blog
+root: ../../..
+author: Joshua Ryan Smith
+title: "Reporting on a Commercial Workshop"
+date: 2015-09-09
+time: "03:00:00"
+category: ["Workshops"]
+---
+<!-- start excerpt -->
+<p>
+  On August 22, Marty McGuire
+  (<a href="https://twitter.com/schmarty">@schmarty</a>) and I
+  (<a href="https://twitter.com/joshua_r_smith">@joshua_r_smith</a>)
+  taught a
+  <a href="https://shirtable.github.io/2015-08-22-baltimore/">for-profit workshop</a>
+  based on Software Carpentry materials,
+  particularly the
+  <a href="{{site.github_io_url}}/python-novice-inflammation/">novice Python lesson</a>.
+  This post is a debrief of that workshop.
+</p>
+<!-- end excerpt -->
+<h2>Setup</h2>
+<p>
+  We forked
+  the <a href="{{site.github_url}}/workshop-template">workshop-template</a>
+  and
+  the <a href="{{site.github_url}}/python-novice-inflammation">python-novice-inflammation</a>
+  repos to build a workshop website and notes for the Python
+  lesson. We decided to only do a one-day class because we did no
+  marketing in the sense that we did not target any specific group for
+  this workshop. For typical Software Carpentry workshops, part of the
+  marketing is already done: SWC generally does workshops for some
+  subset of science people.
+</p>
+<p>
+  We also charged $20 US per person for the workshop; this fee was to
+  mitigate no-shows. (The fee was collected via Eventbrite.)  The goal
+  of this workshop wasn't to make money, it was to go through the
+  process once and figure out where the bugs are.  We coordinated over
+  the phone and via the issue tracker on a private GitHub repo we set
+  up.
+</p>
+<h2>The Good</h2>
+<p>
+  All of the attendees were highly impressed by the quality of the
+  Software Carpentry material. Many of them found it via the
+  attribution link we put on our site according to SWC's attribution
+  rules.
+</p>
+<p>
+  We were very grateful for the level of detail with regards to set up
+  instructions,
+  e.g. the <a href="{{page.root}}/workshops/operations.html">ops
+  guide</a>
+  and <a href="{{page.root}}/workshops/checklists/index.html">checklists</a>. It
+  is clear that these documents were created at the cost of many
+  mistakes made by prior instructors.
+</p>
+<p>
+  Finally, the liberal Creative Commons license of the SWC materials
+  was really the enabling feature for this workshop. We are very
+  grateful for all of the hard work SWC volunteers have donated to
+  making this material excellent.
+</p>
+<h2>The "Could Be Better"</h2>
+<p>
+  Two major things stand out, which are related.
+</p>
+<ol>
+  <li>
+    <p>
+      It was more difficult than it should have been to re-brand the
+      lesson materials to comply with SWC's copyright disclaimer:
+    </p>
+    <blockquote>
+      <p>
+	All of our lessons are freely available under the Creative
+	Commons - Attribution License.  You may re-use and re-mix the
+	material in any way you wish, without asking permission,
+	provided you cite us as the original source (e.g., provide a
+	link back to this website).
+      </p>
+    </blockquote>
+  </li>
+  <li>
+    <p>
+      Having both the Markdown source and the HTML built from it in
+      the same repo, in the same branch was non-optimal. This setup
+      makes sense based on the varying levels of Git mastery of the
+      contributors especially regarding contributors' familiarity with
+      Git's branching and merging model. Nevertheless, it felt like it
+      was counter to version control best practice.
+    </p>
+  </li>
+</ol>
+<p>
+  These two issues could likely be mitigated by switching to a static
+  site generator (such as Jekyll) to build the HTML pages from some
+  Markdown source. Clearly, the Shirtable
+  team <a href="{{site.github_url}}/lesson-template/issues/279">aren't
+  the first to have this idea</a>. Once the transition to Jekyll has
+  been made, the actual lesson material can live in Markdown files and
+  whatever assets are required by the lesson (data files, images,
+  Jupyter Notebooks, etc.). The branding could even be stored in a
+  separate repo that's brought into the lesson repo as a
+  submodule. I'm pretty sure that's
+  how <a href="http://docs.getpelican.com/en/3.6.3/themes.html">Pelican
+  does it</a>. It seems like all of these details could be handled by
+  a build script.
+</p>
+<p>
+  Solving this issue is important, and not just to help for-profit
+  entities like Shirtable. Anyone, even not-for-profits and educators,
+  will need to re-brand these materials in order to comply with the
+  rules. The Shirtable team believes the difficulty associated with
+  rebranding is a higher barrier than necessary for educators with
+  limited temporal resources to wrangle the source.
+</p>
+<h2>Conclusion</h2>
+<p>
+  All in all, we accomplished the objective we set out to
+  accomplish. The workshop instructors and participants all found the
+  SWC Python material to be valuable, informative, and
+  easy-to-follow.
+</p>

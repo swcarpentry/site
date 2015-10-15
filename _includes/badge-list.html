@@ -15,13 +15,17 @@
 
 <div style="clear:both; bottom-margin:30px;">
   <ul>
-    {% for badge in site.badges[badge_slug] %}
+  {% for badge in site.badges %}
+    {% if badge.name == badge_slug %}
+      {% for person in badge.persons %}
     <div class="pull-left" style="width:200px;">
       <li>
-        <a badge-kind="{{badge_slug}}" badge-user="{{badge.user}}" href="{{page.root}}/pages/team.html#{{badge.user}}">{{badge.name}}</a>
+        <a badge-kind="{{badge_slug}}" badge-user="{{person.user}}" href="{{page.root}}/pages/team.html#{{person.user}}">{{person.name}}</a>
       </li>
     </div>
-    {% endfor %}
+      {% endfor %}
+    {% endif %}
+  {% endfor %}
   </ul>
 </div>
 <div style="clear:both;"></div>
