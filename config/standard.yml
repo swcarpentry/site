@@ -17,7 +17,7 @@ recent_length   : 10
 upcoming_length : 10
 blog_title      : "Software Carpentry"
 blog_subtitle   : "Helping scientists make better software since 1998"
-training_url    : "http://teaching.software-carpentry.org"
+training_url    : "http://swcarpentry.github.io/training-course"
 mailing_lists   : "http://lists.software-carpentry.org"
 flag_size       : 16
 exclude         : [standard_config.yml, badges_config.yml, bootcamp_cache.yml, talks]

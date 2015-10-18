@@ -5,58 +5,62 @@ AddDefaultCharset UTF-8
 
 # Route /bootcamps to /workshops
 RewriteCond %{REQUEST_URI} ^/bootcamps
-RewriteRule ^bootcamps/(.*)$ /workshops/$1 [R,L]
+RewriteRule ^bootcamps(.*)$ /workshops$1 [R,L]
 
 # Route /3_0 and /4_0 pages to /v3, /v4
-RewriteCond %{REQUEST_URI} ^/3_0
-RewriteRule ^3_0/(.*)$ /v3/$1 [R,L]
-
-RewriteCond %{REQUEST_URI} ^/4_0
-RewriteRule ^4_0/(.*)$ /v4/$1 [R,L]
+# deprecated
+# RewriteCond %{REQUEST_URI} ^/3_0
+# RewriteRule ^3_0/(.*)$ /v3/$1 [R,L]
+#
+# RewriteCond %{REQUEST_URI} ^/4_0
+# RewriteRule ^4_0/(.*)$ /v4/$1 [R,L]
 
 # Wordpress URLs that are gone
-RewriteRule .*/trackback/?$ - [gone,NC]
+# RewriteRule .*/trackback/?$ - [gone,NC]
 
-# Wordpress Feed URL 
+# Wordpress Feed URL
 # this has to happen before the rewrites for /blog
 RewriteCond %{REQUEST_URI} ^(/feed/?|/blog/feed/?)$
 RewriteRule ^(.*) /feed.xml [R,L]
 
-### Wordpress Blog Redirects ### 
-# redirect URLs to a day to the main blog page 
-RewriteCond %{REQUEST_URI} ^/\d\d\d\d/\d\d/\d\d/$
-RewriteRule ^(.*) /blog/index.html [R,L]
+### Wordpress Blog Redirects ###
+# redirect URLs to a day to the main blog page
+# deprecated
+# RewriteCond %{REQUEST_URI} ^/\d\d\d\d/\d\d/\d\d/$
+# RewriteRule ^(.*) /blog/index.html [R,L]
 
 # redirect urls that are only to a month to the main blog page
 # since we don't have these monthly pages any longer
-RewriteCond %{REQUEST_URI} ^/\d\d\d\d/\d\d/$
-RewriteRule ^(.*) /blog/index.html [R,L]
+# deprecated
+# RewriteCond %{REQUEST_URI} ^/\d\d\d\d/\d\d/$
+# RewriteRule ^(.*) /blog/index.html [R,L]
 
 # redirect URLs that have a year and month to the /blog/ folder
 # since these are likely old links to individual blog pages
-RewriteCond %{REQUEST_URI} ^/\d\d\d\d/\d\d/
-RewriteRule ^(.*) /blog/$1 [R,L]
+# deprecated
+# RewriteCond %{REQUEST_URI} ^/\d\d\d\d/\d\d/
+# RewriteRule ^(.*) /blog/$1 [R,L]
 
 # redirect URL to just /blog/ to /blog/index.html
 RewriteCond %{REQUEST_URI} ^/blog/?$
 RewriteRule .* /blog/index.html [R,L]
 
 ### Wordpress Page Redirects ###
-
+# deprecated
 # About team page
-RewriteCond %{REQUEST_URI} ^/about/our-team/?$
-RewriteRule ^(.*) /about/team.html [R,L]
-
-# Other about pages 
-RewriteCond %{REQUEST_URI} ^/about/.*$
-RewriteCond %{REQUEST_URI} !.html$
-RewriteRule ^(.*?)/?$ $1.html [R,L]
-
-# Handle 4_0 episode links that don't end in .html 
-RewriteCond %{REQUEST_URI} ^/4_0/[^/]+/.+
-RewriteCond %{REQUEST_URI} !.html$
-RewriteCond %{SCRIPT_FILENAME} !-f 
-RewriteRule ^(.*?)/?$ $1.html [R,L]
+# RewriteCond %{REQUEST_URI} ^/about/our-team/?$
+# RewriteRule ^(.*) /about/team.html [R,L]
+#
+# Other about pages
+# RewriteCond %{REQUEST_URI} ^/about/.*$
+# RewriteCond %{REQUEST_URI} !.html$
+# RewriteRule ^(.*?)/?$ $1.html [R,L]
+#
+# Handle 4_0 episode links that don't end in .html
+# RewriteCond %{REQUEST_URI} ^/4_0/[^/]+/.+
+# RewriteCond %{REQUEST_URI} !.html$
+# RewriteCond %{SCRIPT_FILENAME} !-f
+# RewriteRule ^(.*?)/?$ $1.html [R,L]
 
 </IfModule>
 
