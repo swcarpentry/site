@@ -1,0 +1,43 @@
+---
+layout: blog
+root: ../../..
+author: Greg Wilson
+title: "Visualizing Repository Activity"
+date: 2015-10-27
+time: "12:00:00"
+category: ["Research"]
+---
+<!-- start excerpt -->
+<p>
+  I am updating the
+  <a href="{{site.github_url}}/software-carpentry-lessons-learned/">lessons learned</a> paper,
+  and would like to include histograms showing how many people have contributed how often to our lessons.
+  More specifically,
+  I have 9 data sets (one for each lesson),
+  ranging in size from 5 to 16 records,
+  in which each record shows a number of commits and how many people have committed that often.
+  For example,
+  the data for our SQL lesson is:
+</p>
+<!-- end excerpt -->
+<pre>num_contributions,num_contributors
+1,8
+2,8
+3,2
+4,3
+6,3
+8,2
+10,1
+25,1
+28,1
+30,1
+106,1</pre>
+<p>
+  meaning eight people contributed once,
+  eight contributed twice,
+  and one contributed 106 times.
+  What's the best way to visualize this,
+  given the spread of values on the X axis?
+  And what's the easiest way to generate that visualization in Python?
+  (You can <a href="repo-contributions.zip">get the data here</a> to try out your ideas.)
+</p>

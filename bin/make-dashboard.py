@@ -31,6 +31,7 @@ def get_connection(token_file):
             token = reader.read().strip()
         cnx = Github(token)
     except:
+        print('Unable to connect using {0} (or missing github library)'.format(token_file), file=sys.stderr)
         cnx = None
     return cnx
 

@@ -3,11 +3,12 @@
 Utilities for site regeneration.
 '''
 
+import sys
 import os
 import re
 import urllib.request
+import ssl
 import yaml
-import sys
 from PyRSS2Gen import RSS2, RSSItem
 
 # Standard name for metadata files.
@@ -72,9 +73,18 @@ def load_info(folder, filename=CONFIG_YML):
 
 def fetch_info(base_url, url):
     """Download a file and save it."""
+
     address = base_url + url
-    with urllib.request.urlopen(address) as f:
-        content = f.read()
+
+    which_python = sys.version_info[:3]
+    if which_python <= (3, 4, 2):
+        with urllib.request.urlopen(address) as f:
+            content = f.read()
+    else:
+        ssl_context = ssl.SSLContext(ssl.PROTOCOL_SSLv23)
+        with urllib.request.urlopen(address, context=ssl_context) as f:
+                content = f.read()
+
     return yaml.load(content.decode('utf-8'))
 
 #----------------------------------------

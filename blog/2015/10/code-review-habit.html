@@ -1,0 +1,126 @@
+---
+layout: blog
+author: David Pérez-Suárez
+title: "Code Review - a Needed Habit in Science"
+date: 2015-10-28
+time: "07:00:00"
+category: ["Opinion"]
+---
+<!-- start excerpt -->
+<p>
+  More than a year ago, Marian Petre and Greg Wilson wrote an article
+about <a href="http://arxiv.org/abs/1407.5648">reviewing code</a>, but
+I was not aware of it until last week when Greg talked about their
+findings in a workshop in London
+(though <a href="{{page.root}}/blog/2014/01/code-review-round-2.html">it
+had been mentioned here before</a>).  I have been reviewing code for
+years, however I have not realised that I was doing so till GitHub
+made it easy. Reading code from others feels the same as proofreading
+a Spanish text (or any other text), where you have to pay attention to the orthography,
+the grammar and whether it says what it's meant to say (or it does what
+it's meant to do).
+  </p>
+<!-- end excerpt -->
+<p>
+  Since I started my PhD I've organised <emph>programming clubs</emph> in the
+institutes where I've been as a way of sharing knowledge between the
+colleagues. But in these last 10 years I've just done a "code
+review" session twice.  The first one involved external people (from industry)
+reading scientific code, whereas the second time (last week) were done
+between the researchers.
+</p>
+<p>
+  The first session was as a test run for a project that a friend and
+I had in mind: "Help a Scientist day". Our idea was to get software
+developers to look into code written by scientists. But before we
+create a huge event we run a test inviting some developers we knew for
+an evening with free pizza to see some piece of code written by PhD
+students in my group. We had three codes to review, they were written
+in IDL and you could almost notice the learning curve of the students
+through out the code. Two of these were a single file with almost 2000
+lines of code, without functions and very little documentation.  These
+codes were now being required to be run in a pipeline of a NASA
+mission, something the students had never expected during the three
+years before.  The codes were made available a week or so in advanced,
+but the authors received very little feedback in the code itself. The
+session was converted more into a discussion on good practices than a
+review per-se. I believe many of the students present there
+(beside the authors) learnt a lot from it.  A very important question
+from the developers was "how much time we spend coding", and our
+answer was something like 80% of our time. They were struck that we
+didn't talk and discuss more about coding. Leaving the choose of
+language used a side, we should be experts in the one we work. Though
+many of us believe we are, we are not and we get surprised
+when
+<a href="http://phpmanualmasterpieces.tumblr.com/post/66992896812/language-field-trip-idl">we read some details we were not aware of</a>
+after 10 years using it.
+<a href="http://www.roundcrisis.com/2011/11/22/programming-science/">Other outcomes</a>
+included things like the use of version control,
+thoughtful variable names, and read others code.  Little time after
+that I moved country for a new postdoc position and our big event of "help
+a scientist day" never happened.
+</p>
+<p>
+Four years later (i.e., last week), I proposed an exercise to the
+attendees of the programming club I do at work. The rules were, find
+some piece of code you wrote a while ago and make a pull-request to a
+repository I set up for such exercise. The first rule was done for
+two reasons: to avoid them to write something for the session knowing
+they were going to be read by others; and to see how much our
+present-I understands what our past-I wrote. We were just six people,
+and we've got three pieces of code in IDL and three in Python. During
+the one hour session we had I started with a very quick introduction
+on how GitHub's pull-request commenting tool works. I didn't explain
+what they have to look for, I just told them to comment into anything
+they didn't understand. So we paired us into languages for making the
+review as if pair-programming, to bring up discussions between the
+pairs... and to "make matters worse" I then asked the IDL teams to
+review a code in Python and vice versa. At first they were a bit lost on the language
+but it worked great to highlight things that were not documented properly or style.
+Like why the 14th element in this Python line:
+</p>
+<pre>
+pos_x = float(tstep.split()[14])
+</pre>
+or why the 39th of this other in IDL:
+<pre>
+int_upper = interpol(  radius_tot, density_pure_model[*,39], density_upper )
+</pre>
+<p>
+We also found factors added or subtracted to variables which the
+authors didn't remember why was done, or easily identified
+"copy-paste"-ed blocks.  Then we look all together to the comments
+each pair have done and continued the session by each team reviewing
+another piece of code but this time in the language they knew. In this
+case the comments focused more on how to do things differently to help
+readability or to make such algorithms more general. For example how
+to avoid repetition by using a combination of <emph>lists</emph>
+and <emph>for loops</emph> or parsing arguments from the function
+itself.  All of them really enjoyed the session -or so they told me-
+and learnt not just to review but also realised how hard is sometimes
+for our future-self to understand what we wrote.
+</p>
+<p>
+  In summary I don't think I can add much more to what is in Marian and
+Greg's paper but to emphasise the need to do such activity in our
+research groups, to raise its importance as when we review papers as
+these codes are the key for science progress.
+</p>
+<p>
+I think it's worth mention different justifications I've heard during
+the years to don't share code like:
+</p>
+<ul>
+ <li> it's not well commented and you won't understand it;
+ <li> I will show the code when the paper is published;
+ <li> The code has some drawn-backs and if I leave it there to people
+ to use they will publish wrong things without understanding it.;
+ <li> I want people to contact me to run it, so I can be in their publications.;
+</ul>
+<p>
+I believe that if more researchers get used to review code, many of
+these comments will disappear (maybe not the last one; though people
+may not believe them). What do you think? How can we increase such
+awareness? what things have you tried out? which excuses have you
+found and how you "fight them back"?
+</p>

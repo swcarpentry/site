@@ -1,0 +1,143 @@
+---
+layout: blog
+root: ../../..
+author: Daniel Chen
+title: "Teaching Bimodal Workshops with a Large Range"
+date: 2015-11-05
+time: "07:00:00"
+category: ["Teaching"]
+---
+<!-- start excerpt -->
+<p>
+  Teaching a technical class always has its challenges.
+  Teaching a technical workshop covering 3 or more topics over the span of 2 days is what makes us Software Carpentry instructors.
+</p>
+<p>
+  A common observation instructors have is the class demographics are bimodal/multimodal.
+  There are students who attend the workshop with little to no experience,
+  some have been using the tools we teach but want a more formal course,
+  and finally, a student may know some of the tools, but use the workshop to learn Git or Python, for example.
+  How do we as instructors deal with workshops where the range of student skills is extremely high?
+</p>
+<p>
+  This post is a case study of my most recent workshop
+  and a call for help and discussion about we should do to make our workshops enjoyable for everyone.
+  In many ways it is a complement to Peter and Cam's post
+  <a href="{{page.root}}/blog/2015/10/pulling-along-those-behind.html">Pulling In Those Left Behind</a>.
+</p>
+<!-- end excerpt -->
+<p>
+  A few weeks ago I taught with Zhou Fu at
+  <a href="http://zhuoaprilfu.github.io/2015-10-12-VirginiaTech/">Virginia Tech</a>.
+  We used the usual SWC low-tech-but-highly-effective dual-color sticky-note system,
+  and at the end of each day or session we asked students to provide
+  <a href="https://docs.google.com/document/d/1djwDkkaaZh2PcQtuehg9NeRznsdRynIdom3pB807-ec/edit?usp=sharing">feedback</a>:
+  something good, something bad.
+</p>
+<p>
+  My co-instructor, Zhuo, taught Bash and Git while I lead a
+  <a href="{{site.github_url}}/git-novice/issues/148">Git capstone project</a>
+  and the Python sessions.
+  It's great that our lessons are modular and self-contained:
+  if a student gets lost in either of the Bash, Git, or Python lessons,
+  it does not hinder their ability to learn the other topic
+  (although being able to <code>cd</code> to a directory and knowing what a working directory does help).
+</p>
+<p>
+  This workshop was different for me in that I've never had to teach a group with this wide of a skill gap.
+  On one end, we had novices completely new to everything we had to offer in the workshop.
+  On the other, we had a sys admin looking to port Perl scripts into Python.
+  From the workshop-pre questionaire, everyone reported some language to the question,
+  "With which programming languages, if any, could you write a program from scratch which imports some data and calculates mean and standard deviation of that data?"
+  The least frequent coding frequency was "once a month".
+</p>
+<p>
+  I went into the workshop almost afraid that I'll run out of things to talk about because
+  many of the basic programming concepts in our material would be easy to pick up for individuals who have programming experience.
+  My plan going into the workshop was to run though the inflammation material for Python, cover through loops and functions,
+  and show them a little about using asserts to unit test functions and ask them for topics they wanted to cover for day 2.
+  I had a few topics already planned out for Day 2:
+  reading in files,
+  string parsing,
+  and an intro to the <code>os</code> and <code>sys</code> modules,
+  and hoped to have a smorgasburg of topics that I got from the students the previous day when I asked them for feedback.
+  In hindsight (and from feedback), this is when range of skills became an issue.
+</p>
+<p>
+  Up until the end of the workshop, I imagined the pace I was moving was realatively okay.
+  It could be a little fast at times but I figured the skills reported in the pre-workshop questionaire, and the
+  <a href="https://docs.google.com/document/d/1djwDkkaaZh2PcQtuehg9NeRznsdRynIdom3pB807-ec/edit?usp=sharing">feedback</a>
+  at the end of the first day suggested that more advanced topics can be covered.
+  It wasn't until the end of the day when I collected feedback, that I realized that I had lost a few people from the class.
+  Attrition from the second day was relatively the same as I expected
+  (not many people will be able to completely block off 2 full days from his/her schedule),
+  any by the end of the day I only got 3 bits of feedback on sticky notes,
+  two of which commented that the Python session was too fast and was a "waste of time",
+  and how the student was disappointed because they were looking forward to the section.
+</p>
+<p>
+  During my reflection of the workshop the past few weeks,
+  I've realized my failure as an instructor to promote an environment
+  where more novice students could feel they can ask questions and slow down the class on questions they had.
+  My call to the rest of the community is how do we as instructors deal with extreme ranges in the classroom.
+  Many of the solutions may be similar to a <a href="{{page.root}}/blog/2015/10/pulling-along-those-behind.html">recent post</a>
+  by Peter Steinbach and Cam Macdonnell.
+  Over the past few weeks I've contemplated what we should do if this happens to us and we are caught off guard.
+</p>
+<p>
+  I've only been able to come up with the following suggestions:
+</p>
+<ul>
+  <li>If the other instructor can teach Python, suggest to break the class up for the second day.</li>
+  <li>If the other instructor cannot teach Python, have them go through the Python lesson so they can help with individual questions</li>
+  <li>Start the second day with some kind of capstone project</li>
+  <li>Explicitly show the lesson page and objective when going to the next lesson module</li>
+</ul>
+<p>
+  From Peter and Cam's <a href="{{page.root}}/blog/2015/10/pulling-along-those-behind.html">blog post</a>, they mentioned:
+</p>
+<ul>
+  <li>communicate the level of the course as precisely as possible</li>
+  <li>a pre-asseessment form</li>
+  <li>piece of source code that illustrates teh expected proficiency</li>
+  <li>coordinate the above with the organizing host</li>
+  <li>portion the material in slots of 30 mins and have reassurance questions and exercises</li>
+  <li>stream the terminal history</li>
+  <li>record the terminal</li>
+  <li>commit and push to Github iPython notebooks (automatically)</li>
+  <li>invite more advanced learners to step up if TAs are not available</li>
+  <li>informal proffiency poll</li>
+  <li>motivate learners to use their more advanced peers as a resource</li>
+  <li>pair programming</li>
+  <li>handing out materials up front</li>
+  <li>reiteration and rephrase taught concepts for those did not get the material the first time aroung</li>
+</ul>
+<p>
+  After reading Peter's and Cam's <a href="{{page.root}}/blog/2015/10/pulling-along-those-behind.html">blog post</a>,
+  I will begin explicitely show the course website and lesson when moving between modules.
+  This will not only re-prompt the students that the matrial is availiable online
+  (a common question asked is where the material is and if there is a reference guide),
+  but also pause the lession momentarily, and be able to see the overall purpose of the next part of the lesson.
+  I do a lot of (almost exclusively) live-coding when I teach.
+  I want to believe that I convey the goal of the lesson module as I go though the lessons,
+  but it doesn't hurt to project it to the screen.
+  When I teach Git,
+  I always have the students go though a <a href="{{site.github_url}}/git-novice/issues/148">capstone</a> example.
+  What I should have done for the second day of Python was begin with a group project that covered all the topics of the previous day.
+  I imagined that since I was teaching a more advanced group, I did not have to do this, I was wrong.
+  I was more concerned if I could cover the additional topics from the feedback the previous day.
+  In doing so, I went way to fast, and probably lost a chunk of the class, and may have even completely dissuaded some from programming again.
+</p>
+<p>
+  We give out pre-workshop surveys to assess the students before the workshop
+  so we as instructors can prepare the type of instruction that fits the skill level.
+  However, this system relies heavily on individuals responding to the survey.
+  Since many workshops use Eventbrite as a means to register students for the workshop,
+  perhaps students can pick a "beginner", "intermediate", or "advanced" ticket.
+  We can give operational definitions for each ticket type, and link to the pre-survey questionaire.
+  This way, we can at least get a count of self-profficiecny from every student attending.
+</p>
+<p>
+  The next few weeks the assessment committee is planning to revamp the pre/post questionaires for the students and instructors.
+  Any additional comments and suggestions would be most appreciated.
+</p>

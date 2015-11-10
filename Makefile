@@ -125,7 +125,7 @@ cache : $(GENERATED)
 	    -o ./_workshop_cache.yml
 
 ./_dashboard_cache.yml :
-	python3 bin/make-dashboard.py ./git-token.txt ./_dashboard_cache.yml
+	python3 bin/make-dashboard.py $(HOME)/git-token.txt ./_dashboard_cache.yml
 
 ## ----------------------------------------
 

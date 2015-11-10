@@ -1,0 +1,102 @@
+---
+layout: blog
+root: ../../..
+author: Raniere Silva
+title: "2015 Post-Workshop Instructor Debriefing, Round 19"
+date: 2015-10-28
+time: "05:00:00"
+category: ["Debriefing"]
+---
+<!-- start excerpt -->
+<p>
+On September 29th the mentoring subcommittee held the 19th round of Instructor
+Debriefing and had some interesting discussions about our lessons
+and opportunity for learners after the workshop.
+</p>
+<!-- end excerpt -->
+<h2>Installation issues</h2>
+<p>
+Instructors reported the same rate of issues as in the previous debriefs:
+few problems with Nano, version of Python, Git for old OS X, ...
+</p>
+<p>
+At one of the workshops instructors had problem due mix of files with the same
+name but different case, e.g. <code>file.txt</code> and <code>File.txt</code>.
+Windows and OS X are case insensitive systems!
+</p>
+<h2>Surveys</h2>
+<p>
+Some instructors suggested improvements to the pre- and post-workshop survey.
+The assessment subcommittee is working on a new version of the survey.
+<em>If you want to help with the surveys please contact Jason Williams.</em>
+<h2>Buddy Support System</h2>
+<p>
+Instructors from one of the workshops reported that they:
+<blockquote>
+  <p>
+  ...introduced a buddy support system, where participants were split into
+  higher (A) and lower (B) technical skill groups based on their submissions for
+  pre-workshop survey. The most highly skilled participant from A was paired
+  with the most highly skilled from B, the next highly skilled from A was paired
+  with the next highly skilled from B, etc. At the workshop, nametags with their
+  paired buddy on it were given out, and the pairs were asked to identify each
+  other and sit together. Overall, the participants rated the buddy system
+  4.0/5, and was found to be generally effective.
+  </p>
+</blockquote>
+</p>
+<h2>Lesson topics</h2>
+<p>
+Instructors from one of the workshops reported that they wish
+that the Python material be simplified because:
+<blockquote>
+  <p>
+  ...it still caused a few pacing and conceptual problems,
+  with lesson threads (in particular the NumPy and matplotlib material)
+  getting a bit lost down digression/overly technical rabbit holes,
+  and the fact that some language basics are taught
+  after the more advanced use of libraries and data manipulation.
+  </p>
+</blockquote>
+</p>
+<p>
+The development subcommittee, in charge of our lessons,
+had one meeting on October 15th where changes to the Python lesson
+were discuss. <strong>More information soon.</strong>
+</p>
+<h2>Live log</h2>
+<p>
+The <a href="https://douglatornell.github.io/2015-09-22-ubc/">last workshop at the University of British Columbia</a>
+had a live log of shell commands during the shell and mercurial lessons on a web page.
+<a href="{{site.site_url}}/pages/team.html#latornell.d">Doug Latornell</a> allow us to share how they did it:
+</p>
+<blockquote>
+  <p>
+    Create <code>live-log.sh</code> and add
+  </p>
+  <pre>
+HISTTIMEFORMAT="%Y-%m-%d %H:%M:%S $ "
+PROMPT_COMMAND="history 1 >> ~/history.txt; rsync -qz ~/history.txt URL_OF_PUBLIC_REMOTE_SERVER:PATH/TO/PUBLIC/DIRECTORY/history.txt"
+</pre>
+  <p>
+    to it. After that run <code>source live-log.sh</code> at your shell. Important points:
+  </p>
+  <ul>
+    <li><code>HISTTIMEFORMAT</code> is used just to add timestamps to the commands.</li>
+    <li><code>PROMPT_COMMAND</code> is responsible for most of the magic.</li>
+    <li>You can replace <code>rsync</code> with any other tool that sincronize files between machines, e.g. Dropbox. The advantage of <code>rsync</code> is that users will use a clean url that you can set up in advance. <strong>If you are going to use <code>rsync</code> you must install <code>rsync</code> on your machine and on the remote server plus setup SSH key.</strong></li>
+  </ul>
+</blockquote>
+<h2>Steps after the workshop</h2>
+<p>
+Instructors from the University of British Columbia
+also reported that they have a community study group
+that are great to plug learners into after the workshop.
+Many others universities have similar groups that we can work with
+and could be interested in take part on the instructor training that we will run
+this December.
+<strong>
+  If you know or are involved with such group,
+  please advertise the instructor training.
+</strong>
+</p>
