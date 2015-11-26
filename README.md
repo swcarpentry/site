@@ -124,17 +124,11 @@ If you'd like to submit your post as a pull request, then:
 Adding a Workshop
 -----------------
 
-If you have set up a GitHub website for a repository,
-and would like it listed on our website,
-all you need to do is add one line to the file `config/workshop_urls.yml`
-and send us a pull request
-(or if you'd rather, just [mail Greg](mailto:gvwilson@software-carpentry.org)
-and he'll add it for you).
-Please add the URL of the GitHub repository,
-*not* the website itself,
-i.e.,
-add `https://github.com/someone/yyyy-mm-dd-site`
-rather than `http://someone.github.io/yyyy-mm-dd`.
+Email the workshop's URL to [the administrators](mailto:admin@software-carpentry.org)
+so that they can add it to our database.
+The workshop will then show up on the main website the next time it is rebuilt(which typically happens hourly).
+
+
 
 For More Advanced Users
 -----------------------
