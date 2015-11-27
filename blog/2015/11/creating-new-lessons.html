@@ -1,0 +1,90 @@
+---
+layout: blog
+root: ../../..
+author: Greg Wilson
+title: "Creating New Lessons"
+date: 2015-11-27
+time: "01:00:00"
+category: ["Lessons"]
+---
+<!-- start excerpt -->
+<p>
+  There were <a href="{{site.mailing_lists}}/pipermail/discuss_lists.software-carpentry.org/2015-November/003558.html">two</a>
+  <a href="{{site.mailing_lists}}/pipermail/discuss_lists.software-carpentry.org/2015-November/003568.html">threads</a>
+  earlier this week about creating new lessons for Software Carpentry,
+  which made me realize that
+  the process for doing that isn't described anywhere on this site.
+</p>
+<!-- end excerpt -->
+<p>
+  First,
+  all of our lessons are based on our <a href="{{site.github_url}}/lesson-template">lesson template</a>,
+  which includes style files, page layouts, validation tools, and a few other odds and ends.
+  It <em>doesn't</em> include starter files or documentation,
+  because if it did,
+  Git would try to merge those into lessons every time the lessons were updated.
+  Instead,
+  we have a separate <a href="{{site.github_url}}/lesson-example">lesson example</a> repository
+  that describes how lessons are laid out
+  and how to create a repository for a new lesson.
+</p>
+<p>
+  Second,
+  the <a href="{{page.root}}/lessons.html">lessons page</a> on this site
+  has links to the core Software Carpentry lessons
+  and to related lessons that other people have written using our template.
+  Each lesson has one or more maintainers
+  who have volunteered to manage discussion,
+  review updates,
+  and generally keep the lesson in usable shape.
+</p>
+<p>
+  In order for us to include a lesson on our site,
+  it must pass four tests:
+</p>
+<ol>
+  <li>
+    <p>
+      It must focus on the "how" of research computing rather than the "what".
+      Researchers need good lessons on exoplanet detection and the construction of phylogenetic trees,
+      and we are pleased to see people use our template to build them,
+      but they are out of scope for us.
+    </p>
+  </li>
+  <li>
+    <p>
+      It must have broad appeal across a range of disciplines.
+      In other words,
+      if only a few percent of researchers are likely to be interested,
+      it's probably not for us.
+    </p>
+  </li>
+  <li>
+    <p>
+      It must be compatible with <a href="{{page.root}}/license.html">our license</a>,
+      i.e.,
+      the text must be CC-BY or CC-0,
+      and the software must be available under a permissive open license (such as the MIT or BSD license).
+    </p>
+  </li>
+  <li>
+    <p>
+      Someone must be willing to maintain it.
+      Writing the first version of something is exciting;
+      keeping it up to date in the months and years that follow is much harder.
+    </p>
+  </li>
+</ol>
+<p>
+  The best way to gauge interest in a potential lesson is to mail our
+  <a href="{{page.root}}/pages/join.html">discussion list</a>.
+  Before doing that,
+  though,
+  think about extending the <a href="{{page.root}}/lessons.html#capstones">contributed lessons</a>
+  and our <a href="{{page.root}}/lessons.html#v4">retired lessons</a>:
+  the former can always use a hand,
+  and we'd be very grateful for rewrites of the latter's material on
+  <a href="{{site.github_io_url}}/v4/regexp/index.html">regular expressions</a>,
+  <a href="{{site.github_io_url}}/v4/media/index.html">image processing</a>,
+  and other topics.
+</p>
