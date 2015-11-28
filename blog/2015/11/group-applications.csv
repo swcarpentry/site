@@ -1,0 +1,45 @@
+Country,City,Number of Male Members,Number of Female Members,Accept
+Canada,Vancouver,2,3,TRUE
+US,Ann Arbor,2,3,FALSE
+Brazil,Fortaleza,2,0,FALSE
+US,Dallas,6,4,TRUE
+Canada,London,2,1,TRUE
+US,Seattle,5,3,FALSE
+US,Los Angeles,2,3,FALSE
+US,Boston,4,3,FALSE
+Australia,Brisbane,4,0,TRUE
+Brazil,São Paulo,4,0,FALSE
+US,Madison,3,4,TRUE
+Brazil,Curitiba,2,1,TRUE
+Greece,Thessaloniki,3,1,TRUE
+Netherlands,Utrecht,3,0,FALSE
+Israel,Haifa,3,0,FALSE
+US,Baltimore,1,2,FALSE
+UK,Southampton,8,1,FALSE
+US,Tucson,3,1,FALSE
+Canada,Edmonton,2,3,FALSE
+US,Washington,6,0,FALSE
+US,South Bend,2,0,FALSE
+US,Santa Barbara,3,2,FALSE
+Canada,Toronto,5,4,TRUE
+UK,Sheffield,4,2,FALSE
+Germany,Berlin,2,0,TRUE
+US,Seattle,7,3,FALSE
+Germany,Berlin,2,1,TRUE
+US,Tulsa,4,1,FALSE
+US,Davis,4,2,FALSE
+Canada,Vancouver,7,3,FALSE
+US,Marina,3,1,FALSE
+US,Kansas City,1,0,FALSE
+US,Storrs,6,2,FALSE
+US,Annapolis,3,1,FALSE
+US,Chicago,1,1,FALSE
+Canada,Waterloo,4,1,TRUE
+US,Moscow,4,1,FALSE
+US,Atlanta,4,0,FALSE
+US,Phoenix,3,1,FALSE
+US,Bar Harbor,3,0,FALSE
+France,Paris,5,2,TRUE
+US,San Diego,3,2,FALSE
+Canada,Ottawa,6,3,FALSE
+US,Boston,7,3,FALSE

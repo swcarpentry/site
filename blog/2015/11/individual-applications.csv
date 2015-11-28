@@ -1,0 +1,229 @@
+Country,Nearest major city,Only DC,Accept
+Canada,Waterloo,FALSE,
+Greece,Thessaloniki,FALSE,TRUE
+US,Boston,FALSE,
+US,Seattle,FALSE,
+Canada,Ottawa,FALSE,
+US,New York,FALSE,
+Canada,Vancouver,FALSE,
+Canada,Ottawa,FALSE,
+Mexico,Mexico City,TRUE,
+US,Seattle,FALSE,
+Canada,Vancouver,FALSE,
+Germany,Potsdam,FALSE,TRUE
+Canada,Ottawa,FALSE,
+US,Seattle,FALSE,
+US,Seattle,FALSE,
+Canada,Vancouver,FALSE,
+US,Hartford,FALSE,
+US,Storrs,FALSE,
+Greece,Thessaloniki,TRUE,TRUE
+Canada,Vancouver,FALSE,
+India,Bangalore,TRUE,
+Brazil,São Paulo,FALSE,
+US,Boston,FALSE,
+Greece,Thessaloniki,FALSE,TRUE
+Canada,Vancouver,FALSE,
+US,Somerville,FALSE,
+US,Somerville,FALSE,
+US,Seattle,FALSE,
+Greece,Thessaloniki,TRUE,TRUE
+US,Hartford,TRUE,
+Canada,Toronto,FALSE,
+US,San Francisco,FALSE,
+US,Santa Barbara,FALSE,
+US,Notre Dame,FALSE,
+US,Boston,FALSE,
+Canada,Waterloo,FALSE,
+Canada,Vancouver,FALSE,
+UK,London,FALSE,
+US,Madison,FALSE,TRUE
+US,Tulsa,TRUE,
+US,Bangor,FALSE,
+US,Greenville,TRUE,
+US,Seattle,FALSE,
+US,Bar Harbor,FALSE,
+Brazil,São Paulo,FALSE,
+US,Seattle,FALSE,
+Canada,Hamilton,FALSE,
+Netherlands,Utrecht,FALSE,
+Netherlands,Utrecht,FALSE,
+US,Albany,FALSE,
+US,Seattle,FALSE,
+Brazil,São Paulo,FALSE,
+Canada,Toronto,FALSE,TRUE
+US,Madison,TRUE,TRUE
+Canada,Toronto,FALSE,TRUE
+Canada,Ottawa,FALSE,
+Canada,Vancouver,FALSE,
+Canada,Vancouver,FALSE,
+US,Fort Collins,FALSE,
+US,Dallas,FALSE,TRUE
+US,Tucson,FALSE,
+UK,Sheffield,FALSE,
+US,New York,FALSE,
+US,Chicago,FALSE,
+US,Hartford,FALSE,
+US,Madison,TRUE,TRUE
+US,Seattle,FALSE,
+US,Arligton,FALSE,TRUE
+US,Chicago,FALSE,
+US,Arligton,FALSE,
+US,Dallas,FALSE,
+Canada,Toronto,FALSE,TRUE
+Brazil,São Paulo,FALSE,
+France,Paris,FALSE,TRUE
+US,Dallas,FALSE,TRUE
+France,Gif sur Yvette,FALSE,TRUE
+Canada,London,FALSE,
+Canada,Ottawa,FALSE,
+US,Boston,FALSE,
+Canada,Toronto,FALSE,TRUE
+US,Tulsa,FALSE,
+US,Moscow,TRUE,
+India,Seattle,FALSE,
+Canada,Waterloo,FALSE,
+US,Hartford,FALSE,
+UK,Sheffield,FALSE,
+US,Oklahoma,FALSE,
+US,Dallas,FALSE,TRUE
+Brazil,Curitiba,FALSE,TRUE
+Canada,Vancouver,FALSE,
+Canada,Vancouver,FALSE,
+South Africa,Cape Town,FALSE,
+UK,Sheffield,FALSE,
+France,Paris,FALSE,TRUE
+France,Paris,FALSE,TRUE
+US,Fort Worth,FALSE,TRUE
+US,Tulsa,FALSE,
+US,Boston,FALSE,
+US,Boston,FALSE,
+US,Boston,FALSE,
+UK,Southampton,FALSE,
+UK,Southampton,FALSE,
+US,Madison,TRUE,TRUE
+UK,Southampton,FALSE,
+UK,Southampton,FALSE,
+Canada,London,FALSE,
+UK,Sheffield,FALSE,
+US,Boston,FALSE,
+US,Dallas,FALSE,
+US,Spokane,FALSE,TRUE
+US,Washington,FALSE,
+US,Seattle,FALSE,
+France,Paris,FALSE,
+US,Washington,FALSE,
+US,Seattle,FALSE,TRUE
+US,Seattle,FALSE,
+US,Seattle,FALSE,
+US,Davis,FALSE,
+US,Washington,FALSE,
+US,Tulsa,FALSE,
+Australia,Townsville,FALSE,TRUE
+Australia,Townsville,FALSE,TRUE
+Canada,Hamilton,FALSE,
+US,Monterey,FALSE,
+Canada,Waterloo,FALSE,
+US,New York,FALSE,
+Australia,Townsville,FALSE,TRUE
+France,Paris,FALSE,TRUE
+UK,London,FALSE,
+Germany,Berlin,FALSE,TRUE
+Brazil,São Paulo,FALSE,
+Israel,Haifa,FALSE,
+Israel,Haifa,FALSE,
+UK,Sheffield,FALSE,
+Israel,Haifa,FALSE,
+Brazil,Curitiba,FALSE,TRUE
+Netherlands,Utrecht,FALSE,
+US,Boston,FALSE,
+Netherlands,Utrecht,FALSE,
+UK,Southampton,FALSE,
+US,Boston,FALSE,
+US,Minneapolis,FALSE,TRUE
+US,Ann Arbor,FALSE,
+US,San Diego,FALSE,
+Canada,Vancouver,FALSE,TRUE
+US,Moscow,FALSE,
+US,Monterey,FALSE,
+Canada,Vancouver,FALSE,TRUE
+US,Madison,FALSE,TRUE
+US,Madison,FALSE,TRUE
+Canada,Ottawa,FALSE,
+Canada,Vancouver,FALSE,TRUE
+Canada,Toronto,FALSE,
+India,Arlington,FALSE,TRUE
+US,Sacramento,FALSE,
+UK,Sheffield,FALSE,
+Canada,London,FALSE,
+US,Atlanta,FALSE,
+Germany,Berlin,FALSE,TRUE
+France,Paris,FALSE,TRUE
+US,San Diego,FALSE,
+US,Boston,FALSE,
+US,Atlanta,FALSE,
+US,Hartford,FALSE,
+UK,Southampton,FALSE,
+US,Davis,FALSE,
+US,Hartford,FALSE,
+US,Phoenix,FALSE,
+US,Dallas,FALSE,TRUE
+US,Washington,FALSE,
+Switzerland ,Zurich ,FALSE,TRUE
+US,Phoenix,FALSE,
+US,Hartford,FALSE,
+US,Sacramento,FALSE,
+US,Boston,FALSE,
+Australia,Townsville,FALSE,TRUE
+Canada,Hamilton,FALSE,
+US,Spokane,FALSE,
+Canada,Toronto,FALSE,TRUE
+Canada,Ottawa,FALSE,
+US,Atlanta,FALSE,
+Brazil,Fortaleza,FALSE,
+US,Phoenix,FALSE,
+Canada,Vancouver,FALSE,TRUE
+UK,Southampton,FALSE,
+Canada,Ottawa,FALSE,
+UK,Southampton,FALSE,
+US,Tucson,FALSE,
+US,Sacramento,FALSE,
+US,Storrs,FALSE,
+US,Atlanta,FALSE,
+US,Annapolis,FALSE,
+US,Seattle,FALSE,
+US,Tulsa,FALSE,
+Brazil,Curitiba,FALSE,TRUE
+US,South Bend,FALSE,
+US,Spokane,FALSE,
+US,San Diego,FALSE,
+US,Boston,FALSE,
+Canada,Ottawa,FALSE,
+US,Chicago,FALSE,
+US,San Diego,FALSE,
+US,Santa Barbara,FALSE,
+Mexico,Tucson,FALSE,
+US,Chicago,FALSE,
+US,Santa Barbara,FALSE,
+US,Davis,FALSE,
+US,Washington,FALSE,
+US,South Bend,FALSE,
+US,Ann Arbor,FALSE,
+Brazil,Fortaleza,FALSE,
+US,Boston,FALSE,
+Canada,Toronto,FALSE,TRUE
+US,Los Angeles,FALSE,
+US,Detroit,FALSE,
+Canada,Vancouver,FALSE,TRUE
+Canada,Toronto,FALSE,TRUE
+US,Seattle,FALSE,
+US,Tucson,FALSE,
+US,Chicago,FALSE,
+US,Phoenix,FALSE,
+US,Columbia,FALSE,
+US,Baltimore,FALSE,
+US,Los Angeles,FALSE,
+US,Los Angeles,FALSE,
+US,Santa Barbara,FALSE,
+US,Kansas City,FALSE,
+US,Seattle,FALSE,
