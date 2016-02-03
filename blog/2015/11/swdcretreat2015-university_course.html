@@ -1,0 +1,437 @@
+---
+layout: blog
+root: ../../..
+author: Daniel Chen
+title: "SWDCRetreat2015 - Round-table discussion: Software Carpentry as a University Course Recap"
+date: 2015-11-16
+time: "11:30:00"
+category: ["Community", "Teaching", "SWDCRetreat"]
+---
+<!-- start excerpt -->
+The <a href='http://swcarpentry.github.io/instructor-retreat-2015/'> inaugural Software Carpentry + Data Carpentry Instructor & Helper Retreat</a> is over!
+It was a long day, packed with tutorials, demos, and discussions.
+<a href='https://twitter.com/chendaniely'>I (Daniel Chen)</a>
+led a round table discussion with
+<a href='https://twitter.com/TiffanyTimbers'>Tiffany Timbers</a> and
+<a href='https://twitter.com/JennyBryan'>Jenny Bryan</a>.
+You can <a href='https://plus.google.com/events/c41eaub933br0odpb385rcg9j00'>watch</a> the discussion and/or
+<a href='http://pad.software-carpentry.org/swc-instructor-retreat-2015-7PM-UTC'>read</a> the notes on etherpad.
+
+<!-- end excerpt -->
+
+First, thanks to everyone who joined the discussion:
+<ul>
+  <li>Tiffany Timbers / @TiffanyTimbers</li>
+  <li>Jenny Bryan / @JennyBryan </li>
+  <li>Daniel Chen / @chendaniely </li>
+  <li>Camille Avestruz</li>
+  <li>David LeBauer</li>
+  <li>Cam Macdonell</li>
+  <li>Drew Tyre / @atiretoo</li>
+  <li>Rayna Harris / @raynamharris and the +5 from <a href='https://twitter.com/choleness/status/665613152181092352'>Austin Texas</a> including: Rebecca Tarvin / @frogsicles</li>
+  <li>Jon Pipitone</li>
+  <li>John Moreau</li>
+  <li>Gayathri Swaminathan</li>
+  <li>Nichole Bennett</li>
+  <li>Tracy Teal</li>
+  <li>Raniere Silva</li>
+  <li>Sarah Stevens</li>
+  <li>Lex Nederbragt</li>
+  <li>Kate Hertweck</li>
+  <li>Greg Wilson</li>
+  <li>Becca Tarvin</li>
+  <li>Azalee Bostroem</li>
+</ul>
+
+Hopefully I got everyone!
+
+<h2>Motivation</h2>
+Last year I <a href='http://lists.software-carpentry.org/pipermail/discuss_lists.software-carpentry.org/2014-September/002202.html'>asked</a> the <a href='http://lists.software-carpentry.org/pipermail/discuss_lists.software-carpentry.org/'>discuss list</a>
+if anyone had any experience with turning the <a href='http://software-carpentry.org/lessons.html'>software-carpentry lessons</a> into a university course.
+Bill Mills <a href='http://lists.software-carpentry.org/pipermail/discuss_lists.software-carpentry.org/2014-September/002203.html'>mentioned</a> that two main hurdles revolve around politics and curriculum control.
+<a href='http://lists.software-carpentry.org/pipermail/discuss_lists.software-carpentry.org/2014-September/002204.html'>Ethan White</a>
+and <a href='http://lists.software-carpentry.org/pipermail/discuss_lists.software-carpentry.org/2014-September/002211.html'>Michael Jackson</a> went on to describe their own experiences with setting up a course.
+I want to believe the push for code sharing and reproducible articles from
+<a href='http://www.nature.com/news/interactive-notebooks-sharing-the-code-1.16261'>Nature</a> and the submission guidelines for
+<a href='http://journals.plos.org/plosone/s/materials-and-software-sharing'>PLOS ONE</a>
+have addressed <a href='http://lists.software-carpentry.org/pipermail/discuss_lists.software-carpentry.org/2014-September/002205.html'>Greg's</a> initial observations that universities find that lab skills course is not worth graduate credit.  The conversation continues
+<a href='http://lists.software-carpentry.org/pipermail/discuss_lists.software-carpentry.org/2014-September/002207.html'>here</a>,
+<a href='http://lists.software-carpentry.org/pipermail/discuss_lists.software-carpentry.org/2014-September/002210.html'>here</a>, and
+a blog post by Damien Irving <a href='http://software-carpentry.org/blog/2014/02/university-course.html'>here</a>.
+
+The Software Carpentry + Data Carpentry Instructor & Helper Retreat seemed like a good means to revisit the discussion.
+
+<h2>Who are we?</h2>
+<a href='http://software-carpentry.org/pages/team.html#chen.daniel'>Daniel Chen</a>
+<a href='http://software-carpentry.org/pages/team.html#timbers.tiffany'>Tiffany Timbers</a>, and
+<a href='http://software-carpentry.org/pages/team.html#bryan.j'>Jenny Bryan</a>
+
+<h2>The Roundtable Discussion</h2>
+
+<p>
+  <h4>
+    Earlier this year, Anthony Scopatz and Kathryn Huff published <a href='http://physics.codes/'>Effective Computation in Physics</a> and created a course around the book.
+    Tiffany, can you talk about the <a href='https://phy3009.github.io/PHY3009-2015/'>course</a> you've been beta testing?
+  </h4>
+</p>
+
+<p>
+  [T]: Anthony has been teaching the course to undergraduate students and I've been building off Katy and Anthony's experiences from teaching as well as my own from teaching Software Carpentry.
+  I decided to use this textbook as my course at Quest.
+  The book is based on Python, but many of the principles are language agnostic.
+  The book covers many topics SWC teaches, such as Bash, Python, Make, documentation, licenses, and many open science aspects.
+  Katy and Anthony also created a <a href='https://github.com/physics-codes/examples'>Github repo</a> of annotated iPython (Jupyter) notebooks of the code in the book, as well as an <a href='https://github.com/physics-codes/seminar'>example syllabus</a>.
+  The notebook annotations are aimed to help those who are using the book as instructors and/or students.
+</p>
+
+<p>
+  <h4>
+    A response to my original discuss question revolved around administrative and university department politics on who should and who may teach a course like this.
+    For example, some people mentioned that the computer science department will push back to any course involving programming.
+    How did you over come these hurdles, or any others?
+  </h4>
+</p>
+
+<p>
+  [T] This was not much of an issue for me because Quest is a liberal arts college, and this is essentially the only computer science course they are offering this year.
+</p>
+
+<p>
+  [J] I just sneak it into courses that are already on the books.
+  I have created a course from scratch, and it was a nightmare.
+  My advice is to teach it in courses that already have a number (i.e., approved by the university).
+  But that's not a longterm solution.
+  It is better if you pilot it in an existing course or a topics course.
+</p>
+
+<p>
+  <h4> How would other people go about piloting a course like this?
+    For example, I'm just a graduate student, would me getting a faculty to sponsor to run a special topics course be the only way to get started?
+  </h4>
+</p>
+
+<p>
+  [J] If someone at UBC wanted to offer this, and isn't me (with teaching something or with rights),
+  I would suggest to teach it as a variable special topics.
+  The other option is to find a course that is related, and offer to teach a lap with them.
+  You can sell the SWC stuff as a lab to an an existing course.
+  This would also provide the added benefit of getting you paid as a TA, for example.
+</p>
+
+<p>
+  <h4>
+    How do we organize the SWC material into a 30 week course?
+    Should we expand the current material into 30 weeks, or offer 2 half semester courses?
+    Bill Mills expressed a concern that a 30 week course could too easily devolve into a Machine Learning/Data science course because instructors overshoot what can be crammed into a computing course.
+    SWC tries to teach fundamental skills.
+    How do we break up the current material?
+  </h4>
+</p>
+
+<p>
+  [T] My current course is taught as a 3.5 week course.
+  This is supposed to be the same number of hours as a full semester course.
+  We cover an abbreviated shell and 6 hours of version control.
+  Since code review was part of the course, learning to send PRs is essential.
+  These sessions were split up a week apart.
+  Then we covered all the Python basics.
+  Data munging and visualizations are really important, so we spend a lot of time with Visualizations and Pandas.
+  Because I think you learn a lot by doing, almost the last 9 hours of the course are done doing hack sessions, where I am around to help.
+  Quest also prefers courses not to be lecture based to promote active learning, so I'm not teaching during the hack sessions.
+</p>
+
+<p>
+  [J] I'm not teaching classic SWC material
+  I am sneaking it into existing course.
+  One of the nice things about spreading out the material, is that you can make the examples less artificial.
+  This has always been a complaint of mine with the existing SWC material.
+  Because you have to move through so much technical stuff, you end up doing a bunch of stuff with the file <code>foo</code>,
+  and a bunch of other unrealistic problems.
+  By spreading everything out, you give the students a chance to use an example that is not boring.
+</p>
+
+<p>
+  <h4>
+    Jenny, how do you sneak the SWC material into your existing course?
+  </h4>
+</p>
+
+<p>
+  [J] I have a lot of material in both settings.
+  I use the 2 courses as an excuse to develop each other.
+  I mainly teach R and data analysis.  So the SWC git lessons are helpful.
+  I don't teach as much Git formally as I should, I maily teach things by doing.
+  I've never drawn <a href='https://twitter.com/chendaniely/status/653973876226031616'>Git concept maps</a> when I teach.
+  Not sure if this is a good or bad thing.
+  But the students end up manage to get the work done.
+  I haven't brought SWC material explicitly, yet.
+</p>
+
+<p>
+  <h4>
+    If you are teaching SWC as a graduate or undergrad class, you have to assess people.
+    What assignments and quizzes do you give so you can get an understanding of how much material they are learning?
+  </h4>
+</p>
+
+<p>
+  [J] I don't do small quizzes.
+  I used to have a big giant project at the end,
+  but this ends up with many big heroic things happening at the end of the course for both the students and myself.
+  What would happen is that they would leave stuff to the end,
+  and end up pulling 3 all-nighters and not necessarily get it all done.
+  I would then get 40 or 50 projects that are not amenable to a single rubric.
+  So, I have evolved over the years to homework assignments.
+  These HW assignments are more like prompts, and are given once a week.
+  The goal is to have small and steady work throughout the semester versus a massive project at the end.
+  Hopefully, this is more true to working in real life and I have a pretty standard rubric and makes grading much easier.
+  Having TAs help too!
+  I teach and have students use Git and the Github infrastructure for commenting on commits and PRs.
+  So, reer review is also invaluable.
+</p>
+
+<p>
+  <h4>
+    The <a href='http://physics.codes/'>book</a> has 'physics" in the title.
+    What department do we put a SWC class under? Should we limit the course to a particular major of students?
+    Or have have the course be completely free enrollment?
+    Jenny, your class is under Statistics, is your class closed off to just statistics people?
+    Who can take your class?
+  </h4>
+</p>
+
+<p>
+  [J] My class is wide open to any graduate student.
+  I have undergrads too, but I have to sign forms for them.
+  I have tables and figures that I will put in the etherpad on enrollment statistics.
+  Since I've been tracking the people who attend my course:
+  I've had people from 50 different programs.  25 of which have at least 2 students.
+  So basically, they are all over.
+  40% are cumulatively statistics since I have all the incoming masters students.
+  Computational biology and bioinformatics are usually the others taking the course.
+  I think it's good to have this diversity in the class and not be hyper specific.
+</p>
+
+<p>
+  [T] I have been using Katy and Anthony's book for this course because I was hired by the department of physical science at Quest.
+  Dispite 'physics' being in the book and course title, I have a wide variety of people who take my class.
+  Quest caps classes at 20 students, and my current class has 13 students.
+  People are from all different departments: biology, physics, oceanography, marketing, and even sociology.
+  We have a mid-block review for the course where the students provide feedback to the teaching.
+  They started discussing the textbook and they all really like it.
+  <br>
+  The book has been very relevant to the class even if I was not teaching straight out of the book.
+  For example, I was more comfortable teaching the SWC Git material so this is what I taught in our Git workshops.
+  I used the inflammation dataset where Katy and Anothony used different datasets.
+  So, the book and class does not need to be catered to physicists.
+  However, the book is very <em>Python</em> specific.
+  Shell and Git would be relevant to other things, but more than half of the book is teaching Python.
+</p>
+
+<p>
+  <h4>
+    What does the first few weeks of your course look like?
+  </h4>
+</p>
+
+<p>
+  [J] I have the liberty to teach data analysis.
+  The first thing we do is create figures using the cleanest data possible.
+  This was the motivation bet behind the <code>gapminder</code> package in CRAN.
+  Then week-by-week we slowly work in the details.
+  We start from a 'happy' place.
+  Then edit a <code>README</code> on Github.
+  Then, perform local git edits before pushing it back to Github.
+  The goal is to focus on small milestones with visual and tangible results and motivate with success.
+  Thinking about motivation is really important, then you can slowly develop the tools underneath.
+  I have the luxury of doing this because it is a full semester 13 week course.
+</p>
+
+<p>
+  [T] I agree motivation is key to getting students engaged and on board.
+  My course is taught in 3.5 weeks instead of 13 weeks.  However, during this time, this is the only course the students are focused on.
+  One of the drawbacks about my format is you miss the ability to consolidate information.
+  It's more like a 3.5 week long SWC workshop.
+  <br>
+  To compare my course with Katy, Anthony, and Bill:
+  <ul>
+    <li>Anthony teaches git right after the shell.  I did this in my course as well.</li>
+    <li>I wanted to use Github as a way to submit homework,
+      so I teach an abbreviated shell (Includes how to navigate the filesystem and creating things lessons).</li>
+  </ul>
+  I did go with a big final project (maybe a decision I'll be regretting soon?),
+  so during the day we learn something for 3 hours and then I have the students implement something from the day's lesson that applies to the final project.
+  For example:
+  <ul>
+    <li>Day 1: navigate shell, create things, and shell scripts: The HW was to create a shell script to setup the directory structure for the project.</li>
+    <li>Day 2: Git: The HW was to make a git directory of their final project, and build up from there.</li>
+  </ul>
+  I try to give a big picture in the beginning of class (e.g. websites hosted on github)
+  then show them organized code repository (e.g. a formated readme and folder structure).
+  However, I do not get to visualization until near the end of 4th or 5th day.
+</p>
+
+<p>
+  <h4>
+    The Gapminder dataset is on CRAN for the R folks, what about the Python people? Is there a CSV?
+  </h4>
+</p>
+
+<p>
+  [J] The <a href='https://cran.r-project.org/web/packages/gapminder/index.html'>package</a>
+  itself contains the <a href='https://github.com/jennybc/gapminder/tree/master/inst'>TSV</a> in non https locations, and <a href='https://github.com/jennybc/gapminder'>github</a>.
+</p>
+
+<p>
+  [T] Nancy Soontiens from UBC has developed a <a href='http://nsoontie.github.io/2015-03-05-ubc/novice/python/Pandas-Lesson.html'>gapminder lesson for Python</a> for the women in science workshop
+</p>
+
+<p>
+  <h4>
+    Jenny teaches a 13 week course and Tiffany you teach a 3.5 week course, How much time per week do you meet? And how do you split up the SWC material thoughout the weeks/days
+  </h4>
+</p>
+
+<p>
+  [J] I teach less classic SWC.  I have 3 hours with the students a week.
+  About 80% of the time is setting the stage with slides.
+  The rest is working in R.
+  The way I do it, most of the learning is in the homeworks.
+  The class is just enough information and guidance so they are not totally lost during the homeworks.
+</p>
+
+<p>
+  [T] We do 3 hours of shell the first day.
+  3 Hours of git the next.
+  I think it depends how many active learning exercise you can get.
+  For me it took me 9 Hours to get through loops, functions, and if statements because I had a lot of active learning exercise because I wanted them to fully understand these concepts.
+  Testing took another 3 hours (in the third week of the course).
+  Essentially I do 2.5 weeks of SWC then we do code review.
+  Each student is given the other student's homework to review.  And I sit with them and they give me a summary of the pull request.
+  At the same time the rest of the class are working on their final project.
+</p>
+
+<!--
+[D] What are your opintions on a half-semester course.  Or do you think it's best to be a
+-->
+
+<p>
+  <h4>
+    What final projects do you have the students work on?  Do you assign them a project or do they bring their own questions?
+  </h4>
+</p>
+
+<p>
+  [T] I've been extremely flexible with this.
+  I have them think about the final project from Day 1.
+  They pick something in the area they are interested in and have a research question with a hypothesis and do something that requires a computer to do.
+  These are undergraduates, so my expectations are not as high because they do not have as much research experience.
+  They must have a Python script import data and save a plot or table from an analysis or visualization
+  and have a record in either a Makefile or Shell script to make sure everything is reproducible.
+  There is also a 2500 word report because they need to be able disseminate their findings and information.
+  Finally,  a 8 minute presentation as an IPython (jupyter) notebook.
+</p>
+
+<h4>How much literate programming do you teach?  When do you teach it?</h4>
+
+<p>Literate programming is interweaving code with prose text.</p>
+
+<p>
+  [T] I get them coding in the notebook and slowly during the first week I show them markdown cells.
+  They don't necessarily use them at the very beginning, but because they see me use them it in class, they eventually do.
+  In the second week, they are asked to do a statistical analysis and in a markdown cell explain why they chose that test and what the test means.
+  It's interesting to see them tell each other to use markdown cells in the peer code review.
+  They push each other to do it.
+  Their final presentation is in a Jupyter Notebook so they are well on their way to doing literate programming,
+  but I do not give an explicit class on it.
+</p>
+
+<p>
+  [J] I teach <a href='http://rmarkdown.rstudio.com/'>rmarkddown</a> on Day 1.
+  It enables them to make a plot which gets them excited.
+  <em>Then</em> you can make a web page.
+  <em>Then</em> you can easily put it on Github.
+  It makes it extremely rewarding to the students.
+  The peer review is helpful because they can provide feedback and have constant interaction between people.
+  The students discuss the layout of the repository, how easy was it to find scripts and understand what the code is doing, etc.
+</p>
+
+
+<h4>Grading code and technical work is difficult, how do you do it?</h4>
+
+<p>
+[J] One of other reasons of doing peer review is to get feedback to the students faster than if only the instructor is grading.
+</p>
+
+<h4>Jenny since you seem to have been doing this for a few years, do you have any available resources to share?</h4>
+
+<p>
+  [J] My writing on the teaching of the course has always been talks.
+  My Courses are online, and I have speaker decks.
+  <ul>
+    <li><a href='http://stat545-ubc.github.io/'>Data wrangling, exploration, and analysis with R</a></li>
+    <li><a href='http://stat540-ubc.github.io/'>Statistical Methods for High Dimensional Biology</a></li>
+  </ul>
+  There's also Ethan White's courses <a href='http://www.datacarpentry.org/semester-biology/syllabus/'>here</a> and <a href='http://www.programmingforbiologists.org/'>here</a>.
+<p>
+
+
+<h4>Software and Stats for biology is such a fast paced field, how do you even decide what to teach?</h4>
+
+<p>
+  [J] The 2 courses I've taught the past decade is "Data Analysis" where I am chasing technology.
+  It's exhausting, but I also want to learn it myself.
+  <br>
+  I currently do the opposite in my genomics class.
+  I started by chasing the technology for years, but every year almost required a completely new course re-write.
+  I eventually generalized it to the key genomics pipelines and statistical analysis.
+  For example, multiple comparison and empirical bayes.
+  I try not to chase specific sequencing platforms.
+  You can only be chasing technology a few places at a time.
+  <br>
+  Research wise, I've only been able to put these classes after I've gotten tenure.
+  This allmws me to put more effort into developing the course with fewer outside distractions.
+  I would say what I'm doing would not mesh well with being super productive research-wise
+  ***Jeff Leek***, Roger Peng, rafa irizarry, are doing on line courses and super productive research-wise.
+</p>
+
+
+<h4>Do you have TAs</h4>
+
+<p>
+  [J] An <em>army</em> of TAs is critical.  I have 6-7 (not all full time).
+  The department here was able to prove that this is not just a statistics class anymore, and people are coming from all over campus.
+  So I got external funding for more TAs than the average graduate class.
+  I only have graduate TAs, no undergraduate TAs.
+</p>
+
+<p>
+  [T] Unfortunately Quest is a very new institute with limited funding.  So I am the only TA/Helper/Teacher/Office Hours.
+  This is a burden and barrier for the student's success.
+</p>
+
+<h4>Jenny what's your class enrollment like?</h4>
+
+<p>
+  [J] Strictly anecdotally, the people who are most vocal on Github,in class, and enrollment is disproportionately female (in a good way!).
+  Which I find interesting.
+  The long dialogs I have with students on Github are my female students.
+  Contrast this with my more professional dialogs on Github, which is mostly male.
+</p>
+
+<h4>Additional Questions/Comments from the audience</h4>
+
+<p>
+  [Cam] My university is putting a diploma for Library Techs, probably closer to Data Carpentry.
+  We still are figuring things out in terms of delivery, but really appreciate all the models of assessments and topics going on.
+  This is more of a general course which includes undergraduates.
+</p>
+
+<h2>Something Good, Something Bad</h2>
+
+<p>
+  Other than the small technical blunder in the beginning where the laptop I was using for the Hangout spontaneously shut off and I had ended up temporarily calling back in oh my phone, there weren't really any blunders to the discussion.
+  I (Daniel) realized after re-watching the stream for this blog post, I asked a few overlapping questions that happened because I did not hear part of an answer.
+  This was really from me trying to get my main laptop's Hangout up again, and trying to follow the etherpad for questions.
+  I suppose the next time we run this, we can have a designated spot on the etherpad for questions so audience questions can be easily found.
+</p>
